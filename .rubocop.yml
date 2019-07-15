@@ -10,28 +10,39 @@ AllCops:
         - 'vendor/**/*'
         - 'node_modules/**/*'
 
-#Style/FrozenStringLiteralComment:
-    #Enabled: false
+RSpec/MessageSpies:
+    EnforcedStyle: receive
 
-Metrics/BlockLength:
-    Exclude:
-        - 'spec/**/*'
-          #- 'config/routes.rb'
-          #- 'config/initializers/simple_form_bootstrap.rb'
-          #- 'app/controllers/catalog_controller.rb'
+Layout/LeadingCommentSpace:
+    Enabled: false
 
 Metrics/ClassLength:
     Exclude:
         - 'spec/**/*'
-          #- 'app/models/curate_generic_work.rb'
-          #- 'app/controllers/catalog_controller.rb'
-          #- 'app/actors/hyrax/actors/file_set_actor.rb'
-          #- 'app/forms/hyrax/forms/collection_form.rb'
+        - 'app/controllers/catalog_controller.rb'
+        - 'app/models/marc_indexer.rb'
 
+Metrics/BlockLength:
+    Exclude:
+        - 'spec/**/*'
+        - 'app/controllers/catalog_controller.rb'
+
+Metrics/AbcSize:
+    Exclude:
+        - 'app/models/marc_indexer.rb'
+
+Metrics/CyclomaticComplexity:
+    Exclude:
+        - 'app/models/marc_indexer.rb'
+
+Metrics/MethodLength:
+    Exclude:
+        - 'app/models/marc_indexer.rb'
+
+Metrics/PerceivedComplexity:
+    Exclude:
+        - 'app/models/marc_indexer.rb'
 
 RSpec/ExampleLength:
     Exclude:
         - 'spec/**/*'
-
-RSpec/MessageSpies:
-    EnforcedStyle: receive
