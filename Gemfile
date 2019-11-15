@@ -26,14 +26,35 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier', '>= 1.3.0'
 
 group :development do
-  gem 'bixby'
+  gem 'cap-ec2-emory', github: 'emory-libraries/cap-ec2'
+  gem "capistrano", "~> 3.11", require: false
+  gem 'capistrano-bundler', '~> 1.3'
+  gem 'capistrano-ext'
+  gem 'capistrano-passenger'
+  gem 'capistrano-rails'
+  gem 'capistrano-rails-collection'
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'solr_wrapper', '>= 0.3'
   gem 'web-console', '>= 3.3.0'
+  gem 'xray-rails'
 end
 
 group :development, :test do
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'capybara', '>= 2.15'
-  gem 'solr_wrapper', '>= 0.3'
-  gem 'webdrivers'
+  gem 'bixby' # bixby = rubocop rules for Hyrax apps
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw] unless ENV['CI'] # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'coveralls', require: false
+  gem 'factory_bot_rails', '~> 4.11.1'
+  gem 'ffaker'
+  gem 'pry' unless ENV['CI']
+  gem 'pry-byebug' unless ENV['CI']
+  gem 'rails-controller-testing'
+  gem 'rspec-its'
+  gem 'rspec-rails'
+  gem 'selenium-webdriver'
+  gem 'webdrivers', '~> 3.0'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'rspec_junit_formatter'
 end
