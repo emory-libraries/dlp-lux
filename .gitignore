@@ -19,7 +19,7 @@
 lib/tasks/ci.rake
 
 # Ignore coverage report
-coverage
+# coverage
 
 # Ignore webpacker and yarn.
 /public/packs
