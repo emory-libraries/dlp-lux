@@ -24,20 +24,20 @@ jobs:
 
             - samvera/rubocop
 
-            - run:
-                name: Get yarn version
-                command: echo $(yarn --version) >> "YARN_VERSION"
-
-            - restore_cache:
-                keys:
-                    - v1-yarn-{{ checksum "yarn.lock" }}-{{ checksum "YARN_VERSION" }}
-
-            - run: yarn
-
-            - save_cache:
-                key: v1-yarn-{{ checksum "yarn.lock" }}-{{ checksum "YARN_VERSION" }}
-                paths:
-                    - ~/project/node_modules
+            # - run:
+            #     name: Get yarn version
+            #     command: echo $(yarn --version) >> "YARN_VERSION"
+            #
+            # - restore_cache:
+            #     keys:
+            #         - v1-yarn-{{ checksum "yarn.lock" }}-{{ checksum "YARN_VERSION" }}
+            #
+            # - run: yarn
+            #
+            # - save_cache:
+            #     key: v1-yarn-{{ checksum "yarn.lock" }}-{{ checksum "YARN_VERSION" }}
+            #     paths:
+            #         - ~/project/node_modules
 
             - samvera/install_solr_core:
                 solr_config_path: ./solr/conf
