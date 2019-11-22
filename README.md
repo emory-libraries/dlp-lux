@@ -2,7 +2,7 @@
 
 # README
 
-Test application for dlp-lux - using Blacklight 7.
+Discovery application for Emory's Cor repository.
 
 Things you may want to cover:
 
@@ -12,8 +12,8 @@ Things you may want to cover:
 
 ## Running locally
 
-1. Clone the git repo: `git clone git@github.com:emory-libraries/dlp-lux-temp.git`
-1. `cd ./dlp-lux-temp`
+1. Clone the git repo: `git clone git@github.com:emory-libraries/dlp-lux.git`
+1. `cd ./dlp-lux`
 1. Install the required gems: `bundle install`
 1. Migrate the database: `rails db:migrate`
 1. Launch development instance of solr: `solr_wrapper`
