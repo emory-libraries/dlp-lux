@@ -1,9 +1,9 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.11.2"
 
-set :application, "dlp-lux-temp"
-set :repo_url, "https://github.com/emory-libraries/dlp-lux-temp.git"
-set :deploy_to, '/opt/dlp-lux-temp'
+set :application, "dlp-lux"
+set :repo_url, "https://github.com/emory-libraries/dlp-lux.git"
+set :deploy_to, '/opt/dlp-lux'
 set :rails_env, 'production'
 set :assets_prefix, "#{shared_path}/public/assets"
 # set :migration_role, :app
