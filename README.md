@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/emory-libraries/dlp-lux.svg?style=svg)](https://circleci.com/gh/emory-libraries/dlp-lux)
+
 # README
 
 ## Running locally
