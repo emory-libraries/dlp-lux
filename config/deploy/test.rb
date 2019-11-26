@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 set :stage, :TEST
 ec2_role %i[web app db],
          user: 'deploy',

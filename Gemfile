@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
@@ -7,9 +8,9 @@ end
 ruby '>=2.5.0'
 
 # Trying Blacklight 7 for comparison to 6
+gem 'blacklight', ">= 7"
 gem 'dotenv-rails'
 gem 'mysql2', '~> 0.5'
-gem 'blacklight', ">= 7"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.0'
 # Use sqlite3 as the database for Active Record
@@ -54,8 +55,8 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano-rails-collection'
   gem 'capistrano-sidekiq'
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
@@ -68,14 +69,13 @@ group :development, :test do
   gem 'solr_wrapper', '>= 0.3'
 end
 
-gem 'rsolr', '>= 1.0'
+gem 'blacklight-marc', '>= 7.0.0.rc1'
 gem 'bootstrap', '~> 4.0'
-gem 'twitter-typeahead-rails', '0.11.1.pre.corejavascript'
-gem 'jquery-rails'
 gem 'devise'
 gem 'devise-guests', '~> 0.6'
-gem 'blacklight-marc', '>= 7.0.0.rc1'
-
+gem 'jquery-rails'
+gem 'rsolr', '>= 1.0'
+gem 'twitter-typeahead-rails', '0.11.1.pre.corejavascript'
 
 group :development, :test do
   gem 'bixby' # bixby = rubocop rules for Hyrax apps
