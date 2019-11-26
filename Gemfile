@@ -15,7 +15,7 @@ gem 'rails', '~> 5.1.0'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
-gem 'puma', '~> 3.7'
+gem 'puma'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -40,9 +40,8 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '~> 2.13.0'
-  gem 'selenium-webdriver'
+  gem 'capybara'
+  gem 'rspec-rails', '~> 3.5'
 end
 
 group :development do
@@ -76,3 +75,22 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'devise-guests', '~> 0.6'
 gem 'blacklight-marc', '>= 7.0.0.rc1'
+
+
+group :development, :test do
+  gem 'bixby' # bixby = rubocop rules for Hyrax apps
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw] unless ENV['CI'] # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'coveralls', require: false
+  gem 'factory_bot_rails', '~> 4.11.1'
+  gem 'ffaker'
+  gem 'pry' unless ENV['CI']
+  gem 'pry-byebug' unless ENV['CI']
+  gem 'rails-controller-testing'
+  gem 'rspec-its'
+  gem 'selenium-webdriver'
+  gem 'webdrivers', '~> 3.0'
+end
+
+group :test do
+  gem 'rspec_junit_formatter'
+end
