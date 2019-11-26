@@ -79,7 +79,6 @@ gem 'twitter-typeahead-rails', '0.11.1.pre.corejavascript'
 
 group :development, :test do
   gem 'bixby' # bixby = rubocop rules for Hyrax apps
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw] unless ENV['CI'] # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'coveralls', require: false
   gem 'factory_bot_rails', '~> 4.11.1'
   gem 'ffaker'

@@ -16,6 +16,10 @@ RSpec/MessageSpies:
 Layout/LeadingCommentSpace:
     Enabled: false
 
+Lint/EmptyWhen:
+    Exclude:
+      - app/models/marc_indexer.rb
+
 Metrics/ClassLength:
     Exclude:
         - 'spec/**/*'
