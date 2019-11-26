@@ -1,30 +1,28 @@
-# SQLite version 3.x
-#   gem install sqlite3
-#
-#   Ensure the SQLite 3 gem is defined in your Gemfile
-#   gem 'sqlite3'
-#
 default: &default
-  adapter: sqlite3
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  adapter: mysql2
+  encoding: utf8mb4
   timeout: 5000
+  database: <%= ENV.fetch('DATABASE_NAME') %>
+  host: <%= ENV.fetch('DATABASE_HOST', 'localhost') %>
+  port: <%= ENV.fetch('DATABASE_PORT', '3306') %>
+  username: <%= ENV.fetch('DATABASE_USERNAME') %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  pool: <%= ENV['DATABASE_POOL'] || ENV['RAILS_MAX_THREADS'] || 5 %>
 
 development:
-  <<: *default
+  adapter: sqlite3
+  timeout: 5000
   database: db/development.sqlite3
+  pool: <%= ENV['DATABASE_POOL'] || ENV['RAILS_MAX_THREADS'] || 5 %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: db/test.sqlite3
+  # If host is 'localhost', MySQL will attempt to use a socket to talk to the DB, but if it is '127.0.0.1',
+  # it will use TCP. While a socket may be a preferable default, it will not work for CI.
+  host: <%= ENV.fetch('DATABASE_HOST', '127.0.0.1') %>
 
 production:
   <<: *default
-  adapter: 'mysql2'
-  database: <%= ENV['DATABASE_NAME'] %> 
-  pool: <%= ENV['DATABASE_POOL'] || 5 %>
-  host: <%= ENV['DATABASE_HOST'] || 'localhost' %>
-  username: <%= ENV['DATABASE_USERNAME']  %>
-  password: <%= ENV['DATABASE_PASSWORD'] %>
