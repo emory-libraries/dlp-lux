@@ -6,13 +6,36 @@ jobs:
         parameters:
             ruby_version:
                 type: string
-                default: 2.5.3
+                default: '2.5.3'
             bundler_version:
                 type: string
-                default: 2.0.1
-        executor:
-            name: samvera/ruby_fcrepo_solr_redis
-            ruby_version: << parameters.ruby_version >>
+                default: '2.0.1'
+            solr_port:
+                type: string
+                default: '8985'
+            redis_version:
+                type: string
+                default: '4'
+            mysql_version:
+                type: string
+                default: '5.7.22'
+        environment:
+            BUNDLE_PATH: vendor/bundle
+            BUNDLE_JOBS: 4
+            BUNDLE_RETRY: 3
+            RAILS_ENV: test
+            RACK_ENV: test
+            SPEC_OPTS: --profile 10 --format RspecJunitFormatter --out /tmp/test-results/rspec.xml --format progress
+            DATABASE_NAME: circle_test
+            DATABASE_HOST: 127.0.0.1
+            DATABASE_PORT: 3306
+            DATABASE_USERNAME: root
+        docker:
+            - image: circleci/ruby:<< parameters.ruby_version >>-node-browsers-legacy
+            - image: solr:7-alpine
+              command: bin/solr -cloud -noprompt -f -p <<parameters.solr_port>>
+            - image: circleci/redis:<<parameters.redis_version>>
+            - image: circleci/mysql:<<parameters.mysql_version>>
         working_directory: ~/project
         parallelism: 4
         steps:
@@ -48,6 +71,11 @@ jobs:
                     curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
                     chmod +x ./cc-test-reporter
                     ./cc-test-reporter before-build
+
+            # Dockerize is installed in CircleCI docker images by default.
+            - run:
+                name: Wait for MySQL, if necessary.
+                command: dockerize -wait tcp://${DATABASE_HOST}:${DATABASE_PORT} -timeout 1m
 
             - samvera/parallel_rspec
 
