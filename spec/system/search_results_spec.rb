@@ -11,6 +11,7 @@ RSpec.describe 'front page', type: :system, js: true do
   end
 
   it 'can load snapshot index' do
+    sleep 5
     visit "/?search_field=all_fields&q="
     expect(page).to have_content '1 - 10 of 54,797'
   end
