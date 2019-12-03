@@ -52,6 +52,11 @@ class CatalogController < ApplicationController
     #config.show.display_type_field = 'format'
     #config.show.thumbnail_field = 'thumbnail_path_ss'
 
+    # This includes the UniversalViewer partial at
+    # app/views/catalog/_uv.html.erb to the show page
+    # in the first position
+    config.show.partials.insert(1, :uv)
+
     # solr fields that will be treated as facets by the blacklight application
     #   The ordering of the field names is the order of the display
     #
