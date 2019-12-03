@@ -20,6 +20,8 @@ Discovery application for Emory's Cor repository.
 1. Configure the MySQL development and test databases. This is accomplished by setting the environment variables that `database.yml` expects. In the root directory of the application, create a `.env` file and add the line `DATABASE_USERNAME=root`. (By default, MySQL has the username `root` with no password.) Also create a `.env.development` file and a `.env.test` file and add the lines `DATABASE_NAME=dlp-lux_development` and `DATABASE_NAME=dlp-lux_test`, respectively.
 1. Create and migrate the development database: `rails db:create db:migrate`
 1. Create and migrate the test database: `RAILS_ENV=test rails db:create db:migrate`
+1. Migrate the database: `rails db:migrate`
+1. Install UV and any other JS dependencies: `yarn install`
 1. Launch development instance of solr: `solr_wrapper`
 1. Launch test instance of solr: `solr_wrapper --config config/solr_wrapper_test.yml`
 1. Run the tests to ensure everything is working as expected: `rspec spec`
