@@ -7,7 +7,7 @@ RSpec.describe 'front page', type: :system, js: true do
   let(:solr_snaphot_name) { "20191203163502341" }
 
   before do
-    `curl "http://localhost:8985/solr/hydra-test/replication?command=restore&location=#{solr_snaphots_location}&name=#{solr_snaphot_name}"`
+    `curl "#{Blacklight.connection_config[:url]}/replication?command=restore&location=#{solr_snaphots_location}&name=#{solr_snaphot_name}"`
   end
 
   it 'can load snapshot index' do
