@@ -10,6 +10,7 @@ ruby '>=2.5.0'
 # Trying Blacklight 7 for comparison to 6
 gem 'blacklight', ">= 7"
 gem 'dotenv-rails'
+gem 'honeybadger', '~> 4.0'
 gem 'mysql2', '~> 0.5'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.0'
