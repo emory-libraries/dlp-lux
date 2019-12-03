@@ -27,3 +27,12 @@ Discovery application for Emory's Cor repository.
 1. Run the tests to ensure everything is working as expected: `rspec spec`
 1. Launch a rails server: `rails server`
 1. You should now be able to go to `http://localhost:3000` and see the application
+
+## Loading sample data
+
+In order to have a local solr instance with data in it, run this rake task:
+  ```
+  rake lux:load_sample_data
+  ```
+
+This will populate your local development instance of solr with a snapshot of curate data. Note that at the moment this index only contains public data.
