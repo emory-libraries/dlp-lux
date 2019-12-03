@@ -10,10 +10,7 @@ default: &default
   pool: <%= ENV['DATABASE_POOL'] || ENV['RAILS_MAX_THREADS'] || 5 %>
 
 development:
-  adapter: sqlite3
-  timeout: 5000
-  database: db/development.sqlite3
-  pool: <%= ENV['DATABASE_POOL'] || ENV['RAILS_MAX_THREADS'] || 5 %>
+  <<: *default
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

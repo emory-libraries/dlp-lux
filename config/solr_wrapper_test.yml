@@ -6,4 +6,4 @@ download_dir: /var/tmp
 collection:
     persist: false
     dir: solr/conf
-    name: blacklight-test
+    name: hydra-test
