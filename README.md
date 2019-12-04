@@ -28,6 +28,12 @@ Discovery application for Emory's Cor repository.
 1. Launch a rails server: `rails server`
 1. You should now be able to go to `http://localhost:3000` and see the application
 
+## Running in production
+
+1. The `IIIF_MANIFEST_URL` environment variable needs to be set. This URL is the base
+URL for the Hyrax instance that serves the Work's IIIF manifest. An example:
+`https://curate-qa.curationexperts.com/concern/curate_generic_works/`.
+
 ## Loading sample data
 
 In order to have a local solr instance with data in it, run this rake task:

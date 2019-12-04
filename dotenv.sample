@@ -1,5 +1,15 @@
-PROJECT_NAME=
+# Varibles used in database.yml:
+DATABASE_NAME=lux_production
+DATABASE_USERNAME=lux
+DATABASE_PASSWORD=lux
+DATABASE_POOL=25
+RAILS_MAX_THREADS=5
 
-DATABASE_NAME=
-DATABASE_USERNAME=
-DATABASE_PASSWORD=
+# Base URL for the Hyrax instance that serves IIIF manifests
+#
+# An example:
+# https://tenejo.curationexperts.com/concern/works/9k41zd48h/manifest
+# The base url will be: https://tenejo.curationexperts.com/concern/works/
+# The string after /works/ is the ID for the work
+IIIF_MANIFEST_URL=https://curate-qa.curationexperts.com/concern/curate_generic_works/
+SOLR_URL=http://localhost:8983/solr/dlp-lux
