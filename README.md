@@ -35,4 +35,4 @@ In order to have a local solr instance with data in it, run this rake task:
   rake lux:load_sample_data
   ```
 
-This will populate your local development instance of solr with a snapshot of curate data. Note that at the moment this index only contains public data.
+This will populate your local development instance of solr with a snapshot of curate data. The catalog_controller currently limits solr searches to items where the visibility is not restricted, or the visibility is discovery.

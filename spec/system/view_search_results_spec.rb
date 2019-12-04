@@ -16,7 +16,9 @@ RSpec.feature "View Search Results" do
       title_tesim: ['The Title of my Work'],
       creator_tesim: ['Smith, Somebody'],
       date_created_tesim: ['1776', 'XXXX', '192?', '1973?'],
-      content_type_tesim: ['http://id.loc.gov/vocabulary/resourceTypes/txt']
+      content_type_tesim: ['http://id.loc.gov/vocabulary/resourceTypes/txt'],
+      has_model_ssim: ['CurateGenericWork'],
+      visibility_ssi: ['open']
     }
   end
 
