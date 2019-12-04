@@ -18,7 +18,12 @@ class CatalogController < ApplicationController
 
     ## Default parameters to send to solr for all search-like requests. See also SearchBuilder#processed_parameters
     config.default_solr_params = {
-      rows: 10
+      qt: 'search',
+      mm: '100%',
+      rows: 10,
+      qf: 'title_tesim description_tesim creator_tesim keyword_tesim',
+      fq: '(((has_model_ssim:CurateGenericWork) OR (has_model_ssim:Collection)) AND !((visibility_ssi:restricted) OR (visibility_ssi:discovery)))'
+      ### we want to only return works where visibility_ssi == open (not restricted)
     }
 
     # solr path which will be added to solr base url before the other solr params.
@@ -29,7 +34,7 @@ class CatalogController < ApplicationController
     #config.per_page = [10,20,50,100]
 
     # solr field configuration for search results/index views
-    config.index.title_field = 'title_tsim'
+    config.index.title_field = 'title_tesim'
     #config.index.display_type_field = 'format'
     #config.index.thumbnail_field = 'thumbnail_path_ss'
 
