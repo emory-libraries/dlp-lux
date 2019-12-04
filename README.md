@@ -36,3 +36,14 @@ In order to have a local solr instance with data in it, run this rake task:
   ```
 
 This will populate your local development instance of solr with a snapshot of curate data. The catalog_controller currently limits solr searches to items where the visibility is not restricted, or the visibility is discovery.
+
+## Deploying to Emory servers
+
+1. To deploy, first connect to the Emory VPN.
+1. run `tki` and receive your 12-hour AWS credentials.
+1. run the following command:
+```bash
+AWS_PROFILE=tki-aws-account-70-rhedcloud/RHEDcloudAdministratorRole BRANCH=<tag> bundle exec cap <env> deploy
+```
+where `<tag>` is either a version, like v0.4.32, or a branch, like master and
+where `<env>` is one of production, test, or arch.
