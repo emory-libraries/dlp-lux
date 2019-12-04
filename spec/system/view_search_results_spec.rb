@@ -15,7 +15,7 @@ RSpec.feature "View Search Results" do
       id: id,
       title_tesim: ['The Title of my Work'],
       creator_tesim: ['Smith, Somebody'],
-      date_created_tesim: ['1776', 'XXXX', '192?'],
+      date_created_tesim: ['1776', 'XXXX', '192?', '1973?'],
       content_type_tesim: ['http://id.loc.gov/vocabulary/resourceTypes/txt']
     }
   end
@@ -29,6 +29,7 @@ RSpec.feature "View Search Results" do
     expect(page).to have_content('1776')
     expect(page).to have_content('unknown')
     expect(page).to have_content('1920s')
+    expect(page).to have_content('1973 approx.')
     expect(page).to have_content('http://id.loc.gov/vocabulary/resourceTypes/txt')
   end
 end
