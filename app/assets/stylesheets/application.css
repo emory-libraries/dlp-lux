@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+ /* .document-thumbnail img {
+     max-width: 150px;
+     vertical-align: top;
+     float: left;
+ } */
+
+ /* .document-metadata dt {
+    align: left;
+ } */
