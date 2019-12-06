@@ -11,19 +11,22 @@
     <script type="text/javascript" src="helpers.js"></script>
     <style>
         body {
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
         }
         .uv .mobileFooterPanel .options .btn.fullScreen {
           display: inline !important;
-         }
-         .title > span {
-            display: none;
-         }
+          margin-right: 0;
+          float: right;
+        }
+
+        .uv .mobileFooterPanel .options {
+          width: auto !important;
+        }
     </style>
     <script type="text/javascript">
-    window.addEventListener('uvLoaded', function(e) {
+      window.addEventListener('uvLoaded', function(e) {
             urlDataProvider = new UV.URLDataProvider(true);
             var formattedLocales;
             var locales = urlDataProvider.get('locales', '');
