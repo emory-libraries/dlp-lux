@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 set :stage, :PROD
+set :honeybadger_env, "Lux-Prod"
 ec2_role %i[web app db],
          user: 'deploy',
          ssh_options: {
