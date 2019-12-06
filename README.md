@@ -33,6 +33,7 @@ Discovery application for Emory's Cor repository.
 1. The `IIIF_MANIFEST_URL` environment variable needs to be set. This URL is the base
 URL for the Hyrax instance that serves the Work's IIIF manifest. An example:
 `https://curate-qa.curationexperts.com/concern/curate_generic_works/`.
+1. The `THUMBNAIL_URL` environment variable needs to be set. This URL is the base URL for the Hyrax instance that serves the Work's thumbnail images. An example: `https://curate-qa.curationexperts.com`
 
 ## Loading sample data
 
