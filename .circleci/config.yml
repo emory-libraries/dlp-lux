@@ -120,6 +120,10 @@ workflows:
         jobs:
             - build:
                 name: ruby2-5-3
+                filters:
+                  branches:
+                    ignore:
+                      - /cd-.*/
             - coverage:
                 name: codeclimate
                 requires:
