@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 set :stage, :ARCH
+set :honeybadger_env, "Lux-Arch"
 ec2_role %i[web app db],
          user: 'deploy',
          ssh_options: {
