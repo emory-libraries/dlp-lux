@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 require 'rails_helper'
 
-RSpec.feature "View Search Results" do
+RSpec.feature "View Search Results", type: :system, js: true do
   before do
     solr = Blacklight.default_index.connection
     solr.add(work_attributes)
     solr.commit
+    ENV['THUMBNAIL_URL'] = 'http://obviously_fake_url.com'
   end
 
   let(:id) { '123' }
@@ -18,7 +19,8 @@ RSpec.feature "View Search Results" do
       date_created_tesim: ['1776', 'XXXX', '192?', '1973?'],
       content_type_tesim: ['http://id.loc.gov/vocabulary/resourceTypes/txt'],
       has_model_ssim: ['CurateGenericWork'],
-      visibility_ssi: ['open']
+      visibility_ssi: ['open'],
+      thumbnail_path_ss: ['/downloads/825x69p8dh-cor?file=thumbnail']
     }
   end
 
@@ -33,5 +35,7 @@ RSpec.feature "View Search Results" do
     expect(page).to have_content('1920s')
     expect(page).to have_content('1973 approx.')
     expect(page).to have_content('http://id.loc.gov/vocabulary/resourceTypes/txt')
+    expect(page).to have_xpath("//img[@alt='Thumbnail image']")
+    expect(page).to have_xpath("//img[@src='http://obviously_fake_url.com/downloads/825x69p8dh-cor?file=thumbnail']")
   end
 end

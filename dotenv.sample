@@ -12,4 +12,5 @@ RAILS_MAX_THREADS=5
 # The base url will be: https://tenejo.curationexperts.com/concern/works/
 # The string after /works/ is the ID for the work
 IIIF_MANIFEST_URL=https://curate-qa.curationexperts.com/concern/curate_generic_works/
+THUMBNAIL_URL=https://curate-qa.curationexperts.com/
 SOLR_URL=http://localhost:8983/solr/dlp-lux
