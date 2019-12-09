@@ -18,6 +18,7 @@ RSpec.feature "View Search Results", type: :system, js: true do
       creator_tesim: ['Smith, Somebody'],
       date_created_tesim: ['1776', 'XXXX', '192?', '1973?'],
       content_type_tesim: ['http://id.loc.gov/vocabulary/resourceTypes/txt'],
+      human_readable_content_type_tesim: ['Text'],
       has_model_ssim: ['CurateGenericWork'],
       visibility_ssi: ['open'],
       thumbnail_path_ss: ['/downloads/825x69p8dh-cor?file=thumbnail']
@@ -34,7 +35,7 @@ RSpec.feature "View Search Results", type: :system, js: true do
     expect(page).to have_content('unknown')
     expect(page).to have_content('1920s')
     expect(page).to have_content('1973 approx.')
-    expect(page).to have_content('http://id.loc.gov/vocabulary/resourceTypes/txt')
+    expect(page).to have_content('Text')
     expect(page).to have_xpath("//img[@alt='Thumbnail image']")
     expect(page).to have_xpath("//img[@src='http://obviously_fake_url.com/downloads/825x69p8dh-cor?file=thumbnail']")
   end
