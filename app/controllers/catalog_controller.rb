@@ -109,7 +109,7 @@ class CatalogController < ApplicationController
     # config.add_index_field 'title_tesim', label: 'Title'
     config.add_index_field 'creator_tesim', label: 'Creator'
     config.add_index_field 'date_created_tesim', label: 'Date', helper_method: :render_human_readable_date
-    config.add_index_field 'content_type_tesim', label: 'Format'
+    config.add_index_field 'human_readable_content_type_tesim', label: 'Format'
 
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display
