@@ -22,7 +22,7 @@ class CatalogController < ApplicationController
       mm: '100%',
       rows: 10,
       qf: 'title_tesim description_tesim creator_tesim keyword_tesim',
-      fq: '(((has_model_ssim:CurateGenericWork) OR (has_model_ssim:Collection)) AND !((visibility_ssi:restricted) OR (visibility_ssi:discovery)))'
+      fq: '(((has_model_ssim:CurateGenericWork) OR (has_model_ssim:Collection)) AND (visibility_ssi:open))'
       ### we want to only return works where visibility_ssi == open (not restricted)
     }
 
@@ -86,7 +86,18 @@ class CatalogController < ApplicationController
     #  (useful when user clicks "more" on a large facet and wants to navigate alphabetically across a large set of results)
     # :index_range can be an array or range of prefixes that will be used to create the navigation (note: It is case sensitive when searching values)
 
-    # config.add_facet_field 'format', label: 'Format'
+    config.add_facet_field 'creator_tesim', label: 'Creators'
+    config.add_facet_field 'human_readable_content_type_tesim', label: 'Content Type'
+    config.add_facet_field 'date_created_tesim', label: 'Date Created'
+    config.add_facet_field 'date_issued_tesim', label: 'Date Issued'
+    config.add_facet_field 'content_genres_tesim', label: 'Genre'
+    config.add_facet_field 'holding_repository_tesim', label: 'Library'
+    config.add_facet_field 'primary_language_tesim', label: 'Primary Language'
+    config.add_facet_field 'rights_statement_tesim', label: 'Rights Statement - Controlled'
+    config.add_facet_field 'subject_geo_tesim', label: 'Subject - Geographic Locations'
+    config.add_facet_field 'subject_names_tesim', label: 'Subject - Names'
+    config.add_facet_field 'subject_topics_tesim', label: 'Subject - Topics'
+
     #config.add_facet_field 'pub_date_ssim', label: 'Publication Year', single: true
     #config.add_facet_field 'subject_ssim', label: 'Topic', limit: 20, index_range: 'A'..'Z'
     #config.add_facet_field 'language_ssim', label: 'Language', limit: true
@@ -113,7 +124,27 @@ class CatalogController < ApplicationController
 
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display
-    # config.add_show_field 'title_tesim', label: 'Title'
+    # For "About this item" section of show page
+    config.add_show_field 'creator_tesim', label: 'Creator'
+    config.add_show_field 'contributors_tesim', label: 'Contributor'
+    config.add_show_field 'date_created_tesim', label: 'Date Created'
+    config.add_show_field 'date_issued_tesim', label: 'Date Issued'
+    config.add_show_field 'uniform_title_tesim', label: 'Uniform Title'
+    config.add_show_field 'series_title_tesim', label: 'Series Title'
+    config.add_show_field 'parent_title_tesim', label: 'Title of Parent Work'
+    config.add_show_field 'abstract_tesim', label: 'Description/Abstract'
+    config.add_show_field 'primary_language_tesim', label: 'Primary Language'
+    config.add_show_field 'human_readable_content_type_tesim', label: 'Content Type'
+    config.add_show_field 'content_genres_tesim', label: 'Genre'
+    config.add_show_field 'geographic_unit_tesim', label: 'Geographic Level for Dataset'
+    config.add_show_field 'data_collection_dates_tesim', label: 'Data Collection Dates'
+    config.add_show_field 'notes_tesim', label: 'Note'
+    # For "Keywords" section of show page
+    config.add_show_field 'subject_time_periods_tesim', label: 'Subject - Time Periods'
+    config.add_show_field 'subject_topics_tesim', label: 'Subject - Topics'
+    config.add_show_field 'subject_names_tesim', label: 'Subject - Names'
+    config.add_show_field 'subject_geo_tesim', label: 'Subject - Geographic Locations'
+    config.add_show_field 'keywords_tesim', label: 'Keywords'
 
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
