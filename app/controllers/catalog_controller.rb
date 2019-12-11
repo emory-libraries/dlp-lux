@@ -149,6 +149,10 @@ class CatalogController < ApplicationController
     # For "Find this Item" section of show page
     config.add_show_field 'system_of_record_ID_tesim', label: 'System of Record ID'
     config.add_show_field 'emory_ark_tesim', label: 'Emory ARK'
+    config.add_show_field 'other_identifiers_tesim', label: 'Other Identifiers'
+    config.add_show_field 'institution_tesim', label: 'Institution'
+    config.add_show_field 'holding_repository_tesim', label: 'Library'
+
     # For "Publication Details" section of show page
     # For "Misc Details" section of show page
     # For "Related Material" section of show page

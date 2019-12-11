@@ -40,7 +40,10 @@ RSpec.feature "View a Work" do
       subject_time_periods_tesim: ['Edo (African)'],
       keywords_tesim: ['key', 'words'],
       system_of_record_ID_tesim: ['System of record ID seems to be a user entered string'],
-      emory_ark_tesim: ['This is a legacy Emory ARK ID']
+      emory_ark_tesim: ['This is a legacy Emory ARK ID'],
+      other_identifiers_tesim: ['oclc:(OCoLC)772049332', 'barcode:050000087509'],
+      institution_tesim: ['Emory University'],
+      holding_repository_tesim: ['Oxford College Library']
     }
   end
 
@@ -78,5 +81,9 @@ RSpec.feature "View a Work" do
     expect(page).to have_content('words')
     expect(page).to have_content('System of record ID seems to be a user entered string')
     expect(page).to have_content('This is a legacy Emory ARK ID')
+    expect(page).to have_content('oclc:(OCoLC)772049332')
+    expect(page).to have_content('barcode:050000087509')
+    expect(page).to have_content('Emory University')
+    expect(page).to have_content('Oxford College Library')
   end
 end
