@@ -125,26 +125,42 @@ class CatalogController < ApplicationController
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display
     # For "About this item" section of show page
+    config.add_show_field 'uniform_title_tesim', label: 'Uniform Title'
+    config.add_show_field 'series_title_tesim', label: 'Series Title'
+    config.add_show_field 'parent_title_tesim', label: 'Title of Parent Work'
     config.add_show_field 'creator_tesim', label: 'Creator'
     config.add_show_field 'contributors_tesim', label: 'Contributor'
     config.add_show_field 'date_created_tesim', label: 'Date Created'
     config.add_show_field 'date_issued_tesim', label: 'Date Issued'
-    config.add_show_field 'uniform_title_tesim', label: 'Uniform Title'
-    config.add_show_field 'series_title_tesim', label: 'Series Title'
-    config.add_show_field 'parent_title_tesim', label: 'Title of Parent Work'
-    config.add_show_field 'abstract_tesim', label: 'Description/Abstract'
-    config.add_show_field 'primary_language_tesim', label: 'Primary Language'
+    config.add_show_field 'data_collection_dates_tesim', label: 'Data Collection Dates'
     config.add_show_field 'human_readable_content_type_tesim', label: 'Content Type'
     config.add_show_field 'content_genres_tesim', label: 'Genre'
-    config.add_show_field 'geographic_unit_tesim', label: 'Geographic Level for Dataset'
-    config.add_show_field 'data_collection_dates_tesim', label: 'Data Collection Dates'
+    config.add_show_field 'extent_tesim', label: 'Extent/Dimensions'
+    config.add_show_field 'primary_language_tesim', label: 'Primary Language'
     config.add_show_field 'notes_tesim', label: 'Note'
-    # For "Keywords" section of show page
-    config.add_show_field 'subject_time_periods_tesim', label: 'Subject - Time Periods'
+    config.add_show_field 'abstract_tesim', label: 'Description/Abstract'
+    config.add_show_field 'table_of_contents_tesim', label: 'Table of Contents'
+    # For "Subjects / Keywords" section of show page
     config.add_show_field 'subject_topics_tesim', label: 'Subject - Topics'
     config.add_show_field 'subject_names_tesim', label: 'Subject - Names'
     config.add_show_field 'subject_geo_tesim', label: 'Subject - Geographic Locations'
+    config.add_show_field 'subject_time_periods_tesim', label: 'Subject - Time Periods'
     config.add_show_field 'keywords_tesim', label: 'Keywords'
+    # For "Find this Item" section of show page
+    config.add_show_field 'system_of_record_ID_tesim', label: 'System of Record ID'
+    config.add_show_field 'emory_ark_tesim', label: 'Emory ARK'
+    config.add_show_field 'other_identifiers_tesim', label: 'Other Identifiers'
+    config.add_show_field 'institution_tesim', label: 'Institution'
+    config.add_show_field 'holding_repository_tesim', label: 'Library'
+    config.add_show_field 'administrative_unit_tesim', label: 'Administrative Unit'
+    config.add_show_field 'sublocation_tesim', label: 'Sublocation'
+    config.add_show_field 'local_call_number_tesim', label: 'Call Number'
+    config.add_show_field 'contact_information_tesim', label: 'Contact Information'
+
+    # For "Publication Details" section of show page
+    # For "Misc Details" section of show page
+    # For "Related Material" section of show page
+    # For "Copyright and Access" section of show page
 
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
