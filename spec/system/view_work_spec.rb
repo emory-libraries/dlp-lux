@@ -43,7 +43,11 @@ RSpec.feature "View a Work" do
       emory_ark_tesim: ['This is a legacy Emory ARK ID'],
       other_identifiers_tesim: ['oclc:(OCoLC)772049332', 'barcode:050000087509'],
       institution_tesim: ['Emory University'],
-      holding_repository_tesim: ['Oxford College Library']
+      holding_repository_tesim: ['Oxford College Library'],
+      administrative_unit_tesim: ['Stuart A. Rose Manuscript, Archives, and Rare Book Library'],
+      sublocation_tesim: ['That weird cart in the third basement'],
+      local_call_number_tesim: ['ML450.B613 v. 3'],
+      contact_information_tesim: ['Call Milly']
     }
   end
 
@@ -85,5 +89,9 @@ RSpec.feature "View a Work" do
     expect(page).to have_content('barcode:050000087509')
     expect(page).to have_content('Emory University')
     expect(page).to have_content('Oxford College Library')
+    expect(page).to have_content('Stuart A. Rose Manuscript, Archives, and Rare Book Library')
+    expect(page).to have_content('That weird cart in the third basement')
+    expect(page).to have_content('ML450.B613 v. 3')
+    expect(page).to have_content('Call Milly')
   end
 end

@@ -152,6 +152,10 @@ class CatalogController < ApplicationController
     config.add_show_field 'other_identifiers_tesim', label: 'Other Identifiers'
     config.add_show_field 'institution_tesim', label: 'Institution'
     config.add_show_field 'holding_repository_tesim', label: 'Library'
+    config.add_show_field 'administrative_unit_tesim', label: 'Administrative Unit'
+    config.add_show_field 'sublocation_tesim', label: 'Sublocation'
+    config.add_show_field 'local_call_number_tesim', label: 'Call Number'
+    config.add_show_field 'contact_information_tesim', label: 'Contact Information'
 
     # For "Publication Details" section of show page
     # For "Misc Details" section of show page
