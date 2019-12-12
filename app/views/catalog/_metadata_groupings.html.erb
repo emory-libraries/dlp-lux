@@ -6,33 +6,33 @@
     <%= render "about_this_item", document: document %>
   </div>
   <div class="col-md-2">
-    <%= render 'show_tools' %>
+    <%= render 'show_tools', document: document %>
   </div>
 </div>
 <div class="row">
   <div class="col-md-3">
-    <%= render "contains" %>
+    <%= render "contains", document: document %>
   </div>
-  <div class="col-md-6">
-    <%= render "subjects_keywords" %>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-3">
-    <%= render "find_this_item" %>
-  </div>
-  <div class="col-md-6">
-    <%= render "publication_details" %>
-  </div>
-  <div class="col-md-3">
-    <%= render "access_and_copyright" %>
+  <div class="col-md-7">
+    <%= render "subjects_keywords", document: document %>
   </div>
 </div>
 <div class="row">
   <div class="col-md-3">
-    <%= render "related_material" %>
+    <%= render "find_this_item", document: document %>
   </div>
-  <div class="col-md-6">
-    <%= render "misc_details" %>
+  <div class="col-md-7">
+    <%= render "publication_details", document: document %>
+  </div>
+  <div class="col-md-2">
+    <%= render "access_and_copyright", document: document %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-3">
+    <%= render "related_material", document: document %>
+  </div>
+  <div class="col-md-7">
+    <%= render "misc_details", document: document %>
   </div>
 </div>

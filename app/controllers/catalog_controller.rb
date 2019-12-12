@@ -135,10 +135,10 @@ class CatalogController < ApplicationController
     config.add_show_field 'data_collection_dates_tesim', label: 'Data Collection Dates'
     config.add_show_field 'human_readable_content_type_tesim', label: 'Content Type'
     config.add_show_field 'content_genres_tesim', label: 'Genre'
-    config.add_show_field 'extent_tesim', label: 'Extent/Dimensions'
+    config.add_show_field 'extent_tesim', label: 'Extent / Dimensions'
     config.add_show_field 'primary_language_tesim', label: 'Primary Language'
     config.add_show_field 'notes_tesim', label: 'Note'
-    config.add_show_field 'abstract_tesim', label: 'Description/ Abstract'
+    config.add_show_field 'abstract_tesim', label: 'Description / Abstract'
     config.add_show_field 'table_of_contents_tesim', label: 'Table of Contents'
     # For "Subjects / Keywords" section of show page
     config.add_show_field 'subject_topics_tesim', label: 'Subject - Topics'

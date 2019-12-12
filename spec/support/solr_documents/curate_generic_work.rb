@@ -3,7 +3,6 @@ CURATE_GENERIC_WORK = {
   id: ['123'],
   has_model_ssim: ['CurateGenericWork'],
   visibility_ssi: ['open'],
-  # For "About this item" section of show page
   title_tesim: ['The Title of my Work'],
   uniform_title_tesim: ['This is a uniform title'],
   series_title_tesim: ['This is a series title'],
