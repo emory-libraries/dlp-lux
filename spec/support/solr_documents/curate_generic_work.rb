@@ -34,4 +34,4 @@ CURATE_GENERIC_WORK = {
   sublocation_tesim: ['That weird cart in the third basement'],
   local_call_number_tesim: ['ML450.B613 v. 3'],
   contact_information_tesim: ['Call Milly']
-}
+}.freeze

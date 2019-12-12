@@ -4,12 +4,11 @@ require 'rails_helper'
 RSpec.describe SubjectsKeywordsPresenter do
   let(:pres) { described_class.new(document: CURATE_GENERIC_WORK) }
   let(:subjects_terms) do
-  { subject_topics_tesim: ['A topic for a subject'],
-    subject_names_tesim: ['Qāsimlū, Mujtabá'],
-    subject_geo_tesim: ['New Jersey'],
-    subject_time_periods_tesim: ['Edo (African)'],
-    keywords_tesim: ['key', 'words']
-  }
+    { subject_topics_tesim: ['A topic for a subject'],
+      subject_names_tesim: ['Qāsimlū, Mujtabá'],
+      subject_geo_tesim: ['New Jersey'],
+      subject_time_periods_tesim: ['Edo (African)'],
+      keywords_tesim: ['key', 'words'] }
   end
   context 'with a solr document' do
     describe '#terms' do

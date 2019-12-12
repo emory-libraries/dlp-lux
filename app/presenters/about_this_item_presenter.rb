@@ -5,7 +5,7 @@ class AboutThisItemPresenter
 
   def initialize(document:)
     @document = document
-    @config = YAML.safe_load(File.open(Rails.root.join('config', 'metadata/about_this_item.yml')))
+    @config = YAML.safe_load(File.open(Rails.root.join('config', 'metadata', 'about_this_item.yml')))
   end
 
   def terms

@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-class SubjectsKeywordsPresenter
+class FindThisItemPresenter
   attr_reader :document, :config
 
   def initialize(document:)
     @document = document
-    @config = YAML.safe_load(File.open(Rails.root.join('config', 'metadata', 'subjects_keywords.yml')))
+    @config = YAML.safe_load(File.open(Rails.root.join('config', 'metadata', 'find_this_item.yml')))
   end
 
   def terms
