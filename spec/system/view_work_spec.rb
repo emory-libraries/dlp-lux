@@ -7,6 +7,7 @@ RSpec.feature "View a Work" do
     solr.add(work_attributes)
     solr.commit
     allow(Rails.application.config).to receive(:iiif_url).and_return('https://example.com')
+    visit solr_document_path(id)
   end
 
   let(:id) { '123' }
@@ -52,12 +53,31 @@ RSpec.feature "View a Work" do
   end
 
   it 'has the uv html on the page' do
-    visit solr_document_path(id)
     expect(page.html).to match(/universal-viewer-iframe/)
   end
 
+  it 'has partials' do
+    expect(page).to have_css('.is-part-of')
+    expect(page).to have_content('This item is part of:')
+    expect(page).to have_css('.about-this-item')
+    expect(page).to have_content('About This Item')
+    expect(page).to have_css('.contains')
+    expect(page).to have_content('This item contains:')
+    expect(page).to have_css('.subjects-keywords')
+    expect(page).to have_content('Subjects/Keywords')
+    expect(page).to have_css('.find-this-item')
+    expect(page).to have_content('Find This Item')
+    expect(page).to have_css('.publication-details')
+    expect(page).to have_content('Publication Details')
+    expect(page).to have_css('.related-material')
+    expect(page).to have_content('Related Material')
+    expect(page).to have_css('.misc-details')
+    expect(page).to have_content('Misc Details')
+    expect(page).to have_css('.access-and-copyright')
+    expect(page).to have_content('Access and Copyright')
+  end
+
   it 'has title, creator, date created, and content type on the page' do
-    visit solr_document_path(id)
     expect(page).to have_content('The Title of my Work')
     expect(page).to have_content('This is a uniform title')
     expect(page).to have_content('This is a series title')
