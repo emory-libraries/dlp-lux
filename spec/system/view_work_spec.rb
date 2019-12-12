@@ -114,5 +114,4 @@ RSpec.feature "View a Work" do
     expect(page).to have_content('ML450.B613 v. 3')
     expect(page).to have_content('Call Milly')
   end
-
 end
