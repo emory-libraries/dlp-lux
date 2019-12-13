@@ -87,7 +87,7 @@ class CatalogController < ApplicationController
     # :index_range can be an array or range of prefixes that will be used to create the navigation (note: It is case sensitive when searching values)
 
     config.add_facet_field 'creator_tesim', label: 'Creators'
-    config.add_facet_field 'human_readable_content_type_tesim', label: 'Content Type'
+    config.add_facet_field 'human_readable_content_type_tesim', label: 'Format'
     config.add_facet_field 'date_created_tesim', label: 'Date Created'
     config.add_facet_field 'date_issued_tesim', label: 'Date Issued'
     config.add_facet_field 'content_genres_tesim', label: 'Genre'
@@ -133,7 +133,7 @@ class CatalogController < ApplicationController
     config.add_show_field 'date_created_tesim', label: 'Date Created'
     config.add_show_field 'date_issued_tesim', label: 'Date Issued'
     config.add_show_field 'data_collection_dates_tesim', label: 'Data Collection Dates'
-    config.add_show_field 'human_readable_content_type_tesim', label: 'Content Type'
+    config.add_show_field 'human_readable_content_type_tesim', label: 'Format'
     config.add_show_field 'content_genres_tesim', label: 'Genre'
     config.add_show_field 'extent_tesim', label: 'Extent / Dimensions'
     config.add_show_field 'primary_language_tesim', label: 'Primary Language'
