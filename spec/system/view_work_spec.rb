@@ -98,5 +98,8 @@ RSpec.feature "View a Work" do
     expect(page).to have_content('From Kari\'s hard drive.')
     expect(page).to have_content('State')
     expect(page).to have_content('This is a note about technical details')
+    expect(page).to have_content('Other related materials and other things.')
+    expect(page).to have_content('Sister Outsider')
+    expect(page).to have_content('Other datasets that are somehow relevant.')
   end
 end

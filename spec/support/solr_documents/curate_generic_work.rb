@@ -55,5 +55,7 @@ CURATE_GENERIC_WORK = {
   data_source_notes_tesim: ['From Kari\'s hard drive.'],
   geographic_unit_tesim: ['State'],
   technical_note_tesim: ['This is a note about technical details'],
-  related_publications_tesim: ['Sister Outsider']
+  related_material_notes_tesim: ['Other related materials and other things.'],
+  related_publications_tesim: ['Sister Outsider'],
+  related_datasets_tesim: ['Other datasets that are somehow relevant.']
 }.freeze

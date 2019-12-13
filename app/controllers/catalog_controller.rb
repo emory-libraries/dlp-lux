@@ -181,6 +181,9 @@ class CatalogController < ApplicationController
     config.add_show_field 'geographic_unit_tesim', label: 'Geographic Level for Dataset'
     config.add_show_field 'technical_note_tesim', label: 'Technical Note'
     # For "Related Material" section of show page
+    config.add_show_field 'related_material_notes_tesim', label: 'Related Material'
+    config.add_show_field 'related_publications_tesim', label: 'Related Publications'
+    config.add_show_field 'related_datasets_tesim', label: 'Related Datasets'
     # For "Copyright and Access" section of show page
 
     # "fielded" search configuration. Used by pulldown among other places.
