@@ -6,7 +6,7 @@ RSpec.describe MiscDetailsPresenter do
   let(:misc_terms) do
     { conference_dates_tesim: ['June 3-5, 1987'],
       conference_name_tesim: ['Pearl Hacks'],
-      sponsor_tesim: ['Pepsi Cola'],
+      sponsor_tesim: ['Company, Inc.'],
       data_producers_tesim: ['Genetics Laboratory'],
       grant_agencies_tesim: ['National Endowment for the Arts'],
       grant_information_tesim: ['Can\'t use anything offensive.'],

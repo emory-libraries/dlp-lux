@@ -185,6 +185,12 @@ class CatalogController < ApplicationController
     config.add_show_field 'related_publications_tesim', label: 'Related Publications'
     config.add_show_field 'related_datasets_tesim', label: 'Related Datasets'
     # For "Copyright and Access" section of show page
+    config.add_show_field 'emory_rights_statements_tesim', label: 'Rights Statement'
+    config.add_show_field 'rights_statement_tesim', label: 'Rights Statement - Controlled'
+    config.add_show_field 'rights_holders_tesim', label: 'Rights Holder'
+    config.add_show_field 'copyright_date_tesim', label: 'Copyright Date'
+    config.add_show_field 're_use_license_tesim', label: 'Re-Use License'
+    config.add_show_field 'access_restriction_notes_tesim', label: 'Access Restrictions'
 
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
