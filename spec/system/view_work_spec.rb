@@ -90,7 +90,7 @@ RSpec.feature "View a Work" do
     expect(page).to have_content('9780415364256')
     expect(page).to have_content('June 3-5, 1987')
     expect(page).to have_content('Pearl Hacks')
-    expect(page).to have_content('Pepsi Cola')
+    expect(page).to have_content('Company, Inc.')
     expect(page).to have_content('Genetics Laboratory')
     expect(page).to have_content('National Endowment for the Arts')
     expect(page).to have_content('Can\'t use anything offensive.')
@@ -101,5 +101,11 @@ RSpec.feature "View a Work" do
     expect(page).to have_content('Other related materials and other things.')
     expect(page).to have_content('Sister Outsider')
     expect(page).to have_content('Other datasets that are somehow relevant.')
+    expect(page).to have_content('Srsly, y\'all, don\'t copy this.')
+    expect(page).to have_content('So copywritten you wouldn\'t dream of copying it.')
+    expect(page).to have_content('Owned by Jamie')
+    expect(page).to have_content('2027')
+    expect(page).to have_content('You can copy this as long as you give credit')
+    expect(page).to have_content('You can access this only in the Rose reading room, alternate Thursdays.')
   end
 end

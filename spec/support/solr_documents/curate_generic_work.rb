@@ -47,7 +47,7 @@ CURATE_GENERIC_WORK = {
   isbn_tesim: ['9780415364256'],
   conference_dates_tesim: ['June 3-5, 1987'],
   conference_name_tesim: ['Pearl Hacks'],
-  sponsor_tesim: ['Pepsi Cola'],
+  sponsor_tesim: ['Company, Inc.'],
   data_producers_tesim: ['Genetics Laboratory'],
   grant_agencies_tesim: ['National Endowment for the Arts'],
   grant_information_tesim: ['Can\'t use anything offensive.'],
@@ -57,5 +57,11 @@ CURATE_GENERIC_WORK = {
   technical_note_tesim: ['This is a note about technical details'],
   related_material_notes_tesim: ['Other related materials and other things.'],
   related_publications_tesim: ['Sister Outsider'],
-  related_datasets_tesim: ['Other datasets that are somehow relevant.']
+  related_datasets_tesim: ['Other datasets that are somehow relevant.'],
+  emory_rights_statements_tesim: ['Srsly, y\'all, don\'t copy this.'],
+  rights_statement_tesim: ['So copywritten you wouldn\'t dream of copying it.'],
+  rights_holders_tesim: ['Owned by Jamie'],
+  copyright_date_tesim: ['2027'],
+  re_use_license_tesim: ['You can copy this as long as you give credit'],
+  access_restriction_notes_tesim: ['You can access this only in the Rose reading room, alternate Thursdays.']
 }.freeze
