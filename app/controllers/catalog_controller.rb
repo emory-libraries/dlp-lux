@@ -169,8 +169,17 @@ class CatalogController < ApplicationController
     config.add_show_field 'page_range_end_tesim', label: 'Page Range - End'
     config.add_show_field 'issn_tesim', label: 'ISSN'
     config.add_show_field 'isbn_tesim', label: 'ISBN'
-
     # For "Misc Details" section of show page
+    config.add_show_field 'conference_dates_tesim', label: 'Conference Dates'
+    config.add_show_field 'conference_name_tesim', label: 'Conference / Meeting Name'
+    config.add_show_field 'sponsor_tesim', label: 'Sponsor'
+    config.add_show_field 'data_producers_tesim', label: 'Data Producer'
+    config.add_show_field 'grant_agencies_tesim', label: 'Grant / Funding Agency'
+    config.add_show_field 'grant_information_tesim', label: 'Grant / Funding Information'
+    config.add_show_field 'author_notes_tesim', label: 'Author Notes'
+    config.add_show_field 'data_source_notes_tesim', label: 'Data Sources Note'
+    config.add_show_field 'geographic_unit_tesim', label: 'Geographic Level for Dataset'
+    config.add_show_field 'technical_note_tesim', label: 'Technical Note'
     # For "Related Material" section of show page
     # For "Copyright and Access" section of show page
 
