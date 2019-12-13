@@ -33,5 +33,16 @@ CURATE_GENERIC_WORK = {
   administrative_unit_tesim: ['Stuart A. Rose Manuscript, Archives, and Rare Book Library'],
   sublocation_tesim: ['That weird cart in the third basement'],
   local_call_number_tesim: ['ML450.B613 v. 3'],
-  contact_information_tesim: ['Call Milly']
+  contact_information_tesim: ['Call Milly'],
+  publisher_tesim: ['New York Labor News Company'],
+  final_published_versions_tesim: ['https://final_version.com'],
+  publisher_version_tesim: ['https://publisher_version.com'],
+  place_of_production_tesim: ['Carrboro, NC'],
+  volume_tesim: ['1'],
+  edition_tesim: ['3rd ed.'],
+  issue_tesim: ['224'],
+  page_range_start_tesim: ['iii'],
+  page_range_end_tesim: ['501'],
+  issn_tesim: ['0044-8399'],
+  isbn_tesim: ['9780415364256']
 }.freeze

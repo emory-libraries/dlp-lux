@@ -157,8 +157,19 @@ class CatalogController < ApplicationController
     config.add_show_field 'sublocation_tesim', label: 'Sublocation'
     config.add_show_field 'local_call_number_tesim', label: 'Call Number'
     config.add_show_field 'contact_information_tesim', label: 'Contact Information'
-
     # For "Publication Details" section of show page
+    config.add_show_field 'publisher_tesim', label: 'Publisher'
+    config.add_show_field 'final_published_versions_tesim', label: 'Final Published Version'
+    config.add_show_field 'publisher_version_tesim', label: 'Version of Publication'
+    config.add_show_field 'place_of_production_tesim', label: 'Place of Publication/Production'
+    config.add_show_field 'volume_tesim', label: 'Volume'
+    config.add_show_field 'edition_tesim', label: 'Edition'
+    config.add_show_field 'issue_tesim', label: 'Issue'
+    config.add_show_field 'page_range_start_tesim', label: 'Page Range - Start'
+    config.add_show_field 'page_range_end_tesim', label: 'Page Range - End'
+    config.add_show_field 'issn_tesim', label: 'ISSN'
+    config.add_show_field 'isbn_tesim', label: 'ISBN'
+
     # For "Misc Details" section of show page
     # For "Related Material" section of show page
     # For "Copyright and Access" section of show page

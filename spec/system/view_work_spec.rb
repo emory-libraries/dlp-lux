@@ -77,5 +77,16 @@ RSpec.feature "View a Work" do
     expect(page).to have_content('That weird cart in the third basement')
     expect(page).to have_content('ML450.B613 v. 3')
     expect(page).to have_content('Call Milly')
+    expect(page).to have_content('New York Labor News Company')
+    expect(page).to have_content('https://final_version.com')
+    expect(page).to have_content('https://publisher_version.com')
+    expect(page).to have_content('Carrboro, NC')
+    expect(page).to have_content('1')
+    expect(page).to have_content('3rd ed.')
+    expect(page).to have_content('224')
+    expect(page).to have_content('iii')
+    expect(page).to have_content('501')
+    expect(page).to have_content('0044-8399')
+    expect(page).to have_content('9780415364256')
   end
 end
