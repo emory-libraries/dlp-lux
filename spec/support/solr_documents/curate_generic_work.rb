@@ -44,5 +44,16 @@ CURATE_GENERIC_WORK = {
   page_range_start_tesim: ['iii'],
   page_range_end_tesim: ['501'],
   issn_tesim: ['0044-8399'],
-  isbn_tesim: ['9780415364256']
+  isbn_tesim: ['9780415364256'],
+  conference_dates_tesim: ['June 3-5, 1987'],
+  conference_name_tesim: ['Pearl Hacks'],
+  sponsor_tesim: ['Pepsi Cola'],
+  data_producers_tesim: ['Genetics Laboratory'],
+  grant_agencies_tesim: ['National Endowment for the Arts'],
+  grant_information_tesim: ['Can\'t use anything offensive.'],
+  author_notes_tesim: ['This is the best data ever.'],
+  data_source_notes_tesim: ['From Kari\'s hard drive.'],
+  geographic_unit_tesim: ['State'],
+  technical_note_tesim: ['This is a note about technical details'],
+  related_publications_tesim: ['Sister Outsider']
 }.freeze
