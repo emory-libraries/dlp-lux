@@ -107,5 +107,6 @@ RSpec.feature "View a Work" do
     expect(page).to have_content('2027')
     expect(page).to have_content('Creative Commons BY Attribution 4.0 International')
     expect(page).to have_content('You can access this only in the Rose reading room, alternate Thursdays.')
+    expect(page).to have_content('Chester W. Topp collection of Victorian yellowbacks and paperbacks')
   end
 end

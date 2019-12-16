@@ -65,5 +65,7 @@ CURATE_GENERIC_WORK = {
   copyright_date_tesim: ['2027'],
   re_use_license_tesim: ['You can copy this as long as you give credit'],
   human_readable_re_use_license_tesim: ['Creative Commons BY Attribution 4.0 International'],
-  access_restriction_notes_tesim: ['You can access this only in the Rose reading room, alternate Thursdays.']
+  access_restriction_notes_tesim: ['You can access this only in the Rose reading room, alternate Thursdays.'],
+  member_of_collections_ssim: ['Chester W. Topp collection of Victorian yellowbacks and paperbacks'],
+  member_of_collection_ids_ssim: ['805fbg79d6-cor']
 }.freeze
