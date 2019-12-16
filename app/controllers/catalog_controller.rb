@@ -191,6 +191,8 @@ class CatalogController < ApplicationController
     config.add_show_field 'copyright_date_tesim', label: 'Copyright Date'
     config.add_show_field 'human_readable_re_use_license_tesim', label: 'Re-Use License'
     config.add_show_field 'access_restriction_notes_tesim', label: 'Access Restrictions'
+    # For "This item is part of:" section of show page
+    config.add_show_field 'member_of_collections_ssim'
 
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
