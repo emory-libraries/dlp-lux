@@ -60,8 +60,10 @@ CURATE_GENERIC_WORK = {
   related_datasets_tesim: ['Other datasets that are somehow relevant.'],
   emory_rights_statements_tesim: ['Srsly, y\'all, don\'t copy this.'],
   rights_statement_tesim: ['So copywritten you wouldn\'t dream of copying it.'],
+  human_readable_rights_statement_tesim: ['In Copyright - EU Orphan Work'],
   rights_holders_tesim: ['Owned by Jamie'],
   copyright_date_tesim: ['2027'],
   re_use_license_tesim: ['You can copy this as long as you give credit'],
+  human_readable_re_use_license_tesim: ['Creative Commons BY Attribution 4.0 International'],
   access_restriction_notes_tesim: ['You can access this only in the Rose reading room, alternate Thursdays.']
 }.freeze

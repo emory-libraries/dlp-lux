@@ -102,10 +102,10 @@ RSpec.feature "View a Work" do
     expect(page).to have_content('Sister Outsider')
     expect(page).to have_content('Other datasets that are somehow relevant.')
     expect(page).to have_content('Srsly, y\'all, don\'t copy this.')
-    expect(page).to have_content('So copywritten you wouldn\'t dream of copying it.')
+    expect(page).to have_content('In Copyright - EU Orphan Work')
     expect(page).to have_content('Owned by Jamie')
     expect(page).to have_content('2027')
-    expect(page).to have_content('You can copy this as long as you give credit')
+    expect(page).to have_content('Creative Commons BY Attribution 4.0 International')
     expect(page).to have_content('You can access this only in the Rose reading room, alternate Thursdays.')
   end
 end

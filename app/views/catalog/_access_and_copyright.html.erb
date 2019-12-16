@@ -1,6 +1,6 @@
 <div class="access-and-copyright">
   <% doc_presenter = show_presenter(document) %>
-  <% about = CopyrightAndAccessPresenter.new(document: doc_presenter.fields_to_render).terms %>
+  <% about = AccessAndCopyrightPresenter.new(document: doc_presenter.fields_to_render).terms %>
 
   <% if about.length > 0 %>
     <h2>Access and Copyright</h2>
