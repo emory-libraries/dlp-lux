@@ -1,14 +1,1 @@
-<div class="access-and-copyright">
-  <% doc_presenter = show_presenter(document) %>
-  <% about = AccessAndCopyrightPresenter.new(document: doc_presenter.fields_to_render).terms %>
-
-  <% if about.length > 0 %>
-    <h2>Access and Copyright</h2>
-    <dl class="row">
-    <% about.each do |field_name, field| %>
-      <dt class="blacklight-<%= field_name.parameterize %> col-md-4"><%= render_document_show_field_label document, field: field_name %></dt>
-      <dd class="blacklight-<%= field_name.parameterize %> col-md-8"><%= doc_presenter.field_value field %></dd>
-    <% end %>
-    </dl>
-  <% end %>
-</div>
+<%= render 'metadata_block', document: document, presenter: AccessAndCopyrightPresenter, presenter_class: 'access-and-copyright', title: 'Access and Copyright' %>
