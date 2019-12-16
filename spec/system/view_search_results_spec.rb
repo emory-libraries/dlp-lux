@@ -40,7 +40,7 @@ RSpec.feature "View Search Results", type: :system, js: true do
     expect(page).to have_xpath("//img[@src='http://obviously_fake_url.com/downloads/825x69p8dh-cor?file=thumbnail']")
   end
 
-    xit 'shows available facets on the page' do	
+  xit 'shows available facets on the page' do
     visit "/"
     fill_in 'q', with: 'The Title of my Work'
     click_on 'Search'
