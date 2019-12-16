@@ -21,7 +21,20 @@ class CatalogController < ApplicationController
       qt: 'search',
       mm: '100%',
       rows: 10,
-      qf: 'title_tesim description_tesim creator_tesim keyword_tesim',
+      qf: '
+        title_tesim
+        creator_tesim
+        contributors_tesim
+        abstract_tesim
+        table_of_contents_tesim
+        keywords_tesim
+        subject_topics_tesim
+        subject_names_tesim
+        subject_geo_tesim
+        parent_title_tesim
+        uniform_title_tesim
+        publisher_tesim
+        ',
       fq: '(((has_model_ssim:CurateGenericWork) OR (has_model_ssim:Collection)) AND (visibility_ssi:open))'
       ### we want to only return works where visibility_ssi == open (not restricted)
     }
@@ -93,7 +106,7 @@ class CatalogController < ApplicationController
     config.add_facet_field 'content_genres_tesim', label: 'Genre'
     config.add_facet_field 'holding_repository_tesim', label: 'Library'
     config.add_facet_field 'primary_language_tesim', label: 'Primary Language'
-    config.add_facet_field 'rights_statement_tesim', label: 'Rights Statement - Controlled'
+    config.add_facet_field 'human_readable_rights_statement_tesim', label: 'Rights Statement - Controlled'
     config.add_facet_field 'subject_geo_tesim', label: 'Subject - Geographic Locations'
     config.add_facet_field 'subject_names_tesim', label: 'Subject - Names'
     config.add_facet_field 'subject_topics_tesim', label: 'Subject - Topics'
