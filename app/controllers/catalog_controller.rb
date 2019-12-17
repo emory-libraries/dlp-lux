@@ -170,7 +170,7 @@ class CatalogController < ApplicationController
     config.add_show_field 'page_range_end_tesim', label: 'Page Range - End'
     config.add_show_field 'issn_tesim', label: 'ISSN'
     config.add_show_field 'isbn_tesim', label: 'ISBN'
-    # For "Misc Details" section of show page
+    # For "Additional Details" section of show page
     config.add_show_field 'conference_dates_tesim', label: 'Conference Dates'
     config.add_show_field 'conference_name_tesim', label: 'Conference / Meeting Name'
     config.add_show_field 'sponsor_tesim', label: 'Sponsor'
