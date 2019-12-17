@@ -33,8 +33,8 @@ RSpec.feature "View a Work" do
     expect(page).to have_content('Publication Details')
     expect(page).to have_css('.related-material')
     expect(page).to have_content('Related Material')
-    expect(page).to have_css('.misc-details')
-    expect(page).to have_content('Misc Details')
+    expect(page).to have_css('.additional-details')
+    expect(page).to have_content('Additional Details')
     expect(page).to have_css('.access-and-copyright')
     expect(page).to have_content('Access and Copyright')
   end
