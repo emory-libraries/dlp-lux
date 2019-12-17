@@ -25,8 +25,6 @@ RSpec.feature "View a Work" do
     expect(page).to have_content('This item is part of:')
     expect(page).to have_css('.about-this-item')
     expect(page).to have_content('About This Item')
-    expect(page).to have_css('.contains')
-    expect(page).to have_content('This item contains:')
     expect(page).to have_css('.subjects-keywords')
     expect(page).to have_content('Subjects / Keywords')
     expect(page).to have_css('.find-this-item')
