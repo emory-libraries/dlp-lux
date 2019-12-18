@@ -3,6 +3,10 @@ class CatalogController < ApplicationController
   include Blacklight::Catalog
   include Blacklight::Marc::Catalog
 
+  def guest_uid_authentication_key(key)
+    guest_email_authentication_key(key)
+  end
+
   configure_blacklight do |config|
     ## Class for sending and receiving requests from a search index
     # config.repository_class = Blacklight::Solr::Repository
@@ -170,7 +174,7 @@ class CatalogController < ApplicationController
     config.add_show_field 'page_range_end_tesim', label: 'Page Range - End'
     config.add_show_field 'issn_tesim', label: 'ISSN'
     config.add_show_field 'isbn_tesim', label: 'ISBN'
-    # For "Misc Details" section of show page
+    # For "Additional Details" section of show page
     config.add_show_field 'conference_dates_tesim', label: 'Conference Dates'
     config.add_show_field 'conference_name_tesim', label: 'Conference / Meeting Name'
     config.add_show_field 'sponsor_tesim', label: 'Sponsor'

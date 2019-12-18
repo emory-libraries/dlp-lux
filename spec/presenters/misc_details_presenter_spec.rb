@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 require 'rails_helper'
 
-RSpec.describe MiscDetailsPresenter, run_in_ci: true do
+RSpec.describe AdditionalDetailsPresenter do
+
   let(:pres) { described_class.new(document: CURATE_GENERIC_WORK) }
-  let(:misc_terms) do
+  let(:additional_terms) do
     { conference_dates_tesim: ['June 3-5, 1987'],
       conference_name_tesim: ['Pearl Hacks'],
       sponsor_tesim: ['Company, Inc.'],
@@ -18,7 +19,7 @@ RSpec.describe MiscDetailsPresenter, run_in_ci: true do
   context 'with a solr document' do
     describe '#terms' do
       it 'has the correct terms' do
-        expect(pres.terms).to eq(misc_terms)
+        expect(pres.terms).to eq(additional_terms)
       end
     end
   end
