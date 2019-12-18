@@ -2,6 +2,7 @@
 require 'rails_helper'
 
 RSpec.describe AdditionalDetailsPresenter do
+
   let(:pres) { described_class.new(document: CURATE_GENERIC_WORK) }
   let(:additional_terms) do
     { conference_dates_tesim: ['June 3-5, 1987'],
