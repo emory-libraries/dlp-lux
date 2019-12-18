@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Search the catalog', type: :system, run_in_ci: true, js: false do
+RSpec.describe 'Search the catalog', type: :system, js: false do
   before do
     delete_all_documents_from_solr
     solr = Blacklight.default_index.connection

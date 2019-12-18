@@ -4,7 +4,7 @@ include Warden::Test::Helpers
 
 # It would be cool if we could populate a test solr index and run tests against it.
 # However, this is not working in CI.
-RSpec.describe 'front page', type: :system, run_in_ci: true, js: true do
+RSpec.describe 'front page', type: :system, js: true do
   let(:solr_snapshots_location) { "#{fixture_path}/solr_snapshots/" }
   let(:solr_snapshot_name) { "20191203163502341" }
 

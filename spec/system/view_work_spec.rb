@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'rails_helper'
 
-RSpec.feature "View a Work", run_in_ci: true do
+RSpec.feature "View a Work" do
   before do
     solr = Blacklight.default_index.connection
     solr.add(work_attributes)

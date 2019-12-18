@@ -2,6 +2,10 @@
 require 'simplecov'
 SimpleCov.start 'rails' do
   add_filter '/spec/' # for rspec
+  add_filter '/app/jobs/'
+  add_filter '/app/mailers/'
+  add_filter '/app/models/marc_indexer.rb'
+  add_filter '/app/channels'
 end
 
 require 'coveralls'
