@@ -25,7 +25,7 @@ jobs:
             BUNDLE_RETRY: 3
             RAILS_ENV: test
             RACK_ENV: test
-            SPEC_OPTS: --profile 10 --format RspecJunitFormatter --out /tmp/test-results/rspec.xml --format progress
+            SPEC_OPTS: --profile 10 --format RspecJunitFormatter --out /tmp/test-results/rspec.xml --format progress --tag ~relevancy:true
             DATABASE_NAME: circle_test
             DATABASE_HOST: 127.0.0.1
             DATABASE_PORT: 3306

@@ -17,7 +17,8 @@ RSpec.describe 'Search the catalog', type: :system, js: false do
               subject_geo,
               parent_title,
               uniform_title,
-              publisher])
+              publisher,
+              creator_of_collection])
     solr.commit
   end
 
@@ -152,6 +153,16 @@ RSpec.describe 'Search the catalog', type: :system, js: false do
     }
   end
 
+  let(:creator_of_collection) do
+    {
+      id: '141414',
+      has_model_ssim: ['Collection'],
+      title_tesim: 'Target in creator, model is collection',
+      creator_tesim: ['iMCnR6E8'],
+      visibility_ssi: ['open']
+    }
+  end
+
   it 'gets correct search results' do
     visit root_path
     # Search for something
@@ -194,7 +205,8 @@ RSpec.describe 'Search the catalog', type: :system, js: false do
         'Target in subject geo',
         'Target in parent title',
         'Target in uniform title',
-        'Target in publisher'
+        'Target in publisher',
+        'Target in creator, model is collection'
       )
     end
   end
