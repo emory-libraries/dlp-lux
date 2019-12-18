@@ -3,6 +3,10 @@ class CatalogController < ApplicationController
   include Blacklight::Catalog
   include Blacklight::Marc::Catalog
 
+  def guest_uid_authentication_key(key)
+    guest_email_authentication_key(key)
+  end
+
   configure_blacklight do |config|
     ## Class for sending and receiving requests from a search index
     # config.repository_class = Blacklight::Solr::Repository
