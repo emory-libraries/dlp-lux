@@ -10,6 +10,7 @@ CURATE_GENERIC_WORK = {
   creator_tesim: ['Smith, Somebody'],
   contributors_tesim: ['Contributor, Jack'],
   date_created_tesim: ['1776', 'XXXX', '192?', '1973?'],
+  human_readable_date_created_tesim: ['1776', 'unknown', '1920s', '1973 approx.'],
   date_issued_tesim: ['1652'],
   data_collection_dates_tesim: ['1985'],
   human_readable_content_type_tesim: ['Text'],
@@ -67,5 +68,6 @@ CURATE_GENERIC_WORK = {
   human_readable_re_use_license_tesim: ['Creative Commons BY Attribution 4.0 International'],
   access_restriction_notes_tesim: ['You can access this only in the Rose reading room, alternate Thursdays.'],
   member_of_collections_ssim: ['Chester W. Topp collection of Victorian yellowbacks and paperbacks'],
-  member_of_collection_ids_ssim: ['805fbg79d6-cor']
+  member_of_collection_ids_ssim: ['805fbg79d6-cor'],
+  thumbnail_path_ss: ['/downloads/825x69p8dh-cor?file=thumbnail']
 }.freeze

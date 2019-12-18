@@ -12,17 +12,7 @@ RSpec.feature "View Search Results", type: :system, js: true do
   let(:id) { '123' }
 
   let(:work_attributes) do
-    {
-      id: id,
-      title_tesim: ['The Title of my Work'],
-      creator_tesim: ['Smith, Somebody'],
-      date_created_tesim: ['1776', 'XXXX', '192?', '1973?'],
-      content_type_tesim: ['http://id.loc.gov/vocabulary/resourceTypes/txt'],
-      human_readable_content_type_tesim: ['Text'],
-      has_model_ssim: ['CurateGenericWork'],
-      visibility_ssi: ['open'],
-      thumbnail_path_ss: ['/downloads/825x69p8dh-cor?file=thumbnail']
-    }
+    CURATE_GENERIC_WORK
   end
 
   it 'has title, creator, date created, and content type on the page' do

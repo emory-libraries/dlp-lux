@@ -93,7 +93,7 @@ class CatalogController < ApplicationController
 
     config.add_facet_field 'creator_tesim', label: 'Creators'
     config.add_facet_field 'human_readable_content_type_tesim', label: 'Format'
-    config.add_facet_field 'date_created_tesim', label: 'Date Created'
+    config.add_facet_field 'human_readable_date_created_tesim', label: 'Date Created'
     config.add_facet_field 'date_issued_tesim', label: 'Date Issued'
     config.add_facet_field 'content_genres_tesim', label: 'Genre'
     config.add_facet_field 'holding_repository_tesim', label: 'Library'
@@ -124,7 +124,7 @@ class CatalogController < ApplicationController
     #   The ordering of the field names is the order of the display
     # config.add_index_field 'title_tesim', label: 'Title'
     config.add_index_field 'creator_tesim', label: 'Creator'
-    config.add_index_field 'date_created_tesim', label: 'Date', helper_method: :render_human_readable_date
+    config.add_index_field 'human_readable_date_created_tesim', label: 'Date'
     config.add_index_field 'human_readable_content_type_tesim', label: 'Format'
 
     # solr fields to be displayed in the show (single result) view
@@ -135,7 +135,7 @@ class CatalogController < ApplicationController
     config.add_show_field 'parent_title_tesim', label: 'Title of Parent Work'
     config.add_show_field 'creator_tesim', label: 'Creator'
     config.add_show_field 'contributors_tesim', label: 'Contributor'
-    config.add_show_field 'date_created_tesim', label: 'Date Created'
+    config.add_show_field 'human_readable_date_created_tesim', label: 'Date Created'
     config.add_show_field 'date_issued_tesim', label: 'Date Issued'
     config.add_show_field 'data_collection_dates_tesim', label: 'Data Collection Dates'
     config.add_show_field 'human_readable_content_type_tesim', label: 'Format'
