@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'rails_helper'
 
-RSpec.describe MiscDetailsPresenter do
+RSpec.describe MiscDetailsPresenter, run_in_ci: true do
   let(:pres) { described_class.new(document: CURATE_GENERIC_WORK) }
   let(:misc_terms) do
     { conference_dates_tesim: ['June 3-5, 1987'],
