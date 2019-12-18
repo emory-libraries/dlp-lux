@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'rails_helper'
 
-RSpec.describe IsPartOfPresenter do
+RSpec.describe IsPartOfPresenter, run_in_ci: true do
   let(:pres) { described_class.new(document: CURATE_GENERIC_WORK) }
   let(:contains_terms) do
     { member_of_collections_ssim: ['Chester W. Topp collection of Victorian yellowbacks and paperbacks'] }

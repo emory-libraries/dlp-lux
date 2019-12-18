@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'rails_helper'
 
-RSpec.feature "View Search Results", type: :system, js: true do
+RSpec.feature "View Search Results", type: :system, run_in_ci: true, js: true do
   before do
     solr = Blacklight.default_index.connection
     solr.add(work_attributes)

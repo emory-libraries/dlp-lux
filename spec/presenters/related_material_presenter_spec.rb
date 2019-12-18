@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'rails_helper'
 
-RSpec.describe RelatedMaterialPresenter do
+RSpec.describe RelatedMaterialPresenter, run_in_ci: true do
   let(:pres) { described_class.new(document: CURATE_GENERIC_WORK) }
   let(:related_terms) do
     { related_material_notes_tesim: ['Other related materials and other things.'],

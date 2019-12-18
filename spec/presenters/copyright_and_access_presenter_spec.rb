@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'rails_helper'
 
-RSpec.describe AccessAndCopyrightPresenter do
+RSpec.describe AccessAndCopyrightPresenter, run_in_ci: true do
   let(:pres) { described_class.new(document: CURATE_GENERIC_WORK) }
   let(:copyright_terms) do
     { emory_rights_statements_tesim: ['Srsly, y\'all, don\'t copy this.'],
