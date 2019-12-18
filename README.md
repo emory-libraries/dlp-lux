@@ -57,8 +57,8 @@ where `<env>` is one of production, test, or arch.
 
 ## Running test suite
 * Run `rspec spec` to run the default test suite
-  * The default test suite *excludes* tests tagged with `run_in_ci:false` (currently, only relevancy tests).
-  * To see the excluded tests, run `rspec spec --tag run_in_ci:false`
+  * The default test suite *excludes* tests tagged with `relevancy:true`
+  * To see the excluded tests, run `rspec spec --tag relevancy:true`
 * To run only specific tests, include
   * the directory, e.g. `rspec spec/system`,
   * or the path to the test, e.g. `rspec spec/system/search_catalog_spec.rb`,

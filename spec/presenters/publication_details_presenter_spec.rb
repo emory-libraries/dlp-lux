@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'rails_helper'
 
-RSpec.describe PublicationDetailsPresenter, run_in_ci: true do
+RSpec.describe PublicationDetailsPresenter do
   let(:pres) { described_class.new(document: CURATE_GENERIC_WORK) }
   let(:publication_terms) do
     { publisher_tesim: ['New York Labor News Company'],

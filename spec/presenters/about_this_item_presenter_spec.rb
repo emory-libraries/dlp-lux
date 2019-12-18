@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'rails_helper'
 
-RSpec.describe AboutThisItemPresenter, run_in_ci: true do
+RSpec.describe AboutThisItemPresenter do
   let(:pres) { described_class.new(document: CURATE_GENERIC_WORK) }
   let(:about_terms) do
     { uniform_title_tesim: ['This is a uniform title'],

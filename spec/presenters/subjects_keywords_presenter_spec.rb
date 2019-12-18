@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'rails_helper'
 
-RSpec.describe SubjectsKeywordsPresenter, run_in_ci: true do
+RSpec.describe SubjectsKeywordsPresenter do
   let(:pres) { described_class.new(document: CURATE_GENERIC_WORK) }
   let(:subjects_terms) do
     { subject_topics_tesim: ['A topic for a subject'],

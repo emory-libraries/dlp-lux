@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'rails_helper'
 
-RSpec.describe FindThisItemPresenter, run_in_ci: true do
+RSpec.describe FindThisItemPresenter do
   let(:pres) { described_class.new(document: CURATE_GENERIC_WORK) }
   let(:find_this_item_terms) do
     { system_of_record_ID_tesim: ['System of record ID seems to be a user entered string'],

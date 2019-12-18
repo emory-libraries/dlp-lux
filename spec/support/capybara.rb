@@ -41,7 +41,7 @@ RSpec.configure do |config|
     driven_by :chrome_headless
   end
 
-  config.before(:each, type: :system, relevancy: true, run_in_ci: false, js: true) do
+  config.before(:each, type: :system, relevancy: true, js: true) do
     driven_by :chrome_with_head
   end
 end
