@@ -54,3 +54,15 @@ AWS_PROFILE=tki-aws-account-70-rhedcloud/RHEDcloudAdministratorRole BRANCH=<tag>
 ```
 where `<tag>` is either a version, like v0.4.32, or a branch, like master and
 where `<env>` is one of production, test, or arch.
+
+## Running test suite
+* Run `rspec spec` to run the default test suite
+  * The default test suite *excludes* tests tagged with `run_in_ci:false` (currently, only relevancy tests).
+  * To see the excluded tests, run `rspec spec --tag run_in_ci:false`
+* To run only specific tests, include
+  * the directory, e.g. `rspec spec/system`,
+  * or the path to the test, e.g. `rspec spec/system/search_catalog_spec.rb`,
+  * or, if you want to be super specific, you can even add the line number the spec starts on at the beginning, e.g. `rspec spec/system/search_catalog_spec.rb:178`
+
+## View relevancy tests
+* Run `rake lux:relevancy_tests`
