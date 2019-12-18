@@ -9,7 +9,7 @@ RSpec.describe AboutThisItemPresenter do
       parent_title_tesim: ['This is a parent title'],
       creator_tesim: ['Smith, Somebody'],
       contributors_tesim: ['Contributor, Jack'],
-      date_created_tesim: ['1776', 'XXXX', '192?', '1973?'],
+      human_readable_date_created_tesim: ['1776', 'unknown', '1920s', '1973 approx.'],
       date_issued_tesim: ['1652'],
       data_collection_dates_tesim: ['1985'],
       human_readable_content_type_tesim: ['Text'],
