@@ -16,9 +16,9 @@ Rails.application.routes.draw do
   # database_authenticatable in your development environment.
   unless AuthConfig.use_database_auth?
     devise_scope :user do
-      get 'sign_in', to: 'omniauth#new', as: :new_user_session
-      post 'sign_in', to: 'omniauth_callbacks#shibboleth', as: :new_session
-      get 'sign_out', to: 'devise/sessions#destroy', as: :destroy_user_session
+      get 'users/sign_in', to: 'omniauth#new', as: :new_user_session
+      post 'users/sign_in', to: 'omniauth_callbacks#shibboleth', as: :new_session
+      get 'users/sign_out', to: 'devise/sessions#destroy', as: :destroy_user_session
     end
   end
 
