@@ -4,6 +4,6 @@ namespace :lux do
   desc "Searches catalog in a prod-like environment"
   task relevancy_tests: :environment do
     `bundle exec rspec spec --tag relevancy:true`
-    puts "You should have seen the test search by now"
+    puts 'someday this will be the results'
   end
 end
