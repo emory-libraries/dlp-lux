@@ -36,7 +36,7 @@ module Blacklight
     # Classes used for sizing the sidebar content of a Blacklight page
     # @return [String]
     def sidebar_classes
-      'page-sidebar d-none'
+      'page-sidebar'
     end
 
     ##

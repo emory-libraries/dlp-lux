@@ -91,17 +91,17 @@ class CatalogController < ApplicationController
     #  (useful when user clicks "more" on a large facet and wants to navigate alphabetically across a large set of results)
     # :index_range can be an array or range of prefixes that will be used to create the navigation (note: It is case sensitive when searching values)
 
-    config.add_facet_field 'creator_tesim', label: 'Creators'
-    config.add_facet_field 'human_readable_content_type_tesim', label: 'Format'
+    config.add_facet_field 'creator_sim', label: 'Creators'
+    config.add_facet_field 'human_readable_content_type_sim', label: 'Format'
     config.add_facet_field 'human_readable_date_created_tesim', label: 'Date Created'
     config.add_facet_field 'date_issued_tesim', label: 'Date Issued'
-    config.add_facet_field 'content_genres_tesim', label: 'Genre'
-    config.add_facet_field 'holding_repository_tesim', label: 'Library'
-    config.add_facet_field 'primary_language_tesim', label: 'Primary Language'
-    config.add_facet_field 'human_readable_rights_statement_tesim', label: 'Rights Statement - Controlled'
-    config.add_facet_field 'subject_geo_tesim', label: 'Subject - Geographic Locations'
-    config.add_facet_field 'subject_names_tesim', label: 'Subject - Names'
-    config.add_facet_field 'subject_topics_tesim', label: 'Subject - Topics'
+    config.add_facet_field 'content_genres_sim', label: 'Genre'
+    config.add_facet_field 'holding_repository_sim', label: 'Library'
+    config.add_facet_field 'primary_language_sim', label: 'Primary Language'
+    config.add_facet_field 'human_readable_rights_statement_sim', label: 'Rights Statement - Controlled'
+    config.add_facet_field 'subject_geo_sim', label: 'Subject - Geographic Locations'
+    config.add_facet_field 'subject_names_sim', label: 'Subject - Names'
+    config.add_facet_field 'subject_topics_sim', label: 'Subject - Topics'
 
     #config.add_facet_field 'pub_date_ssim', label: 'Publication Year', single: true
     #config.add_facet_field 'subject_ssim', label: 'Topic', limit: 20, index_range: 'A'..'Z'
