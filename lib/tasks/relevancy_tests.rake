@@ -1,9 +1,11 @@
 # frozen_string_literal: true
+require "rspec/core/rake_task"
 
 namespace :lux do
-  desc "Searches catalog in a prod-like environment"
-  task relevancy_tests: :environment do
-    `bundle exec rspec spec --tag relevancy:true`
-    puts "You should have seen the test search by now"
+  # This rake task takes a prod-like environment as a variable and runs specs to ensure
+  # that search and indexing of active data are running as expected.
+  desc "PROD_LIKE_ENV=qa|test|arch|prod rake lux:relevancy"
+  RSpec::Core::RakeTask.new(:relevancy) do |task|
+    task.rspec_opts = "--tag relevancy:true"
   end
 end

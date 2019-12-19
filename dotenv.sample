@@ -1,4 +1,4 @@
-# Varibles used in database.yml:
+# Variables used in database.yml:
 DATABASE_NAME=lux_production
 DATABASE_USERNAME=lux
 DATABASE_PASSWORD=lux
