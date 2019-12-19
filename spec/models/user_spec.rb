@@ -20,7 +20,7 @@ RSpec.describe User do
         info: {
           display_name: "Jane Quest",
           uid: 'janeq',
-          mail: 'janeq@example.com'
+          mail: 'janeq@emory.edu'
         }
       )
     end
