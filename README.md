@@ -64,4 +64,5 @@ where `<env>` is one of production, test, or arch.
   * Can also run with tags, e.g. `rspec spec --tag relevancy:true`
 
 ## Run relevancy tests
-* Run `rake lux:relevancy`
+* Run `PROD_LIKE_ENV=qa|test|arch|prod rake lux:relevancy`
+* This rake task takes a prod-like environment as a variable and runs specs to ensure that search and indexing of active data are running as expected.

@@ -6,6 +6,6 @@ namespace :lux do
   # that search and indexing of active data are running as expected.
   desc "PROD_LIKE_ENV=qa|test|arch|prod rake lux:relevancy"
   RSpec::Core::RakeTask.new(:relevancy) do |task|
-      task.rspec_opts = "--tag relevancy:true"
+    task.rspec_opts = "--tag relevancy:true"
   end
 end
