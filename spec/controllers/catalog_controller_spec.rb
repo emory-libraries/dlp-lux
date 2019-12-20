@@ -11,20 +11,20 @@ RSpec.describe CatalogController, type: :controller do
     end
 
     let(:expected_facets) do
-      ['holding_repository_tesim',
-       'human_readable_date_created_tesim',
-       'human_readable_content_type_tesim',
-       'content_genres_tesim',
-       'creator_tesim',
-       'primary_language_tesim',
-       'date_issued_tesim',
-       'subject_topics_tesim',
-       'subject_names_tesim',
-       'subject_geo_tesim',
-       'human_readable_rights_statement_tesim']
+      ['holding_repository',
+       'date_created_dtsim',
+       'human_readable_content_type',
+       'content_genres',
+       'creator',
+       'primary_language',
+       'date_issued_dtsim',
+       'subject_topics',
+       'subject_names',
+       'subject_geo',
+       'human_readable_rights_statement']
     end
 
-    xit 'has exactly expected facets' do
+    it 'has exactly expected facets' do
       expect(facets).to contain_exactly(*expected_facets)
     end
   end
