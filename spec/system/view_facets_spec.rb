@@ -14,7 +14,7 @@ RSpec.feature "View Facets on Search Results Page", type: :system, js: true do
     CURATE_GENERIC_WORK
   end
 
-  it 'shows some available facets on the page' do
+  xit 'shows some available facets on the page' do
     visit "/"
     fill_in 'q', with: 'The Title of my Work'
     click_on 'Search'
