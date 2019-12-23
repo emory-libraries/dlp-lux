@@ -29,16 +29,4 @@ RSpec.feature "View Search Results", type: :system, js: true do
     expect(page).to have_xpath("//img[@alt='Thumbnail image']")
     expect(page).to have_xpath("//img[@src='http://obviously_fake_url.com/downloads/825x69p8dh-cor?file=thumbnail']")
   end
-
-  xit 'shows available facets on the page' do
-    visit "/"
-    fill_in 'q', with: 'The Title of my Work'
-    click_on 'Search'
-    click_on 'Creators'
-    expect(page).to have_selector('#facet-creator_tesim')
-    click_on 'Content Type'
-    expect(page).to have_selector('#facet-human_readable_content_type_tesim')
-    click_on 'Date Created'
-    expect(page).to have_selector('#facet-date_created_tesim')
-  end
 end
