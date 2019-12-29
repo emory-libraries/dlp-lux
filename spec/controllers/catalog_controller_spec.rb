@@ -12,12 +12,12 @@ RSpec.describe CatalogController, type: :controller do
 
     let(:expected_facets) do
       ['holding_repository',
-       'date_created_dtsim',
+       'year_created_isim',
        'human_readable_content_type',
        'content_genres',
        'creator',
        'primary_language',
-       'date_issued_dtsim',
+       'year_issued_isim',
        'subject_topics',
        'subject_names',
        'subject_geo',
