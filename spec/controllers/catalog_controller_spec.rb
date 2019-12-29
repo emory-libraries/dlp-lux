@@ -12,6 +12,7 @@ RSpec.describe CatalogController, type: :controller do
 
     let(:expected_facets) do
       ['holding_repository',
+       'member_of_collections',
        'year_created_isim',
        'human_readable_content_type',
        'content_genres',
