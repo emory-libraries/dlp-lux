@@ -1,7 +1,7 @@
 <script>
 
   // Sends the custom dimension to Google Analytics.
-  gtag('event', "collection <%= rand(5) %>",
+  gtag('event', "<%= document['member_of_collections_ssim'].first %>",
   {
     'event_category': 'collection_view',
     'event_label': 'item <%= rand(6..10) %>',
