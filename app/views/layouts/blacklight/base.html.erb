@@ -30,12 +30,11 @@
         // Configures custom dimension<Index> to use the custom parameter
         // 'dimension_name' for 'GA_MEASUREMENT_ID', where <Index> is a number
         // representing the index of the custom dimension.
-        gtag('config', '<%= ENV['GA_TRACKING_CODE']  %>', {
-          'custom_map': {'metric1': 'Collection'}
-        });
+        // gtag('config', '<%= ENV['GA_TRACKING_CODE']  %>', {
+        //   'custom_map': {'metric1': 'Collection'}
+        // });
 
         // Sends the custom dimension to Google Analytics.
-        gtag('event', 'collection', {'Collection': 'my awesome collection'});
         gtag('event', "collection <%= rand(5) %>",
         {
           'event_category': 'collection_view',
