@@ -26,22 +26,7 @@
     <%= content_for(:head) %>
   </head>
   <body class="<%= render_body_class %>">
-    <script>
-        // Configures custom dimension<Index> to use the custom parameter
-        // 'dimension_name' for 'GA_MEASUREMENT_ID', where <Index> is a number
-        // representing the index of the custom dimension.
-        // gtag('config', '<%= ENV['GA_TRACKING_CODE']  %>', {
-        //   'custom_map': {'metric1': 'Collection'}
-        // });
 
-        // Sends the custom dimension to Google Analytics.
-        gtag('event', "collection <%= rand(5) %>",
-        {
-          'event_category': 'collection_view',
-          'event_label': 'item <%= rand(6..10) %>',
-          'value': 'my_value'
-        });
-      </script>
 
       <div id="skip-link">
       <%= link_to t('blacklight.skip_links.search_field'), '#search_field', class: 'element-invisible element-focusable rounded-bottom py-2 px-3', data: { turbolinks: 'false' } %>
