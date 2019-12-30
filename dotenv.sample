@@ -14,3 +14,4 @@ RAILS_MAX_THREADS=5
 IIIF_MANIFEST_URL=https://curate-qa.curationexperts.com/concern/curate_generic_works/
 THUMBNAIL_URL=https://curate-qa.curationexperts.com/
 SOLR_URL=http://localhost:8983/solr/dlp-lux
+GA_TRACKING_CODE=UA-your_google_analytics_tracking_id
