@@ -36,7 +36,7 @@
 
         // Sends the custom dimension to Google Analytics.
         gtag('event', 'collection', {'Collection': 'my awesome collection'});
-        gtag('event', <%= rand(5) %>,
+        gtag('event', "<%= rand(5) %>",
         {
           'event_category': 'collection_view',
           'event_label': 'my_label',
