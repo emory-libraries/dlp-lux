@@ -31,13 +31,19 @@
         // 'dimension_name' for 'GA_MEASUREMENT_ID', where <Index> is a number
         // representing the index of the custom dimension.
         gtag('config', '<%= ENV['GA_TRACKING_CODE']  %>', {
-          'custom_map': {'metric1': 'collection'}
+          'custom_map': {'metric1': 'Collection'}
         });
 
         // Sends the custom dimension to Google Analytics.
-        gtag('event', 'any_event_name', {'collection': 'my awesome collection'});
-
+        gtag('event', 'any_event_name', {'Collection': 'my awesome collection'});
+        gtag('event', 'view_homepage',
+        {
+          'event_category': 'my_category',
+          'event_label': 'my_label',
+          'value': 'my_value'
+        });
       </script>
+
       <div id="skip-link">
       <%= link_to t('blacklight.skip_links.search_field'), '#search_field', class: 'element-invisible element-focusable rounded-bottom py-2 px-3', data: { turbolinks: 'false' } %>
       <%= link_to t('blacklight.skip_links.main_content'), '#main-container', class: 'element-invisible element-focusable rounded-bottom py-2 px-3', data: { turbolinks: 'false' } %>
