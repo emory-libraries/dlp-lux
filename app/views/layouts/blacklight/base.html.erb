@@ -35,10 +35,10 @@
         });
 
         // Sends the custom dimension to Google Analytics.
-        gtag('event', 'any_event_name', {'Collection': 'my awesome collection'});
-        gtag('event', 'view_homepage',
+        gtag('event', 'collection', {'Collection': 'my awesome collection'});
+        gtag('event', 'Langmuir Photographs',
         {
-          'event_category': 'my_category',
+          'event_category': 'collection_view',
           'event_label': 'my_label',
           'value': 'my_value'
         });
