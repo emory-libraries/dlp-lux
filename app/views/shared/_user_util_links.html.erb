@@ -6,7 +6,11 @@
   <% if has_user_authentication_provider? %>
     <% if current_user %>
       <li class="nav-item">
-        <%= link_to t('blacklight.header_links.logout'), destroy_user_session_path, class: 'nav-link' %>
+        <% if current_user.display_name %>
+          <%= link_to "#{t('blacklight.header_links.logout')} #{current_user.display_name} ", destroy_user_session_path, class: 'nav-link' %>
+        <% else %>
+          <%= link_to t('blacklight.header_links.logout'), destroy_user_session_path, class: 'nav-link' %>
+        <% end %>
       </li>
     <% else %>
       <li class="nav-item">

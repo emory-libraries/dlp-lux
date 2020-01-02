@@ -4,6 +4,7 @@ DATABASE_USERNAME=lux
 DATABASE_PASSWORD=lux
 DATABASE_POOL=25
 RAILS_MAX_THREADS=5
+DATABASE_AUTH=true
 
 # Base URL for the Hyrax instance that serves IIIF manifests
 #
