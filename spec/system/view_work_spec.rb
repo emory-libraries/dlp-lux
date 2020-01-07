@@ -47,7 +47,7 @@ RSpec.feature "View a Work" do
     expect(page).to have_content('Creator:')
     expect(page).to have_content('Contributor:')
     expect(page).to have_content('Date Created:')
-    expect(page).to have_content('Date Published/Issued:')
+    expect(page).to have_content('Date Published / Issued:')
     expect(page).to have_content('Data Collection Dates:')
     expect(page).to have_content('Format:')
     expect(page).to have_content('Genre:')
@@ -79,7 +79,7 @@ RSpec.feature "View a Work" do
     expect(page).to have_content('Publisher:')
     expect(page).to have_content('Final Published Version:')
     expect(page).to have_content('Version of Publication:')
-    expect(page).to have_content('Place of Publication/Production:')
+    expect(page).to have_content('Place of Publication / Production:')
     expect(page).to have_content('Volume:')
     expect(page).to have_content('Edition:')
     expect(page).to have_content('Issue:')
@@ -90,7 +90,7 @@ RSpec.feature "View a Work" do
 
     # Additional Details
     expect(page).to have_content('Conference Dates:')
-    expect(page).to have_content('Event/Conference Name:')
+    expect(page).to have_content('Event / Conference Name:')
     expect(page).to have_content('Sponsor:')
     expect(page).to have_content('Data Producer:')
     expect(page).to have_content('Grant / Funding Agency:')
