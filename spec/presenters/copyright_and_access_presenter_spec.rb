@@ -4,9 +4,7 @@ require 'rails_helper'
 RSpec.describe AccessAndCopyrightPresenter do
   let(:pres) { described_class.new(document: CURATE_GENERIC_WORK) }
   let(:copyright_terms) do
-    { emory_rights_statements_tesim: ['Srsly, y\'all, don\'t copy this.'],
-      human_readable_rights_statement_tesim: ['In Copyright - EU Orphan Work'],
-      rights_holders_tesim: ['Owned by Jamie'],
+    { rights_holders_tesim: ['Owned by Jamie'],
       copyright_date_tesim: ['2027'],
       human_readable_re_use_license_tesim: ['Creative Commons BY Attribution 4.0 International'],
       access_restriction_notes_tesim: ['You can access this only in the Rose reading room, alternate Thursdays.'] }

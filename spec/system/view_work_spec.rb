@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'rails_helper'
 
-RSpec.feature "View a Work" do
+RSpec.describe "View a Work", type: :system, js: true do
   before do
     solr = Blacklight.default_index.connection
     solr.add(work_attributes)
@@ -192,10 +192,14 @@ RSpec.feature "View a Work" do
 
     # Access and Copyright
     expect(page).to have_content('Srsly, y\'all, don\'t copy this.')
-    expect(page).to have_content('In Copyright - EU Orphan Work')
+    expect(page).to have_content('In Copyright - Non-Commercial Use Permitted')
     expect(page).to have_content('Owned by Jamie')
     expect(page).to have_content('2027')
     expect(page).to have_content('Creative Commons BY Attribution 4.0 International')
     expect(page).to have_content('You can access this only in the Rose reading room, alternate Thursdays.')
+  end
+
+  it 'has a linked rights statement' do
+    expect(page).to have_link('In Copyright - Non-Commercial Use Permitted', href: 'http://rightsstatements.org/vocab/InC-NC/1.0/')
   end
 end
