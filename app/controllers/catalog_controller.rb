@@ -101,7 +101,7 @@ class CatalogController < ApplicationController
     config.add_facet_field 'subject_topics_sim', label: 'Subject - Topics'
     config.add_facet_field 'subject_names_sim', label: 'Subject - Names'
     config.add_facet_field 'subject_geo_sim', label: 'Subject - Geographic Locations'
-    config.add_facet_field 'human_readable_rights_statement_ssim', label: 'Rights Statement - Controlled'
+    config.add_facet_field 'human_readable_rights_statement_ssim', label: 'Rights Status'
 
     #config.add_facet_field 'pub_date_ssim', label: 'Publication Year', single: true
     #config.add_facet_field 'subject_ssim', label: 'Topic', limit: 20, index_range: 'A'..'Z'
@@ -136,7 +136,7 @@ class CatalogController < ApplicationController
     config.add_show_field 'creator_tesim', label: 'Creator'
     config.add_show_field 'contributors_tesim', label: 'Contributor'
     config.add_show_field 'human_readable_date_created_tesim', label: 'Date Created'
-    config.add_show_field 'date_issued_tesim', label: 'Date Issued'
+    config.add_show_field 'date_issued_tesim', label: 'Date Published/Issued'
     config.add_show_field 'data_collection_dates_tesim', label: 'Data Collection Dates'
     config.add_show_field 'human_readable_content_type_tesim', label: 'Format'
     config.add_show_field 'content_genres_tesim', label: 'Genre'
@@ -170,13 +170,13 @@ class CatalogController < ApplicationController
     config.add_show_field 'volume_tesim', label: 'Volume'
     config.add_show_field 'edition_tesim', label: 'Edition'
     config.add_show_field 'issue_tesim', label: 'Issue'
-    config.add_show_field 'page_range_start_tesim', label: 'Page Range - Start'
-    config.add_show_field 'page_range_end_tesim', label: 'Page Range - End'
+    config.add_show_field 'page_range_start_tesim', label: 'Start Page'
+    config.add_show_field 'page_range_end_tesim', label: 'End Page'
     config.add_show_field 'issn_tesim', label: 'ISSN'
     config.add_show_field 'isbn_tesim', label: 'ISBN'
     # For "Additional Details" section of show page
     config.add_show_field 'conference_dates_tesim', label: 'Conference Dates'
-    config.add_show_field 'conference_name_tesim', label: 'Conference / Meeting Name'
+    config.add_show_field 'conference_name_tesim', label: 'Event/Conference Name'
     config.add_show_field 'sponsor_tesim', label: 'Sponsor'
     config.add_show_field 'data_producers_tesim', label: 'Data Producer'
     config.add_show_field 'grant_agencies_tesim', label: 'Grant / Funding Agency'
@@ -191,7 +191,7 @@ class CatalogController < ApplicationController
     config.add_show_field 'related_datasets_tesim', label: 'Related Datasets'
     # For "Access and Copyright " section of show page
     config.add_show_field 'emory_rights_statements_tesim', label: 'Rights Statement'
-    config.add_show_field 'human_readable_rights_statement_tesim', label: 'Rights Statement - Controlled'
+    config.add_show_field 'human_readable_rights_statement_tesim', label: 'Rights Status'
     config.add_show_field 'rights_holders_tesim', label: 'Rights Holder'
     config.add_show_field 'copyright_date_tesim', label: 'Copyright Date'
     config.add_show_field 'human_readable_re_use_license_tesim', label: 'Re-Use License'
