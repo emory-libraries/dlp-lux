@@ -16,4 +16,3 @@ IIIF_MANIFEST_URL=https://curate-qa.curationexperts.com/concern/curate_generic_w
 THUMBNAIL_URL=https://curate-qa.curationexperts.com/
 SOLR_URL=http://localhost:8983/solr/dlp-lux
 GA_TRACKING_CODE=UA-your_google_analytics_tracking_id
-GTM_TRACKING_CODE=GTM-your_google_tags_tracking_id
