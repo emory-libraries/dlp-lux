@@ -1,7 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>LuxBl7</title>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=<%= ENV['GA_TRACKING_CODE']  %>"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', '<%= ENV['GA_TRACKING_CODE']  %>');
+    </script>
+
+    <title>Lux</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>

@@ -1,1 +1,11 @@
+<script>
+
+  // Sends the custom dimension to Google Analytics.
+  gtag('event', "<%= document['member_of_collections_ssim']&.first %>",
+  {
+    'event_category': 'collection_view',
+    'event_label': '<%= document['title_tesim'].first %>',
+    'value': 'my_value'
+  });
+</script>
 <%= render 'relationship_block', document: document, presenter: IsPartOfPresenter, presenter_class: 'is-part-of', title: 'This item is part of:' %>
