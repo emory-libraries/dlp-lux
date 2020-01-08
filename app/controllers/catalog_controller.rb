@@ -93,7 +93,6 @@ class CatalogController < ApplicationController
 
     config.add_facet_field 'holding_repository_sim', label: 'Library'
     config.add_facet_field 'member_of_collections_ssim', label: 'Collection'
-    config.add_facet_field 'year_created_isim', label: 'Year Created'
     config.add_facet_field 'human_readable_content_type_ssim', label: 'Format'
     config.add_facet_field 'content_genres_sim', label: 'Genre'
     config.add_facet_field 'primary_language_sim', label: 'Language'
