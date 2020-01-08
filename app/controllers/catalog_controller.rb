@@ -136,7 +136,7 @@ class CatalogController < ApplicationController
     config.add_show_field 'creator_tesim', label: 'Creator'
     config.add_show_field 'contributors_tesim', label: 'Contributor'
     config.add_show_field 'human_readable_date_created_tesim', label: 'Date Created'
-    config.add_show_field 'date_issued_tesim', label: 'Date Published / Issued'
+    config.add_show_field 'human_readable_date_issued_tesim', label: 'Date Published / Issued'
     config.add_show_field 'data_collection_dates_tesim', label: 'Data Collection Dates'
     config.add_show_field 'human_readable_content_type_tesim', label: 'Format'
     config.add_show_field 'content_genres_tesim', label: 'Genre'
