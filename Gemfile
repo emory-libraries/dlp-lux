@@ -9,6 +9,7 @@ ruby '>=2.5.0'
 
 # Trying Blacklight 7 for comparison to 6
 gem 'blacklight', ">= 7"
+gem 'blacklight_advanced_search', git: 'https://github.com/projectblacklight/blacklight_advanced_search'
 gem 'dotenv-rails'
 gem 'honeybadger', '~> 4.0'
 gem 'mysql2', '~> 0.5'

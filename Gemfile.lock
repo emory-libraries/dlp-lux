@@ -8,6 +8,14 @@ GIT
       colorize
       terminal-table
 
+GIT
+  remote: https://github.com/projectblacklight/blacklight_advanced_search
+  revision: 4e2ba68f30cb0bccf345be46bc8299c71cb59c5a
+  specs:
+    blacklight_advanced_search (7.0.0.alpha)
+      blacklight (~> 7.0)
+      parslet
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -1044,6 +1052,7 @@ GEM
     parallel (1.19.1)
     parser (2.6.5.0)
       ast (~> 2.4.0)
+    parslet (1.8.2)
     popper_js (1.14.5)
     powerpack (0.1.2)
     pry (0.12.2)
@@ -1252,6 +1261,7 @@ DEPENDENCIES
   bixby
   blacklight (>= 7)
   blacklight-marc (>= 7.0.0.rc1)
+  blacklight_advanced_search!
   bootstrap (~> 4.0)
   byebug
   cap-ec2-emory!
