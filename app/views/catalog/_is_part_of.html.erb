@@ -4,8 +4,12 @@
   gtag('event', "<%= document['member_of_collections_ssim']&.first %>",
   {
     'event_category': 'collection_view',
-    'event_label': '<%= document['title_tesim'].first %>',
-    'value': 'my_value'
+    'event_label': '<%= document['title_tesim'].first %>'
+  });
+  gtag('event', "<%= document['holding_repository_tesim']&.first %>",
+  {
+    'event_category': 'holding_repository_view',
+    'event_label': '<%= document['title_tesim'].first %>'
   });
 </script>
 <%= render 'relationship_block', document: document, presenter: IsPartOfPresenter, presenter_class: 'is-part-of', title: 'This item is part of:' %>
