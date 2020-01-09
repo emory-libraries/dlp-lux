@@ -175,6 +175,17 @@ RSpec.describe 'Search the catalog', type: :system, js: false do
     end
   end
 
+  it 'finds items by ID' do
+    visit root_path
+    fill_in 'q', with: '222'
+    click_on 'search'
+
+    within '#documents' do
+      expect(page).to       have_content('Yellow Banana')
+      expect(page).not_to   have_content('Orange Carrot')
+    end
+  end
+
   it 'searches the right fields, first set' do
     visit root_path
     fill_in 'q', with: '3Guv4P44'
