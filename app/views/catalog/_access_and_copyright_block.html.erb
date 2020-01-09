@@ -1,6 +1,6 @@
 <% doc_presenter = show_presenter(document) %>
 <% fields = presenter.new(document: doc_presenter.fields_to_render).terms %>
-<% if fields.length > 0 %>
+<% if document["has_model_ssim"]&.first == "CurateGenericWork" %>
   <div class="<%= presenter_class %> card mb-2">
     <div class="card-header"><%= title %></div>
     <div class="card-body">
