@@ -12,13 +12,22 @@
  *
  *= require_tree .
  *= require_self
- */
+ 
+ *= require 'blacklight_advanced_search'
+
+*/
  /* .document-thumbnail img {
      max-width: 150px;
      vertical-align: top;
      float: left;
- } */
+ } 
+ *= require 'blacklight_advanced_search'
+
+*/
 
  /* .document-metadata dt {
     align: left;
- } */
+ } 
+ *= require 'blacklight_advanced_search'
+
+*/
