@@ -1,8 +1,9 @@
 <% doc_presenter = show_presenter(document) %>
 <% fields = presenter.new(document: doc_presenter.fields_to_render).terms %>
-<% if fields.length > 0 %>
-  <div class="<%= presenter_class %> card mb-2">
-    <div class="card-header"><%= title %></div>
+
+<div class="<%= presenter_class %> card mb-2">
+  <div class="card-header"><%= title %></div>
+  <% if fields.length > 0 %>
     <div class="card-body">
       <dl>
         <% fields.each do |field_name, field| %>
@@ -11,5 +12,5 @@
         <% end %>
       </dl>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
