@@ -50,6 +50,9 @@ RSpec.describe CatalogController, type: :controller do
 
     let(:expected_search_fields) do
       ['all_fields',
+       'common_fields',
+       'creator',
+       'subject',
        'title']
     end
 

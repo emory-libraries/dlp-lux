@@ -33,8 +33,10 @@ class CatalogController < ApplicationController
       qt: 'search',
       mm: '100%',
       rows: 10,
-      qf: 'title_tesim creator_tesim contributors_tesim abstract_tesim table_of_contents_tesim keywords_tesim
-           subject_topics_tesim subject_names_tesim subject_geo_tesim parent_title_tesim uniform_title_tesim publisher_tesim id',
+      qf: 'system_of_record_ID_tesim primary_repository_ID_tesim emory_ark_tesim local_call_number_tesim
+           other_identifiers_tesim title_tesim uniform_title_tesim series_title_tesim parent_title_tesim
+           creator_tesim contributors_tesim keywords_tesim subject_topics_tesim subject_names_tesim
+           subject_geo_tesim subject_time_periods_tesim id',
       fq: '(((has_model_ssim:CurateGenericWork) OR (has_model_ssim:Collection)) AND (visibility_ssi:open))'
       ### we want to only return works where visibility_ssi == open (not restricted)
     }
@@ -225,18 +227,64 @@ class CatalogController < ApplicationController
     # solr request handler? The one set in config[:default_solr_parameters][:qt],
     # since we aren't specifying it otherwise.
 
-    config.add_search_field 'all_fields', label: 'All Fields'
+    config.add_search_field 'common_fields', label: 'Common Fields'
 
     # Now we see how to over-ride Solr request handler defaults, in this
     # case for a BL "search field", which is really a dismax aggregate
     # of Solr search fields.
 
-    config.add_search_field('title') do |field|
+    # config.add_search_field('title') do |field|
+    #   # solr_parameters hash are sent to Solr as ordinary url query params.
+    #   field.solr_parameters = {
+    #     'spellcheck.dictionary': 'title',
+    #     qf: '${title_qf}',
+    #     pf: '${title_pf}'
+    #   }
+    # end
+
+    id_fields =       ['system_of_record_ID_tesim', 'primary_repository_ID_tesim', 'emory_ark_tesim',
+                       'local_call_number_tesim', 'other_identifiers_tesim']
+    title_fields =    ['title_tesim', 'uniform_title_tesim', 'series_title_tesim', 'parent_title_tesim']
+    creator_fields =  ['creator_tesim', 'contributors_tesim']
+    subject_fields =  ['keywords_tesim', 'subject_topics_tesim', 'subject_names_tesim', 'subject_geo_tesim',
+                       'subject_time_periods_tesim']
+    misc_fields =     ['institution_tesim', 'primary_language_tesim', 'publisher_tesim', 'holding_repository_tesim',
+                       'related_material_notes_tesim', 'place_of_production_tesim', 'administrative_unit_tesim',
+                       'conference_name_tesim', 'sublocation_tesim', 'sponsor_tesim', 'data_producers_tesim',
+                       'grant_agencies_tesim', 'content_genres_tesim', 'grant_information_tesim', 'author_notes_tesim',
+                       'notes_tesim', 'data_source_notes_tesim', 'geographic_unit_tesim', 'technical_note_tesim',
+                       'issn_tesim', 'isbn_tesim', 'abstract_tesim', 'related_publications_tesim', 'related_datasets_tesim',
+                       'table_of_contents_tesim']
+
+    config.add_search_field('title', label: 'Title') do |field|
       # solr_parameters hash are sent to Solr as ordinary url query params.
       field.solr_parameters = {
-        'spellcheck.dictionary': 'title',
-        qf: '${title_qf}',
-        pf: '${title_pf}'
+        qf: title_fields.join(' '),
+        pf: ''
+      }
+    end
+
+    config.add_search_field('creator', label: 'Creator') do |field|
+      # solr_parameters hash are sent to Solr as ordinary url query params.
+      field.solr_parameters = {
+        qf: creator_fields.join(' '),
+        pf: ''
+      }
+    end
+
+    config.add_search_field('subject', label: 'Subject') do |field|
+      # solr_parameters hash are sent to Solr as ordinary url query params.
+      field.solr_parameters = {
+        qf: subject_fields.join(' '),
+        pf: ''
+      }
+    end
+
+    config.add_search_field('all_fields', label: 'All Fields') do |field|
+      # solr_parameters hash are sent to Solr as ordinary url query params.
+      field.solr_parameters = {
+        qf: (id_fields + title_fields + creator_fields + subject_fields + misc_fields).join(' '),
+        pf: ''
       }
     end
 

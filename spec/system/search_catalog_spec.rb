@@ -196,8 +196,6 @@ RSpec.describe 'Search the catalog', type: :system, js: false do
       expect(result_titles).to contain_exactly(
         'Target in creator',
         'Target in contributors',
-        'Target in abstract',
-        'Target in table of contents',
         'Target in keywords',
         'Target in subject topics'
       )
@@ -216,7 +214,6 @@ RSpec.describe 'Search the catalog', type: :system, js: false do
         'Target in subject geo',
         'Target in parent title',
         'Target in uniform title',
-        'Target in publisher',
         'Target in creator, model is collection'
       )
     end
