@@ -14,7 +14,7 @@ class User < ApplicationRecord
   # Include devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   # remove :database_authenticatable in production, remove :validatable to integrate with Shibboleth
-  devise_modules = [:omniauthable, :rememberable, omniauth_providers: [:shibboleth], authentication_keys: [:uid]]
+  devise_modules = [:omniauthable, :rememberable, :trackable, omniauth_providers: [:shibboleth], authentication_keys: [:uid]]
   devise_modules.prepend(:database_authenticatable) if AuthConfig.use_database_auth?
   devise(*devise_modules)
 
