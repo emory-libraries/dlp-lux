@@ -19,6 +19,17 @@ Discovery application for Emory's Cor repository.
 1. Install the required gems: `bundle install`
 1. Configure the MySQL development and test databases. This is accomplished by setting the environment variables that `database.yml` expects. In the root directory of the application, create a `.env` file and add the line `DATABASE_USERNAME=root`. (By default, MySQL has the username `root` with no password.) Also create a `.env.development` file and a `.env.test` file and add the lines `DATABASE_NAME=dlp-lux_development` and `DATABASE_NAME=dlp-lux_test`, respectively.
 1. In order to be able to sign into the application locally, the environment variable `DATABASE_AUTH=true` must be set in your development environment.
+  * You must create a user via the rails console:
+  ```ruby
+    bundle exec rails c
+    u = User.new
+    u.uid = "user"
+    u.display_name = "User Name"
+    u.email = "email@testdomain.com"
+    u.password = "password"
+    u.password_confirmation = "password"
+    u.save
+  ```
 1. Create and migrate the development database: `rails db:create db:migrate`
 1. Create and migrate the test database: `RAILS_ENV=test rails db:create db:migrate`
 1. Migrate the database: `rails db:migrate`
