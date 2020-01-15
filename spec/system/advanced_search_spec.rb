@@ -176,7 +176,7 @@ RSpec.describe 'Search the catalog using advanced search', type: :system, js: fa
     end
   end
 
-  xit 'gets correct search results from title field' do
+  it 'gets correct search results from title field' do
     visit root_path
     click_on "More options"
     # Search for something
@@ -187,5 +187,11 @@ RSpec.describe 'Search the catalog using advanced search', type: :system, js: fa
       expect(page).to     have_content('Orange Carrot')
       expect(page).not_to have_content('Yellow Banana')
     end
+  end
+
+  it 'does not display simple search bar' do
+    visit root_path
+    click_on "More options"
+    expect(page).to have_no_css('.search-query-form')
   end
 end
