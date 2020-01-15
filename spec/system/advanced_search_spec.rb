@@ -194,4 +194,10 @@ RSpec.describe 'Search the catalog using advanced search', type: :system, js: fa
     click_on "More options"
     expect(page).to have_no_css('.search-query-form')
   end
+
+  it 'does not display facets' do
+    visit root_path
+    click_on "More options"
+    expect(page).to have_no_css('.limit-criteria')
+  end
 end
