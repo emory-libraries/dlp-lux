@@ -12,7 +12,7 @@ ruby '>=2.5.0'
 # Blacklight 7, because Blacklight 6 did not successfully deploy to production
 gem 'blacklight', ">= 7"
 gem 'blacklight-marc', '>= 7.0.0.rc1'
-gem 'blacklight_advanced_search', git: 'https://github.com/projectblacklight/blacklight_advanced_search'
+gem 'blacklight_advanced_search', '~> 7.0'
 gem 'bootstrap', '~> 4.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
