@@ -895,6 +895,8 @@ GEM
     blacklight_advanced_search (7.0.0)
       blacklight (~> 7.0)
       parslet
+    blacklight_range_limit (7.4.0)
+      blacklight (>= 7.0)
     bootstrap (4.3.1)
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 1.14.3, < 2)
@@ -1257,6 +1259,8 @@ DEPENDENCIES
   blacklight (>= 7)
   blacklight-marc (>= 7.0.0.rc1)
   blacklight_advanced_search (~> 7.0)
+  blacklight_advanced_search!
+  blacklight_range_limit
   bootstrap (~> 4.0)
   byebug
   cap-ec2-emory!
