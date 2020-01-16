@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 class CatalogController < ApplicationController
+  include BlacklightRangeLimit::ControllerOverride
   include BlacklightAdvancedSearch::Controller
   include Blacklight::Catalog
   include Blacklight::Marc::Catalog
@@ -107,7 +108,11 @@ class CatalogController < ApplicationController
     config.add_facet_field 'human_readable_content_type_ssim', label: 'Format'
     config.add_facet_field 'content_genres_sim', label: 'Genre'
     config.add_facet_field 'primary_language_sim', label: 'Language'
-    config.add_facet_field 'year_for_lux_isim', label: 'Date'
+    config.add_facet_field 'year_for_lux_isim', label: 'Date',
+                                                range: {
+                                                  assumed_boundaries: [1000, Time.zone.now.year],
+                                                  maxlength: 4
+                                                }
     config.add_facet_field 'subject_topics_sim', label: 'Subject - Topics'
     config.add_facet_field 'subject_names_sim', label: 'Subject - Names'
     config.add_facet_field 'subject_geo_sim', label: 'Subject - Geographic Locations'
