@@ -28,8 +28,10 @@ RSpec.describe "View a Collection", type: :system, js: true do
     # expect(page).to have_content('This item is part of:')
   end
 
-  xit 'has Collection specific metadata labels' do
-    expect(page).to have_content('Uniform Title:')
+  it 'has Collection specific metadata labels' do
+    expect(page).to have_content('View items in this digital collection')
+    byebug
+    expect(page).to have_link('119f4qrfj9-cor' , href: "#{root_path}/?f%5Bmember_of_collections_ssim%5D%5B%5D=Chester+W.+Topp+collection+of+Victorian+yellowbacks+and+paperbacks&per_page=10")
   end
 
   xit 'has Collection specific metadata values' do
