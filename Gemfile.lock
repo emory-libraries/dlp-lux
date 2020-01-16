@@ -8,14 +8,6 @@ GIT
       colorize
       terminal-table
 
-GIT
-  remote: https://github.com/projectblacklight/blacklight_advanced_search
-  revision: 4e2ba68f30cb0bccf345be46bc8299c71cb59c5a
-  specs:
-    blacklight_advanced_search (7.0.0.alpha)
-      blacklight (~> 7.0)
-      parslet
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -900,6 +892,9 @@ GEM
       marc-fastxmlwriter
       rails
       traject (~> 3.0)
+    blacklight_advanced_search (7.0.0)
+      blacklight (~> 7.0)
+      parslet
     blacklight_range_limit (7.4.0)
       blacklight (>= 7.0)
     bootstrap (4.3.1)
@@ -1263,7 +1258,7 @@ DEPENDENCIES
   bixby
   blacklight (>= 7)
   blacklight-marc (>= 7.0.0.rc1)
-  blacklight_advanced_search!
+  blacklight_advanced_search (~> 7.0)
   blacklight_range_limit
   bootstrap (~> 4.0)
   byebug
