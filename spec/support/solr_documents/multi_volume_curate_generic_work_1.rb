@@ -71,4 +71,4 @@ MULTI_VOLUME_CURATE_GENERIC_WORK = {
   read_access_group_ssim: ["public", "Repository Administrators", "repository_manager"],
   edit_access_group_ssim: ["admin", "Repository Administrators", "repository_manager"],
   edit_access_person_ssim: ["tmiles2", "eporter"]
-}
+}.freeze
