@@ -1,0 +1,2 @@
+<%= render 'no_header_card_block', document: document, presenter: ViewItemsInCollectionPresenter, presenter_class: 'view-items-in-collection', title: 'View items in this digital collection' %>
+<a href="/?f%5Bmember_of_collections_ssim%5D%5B%5D=<%= CGI::escape(document[:title_tesim]&.first) %>&per_page=10">View items in this digital collection</a>

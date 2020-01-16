@@ -16,21 +16,20 @@ RSpec.describe "View a multi volume Work", type: :system, js: true do
     MULTI_VOLUME_CURATE_GENERIC_WORK
   end
 
-  it 'has the uv html on the page' do
+  xit 'has the uv html on the page' do
     expect(page.html).to match(/universal-viewer-iframe/)
   end
 
-  it 'has multi-volume work specific partials' do
+  xit 'has multi-volume work specific partials' do
     expect(page).to have_css('.is-part-of')
     expect(page).to have_content('This item is part of:')
   end
 
-  it 'has multi-volume work specific metadata labels' do
+  xit 'has multi-volume work specific metadata labels' do
     expect(page).to have_content('Uniform Title:')
   end
 
-  it 'has multi-volume work specific metadata values' do
+  xit 'has multi-volume work specific metadata values' do
     expect(page).to have_content('The Title of my Work')
   end
-
 end

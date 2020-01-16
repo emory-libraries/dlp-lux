@@ -6,7 +6,7 @@ RSpec.describe AboutThisCollectionPresenter do
   let(:about_terms) do
     { abstract_tesim: ["Collection of yellowbacks and paperbacks collected by Chester W. Topp.  Yellowbacks are cheap novels published in the late nineteenth and early twentieth century in Great Britain."],
       creator_tesim: ["Topp, Chester W., collector."],
-      holding_repository_tesim: ["Stuart A. Rose Manuscript, Archives, and Rare Book Library"]}
+      holding_repository_tesim: ["Stuart A. Rose Manuscript, Archives, and Rare Book Library"] }
   end
   context 'with a solr document' do
     describe '#terms' do
