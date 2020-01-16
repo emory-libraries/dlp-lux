@@ -1,5 +1,10 @@
 <div class="row-flex">
-  <%= render "about_this_item", document: document %>
+  <% if document["has_model_ssim"]&.first == "Collection" %>
+    <%= render "about_this_collection", document: document %>
+  <% end %>
+  <% if document["has_model_ssim"]&.first == "CurateGenericWork" %>
+    <%= render "about_this_item", document: document %>
+  <% end %>
   <%= render "subjects_keywords", document: document %>
   <%= render "publication_details", document: document %>
   <%= render "additional_details", document: document %>

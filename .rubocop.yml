@@ -32,6 +32,10 @@ Metrics/BlockLength:
         - 'app/controllers/catalog_controller.rb'
         - 'config/routes.rb'
 
+Metrics/LineLength:
+    Exclude:
+        - 'spec/**/*'
+
 Metrics/AbcSize:
     Exclude:
         - 'app/models/marc_indexer.rb'

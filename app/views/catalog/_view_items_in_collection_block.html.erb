@@ -1,0 +1,9 @@
+<% doc_presenter = show_presenter(document) %>
+<% fields = presenter.new(document: doc_presenter.fields_to_render).terms %>
+  <div class="<%= presenter_class %> card mb-2">
+    <div class="card-body">
+      <dl>
+        <dd class="blacklight-view-items-in-collection"><a href="/?f%5Bmember_of_collections_ssim%5D%5B%5D=<%= CGI::escape(document[:title_tesim]&.first) %>&per_page=10">View items in this digital collection</a></dd>
+      </dl>
+    </div>
+  </div>
