@@ -21,7 +21,7 @@ RSpec.describe "View a Collection", type: :system, js: true do
   end
 
   it 'has only Collection-specific partials' do
-    expect(page).to have_css('.view_items_in_collection')
+    expect(page).to have_css('.view-items-in-collection')
     expect(page).to have_css('.about-this-collection')
     expect(page).to have_content('About This Collection')
     expect(page).not_to have_css('.about-this-item')
@@ -31,10 +31,10 @@ RSpec.describe "View a Collection", type: :system, js: true do
 
   it 'has Collection specific metadata labels' do
     expect(page).to have_content('View items in this digital collection')
-    expect(page).to have_link('View items in this digital collection', href: "#{root_path}?f%5Bmember_of_collections_ssim%5D%5B%5D=#{CGI::escape(work_attributes[:title_tesim]&.first)}&per_page=10")
+    expect(page).to have_link('View items in this digital collection', href: "#{root_path}?f%5Bmember_of_collections_ssim%5D%5B%5D=#{CGI.escape(work_attributes[:title_tesim]&.first)}&per_page=10")
   end
 
-  xit 'has Collection specific metadata values' do
-    expect(page).to have_content('The Title of my Work')
+  it 'has Collection specific metadata values' do
+    expect(page).to have_content('Chester W. Topp collection of Victorian yellowbacks and paperbacks')
   end
 end
