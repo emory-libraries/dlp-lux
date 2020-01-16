@@ -107,7 +107,7 @@ class CatalogController < ApplicationController
     config.add_facet_field 'human_readable_content_type_ssim', label: 'Format'
     config.add_facet_field 'content_genres_sim', label: 'Genre'
     config.add_facet_field 'primary_language_sim', label: 'Language'
-    config.add_facet_field 'year_for_lux_isim', label: 'Date'
+    config.add_facet_field 'year_for_lux_isim', label: 'Date', sort: 'index'
     config.add_facet_field 'subject_topics_sim', label: 'Subject - Topics'
     config.add_facet_field 'subject_names_sim', label: 'Subject - Names'
     config.add_facet_field 'subject_geo_sim', label: 'Subject - Geographic Locations'
@@ -208,6 +208,8 @@ class CatalogController < ApplicationController
     config.add_show_field 'access_restriction_notes_tesim', label: 'Access Restrictions'
     # For "This item is part of:" section of show page
     config.add_show_field 'member_of_collections_ssim'
+    config.add_show_field 'title_tesim', label: 'View items in this digital collection', link_to_facet: 'member_of_collections_ssim'
+
 
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
