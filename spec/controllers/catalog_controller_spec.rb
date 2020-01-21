@@ -53,7 +53,23 @@ RSpec.describe CatalogController, type: :controller do
        'common_fields',
        'creator',
        'subject',
-       'title']
+       'title',
+       'all_fields_advanced',
+       'subject_topics',
+       'subject_names',
+       'subject_geo',
+       'subject_time_periods',
+       'keywords',
+       'table_of_contents',
+       'abstract',
+       'publisher',
+       'content_genres',
+       'notes',
+       'author_notes',
+       'grant_information_notes',
+       'technical_note',
+       'data_source_notes',
+       'related_material_notes']
     end
 
     it { expect(search_fields).to contain_exactly(*expected_search_fields) }
