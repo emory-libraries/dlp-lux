@@ -234,7 +234,9 @@ class CatalogController < ApplicationController
     # solr request handler? The one set in config[:default_solr_parameters][:qt],
     # since we aren't specifying it otherwise.
 
-    config.add_search_field 'common_fields', label: 'Common Fields'
+    config.add_search_field('common_fields', label: 'Common Fields') do |field|
+      field.include_in_advanced_search = false
+    end
 
     # Now we see how to over-ride Solr request handler defaults, in this
     # case for a BL "search field", which is really a dismax aggregate
@@ -263,6 +265,15 @@ class CatalogController < ApplicationController
                        'issn_tesim', 'isbn_tesim', 'abstract_tesim', 'related_publications_tesim', 'related_datasets_tesim',
                        'table_of_contents_tesim']
 
+    config.add_search_field('all_fields_advanced', label: 'All Fields') do |field|
+      field.include_in_simple_select = false
+      # solr_parameters hash are sent to Solr as ordinary url query params.
+      field.solr_parameters = {
+        qf: (id_fields + title_fields + creator_fields + subject_fields + misc_fields).join(' '),
+        pf: ''
+      }
+    end
+
     config.add_search_field('title', label: 'Title') do |field|
       # solr_parameters hash are sent to Solr as ordinary url query params.
       field.solr_parameters = {
@@ -280,6 +291,7 @@ class CatalogController < ApplicationController
     end
 
     config.add_search_field('subject', label: 'Subject') do |field|
+      field.include_in_advanced_search = false
       # solr_parameters hash are sent to Solr as ordinary url query params.
       field.solr_parameters = {
         qf: subject_fields.join(' '),
@@ -288,9 +300,145 @@ class CatalogController < ApplicationController
     end
 
     config.add_search_field('all_fields', label: 'All Fields') do |field|
+      field.include_in_advanced_search = false
       # solr_parameters hash are sent to Solr as ordinary url query params.
       field.solr_parameters = {
         qf: (id_fields + title_fields + creator_fields + subject_fields + misc_fields).join(' '),
+        pf: ''
+      }
+    end
+
+    config.add_search_field('subject_topics', label: 'Subject - Topics') do |field|
+      field.include_in_simple_select = false
+      # solr_parameters hash are sent to Solr as ordinary url query params.
+      field.solr_parameters = {
+        qf: 'subject_topics_tesim',
+        pf: ''
+      }
+    end
+
+    config.add_search_field('subject_names', label: 'Subject - Names') do |field|
+      field.include_in_simple_select = false
+      # solr_parameters hash are sent to Solr as ordinary url query params.
+      field.solr_parameters = {
+        qf: 'subject_names_tesim',
+        pf: ''
+      }
+    end
+
+    config.add_search_field('subject_geo', label: 'Subject - Geographic Locations') do |field|
+      field.include_in_simple_select = false
+      # solr_parameters hash are sent to Solr as ordinary url query params.
+      field.solr_parameters = {
+        qf: 'subject_geo_tesim',
+        pf: ''
+      }
+    end
+
+    config.add_search_field('subject_time_periods', label: 'Subject - Time Periods') do |field|
+      field.include_in_simple_select = false
+      # solr_parameters hash are sent to Solr as ordinary url query params.
+      field.solr_parameters = {
+        qf: 'subject_time_periods_tesim',
+        pf: ''
+      }
+    end
+
+    config.add_search_field('keywords', label: 'Keywords') do |field|
+      field.include_in_simple_select = false
+      # solr_parameters hash are sent to Solr as ordinary url query params.
+      field.solr_parameters = {
+        qf: 'keywords_tesim',
+        pf: ''
+      }
+    end
+
+    config.add_search_field('table_of_contents', label: 'Table of Contents') do |field|
+      field.include_in_simple_select = false
+      # solr_parameters hash are sent to Solr as ordinary url query params.
+      field.solr_parameters = {
+        qf: 'table_of_contents_tesim',
+        pf: ''
+      }
+    end
+
+    config.add_search_field('abstract', label: 'Description / Abstract') do |field|
+      field.include_in_simple_select = false
+      # solr_parameters hash are sent to Solr as ordinary url query params.
+      field.solr_parameters = {
+        qf: 'abstract_tesim',
+        pf: ''
+      }
+    end
+
+    config.add_search_field('publisher', label: 'Publisher') do |field|
+      field.include_in_simple_select = false
+      # solr_parameters hash are sent to Solr as ordinary url query params.
+      field.solr_parameters = {
+        qf: 'publisher_tesim',
+        pf: ''
+      }
+    end
+
+    config.add_search_field('content_genres', label: 'Genre') do |field|
+      field.include_in_simple_select = false
+      # solr_parameters hash are sent to Solr as ordinary url query params.
+      field.solr_parameters = {
+        qf: 'content_genres_tesim',
+        pf: ''
+      }
+    end
+
+    config.add_search_field('notes', label: 'Note') do |field|
+      field.include_in_simple_select = false
+      # solr_parameters hash are sent to Solr as ordinary url query params.
+      field.solr_parameters = {
+        qf: 'notes_tesim',
+        pf: ''
+      }
+    end
+
+    config.add_search_field('author_notes', label: 'Author Notes') do |field|
+      field.include_in_simple_select = false
+      # solr_parameters hash are sent to Solr as ordinary url query params.
+      field.solr_parameters = {
+        qf: 'author_notes_tesim',
+        pf: ''
+      }
+    end
+
+    config.add_search_field('grant_information_notes', label: 'Grant / Funding Information') do |field|
+      field.include_in_simple_select = false
+      # solr_parameters hash are sent to Solr as ordinary url query params.
+      field.solr_parameters = {
+        qf: 'grant_information_tesim',
+        pf: ''
+      }
+    end
+
+    config.add_search_field('technical_note', label: 'Technical Note') do |field|
+      field.include_in_simple_select = false
+      # solr_parameters hash are sent to Solr as ordinary url query params.
+      field.solr_parameters = {
+        qf: 'technical_note_tesim',
+        pf: ''
+      }
+    end
+
+    config.add_search_field('data_source_notes', label: 'Data Sources Notes') do |field|
+      field.include_in_simple_select = false
+      # solr_parameters hash are sent to Solr as ordinary url query params.
+      field.solr_parameters = {
+        qf: 'data_source_notes_tesim',
+        pf: ''
+      }
+    end
+
+    config.add_search_field('related_material_notes', label: 'Related Material') do |field|
+      field.include_in_simple_select = false
+      # solr_parameters hash are sent to Solr as ordinary url query params.
+      field.solr_parameters = {
+        qf: 'related_material_notes_tesim',
         pf: ''
       }
     end
