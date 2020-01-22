@@ -197,7 +197,7 @@ class CatalogController < ApplicationController
     config.add_show_field 'grant_agencies_tesim', label: 'Grant / Funding Agency'
     config.add_show_field 'grant_information_tesim', label: 'Grant / Funding Information'
     config.add_show_field 'author_notes_tesim', label: 'Author Notes'
-    config.add_show_field 'data_source_notes_tesim', label: 'Data Sources Note'
+    config.add_show_field 'data_source_notes_tesim', label: 'Data Source Notes'
     config.add_show_field 'geographic_unit_tesim', label: 'Geographic Level for Dataset'
     config.add_show_field 'technical_note_tesim', label: 'Technical Note'
     # For "Related Material" section of show page
@@ -425,7 +425,7 @@ class CatalogController < ApplicationController
       }
     end
 
-    config.add_search_field('data_source_notes', label: 'Data Sources Notes') do |field|
+    config.add_search_field('data_source_notes', label: 'Data Source Notes') do |field|
       field.include_in_simple_select = false
       # solr_parameters hash are sent to Solr as ordinary url query params.
       field.solr_parameters = {
