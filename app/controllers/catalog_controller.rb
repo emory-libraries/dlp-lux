@@ -102,20 +102,20 @@ class CatalogController < ApplicationController
     #  (useful when user clicks "more" on a large facet and wants to navigate alphabetically across a large set of results)
     # :index_range can be an array or range of prefixes that will be used to create the navigation (note: It is case sensitive when searching values)
 
-    config.add_facet_field 'holding_repository_sim', label: 'Library'
-    config.add_facet_field 'member_of_collections_ssim', label: 'Collection'
-    config.add_facet_field 'creator_sim', label: 'Creator'
-    config.add_facet_field 'human_readable_content_type_ssim', label: 'Format'
-    config.add_facet_field 'content_genres_sim', label: 'Genre'
-    config.add_facet_field 'primary_language_sim', label: 'Language'
+    config.add_facet_field 'holding_repository_sim', limit: 5, label: 'Library'
+    config.add_facet_field 'member_of_collections_ssim', limit: 5, label: 'Collection'
+    config.add_facet_field 'creator_sim', limit: 5, label: 'Creator'
+    config.add_facet_field 'human_readable_content_type_ssim', limit: 5, label: 'Format'
+    config.add_facet_field 'content_genres_sim', limit: 5, label: 'Genre'
+    config.add_facet_field 'primary_language_sim', limit: 5, label: 'Language'
     config.add_facet_field 'year_for_lux_isim', label: 'Date',
                                                 range: {
                                                   assumed_boundaries: [1000, Time.zone.now.year],
                                                   maxlength: 4
                                                 }
-    config.add_facet_field 'subject_topics_sim', label: 'Subject - Topics'
-    config.add_facet_field 'subject_names_sim', label: 'Subject - Names'
-    config.add_facet_field 'subject_geo_sim', label: 'Subject - Geographic Locations'
+    config.add_facet_field 'subject_topics_sim', limit: 5, label: 'Subject - Topics'
+    config.add_facet_field 'subject_names_sim', limit: 5, label: 'Subject - Names'
+    config.add_facet_field 'subject_geo_sim', limit: 5, label: 'Subject - Geographic Locations'
     config.add_facet_field 'human_readable_rights_statement_ssim', label: 'Rights Status'
 
     #config.add_facet_field 'pub_date_ssim', label: 'Publication Year', single: true
