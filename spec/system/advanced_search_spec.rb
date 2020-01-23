@@ -379,7 +379,7 @@ RSpec.describe 'Search the catalog using advanced search', type: :system, js: fa
     end
   end
 
-  it 'searches the right field for Data Sources Note target' do
+  it 'searches the right field for Data Source Notes target' do
     visit root_path
     click_on "More options"
     # Search for something

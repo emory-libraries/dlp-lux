@@ -96,7 +96,7 @@ RSpec.describe "View a Work", type: :system, js: true do
     expect(page).to have_content('Grant / Funding Agency:')
     expect(page).to have_content('Grant / Funding Information:')
     expect(page).to have_content('Author Notes:')
-    expect(page).to have_content('Data Sources Note:')
+    expect(page).to have_content('Data Source Notes:')
     expect(page).to have_content('Geographic Level for Dataset:')
     expect(page).to have_content('Technical Note:')
 
