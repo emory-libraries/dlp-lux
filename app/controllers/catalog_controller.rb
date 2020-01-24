@@ -160,6 +160,8 @@ class CatalogController < ApplicationController
     config.add_show_field 'notes_tesim', label: 'Note'
     config.add_show_field 'abstract_tesim', label: 'Description / Abstract'
     config.add_show_field 'table_of_contents_tesim', label: 'Table of Contents'
+    # For "About This Collection" section of show page
+    config.add_show_field 'finding_aid_link_ssm', label: 'Learn More'
     # For "Subjects / Keywords" section of show page
     config.add_show_field 'subject_topics_tesim', label: 'Subject - Topics'
     config.add_show_field 'subject_names_tesim', label: 'Subject - Names'
