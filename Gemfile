@@ -11,6 +11,7 @@ ruby '>=2.5.0'
 # gem 'bcrypt', '~> 3.1.7'
 # Blacklight 7, because Blacklight 6 did not successfully deploy to production
 gem 'blacklight', ">= 7"
+gem 'blacklight-access_controls'
 gem 'blacklight-marc', '>= 7.0.0.rc1'
 gem 'blacklight_advanced_search', '~>7.0'
 gem 'blacklight_range_limit'

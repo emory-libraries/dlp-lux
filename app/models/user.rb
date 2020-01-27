@@ -2,6 +2,8 @@
 class User < ApplicationRecord
   # Connects this user object to Blacklights Bookmarks.
   include Blacklight::User
+  include Blacklight::AccessControls::User
+
 
   class NilShibbolethUserError < RuntimeError
     attr_accessor :auth

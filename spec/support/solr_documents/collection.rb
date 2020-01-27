@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 COLLECTION = {
   has_model_ssim: ["Collection"],
+  visibility_ssi: "open",
+  read_access_group_ssim: ["public"],
   id: "119f4qrfj9-cor",
   accessControl_ssim: ["38cd37a4-9437-4ecf-868f-bbdb290b2341"],
   title_tesim: ["Chester W. Topp collection of Victorian yellowbacks and paperbacks"],
@@ -29,8 +31,6 @@ COLLECTION = {
   thumbnail_path_ss: "/assets/collection-a38b932554788aa578debf2319e8c4ba8a7db06b3ba57ecda1391a548a4b6e0a.png",
   generic_type_sim: ["Collection"],
   bytes_lts: 312_470_524,
-  visibility_ssi: "open",
-  read_access_group_ssim: ["public"],
   edit_access_person_ssim: ["tmiles2"],
   human_readable_type_sim: "Collection",
   human_readable_type_tesim: "Collection"

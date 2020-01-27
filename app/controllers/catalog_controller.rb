@@ -3,6 +3,11 @@ class CatalogController < ApplicationController
   include BlacklightRangeLimit::ControllerOverride
   include BlacklightAdvancedSearch::Controller
   include Blacklight::Catalog
+  include Blacklight::AccessControls::Catalog
+
+  # Apply the blacklight-access_controls
+  before_action :enforce_show_permissions, only: :show
+
   include Blacklight::Marc::Catalog
 
   def guest_uid_authentication_key(key)
@@ -38,8 +43,7 @@ class CatalogController < ApplicationController
            other_identifiers_tesim title_tesim uniform_title_tesim series_title_tesim parent_title_tesim
            creator_tesim contributors_tesim keywords_tesim subject_topics_tesim subject_names_tesim
            subject_geo_tesim subject_time_periods_tesim id',
-      fq: '(((has_model_ssim:CurateGenericWork) OR (has_model_ssim:Collection)) AND (visibility_ssi:open))'
-      ### we want to only return works where visibility_ssi == open (not restricted)
+      fq: '((has_model_ssim:CurateGenericWork) OR (has_model_ssim:Collection))'
     }
 
     # solr path which will be added to solr base url before the other solr params.

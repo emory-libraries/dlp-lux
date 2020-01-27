@@ -885,6 +885,10 @@ GEM
       jbuilder (~> 2.7)
       kaminari (>= 0.15)
       rails (>= 5.1, < 7)
+    blacklight-access_controls (6.0.0)
+      blacklight (> 6.0, < 8)
+      cancancan (~> 1.8)
+      deprecation (~> 1.0)
     blacklight-marc (7.0.0.rc1)
       blacklight (> 7.0.0.a, < 8.a)
       library_stdnums
@@ -903,6 +907,7 @@ GEM
       sassc-rails (>= 2.0.0)
     builder (3.2.3)
     byebug (11.0.1)
+    cancancan (1.17.0)
     capistrano (3.11.2)
       airbrussh (>= 1.0.0)
       i18n
@@ -1257,6 +1262,7 @@ PLATFORMS
 DEPENDENCIES
   bixby
   blacklight (>= 7)
+  blacklight-access_controls
   blacklight-marc (>= 7.0.0.rc1)
   blacklight_advanced_search (~> 7.0)
   blacklight_range_limit
