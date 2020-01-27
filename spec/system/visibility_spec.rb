@@ -39,11 +39,12 @@ RSpec.describe "View a Work with Emory High Resolution visibility", js: true do
     it 'only displays Universal Viewer if user has at least "read"-level access' do
       # Should see Universal Viewer
       visit solr_document_path(open_work_id)
-      expect(page).to have_selector(css_selector_for_uv)
+      expect(page).to have_content 'Work with Open Access'
 
       # Shouldn't see Universal Viewer
       visit solr_document_path(emory_high_work_id)
-      expect(page).not_to have_selector(css_selector_for_uv)
+      expect(page).not_to have_content 'Work with Emory High visibility'
+      expect(page).to have_content 'The page you were looking for doesn\'t exist'
     end
   end
   context 'as a logged in user' do
@@ -63,7 +64,7 @@ RSpec.describe "View a Work with Emory High Resolution visibility", js: true do
       {
         id: emory_high_work_id,
         has_model_ssim: ['CurateGenericWork'],
-        title_tesim: ['Work with Emory Low visibility'],
+        title_tesim: ['Work with Emory High visibility'],
         edit_access_group_ssim: ["admin"],
         read_access_group_ssim: ["registered"],
         visibility_ssi: ['authenticated']
@@ -85,11 +86,12 @@ RSpec.describe "View a Work with Emory High Resolution visibility", js: true do
     it 'only displays Universal Viewer if user has at least "read"-level access' do
       # Should see Universal Viewer
       visit solr_document_path(open_work_id)
-      expect(page).to have_selector(css_selector_for_uv)
+      expect(page).to have_content 'Work with Open Access'
 
       # Shouldn't see Universal Viewer
       visit solr_document_path(emory_high_work_id)
-      expect(page).to have_selector(css_selector_for_uv)
+      expect(page).to have_content 'Work with Emory High visibility'
+      expect(page).not_to have_content 'The page you were looking for doesn\'t exist'
     end
   end
 end
