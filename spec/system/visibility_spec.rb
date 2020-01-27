@@ -2,7 +2,7 @@
 require 'rails_helper'
 include Warden::Test::Helpers
 
-RSpec.describe "View an Emory High Resolution Work", js: true do
+RSpec.describe "View a Work with Emory High Resolution visibility", js: true do
   context 'as a guest user' do
     before do
       solr = Blacklight.default_index.connection
@@ -43,7 +43,7 @@ RSpec.describe "View an Emory High Resolution Work", js: true do
 
       # Shouldn't see Universal Viewer
       visit solr_document_path(emory_high_work_id)
-      expect(page).to_not have_selector(css_selector_for_uv)
+      expect(page).not_to have_selector(css_selector_for_uv)
     end
   end
   context 'as a logged in user' do

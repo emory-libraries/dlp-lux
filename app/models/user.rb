@@ -4,7 +4,6 @@ class User < ApplicationRecord
   include Blacklight::User
   include Blacklight::AccessControls::User
 
-
   class NilShibbolethUserError < RuntimeError
     attr_accessor :auth
 
