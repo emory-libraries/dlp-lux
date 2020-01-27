@@ -2,7 +2,7 @@
 require 'rails_helper'
 include Warden::Test::Helpers
 
-RSpec.describe "View a Work with Emory High Resolution visibility", js: true do
+RSpec.describe "View a Work with Emory High Resolution visibility" do
   context 'as a guest user' do
     before do
       solr = Blacklight.default_index.connection
@@ -36,7 +36,7 @@ RSpec.describe "View a Work with Emory High Resolution visibility", js: true do
 
     let(:css_selector_for_uv) { '.uv-container' }
 
-    it 'only displays Universal Viewer if user has at least "read"-level access' do
+    it 'only displays show page if user has at least "read"-level access' do
       # Should see Universal Viewer
       visit solr_document_path(open_work_id)
       expect(page).to have_content 'Work with Open Access'
@@ -81,9 +81,7 @@ RSpec.describe "View a Work with Emory High Resolution visibility", js: true do
       }
     end
 
-    let(:css_selector_for_uv) { '.uv-container' }
-
-    it 'only displays Universal Viewer if user has at least "read"-level access' do
+    it 'only displays show page if user has at least "read"-level access' do
       # Should see Universal Viewer
       visit solr_document_path(open_work_id)
       expect(page).to have_content 'Work with Open Access'
