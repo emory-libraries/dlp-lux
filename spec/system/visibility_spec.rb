@@ -51,7 +51,7 @@ RSpec.describe "View a Work with Emory High Resolution visibility", type: :syste
     before do
       login_as user
     end
-      it 'only displays show page if user has at least "read"-level access' do
+    it 'only displays show page if user has at least "read"-level access' do
       # Should see page content
       visit solr_document_path(open_work_id)
       expect(page).to have_content 'Work with Open Access'
