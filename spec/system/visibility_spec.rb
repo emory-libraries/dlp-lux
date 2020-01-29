@@ -2,7 +2,7 @@
 require 'rails_helper'
 include Warden::Test::Helpers
 
-RSpec.describe "View a Work with Emory High Resolution visibility", type: :system, js: true do
+RSpec.describe "View a Work with Emory High Resolution visibility", type: :system do
   before do
     solr = Blacklight.default_index.connection
     solr.add([work_with_emory_high_visibility, work_with_open_visibility])
