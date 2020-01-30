@@ -48,6 +48,10 @@ Metrics/MethodLength:
     Exclude:
         - 'app/models/marc_indexer.rb'
 
+Metrics/ModuleLength:
+    Exclude:
+        - 'lib/blacklight/access_controls/ability.rb'
+
 Metrics/PerceivedComplexity:
     Exclude:
         - 'app/models/marc_indexer.rb'
