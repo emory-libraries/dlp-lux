@@ -476,7 +476,7 @@ class CatalogController < ApplicationController
     # whether the sort is ascending or descending (it must be asc or desc
     # except in the relevancy case).
     config.add_sort_field 'score desc, year_for_lux_isim desc, title_ssort asc', label: 'relevance'
-    config.add_sort_field 'year_for_lux_isim desc, title_ssort asc', label: 'year'
+    config.add_sort_field 'year_for_lux_isim desc, title_ssort asc', label: 'date'
     config.add_sort_field 'creator_ssort asc', label: 'creator'
     config.add_sort_field 'title_ssort asc, year_for_lux_isim desc', label: 'title'
 
