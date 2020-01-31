@@ -8,7 +8,8 @@ end
 ruby '>=2.5.0'
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+# Needed for support of OpenSSH keys
+gem 'bcrypt_pbkdf'
 # Blacklight 7, because Blacklight 6 did not successfully deploy to production
 gem 'blacklight', ">= 7"
 gem 'blacklight-access_controls', git: 'https://github.com/projectblacklight/blacklight-access_controls', ref: '21e04f5'
@@ -20,6 +21,8 @@ gem 'bootstrap', '~> 4.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'devise'
 gem 'dotenv-rails'
+# Needed for support of OpenSSH keys
+gem 'ed25519'
 gem 'honeybadger', '~> 4.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
