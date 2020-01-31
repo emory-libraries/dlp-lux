@@ -21,7 +21,8 @@ RSpec.describe CatalogController, type: :controller do
        'subject_topics',
        'subject_names',
        'subject_geo',
-       'human_readable_rights_statement']
+       'human_readable_rights_statement',
+       'read_access_group']
     end
 
     it 'has exactly expected facets' do
@@ -40,7 +41,8 @@ RSpec.describe CatalogController, type: :controller do
     let(:expected_index_fields) do
       ['creator_tesim',
        'human_readable_date_created_tesim',
-       'human_readable_content_type_tesim']
+       'human_readable_content_type_tesim',
+       'read_access_group']
     end
     it { expect(index_fields).to contain_exactly(*expected_index_fields) }
   end
