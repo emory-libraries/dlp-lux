@@ -15,10 +15,8 @@ class ApplicationController < ActionController::Base
   # GET /uv/config
   # Retrieve the UV configuration for a given resource
   def uv_config
-    resource = solr_document_path(resource_id_param)
-
-    config = if (user_signed_in?)
-                uv_config_liberal
+    config = if user_signed_in?
+               uv_config_liberal
              else
                default_config
              end

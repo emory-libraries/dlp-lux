@@ -14,7 +14,6 @@ RSpec.describe "UvConfiguration requests", type: :request do
   let(:id) { '123' }
   let(:work_attributes) { CURATE_GENERIC_WORK }
 
-
   describe "GET /uv/config/:id" do
     it "pulls a Universal Viewer manifest for the resource" do
       get "/uv/config/#{id}", params: { format: :json }
