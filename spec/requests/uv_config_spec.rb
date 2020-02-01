@@ -28,7 +28,8 @@ RSpec.describe "UvConfiguration requests", type: :request do
       expect(response_values["modules"]["footerPanel"]).to include "options"
       expect(response_values["modules"]["footerPanel"]["options"]).to include(
         "shareEnabled" => false,
-        "downloadEnabled" => false
+        "downloadEnabled" => false,
+        "fullscreenEnabled" => false
       )
     end
 
@@ -61,8 +62,8 @@ RSpec.describe "UvConfiguration requests", type: :request do
         expect(response_values["modules"]["footerPanel"]).to include "options"
         expect(response_values["modules"]["footerPanel"]["options"]).to include(
           "shareEnabled" => true,
-          "downloadEnabled" => true
-        )
+          "downloadEnabled" => true,
+          "fullscreenEnabled" => true        )
       end
     end
   end

@@ -12,7 +12,8 @@ class UvConfiguration < ActiveSupport::HashWithIndifferentAccess
           "options" =>
           {
             "shareEnabled" => false,
-            "downloadEnabled" => false
+            "downloadEnabled" => false,
+            "fullscreenEnabled" => false
           }
         }
       }

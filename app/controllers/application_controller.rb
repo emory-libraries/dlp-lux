@@ -44,7 +44,8 @@ class ApplicationController < ActionController::Base
         footerPanel: {
           options: {
             shareEnabled: true,
-            downloadEnabled: true
+            downloadEnabled: true,
+            fullscreenEnabled:true
           }
         }
       }
