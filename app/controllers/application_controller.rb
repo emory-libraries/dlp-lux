@@ -45,7 +45,7 @@ class ApplicationController < ActionController::Base
           options: {
             shareEnabled: true,
             downloadEnabled: true,
-            fullscreenEnabled:true
+            fullscreenEnabled: true
           }
         }
       }

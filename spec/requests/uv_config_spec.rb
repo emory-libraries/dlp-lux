@@ -63,7 +63,8 @@ RSpec.describe "UvConfiguration requests", type: :request do
         expect(response_values["modules"]["footerPanel"]["options"]).to include(
           "shareEnabled" => true,
           "downloadEnabled" => true,
-          "fullscreenEnabled" => true        )
+          "fullscreenEnabled" => true
+        )
       end
     end
   end
