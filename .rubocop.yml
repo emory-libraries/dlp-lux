@@ -59,6 +59,7 @@ Metrics/PerceivedComplexity:
 RSpec/DescribeClass:
     Exclude:
         - 'spec/system/visibility_spec.rb'
+        - 'spec/routing/uv_config_routes_spec.rb'
 
 RSpec/ExampleLength:
     Exclude:
