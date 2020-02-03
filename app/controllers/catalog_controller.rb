@@ -221,6 +221,7 @@ class CatalogController < ApplicationController
     config.add_show_field 'access_restriction_notes_tesim', label: 'Access Restrictions'
     # For "This item is part of:" section of show page
     config.add_show_field 'member_of_collections_ssim'
+    config.add_show_field 'member_of_collection_ids_ssim'
     # For "View items in this digital collection" section of show page
     config.add_show_field 'title_tesim'
 
