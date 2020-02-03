@@ -16,7 +16,7 @@ RSpec.describe 'Search the catalog', type: :system, js: false do
       has_model_ssim: ['CurateGenericWork'],
       title_tesim: ['Orange Carrot'],
       title_ssort: 'Orange Carrot',
-      year_for_lux_isim: [2000],
+      year_for_lux_isi: 2000,
       creator_ssort: 'Bittersweet Tangerine',
       visibility_ssi: ['open']
     }
@@ -28,7 +28,7 @@ RSpec.describe 'Search the catalog', type: :system, js: false do
       has_model_ssim: ['CurateGenericWork'],
       title_tesim: ['Yellow Banana'],
       title_ssort: 'Yellow Banana',
-      year_for_lux_isim: [2001],
+      year_for_lux_isi: 2001,
       creator_ssort: 'Buff Saffron',
       visibility_ssi: ['open']
     }
@@ -40,14 +40,14 @@ RSpec.describe 'Search the catalog', type: :system, js: false do
       has_model_ssim: ['CurateGenericWork'],
       title_tesim: ['red Apple'],
       title_ssort: 'red Apple',
-      year_for_lux_isim: [2002],
+      year_for_lux_isi: 2002,
       creator_ssort: 'Sour Grapes',
       visibility_ssi: ['open']
     }
   end
 
   it 'has correct sorting behavior for year' do
-    visit '/?q=&search_field=common_fields&sort=year_for_lux_isim+desc%2C+title_ssort+asc'
+    visit '/?q=&search_field=common_fields&sort=year_for_lux_isi+desc%2C+title_ssort+asc'
     expect(page).to have_content('1. red Apple')
     expect(page).to have_content('2. Yellow Banana')
     expect(page).to have_content('3. Orange Carrot')
@@ -61,7 +61,7 @@ RSpec.describe 'Search the catalog', type: :system, js: false do
   end
 
   it 'has correct sorting behavior for title' do
-    visit '/?q=&search_field=common_fields&sort=title_ssort+asc%2C+year_for_lux_isim+desc'
+    visit '/?q=&search_field=common_fields&sort=title_ssort+asc%2C+year_for_lux_isi+desc'
     expect(page).to have_content('1. Orange Carrot')
     expect(page).to have_content('2. red Apple')
     expect(page).to have_content('3. Yellow Banana')
