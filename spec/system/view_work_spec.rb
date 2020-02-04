@@ -118,8 +118,7 @@ RSpec.describe "View a Work", type: :system, js: true do
     expect(page).to have_content('The Title of my Work')
 
     # This item is part of:
-    expect(page).to have_content('Chester W. Topp collection of Victorian yellowbacks and paperbacks')
-
+    expect(page).to have_link('Chester W. Topp collection of Victorian yellowbacks and paperbacks', href: "805fbg79d6-cor")
     # About This Item
     expect(page).to have_content('This is a uniform title')
     expect(page).to have_content('This is a series title')

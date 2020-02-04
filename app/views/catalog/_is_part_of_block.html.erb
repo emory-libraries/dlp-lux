@@ -5,9 +5,7 @@
     <div class="card-header"><%= title %></div>
     <div class="card-body">
       <dl>
-        <% fields.each do |field_name, field| %>
-          <dd class="blacklight-<%= field_name.parameterize %>"><%= doc_presenter.field_value field %></dd>
-        <% end %>
+        <dd class="blacklight-member_of_collections"><a href=<%= document["member_of_collection_ids_ssim"]&.first %>><%= document["member_of_collections_ssim"]&.first %></a></dd>
       </dl>
     </div>
   </div>
