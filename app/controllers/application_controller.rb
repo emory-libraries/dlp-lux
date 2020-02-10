@@ -15,7 +15,10 @@ class ApplicationController < ActionController::Base
   # GET /uv/config
   # Retrieve the UV configuration for a given resource
   def uv_config
-    config = if user_signed_in?
+    v = visibility_lookup(resource_id_param)
+    config = if v == "open"
+               uv_config_liberal
+             elsif v == ("authenticated" || "emory_low") && user_signed_in?
                uv_config_liberal
              else
                default_config
@@ -50,5 +53,10 @@ class ApplicationController < ActionController::Base
         }
       }
     )
+  end
+
+  def visibility_lookup(resource_id)
+    response = Blacklight.default_index.connection.get 'select', :params => {:q => "id:#{resource_id}"}
+    response["response"]["docs"].first["visibility_ssi"]
   end
 end

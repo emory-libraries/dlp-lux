@@ -2,20 +2,20 @@
 require 'rails_helper'
 include Warden::Test::Helpers
 
-RSpec.describe "View a Work with Emory High Resolution visibility", type: :system do
+RSpec.describe "View Works with different levels of visibility", type: :system do
   before do
     solr = Blacklight.default_index.connection
     solr.add([
                work_with_emory_high_visibility,
-               work_with_open_visibility,
-               work_with_public_low_res_visibility,
+               work_with_public_visibility,
+               work_with_public_low_view_visibility,
                work_with_emory_low_visibility
              ])
     solr.commit
   end
   let(:emory_high_work_id) { '111-321' }
-  let(:open_work_id) { '222-321' }
-  let(:public_low_res_work_id) { '333-321' }
+  let(:public_work_id) { '222-321' }
+  let(:public_low_view_work_id) { '333-321' }
   let(:emory_low_work_id) { '444-321' }
 
   let(:work_with_emory_high_visibility) do
@@ -29,9 +29,9 @@ RSpec.describe "View a Work with Emory High Resolution visibility", type: :syste
     }
   end
 
-  let(:work_with_open_visibility) do
+  let(:work_with_public_visibility) do
     {
-      id: open_work_id,
+      id: public_work_id,
       has_model_ssim: ['CurateGenericWork'],
       title_tesim: ['Work with Open Access'],
       edit_access_group_ssim: ["admin"],
@@ -40,9 +40,9 @@ RSpec.describe "View a Work with Emory High Resolution visibility", type: :syste
     }
   end
 
-  let(:work_with_public_low_res_visibility) do
+  let(:work_with_public_low_view_visibility) do
     {
-      id: public_low_res_work_id,
+      id: public_low_view_work_id,
       has_model_ssim: ['CurateGenericWork'],
       title_tesim: ['Work with Public Low Resolution'],
       edit_access_group_ssim: ["admin"],
@@ -64,7 +64,7 @@ RSpec.describe "View a Work with Emory High Resolution visibility", type: :syste
   context 'as a guest user' do
     it 'only displays show page if user has at least "read"-level access' do
       # Should see page content
-      visit solr_document_path(open_work_id)
+      visit solr_document_path(public_work_id)
       expect(page).to have_content 'Work with Open Access'
 
       # Should not see page content
@@ -73,7 +73,7 @@ RSpec.describe "View a Work with Emory High Resolution visibility", type: :syste
       expect(page).to have_content 'Custom 404 page'
 
       # Should see (low res) page content
-      visit solr_document_path(public_low_res_work_id)
+      visit solr_document_path(public_low_view_work_id)
       expect(page).to have_content('Work with Public Low Resolution')
 
       # Should not see page content
@@ -90,7 +90,7 @@ RSpec.describe "View a Work with Emory High Resolution visibility", type: :syste
     end
     it 'only displays show page if user has at least "read"-level access' do
       # Should see page content
-      visit solr_document_path(open_work_id)
+      visit solr_document_path(public_work_id)
       expect(page).to have_content 'Work with Open Access'
 
       # Should see page content
@@ -99,7 +99,7 @@ RSpec.describe "View a Work with Emory High Resolution visibility", type: :syste
       expect(page).not_to have_content 'Custom 404 page'
 
       # Should see (low res) page content
-      visit solr_document_path(public_low_res_work_id)
+      visit solr_document_path(public_low_view_work_id)
       expect(page).to have_content('Work with Public Low Resolution')
 
       # Should see (low res) page content
