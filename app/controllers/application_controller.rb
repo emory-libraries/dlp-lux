@@ -56,7 +56,7 @@ class ApplicationController < ActionController::Base
   end
 
   def visibility_lookup(resource_id)
-    response = Blacklight.default_index.connection.get 'select', :params => {:q => "id:#{resource_id}"}
+    response = Blacklight.default_index.connection.get 'select', params: { q: "id:#{resource_id}" }
     response["response"]["docs"].first["visibility_ssi"]
   end
 end
