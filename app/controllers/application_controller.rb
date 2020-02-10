@@ -18,7 +18,9 @@ class ApplicationController < ActionController::Base
     v = visibility_lookup(resource_id_param)
     config = if v == "open"
                uv_config_liberal
-             elsif v == ("authenticated" || "emory_low") && user_signed_in?
+             elsif v == "authenticated" && user_signed_in?
+               uv_config_liberal
+             elsif v == "emory_low" && user_signed_in?
                uv_config_liberal
              else
                default_config
