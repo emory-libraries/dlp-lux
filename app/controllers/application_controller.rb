@@ -45,8 +45,8 @@ class ApplicationController < ActionController::Base
           options: {
             autoCompleteBoxEnabled: true,
             galleryButtonEnabled: true,
-            imageSelectionBoxEnabled: false,
-            pageModeEnabled: false,
+            imageSelectionBoxEnabled: true,
+            pageModeEnabled: true,
             pagingToggleEnabled: true
           }
         },
