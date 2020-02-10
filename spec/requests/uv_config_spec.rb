@@ -3,7 +3,7 @@
 require "rails_helper"
 include Warden::Test::Helpers
 
-RSpec.describe "UvConfiguration requests", type: :request do
+RSpec.describe "UvConfiguration requests", :clean, type: :request do
   before do
     solr = Blacklight.default_index.connection
     solr.add([
