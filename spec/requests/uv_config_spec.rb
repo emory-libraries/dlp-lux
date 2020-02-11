@@ -76,6 +76,7 @@ RSpec.describe "UvConfiguration requests", :clean, type: :request do
 
         response_values = JSON.parse(response.body)
         expect(response_values).to include "modules"
+        expect(response_values["modules"]["pagingHeaderPanel"]["options"]).to include "pagingToggleEnabled" => true
         expect(response_values["modules"]["footerPanel"]).to include "options"
         expect(response_values["modules"]["footerPanel"]["options"]).to include(
           "shareEnabled" => true,
@@ -93,6 +94,7 @@ RSpec.describe "UvConfiguration requests", :clean, type: :request do
 
         response_values = JSON.parse(response.body)
         expect(response_values).to include "modules"
+        expect(response_values["modules"]["pagingHeaderPanel"]["options"]).to include "pagingToggleEnabled" => true
         expect(response_values["modules"]["footerPanel"]).to include "options"
         expect(response_values["modules"]["footerPanel"]["options"]).to include(
           "shareEnabled" => false,
@@ -127,6 +129,7 @@ RSpec.describe "UvConfiguration requests", :clean, type: :request do
 
         response_values = JSON.parse(response.body)
         expect(response_values).to include "modules"
+        expect(response_values["modules"]["pagingHeaderPanel"]["options"]).to include "pagingToggleEnabled" => true
         expect(response_values["modules"]).to include "footerPanel"
         expect(response_values["modules"]["footerPanel"]).to include "options"
         expect(response_values["modules"]["footerPanel"]["options"]).to include(
