@@ -47,6 +47,7 @@ Metrics/CyclomaticComplexity:
 Metrics/MethodLength:
     Exclude:
         - 'app/models/marc_indexer.rb'
+        - 'app/values/uv_configuration.rb'
 
 Metrics/ModuleLength:
     Exclude:
