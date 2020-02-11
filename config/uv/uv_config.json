@@ -10,5 +10,10 @@
                 "shareEnabled": false
             }
         }
+        "pagingHeaderPanel": {
+          "options": {
+            "pagingToggleEnabled": true
+          }
+        },
     }
 }

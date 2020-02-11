@@ -15,6 +15,11 @@ class UvConfiguration < ActiveSupport::HashWithIndifferentAccess
             "downloadEnabled" => false,
             "fullscreenEnabled" => false
           }
+        },
+        "pagingHeaderPanel" => {
+          "options" => {
+            "pagingToggleEnabled" => true
+          }
         }
       }
     }

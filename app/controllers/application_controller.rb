@@ -41,15 +41,6 @@ class ApplicationController < ActionController::Base
   def uv_config_liberal
     UvConfiguration.new(
       modules: {
-        pagingHeaderPanel: {
-          options: {
-            autoCompleteBoxEnabled: true,
-            galleryButtonEnabled: true,
-            imageSelectionBoxEnabled: true,
-            pageModeEnabled: true,
-            pagingToggleEnabled: true
-          }
-        },
         footerPanel: {
           options: {
             shareEnabled: true,
