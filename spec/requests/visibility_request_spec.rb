@@ -14,7 +14,7 @@ RSpec.describe "UvConfiguration requests", :clean, type: :request do
                work_with_rose_high_visibility
              ])
     solr.commit
-    ENV['READING_ROOM_IP'] = '123.456.1.100'
+    ENV['READING_ROOM_IPS'] = '123.456.1.100 456.789 345.789'
   end
 
   let(:non_reading_room_ip) { '192.168.1.100' }
