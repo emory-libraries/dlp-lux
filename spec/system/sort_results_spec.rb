@@ -46,24 +46,45 @@ RSpec.describe 'Search the catalog', type: :system, js: false do
     }
   end
 
-  it 'has correct sorting behavior for year' do
+  it 'has correct sorting behavior for Date (oldest)' do
     visit '/?q=&search_field=common_fields&sort=year_for_lux_isi+desc%2C+title_ssort+asc'
     expect(page).to have_content('1. red Apple')
     expect(page).to have_content('2. Yellow Banana')
     expect(page).to have_content('3. Orange Carrot')
   end
 
-  it 'has correct sorting behavior for creator' do
+  it 'has correct sorting behavior for Date (Newest)' do
+    visit '/?q=&search_field=common_fields&sort=year_for_lux_isi+asc%2C+title_ssort+asc'
+    expect(page).to have_content('1. Orange Carrot')
+    expect(page).to have_content('2. Yellow Banana')
+    expect(page).to have_content('3. red Apple')
+  end
+
+  it 'has correct sorting behavior for Creator (A-Z)' do
     visit '/?q=&search_field=common_fields&sort=creator_ssort+asc'
     expect(page).to have_content('1. Orange Carrot')
     expect(page).to have_content('2. Yellow Banana')
     expect(page).to have_content('3. red Apple')
   end
 
-  it 'has correct sorting behavior for title' do
+  it 'has correct sorting behavior for Creator (Z-A)' do
+    visit '/?q=&search_field=common_fields&sort=creator_ssort+desc'
+    expect(page).to have_content('1. red Apple')
+    expect(page).to have_content('2. Yellow Banana')
+    expect(page).to have_content('3. Orange Carrot')
+  end
+
+  it 'has correct sorting behavior for Title (A-Z)' do
     visit '/?q=&search_field=common_fields&sort=title_ssort+asc%2C+year_for_lux_isi+desc'
     expect(page).to have_content('1. Orange Carrot')
     expect(page).to have_content('2. red Apple')
     expect(page).to have_content('3. Yellow Banana')
+  end
+
+  it 'has correct sorting behavior for Title (Z-A)' do
+    visit '/?q=&search_field=common_fields&sort=title_ssort+desc%2C+year_for_lux_isi+desc'
+    expect(page).to have_content('1. Yellow Banana')
+    expect(page).to have_content('2. red Apple')
+    expect(page).to have_content('3. Orange Carrot')
   end
 end
