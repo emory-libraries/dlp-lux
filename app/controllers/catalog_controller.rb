@@ -477,9 +477,13 @@ class CatalogController < ApplicationController
     # whether the sort is ascending or descending (it must be asc or desc
     # except in the relevancy case).
     config.add_sort_field 'score desc, year_for_lux_isi desc, title_ssort asc', label: 'relevance'
-    config.add_sort_field 'year_for_lux_isi desc, title_ssort asc', label: 'date'
-    config.add_sort_field 'creator_ssort asc', label: 'creator'
-    config.add_sort_field 'title_ssort asc, year_for_lux_isi desc', label: 'title'
+    config.add_sort_field 'year_for_lux_isi asc, title_ssort asc', label: 'Date (oldest)'
+    config.add_sort_field 'year_for_lux_isi desc, title_ssort asc', label: 'Date (newest)'
+    config.add_sort_field 'creator_ssort asc', label: 'Creator (A-Z)'
+    config.add_sort_field 'creator_ssort desc', label: 'Creator (Z-A)'
+    config.add_sort_field 'title_ssort asc, year_for_lux_isi desc', label: 'Title (A-Z)'
+    config.add_sort_field 'title_ssort desc, year_for_lux_isi desc', label: 'Title (Z-A)'
+
 
     # If there are more than this many search results, no spelling ("did you
     # mean") suggestion is offered.
