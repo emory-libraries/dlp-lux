@@ -14,6 +14,7 @@ RSpec.describe "View Works with different levels of visibility", type: :system d
                work_with_private_visibility
              ])
     solr.commit
+    ENV['READING_ROOM_IPS'] = '123.456.1.100 456.789 345.789'
   end
   let(:emory_high_work_id) { '111-321' }
   let(:public_work_id) { '222-321' }
