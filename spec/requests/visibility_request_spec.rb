@@ -194,9 +194,6 @@ RSpec.describe "Visibility requests", :clean, type: :request do
     end
 
     context "when in the Rose Reading Room" do
-      # before do
-      #   request.remote_ip = reading_room_ip
-      # end
       it "loads the 'show' page for a work with 'Rose High View' visibility" do
         get("/catalog/#{rose_high_work_id}", headers: { "REMOTE_ADDR": reading_room_ip })
 
