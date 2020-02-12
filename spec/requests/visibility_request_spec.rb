@@ -4,6 +4,7 @@ require "rails_helper"
 include Warden::Test::Helpers
 
 RSpec.describe "Visibility requests", :clean, type: :request do
+
   before do
     solr = Blacklight.default_index.connection
     solr.add([
@@ -185,7 +186,7 @@ RSpec.describe "Visibility requests", :clean, type: :request do
         get "/catalog/#{rose_high_work_id}"
         expect(response.status).to eq 404
       end
-
+      
       it "does not load the 'show' page for a work with 'Private' visibility" do
         get "/catalog/#{private_work_id}"
 
