@@ -43,7 +43,7 @@ class CatalogController < ApplicationController
            other_identifiers_tesim title_tesim uniform_title_tesim series_title_tesim parent_title_tesim
            creator_tesim contributors_tesim keywords_tesim subject_topics_tesim subject_names_tesim
            subject_geo_tesim subject_time_periods_tesim id',
-    fq: '(((has_model_ssim:CurateGenericWork) OR (has_model_ssim:Collection)) AND !(visibility_ssi:restricted))'
+      fq: '(((has_model_ssim:CurateGenericWork) OR (has_model_ssim:Collection)) AND !(visibility_ssi:restricted))'
       ## we want to only return works where visiblity_ssi != restricted
     }
 

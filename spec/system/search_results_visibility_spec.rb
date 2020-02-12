@@ -92,7 +92,6 @@ RSpec.describe "View Works with different levels of visibility", clean: true, ty
     }
   end
 
-
   it 'shows search results for all except private works' do
     expect(page).to have_content 'Work with Open Access'
     expect(page).to have_content 'Work with Emory High visibility'
