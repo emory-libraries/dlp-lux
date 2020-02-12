@@ -30,6 +30,7 @@ Discovery application for Emory's Cor repository.
     u.password_confirmation = "password"
     u.save
   ```
+1. In order to see objects with a visibility of "Rose High View", you must set an environment variable for `READING_ROOM_IPS=123.456.789 890.456.234` with spaces between each IP address.
 1. Create and migrate the development database: `rails db:create db:migrate`
 1. Create and migrate the test database: `RAILS_ENV=test rails db:create db:migrate`
 1. Migrate the database: `rails db:migrate`

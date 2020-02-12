@@ -61,4 +61,10 @@ class ApplicationController < ActionController::Base
     response = Blacklight.default_index.connection.get 'select', params: { q: "id:#{resource_id}" }
     response["response"]["docs"].first["visibility_ssi"]
   end
+
+  private
+
+    def current_ability
+      @current_ability ||= Ability.new(current_user, request.headers["REMOTE_ADDR"])
+    end
 end
