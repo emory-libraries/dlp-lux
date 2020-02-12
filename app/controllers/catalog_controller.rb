@@ -43,7 +43,8 @@ class CatalogController < ApplicationController
            other_identifiers_tesim title_tesim uniform_title_tesim series_title_tesim parent_title_tesim
            creator_tesim contributors_tesim keywords_tesim subject_topics_tesim subject_names_tesim
            subject_geo_tesim subject_time_periods_tesim id',
-      fq: '((has_model_ssim:CurateGenericWork) OR (has_model_ssim:Collection))'
+    fq: '(((has_model_ssim:CurateGenericWork) OR (has_model_ssim:Collection)) AND !(visibility_ssi:restricted))'
+      ## we want to only return works where visiblity_ssi != restricted
     }
 
     # solr path which will be added to solr base url before the other solr params.
@@ -121,7 +122,7 @@ class CatalogController < ApplicationController
     config.add_facet_field 'subject_names_sim', limit: 5, label: 'Subject - Names'
     config.add_facet_field 'subject_geo_sim', limit: 5, label: 'Subject - Geographic Locations'
     config.add_facet_field 'human_readable_rights_statement_ssim', label: 'Rights Status'
-    config.add_facet_field 'read_access_group_ssim', label: 'Access Group'
+    config.add_facet_field 'visibility_ssi', label: 'Access'
 
     #config.add_facet_field 'pub_date_ssim', label: 'Publication Year', single: true
     #config.add_facet_field 'subject_ssim', label: 'Topic', limit: 20, index_range: 'A'..'Z'
@@ -146,7 +147,7 @@ class CatalogController < ApplicationController
     config.add_index_field 'creator_tesim', label: 'Creator'
     config.add_index_field 'human_readable_date_created_tesim', label: 'Date'
     config.add_index_field 'human_readable_content_type_tesim', label: 'Format'
-    config.add_index_field 'read_access_group_ssim', label: 'Access Group'
+    config.add_index_field 'visibility_ssi', label: 'Access'
 
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display
