@@ -102,12 +102,19 @@ module Blacklight
         @user_groups = default_user_groups
         @user_groups |= current_user.groups if current_user.respond_to? :groups
         @user_groups |= ['registered', 'emory_low'] unless current_user.new_record?
+        @user_groups |= rose_user_groups if options == ENV.fetch("READING_ROOM_IP")
+
         @user_groups
       end
 
       # Everyone is automatically a member of groups 'public' and 'low_res'
       def default_user_groups
         ['public', 'low_res']
+      end
+
+      # Only users accessing content from the Rose reading room IP should be added to the 'rose_high' access group
+      def rose_user_groups
+        ['rose_high']
       end
 
       # read implies discover, so discover_groups is the union of read and discover groups
