@@ -1,4 +1,4 @@
-<% if can?(:read, document) %>
+<% if can?(:read, document) && !document["child_works_for_lux_tesim"] %>
   <div class="uv-container">
     <iframe
         class="universal-viewer-iframe"
