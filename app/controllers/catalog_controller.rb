@@ -484,7 +484,6 @@ class CatalogController < ApplicationController
     config.add_sort_field 'title_ssort asc, year_for_lux_isi desc', label: 'Title (A-Z)'
     config.add_sort_field 'title_ssort desc, year_for_lux_isi desc', label: 'Title (Z-A)'
 
-
     # If there are more than this many search results, no spelling ("did you
     # mean") suggestion is offered.
     config.spell_max = 5
