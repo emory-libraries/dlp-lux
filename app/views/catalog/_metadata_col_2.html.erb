@@ -3,6 +3,9 @@
     <%= render "about_this_collection", document: document %>
   <% end %>
   <% if document["has_model_ssim"]&.first == "CurateGenericWork" %>
+    <%= render "this_item_contains", document: document %>
+  <% end %>
+  <% if document["has_model_ssim"]&.first == "CurateGenericWork" %>
     <%= render "about_this_item", document: document %>
   <% end %>
   <%= render "subjects_keywords", document: document %>

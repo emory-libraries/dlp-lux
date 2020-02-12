@@ -225,6 +225,8 @@ class CatalogController < ApplicationController
     config.add_show_field 'member_of_collection_ids_ssim'
     # For "View items in this digital collection" section of show page
     config.add_show_field 'title_tesim'
+    # For "This item contains:" section of show page
+    config.add_show_field 'child_works_for_lux_tesim'
 
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
