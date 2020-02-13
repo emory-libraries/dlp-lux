@@ -17,5 +17,4 @@ THUMBNAIL_URL=https://curate-qa.curationexperts.com/
 SOLR_URL=http://localhost:8983/solr/dlp-lux
 GA_TRACKING_CODE=UA-your_google_analytics_tracking_id
 
-# expects a space-delimited list, e.g. "1.2.3 1.2.4 1.2.5"
-READING_ROOM_IPS=::1
+ROSE_READING_ROOM_IPS_FILE= ./config/rose_reading_room_ips.rb

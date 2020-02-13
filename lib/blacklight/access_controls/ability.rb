@@ -102,8 +102,9 @@ module Blacklight
         @user_groups = default_user_groups
         @user_groups |= current_user.groups if current_user.respond_to? :groups
         @user_groups |= ['registered', 'emory_low'] unless current_user.new_record?
-        reading_room_ips = ENV["READING_ROOM_IPS"] || ""
-        @user_groups |= rose_user_groups if reading_room_ips.split.include? options
+        rose_reading_room_ips_file = ENV["ROSE_READING_ROOM_IPS_FILE"] || ""
+        load rose_reading_room_ips_file
+        @user_groups |= rose_user_groups if $ROSE_READING_ROOM_IPS.include? options
 
         @user_groups
       end
