@@ -15,11 +15,10 @@ RSpec.describe "Visibility requests", :clean, type: :request do
                work_with_private_visibility
              ])
     solr.commit
-    ENV['READING_ROOM_IPS'] = '123.456.1.100 456.789 345.789'
   end
 
-  let(:non_reading_room_ip) { '192.168.1.100' }
-  let(:reading_room_ip) { '123.456.1.100' }
+  let(:non_reading_room_ip) { '198.51.100.255' }
+  let(:reading_room_ip) { '192.0.0.255' }
 
   let(:public_work_id) { '222-321' }
   let(:public_low_view_work_id) { '333-321' }

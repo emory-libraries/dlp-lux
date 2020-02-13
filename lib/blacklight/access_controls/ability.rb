@@ -102,8 +102,7 @@ module Blacklight
         @user_groups = default_user_groups
         @user_groups |= current_user.groups if current_user.respond_to? :groups
         @user_groups |= ['registered', 'emory_low'] unless current_user.new_record?
-        reading_room_ips = ENV["READING_ROOM_IPS"] || ""
-        @user_groups |= rose_user_groups if reading_room_ips.split.include? options
+        @user_groups |= rose_user_groups if rose_reading_room_ips.include? options
 
         @user_groups
       end
@@ -168,6 +167,18 @@ module Blacklight
         dp = Array(doc[self.class.download_user_field])
         Rails.logger.debug("[CANCAN] download_users: #{dp.inspect}")
         dp
+      end
+
+      def rose_reading_room_ips
+        reading_room_ips["all_reading_room_ips"]["rose_reading_room_ip_list"]
+      end
+
+      def reading_room_ips
+        @reading_room_ips ||= reading_room_ips_yaml.with_indifferent_access
+      end
+
+      def reading_room_ips_yaml
+        YAML.safe_load(ERB.new(File.read(Rails.root.join("config", "reading_room_ips.yml"))).result, [], [], true)
       end
 
       module ClassMethods
