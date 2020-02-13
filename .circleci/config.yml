@@ -30,7 +30,6 @@ jobs:
             DATABASE_HOST: 127.0.0.1
             DATABASE_PORT: 3306
             DATABASE_USERNAME: root
-            READING_ROOM_IPS: 123.456.1.100 456.789 345.789
         docker:
             - image: circleci/ruby:<< parameters.ruby_version >>-node-browsers-legacy
             - image: solr:7-alpine

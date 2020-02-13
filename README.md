@@ -30,7 +30,7 @@ Discovery application for Emory's Cor repository.
     u.password_confirmation = "password"
     u.save
   ```
-1. In order to see objects with a visibility of "Rose High View", you must set an environment variable for the location of your `ROSE_READING_ROOM_IPS_FILE='./resources/rose_reading_room_ips'`. See this project's `./spec/fixtures/rose_reading_room_ips.rb` file for an example of how this should be set up.
+1. In order to see objects with a visibility of "Rose High View", your IP must match an address on the server in `config/reading_room_ips.yml`. See the existing file for the example setup.
 1. Create and migrate the development database: `rails db:create db:migrate`
 1. Create and migrate the test database: `RAILS_ENV=test rails db:create db:migrate`
 1. Migrate the database: `rails db:migrate`

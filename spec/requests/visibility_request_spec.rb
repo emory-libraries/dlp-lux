@@ -91,125 +91,113 @@ RSpec.describe "Visibility requests", :clean, type: :request do
       visibility_ssi: ["restricted"]
     }
   end
-  context "with the environment variable set" do
-    before do
-      ENV['ROSE_READING_ROOM_IPS_FILE'] = './spec/fixtures/rose_reading_room_ips.rb'
-    end
-    describe "GET /catalog/:id" do
-      context "as an unauthenticated user outside the Rose Reading Room" do
-        it "loads the 'show' page for a work with 'Public' visibility" do
-          get("/catalog/#{public_work_id}")
 
-          expect(response.status).to eq 200
-          expect(response.body).not_to be_empty
-          expect(response.content_length).to be > 0
-          expect(response.content_type).to eq "text/html"
-        end
+  describe "GET /catalog/:id" do
+    context "as an unauthenticated user outside the Rose Reading Room" do
+      it "loads the 'show' page for a work with 'Public' visibility" do
+        get("/catalog/#{public_work_id}")
 
-        it "loads the 'show' page for a work with 'Public Low View' visibility" do
-          get "/catalog/#{public_low_view_work_id}"
-
-          expect(response.status).to eq 200
-          expect(response.body).not_to be_empty
-          expect(response.content_length).to be > 0
-          expect(response.content_type).to eq "text/html"
-        end
-
-        it "does not load the 'show' page for a work with 'Emory High Download' visibility" do
-          get "/catalog/#{emory_high_work_id}"
-
-          expect(response.status).to eq 404
-        end
-
-        it "does not load the 'show' page for a work with 'Emory Low Download' visibility" do
-          get "/catalog/#{emory_low_work_id}"
-
-          expect(response.status).to eq 404
-        end
-
-        it "does not load the 'show' page for a work with 'Rose High View' visibility" do
-          get "/catalog/#{rose_high_work_id}"
-
-          expect(response.status).to eq 404
-        end
-
-        it "does not load the 'show' page for a work with 'Private' visibility" do
-          get "/catalog/#{private_work_id}"
-
-          expect(response.status).to eq 404
-        end
+        expect(response.status).to eq 200
+        expect(response.body).not_to be_empty
+        expect(response.content_length).to be > 0
+        expect(response.content_type).to eq "text/html"
       end
 
-      context "when authenticated as a user outside the Rose Reading Room" do
-        let(:user) { FactoryBot.create(:user) }
+      it "loads the 'show' page for a work with 'Public Low View' visibility" do
+        get "/catalog/#{public_low_view_work_id}"
 
-        before do
-          login_as user
-        end
-
-        it "loads the 'show' page for a work with 'Public' visibility" do
-          get "/catalog/#{public_work_id}"
-
-          expect(response.status).to eq 200
-          expect(response.body).not_to be_empty
-          expect(response.content_length).to be > 0
-          expect(response.content_type).to eq "text/html"
-        end
-
-        it "loads the 'show' page for a work with 'Public Low View' visibility" do
-          get "/catalog/#{public_low_view_work_id}"
-
-          expect(response.status).to eq 200
-          expect(response.body).not_to be_empty
-          expect(response.content_length).to be > 0
-          expect(response.content_type).to eq "text/html"
-        end
-
-        it "loads the 'show' page for a work with 'Emory High Download' visibility" do
-          get "/catalog/#{emory_high_work_id}"
-
-          expect(response.status).to eq 200
-          expect(response.body).not_to be_empty
-          expect(response.content_length).to be > 0
-          expect(response.content_type).to eq "text/html"
-        end
-
-        it "loads the 'show' page for a work with 'Emory Low Download' visibility" do
-          get "/catalog/#{emory_low_work_id}"
-
-          expect(response.status).to eq 200
-          expect(response.body).not_to be_empty
-          expect(response.content_length).to be > 0
-          expect(response.content_type).to eq "text/html"
-        end
-
-        it "does not load the 'show' page for a work with 'Rose High View' visibility" do
-          get "/catalog/#{rose_high_work_id}"
-          expect(response.status).to eq 404
-        end
-
-        it "does not load the 'show' page for a work with 'Private' visibility" do
-          get "/catalog/#{private_work_id}"
-
-          expect(response.status).to eq 404
-        end
+        expect(response.status).to eq 200
+        expect(response.body).not_to be_empty
+        expect(response.content_length).to be > 0
+        expect(response.content_type).to eq "text/html"
       end
 
-      context "when in the Rose Reading Room" do
-        it "loads the 'show' page for a work with 'Rose High View' visibility" do
-          get("/catalog/#{rose_high_work_id}", headers: { "REMOTE_ADDR": reading_room_ip })
+      it "does not load the 'show' page for a work with 'Emory High Download' visibility" do
+        get "/catalog/#{emory_high_work_id}"
 
-          expect(request.headers["REMOTE_ADDR"]).to eq reading_room_ip
-          expect(response.status).to eq 200
-        end
+        expect(response.status).to eq 404
+      end
+
+      it "does not load the 'show' page for a work with 'Emory Low Download' visibility" do
+        get "/catalog/#{emory_low_work_id}"
+
+        expect(response.status).to eq 404
+      end
+
+      it "does not load the 'show' page for a work with 'Rose High View' visibility" do
+        get "/catalog/#{rose_high_work_id}"
+
+        expect(response.status).to eq 404
+      end
+
+      it "does not load the 'show' page for a work with 'Private' visibility" do
+        get "/catalog/#{private_work_id}"
+
+        expect(response.status).to eq 404
       end
     end
-  end
-  context "with the environment variable unset" do
-    context "outside the Rose Reading Room" do
+
+    context "when authenticated as a user outside the Rose Reading Room" do
+      let(:user) { FactoryBot.create(:user) }
+
+      before do
+        login_as user
+      end
+
+      it "loads the 'show' page for a work with 'Public' visibility" do
+        get "/catalog/#{public_work_id}"
+
+        expect(response.status).to eq 200
+        expect(response.body).not_to be_empty
+        expect(response.content_length).to be > 0
+        expect(response.content_type).to eq "text/html"
+      end
+
+      it "loads the 'show' page for a work with 'Public Low View' visibility" do
+        get "/catalog/#{public_low_view_work_id}"
+
+        expect(response.status).to eq 200
+        expect(response.body).not_to be_empty
+        expect(response.content_length).to be > 0
+        expect(response.content_type).to eq "text/html"
+      end
+
+      it "loads the 'show' page for a work with 'Emory High Download' visibility" do
+        get "/catalog/#{emory_high_work_id}"
+
+        expect(response.status).to eq 200
+        expect(response.body).not_to be_empty
+        expect(response.content_length).to be > 0
+        expect(response.content_type).to eq "text/html"
+      end
+
+      it "loads the 'show' page for a work with 'Emory Low Download' visibility" do
+        get "/catalog/#{emory_low_work_id}"
+
+        expect(response.status).to eq 200
+        expect(response.body).not_to be_empty
+        expect(response.content_length).to be > 0
+        expect(response.content_type).to eq "text/html"
+      end
+
       it "does not load the 'show' page for a work with 'Rose High View' visibility" do
         get "/catalog/#{rose_high_work_id}"
         expect(response.status).to eq 404
+      end
+
+      it "does not load the 'show' page for a work with 'Private' visibility" do
+        get "/catalog/#{private_work_id}"
+
+        expect(response.status).to eq 404
+      end
+    end
+
+    context "when in the Rose Reading Room" do
+      it "loads the 'show' page for a work with 'Rose High View' visibility" do
+        get("/catalog/#{rose_high_work_id}", headers: { "REMOTE_ADDR": reading_room_ip })
+
+        expect(request.headers["REMOTE_ADDR"]).to eq reading_room_ip
+        expect(response.status).to eq 200
       end
     end
   end
