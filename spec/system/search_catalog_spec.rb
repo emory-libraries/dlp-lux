@@ -218,15 +218,4 @@ RSpec.describe 'Search the catalog', type: :system, js: false do
       )
     end
   end
-
-  xit 'has expected facet links' do
-    visit root_path
-    # Search for something
-    fill_in 'q', with: 'carrot'
-    click_on 'search'
-    within '#documents' do
-      expect(page).to have_link('Bittersweet Tangerine')
-      expect(page).not_to have_link('Buff Saffron')
-    end
-  end
 end

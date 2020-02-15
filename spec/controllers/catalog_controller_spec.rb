@@ -22,7 +22,9 @@ RSpec.describe CatalogController, type: :controller do
        'subject_names',
        'subject_geo',
        'human_readable_rights_statement',
-       'visibility_ssi']
+       'visibility_ssi',
+       'access_pivot_facet'
+     ]
     end
 
     it 'has exactly expected facets' do
