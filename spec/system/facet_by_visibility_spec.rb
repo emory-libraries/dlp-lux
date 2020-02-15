@@ -1,18 +1,18 @@
 # frozen_string_literal: true
 require 'rails_helper'
 
-RSpec.describe 'Facet the catalog by visibility', type: :system, js: true do
+RSpec.describe 'Facet the catalog by visibility', type: :system, js: false do
   before do
     delete_all_documents_from_solr
     solr = Blacklight.default_index.connection
     solr.add([
-        work_with_emory_high_visibility,
-        work_with_public_visibility,
-        work_with_public_low_view_visibility,
-        work_with_emory_low_visibility,
-        work_with_rose_high_visibility,
-        work_with_private_visibility
-      ])
+               work_with_emory_high_visibility,
+               work_with_public_visibility,
+               work_with_public_low_view_visibility,
+               work_with_emory_low_visibility,
+               work_with_rose_high_visibility,
+               work_with_private_visibility
+             ])
     solr.commit
   end
 
