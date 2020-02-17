@@ -122,7 +122,7 @@ class CatalogController < ApplicationController
     config.add_facet_field 'subject_names_sim', limit: 5, label: 'Subject - Names'
     config.add_facet_field 'subject_geo_sim', limit: 5, label: 'Subject - Geographic Locations'
     config.add_facet_field 'human_readable_rights_statement_ssim', label: 'Rights Status'
-    config.add_facet_field 'access_pivot_facet', pivot: ['visibility_group_ssi', 'human_readable_visibility_ssi'], label: 'Access'
+    config.add_facet_field 'visibility_group_ssi', label: 'Access'
 
     #config.add_facet_field 'pub_date_ssim', label: 'Publication Year', single: true
     #config.add_facet_field 'subject_ssim', label: 'Topic', limit: 20, index_range: 'A'..'Z'
