@@ -149,7 +149,7 @@ class CatalogController < ApplicationController
     config.add_index_field 'creator_tesim', label: 'Creator', if: :display_creator?
     config.add_index_field 'human_readable_date_created_tesim', label: 'Date', if: :display_date?
     config.add_index_field 'human_readable_content_type_ssim', label: 'Format'
-    config.add_index_field 'human_readable_visibility_ssi', label: 'Access', if: :display_access?
+    config.add_index_field 'visibility_group_ssi', label: 'Access', if: :display_access?
 
     def display_library?(_field_config, document)
       document["has_model_ssim"] == ["Collection"]
