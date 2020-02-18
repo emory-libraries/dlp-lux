@@ -122,7 +122,7 @@ class CatalogController < ApplicationController
     config.add_facet_field 'subject_names_sim', limit: 5, label: 'Subject - Names'
     config.add_facet_field 'subject_geo_sim', limit: 5, label: 'Subject - Geographic Locations'
     config.add_facet_field 'human_readable_rights_statement_ssim', label: 'Rights Status'
-    config.add_facet_field 'access_pivot_facet', pivot: ['visibility_group_ssi', 'human_readable_visibility_ssi'], label: 'Access'
+    config.add_facet_field 'visibility_group_ssi', label: 'Access'
 
     #config.add_facet_field 'pub_date_ssim', label: 'Publication Year', single: true
     #config.add_facet_field 'subject_ssim', label: 'Topic', limit: 20, index_range: 'A'..'Z'
@@ -144,6 +144,7 @@ class CatalogController < ApplicationController
     # solr fields to be displayed in the index (search results) view
     #   The ordering of the field names is the order of the display
     # config.add_index_field 'title_tesim', label: 'Title'
+
     config.add_index_field 'holding_repository_tesim', label: 'Library', if: :display_library?
     config.add_index_field 'creator_tesim', label: 'Creator', if: :display_creator?
     config.add_index_field 'human_readable_date_created_tesim', label: 'Date', if: :display_date?
@@ -172,24 +173,24 @@ class CatalogController < ApplicationController
     config.add_show_field 'uniform_title_tesim', label: 'Uniform Title'
     config.add_show_field 'series_title_tesim', label: 'Series Title'
     config.add_show_field 'parent_title_tesim', label: 'Title of Parent Work'
-    config.add_show_field 'creator_tesim', label: 'Creator'
-    config.add_show_field 'contributors_tesim', label: 'Contributor'
+    config.add_show_field 'creator_tesim', label: 'Creator', link_to_facet: 'creator_sim'
+    config.add_show_field 'contributors_tesim', label: 'Contributor', link_to_facet: 'contributors_sim'
     config.add_show_field 'human_readable_date_created_tesim', label: 'Date Created'
     config.add_show_field 'human_readable_date_issued_tesim', label: 'Date Published / Issued'
     config.add_show_field 'data_collection_dates_tesim', label: 'Data Collection Dates'
-    config.add_show_field 'human_readable_content_type_tesim', label: 'Format'
-    config.add_show_field 'content_genres_tesim', label: 'Genre'
+    config.add_show_field 'human_readable_content_type_ssim', label: 'Format', link_to_facet: true
+    config.add_show_field 'content_genres_tesim', label: 'Genre', link_to_facet: 'content_genres_sim'
     config.add_show_field 'extent_tesim', label: 'Extent / Dimensions'
-    config.add_show_field 'primary_language_tesim', label: 'Primary Language'
+    config.add_show_field 'primary_language_tesim', label: 'Primary Language', link_to_facet: "primary_language_sim"
     config.add_show_field 'notes_tesim', label: 'Note'
     config.add_show_field 'abstract_tesim', label: 'Description / Abstract'
     config.add_show_field 'table_of_contents_tesim', label: 'Table of Contents'
     # For "About This Collection" section of show page
     config.add_show_field 'finding_aid_link_ssm', label: 'Learn More'
     # For "Subjects / Keywords" section of show page
-    config.add_show_field 'subject_topics_tesim', label: 'Subject - Topics'
-    config.add_show_field 'subject_names_tesim', label: 'Subject - Names'
-    config.add_show_field 'subject_geo_tesim', label: 'Subject - Geographic Locations'
+    config.add_show_field 'subject_topics_tesim', label: 'Subject - Topics', link_to_facet: 'subject_topics_sim'
+    config.add_show_field 'subject_names_tesim', label: 'Subject - Names', link_to_facet: 'subject_names_sim'
+    config.add_show_field 'subject_geo_tesim', label: 'Subject - Geographic Locations', link_to_facet: 'subject_geo_sim'
     config.add_show_field 'subject_time_periods_tesim', label: 'Subject - Time Periods'
     config.add_show_field 'keywords_tesim', label: 'Keywords'
     # For "Find this Item" section of show page
@@ -198,7 +199,7 @@ class CatalogController < ApplicationController
     config.add_show_field 'emory_ark_tesim', label: 'Emory ARK'
     config.add_show_field 'other_identifiers_tesim', label: 'Other Identifiers'
     config.add_show_field 'institution_tesim', label: 'Institution'
-    config.add_show_field 'holding_repository_tesim', label: 'Library'
+    config.add_show_field 'holding_repository_tesim', label: 'Library', link_to_facet: 'holding_repository_sim'
     config.add_show_field 'administrative_unit_tesim', label: 'Administrative Unit'
     config.add_show_field 'sublocation_tesim', label: 'Sublocation'
     config.add_show_field 'local_call_number_tesim', label: 'Call Number'
