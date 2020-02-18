@@ -303,6 +303,7 @@ CURATE_GENERIC_WORK_CHILD = {
   human_readable_date_issued_tesim: ["unknown"],
   human_readable_copyright_date_tesim: ["unknown"],
   human_readable_type_tesim: ["Curate Generic Work"],
+  visibility_group_ssi: "Public",
   read_access_group_ssim: [
     "oxford_viewer",
     "rose_viewer",
