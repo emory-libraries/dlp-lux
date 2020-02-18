@@ -144,10 +144,28 @@ class CatalogController < ApplicationController
     # solr fields to be displayed in the index (search results) view
     #   The ordering of the field names is the order of the display
     # config.add_index_field 'title_tesim', label: 'Title'
-    config.add_index_field 'creator_tesim', label: 'Creator'
-    config.add_index_field 'human_readable_date_created_tesim', label: 'Date'
+
+    config.add_index_field 'holding_repository_tesim', label: 'Library', if: :display_library?
+    config.add_index_field 'creator_tesim', label: 'Creator', if: :display_creator?
+    config.add_index_field 'human_readable_date_created_tesim', label: 'Date', if: :display_date?
     config.add_index_field 'human_readable_content_type_ssim', label: 'Format'
-    config.add_index_field 'visibility_group_ssi', label: 'Access'
+    config.add_index_field 'human_readable_visibility_ssi', label: 'Access', if: :display_access?
+
+    def display_library?(_field_config, document)
+      document["has_model_ssim"] == ["Collection"]
+    end
+
+    def display_creator?(_field_config, document)
+      document["has_model_ssim"] == ["CurateGenericWork"]
+    end
+
+    def display_date?(_field_config, document)
+      !document["child_works_for_lux_tesim"] && document["has_model_ssim"] == ["CurateGenericWork"]
+    end
+
+    def display_access?(_field_config, document)
+      !document["child_works_for_lux_tesim"] && document["has_model_ssim"] == ["CurateGenericWork"]
+    end
 
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display

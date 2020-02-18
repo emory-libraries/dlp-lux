@@ -52,6 +52,7 @@ Metrics/MethodLength:
 Metrics/ModuleLength:
     Exclude:
         - 'lib/blacklight/access_controls/ability.rb'
+        - 'app/helpers/blacklight/blacklight_helper_behavior.rb'
 
 Metrics/PerceivedComplexity:
     Exclude:
@@ -65,3 +66,7 @@ RSpec/DescribeClass:
 RSpec/ExampleLength:
     Exclude:
         - 'spec/**/*'
+
+Style/MethodDefParentheses:
+  Exclude:
+        - 'app/helpers/blacklight/blacklight_helper_behavior.rb'

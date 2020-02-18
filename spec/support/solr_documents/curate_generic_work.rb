@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 CURATE_GENERIC_WORK = {
-  id: ['123'],
+  id: '123',
   has_model_ssim: ['CurateGenericWork'],
   visibility_ssi: ['open'],
   read_access_group_ssim: ["public"],
@@ -76,5 +76,6 @@ CURATE_GENERIC_WORK = {
   access_restriction_notes_tesim: ['You can access this only in the Rose reading room, alternate Thursdays.'],
   member_of_collections_ssim: ['Chester W. Topp collection of Victorian yellowbacks and paperbacks'],
   member_of_collection_ids_ssim: ['805fbg79d6-cor'],
-  thumbnail_path_ss: ['/downloads/825x69p8dh-cor?file=thumbnail']
+  thumbnail_path_ss: ['/downloads/825x69p8dh-cor?file=thumbnail'],
+  human_readable_visibility_ssi: 'Public'
 }.freeze
