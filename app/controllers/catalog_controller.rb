@@ -147,7 +147,7 @@ class CatalogController < ApplicationController
     config.add_index_field 'creator_tesim', label: 'Creator'
     config.add_index_field 'human_readable_date_created_tesim', label: 'Date'
     config.add_index_field 'human_readable_content_type_ssim', label: 'Format'
-    config.add_index_field 'human_readable_visibility_ssi', label: 'Access'
+    config.add_index_field 'visibility_group_ssi', label: 'Access'
 
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display

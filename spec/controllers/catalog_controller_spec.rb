@@ -41,8 +41,8 @@ RSpec.describe CatalogController, type: :controller do
     let(:expected_index_fields) do
       ['creator_tesim',
        'human_readable_date_created_tesim',
-       'human_readable_content_type_ssim',
-       'human_readable_visibility_ssi']
+       'human_readable_content_type',
+       'visibility_group_ssi']
     end
     it { expect(index_fields).to contain_exactly(*expected_index_fields) }
   end
