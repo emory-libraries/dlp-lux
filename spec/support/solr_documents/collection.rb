@@ -33,5 +33,6 @@ COLLECTION = {
   bytes_lts: 312_470_524,
   edit_access_person_ssim: ["tmiles2"],
   human_readable_type_sim: "Collection",
-  human_readable_type_tesim: "Collection"
+  human_readable_type_tesim: "Collection",
+  member_works_count_isi: 3
 }.freeze

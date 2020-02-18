@@ -17,6 +17,7 @@ MULTI_VOLUME_CURATE_GENERIC_WORK = {
   content_type_tesim: ["http://id.loc.gov/vocabulary/resourceTypes/txt"],
   content_type_sim: ["http://id.loc.gov/vocabulary/resourceTypes/txt"],
   contributors_tesim: ["Emory University Archives", "Emory University Academy (Oxford, Ga.)"],
+  creator_tesim: ["Sample Parent Creator"],
   data_classifications_tesim: ["Public"],
   date_created_tesim: ["1919/192X"],
   date_created_sim: ["1919/192X"],
@@ -70,5 +71,11 @@ MULTI_VOLUME_CURATE_GENERIC_WORK = {
   human_readable_type_tesim: "Curate Generic Work",
   read_access_group_ssim: ["public", "Repository Administrators", "repository_manager"],
   edit_access_group_ssim: ["admin", "Repository Administrators", "repository_manager"],
-  edit_access_person_ssim: ["tmiles2", "eporter"]
+  edit_access_person_ssim: ["tmiles2", "eporter"],
+  child_works_for_lux_tesim: [
+    "423612jm8k-cor, /downloads/020fttdz2x-cor?file=thumbnail, Emocad. [1924]",
+    "631cjsxkvx-cor, /downloads/0343r2282s-cor?file=thumbnail, Emocad. [1925]",
+    "0859cnp5kv-cor, /downloads/211kh1895r-cor?file=thumbnail, Emocad. [1926]",
+    "85370rxwgx-cor, /downloads/293gxd256t-cor?file=thumbnail, Emocad. [1928]"
+  ]
 }.freeze
