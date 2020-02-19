@@ -28,7 +28,7 @@ COLLECTION = {
   member_of_collections_ssim: ['A pretend Parent collection for the Yellowbacks Collection'],
   member_of_collection_ids_ssim: ['805fbg79d6-cor'],
   collection_ids_ssim: [],
-  thumbnail_path_ss: "/assets/collection-a38b932554788aa578debf2319e8c4ba8a7db06b3ba57ecda1391a548a4b6e0a.png",
+  thumbnail_path_ss: "/downloads/2150gb5mmj-cor?file=thumbnail",
   generic_type_sim: ["Collection"],
   bytes_lts: 312_470_524,
   edit_access_person_ssim: ["tmiles2"],

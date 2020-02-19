@@ -4,14 +4,14 @@ require 'rails_helper'
 RSpec.feature "View Search Results", type: :system, js: true do
   before do
     solr = Blacklight.default_index.connection
-    solr.add([COLLECTION, MULTI_VOLUME_CURATE_GENERIC_WORK, CURATE_GENERIC_WORK_CHILD, CURATE_GENERIC_WORK])
+    solr.add([COLLECTION, PARENT_CURATE_GENERIC_WORK, CHILD_CURATE_GENERIC_WORK_1, CURATE_GENERIC_WORK])
     solr.commit
     ENV['THUMBNAIL_URL'] = 'http://obviously_fake_url.com'
   end
 
   let(:collection_id) { COLLECTION[:id] }
-  let(:parent_work_id) { MULTI_VOLUME_CURATE_GENERIC_WORK[:id] }
-  let(:child_work_id) { CURATE_GENERIC_WORK_CHILD[:id] }
+  let(:parent_work_id) { PARENT_CURATE_GENERIC_WORK[:id] }
+  let(:child_work_id) { CHILD_CURATE_GENERIC_WORK_1[:id] }
   let(:simple_work_id) { CURATE_GENERIC_WORK[:id] }
 
   context 'when searching for a collection' do

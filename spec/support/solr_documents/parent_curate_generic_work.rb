@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-MULTI_VOLUME_CURATE_GENERIC_WORK = {
+PARENT_CURATE_GENERIC_WORK = {
   system_create_dtsi: "2020-01-13T19:25:30Z",
   system_modified_dtsi: "2020-01-14T19:40:00Z",
   has_model_ssim: ["CurateGenericWork"],
