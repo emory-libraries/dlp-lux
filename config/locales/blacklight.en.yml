@@ -1,3 +1,9 @@
 en:
   blacklight:
-    application_name: 'Blacklight'
+    application_name: 'Emory Digital Collections'
+    header_links:
+      advanced_search: 'Advanced Search'
+      login: 'Login'
+      logout: 'Log Out'
+      bookmarks: 'Bookmarks'
+      search_history: 'History'
