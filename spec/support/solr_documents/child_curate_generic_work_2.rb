@@ -37,7 +37,7 @@ CHILD_CURATE_GENERIC_WORK_2 = {
   subject_topics_tesim: ["College yearbooks--Georgia--Oxford."],
   system_of_record_ID_tesim: ["alma:990030187270302486"],
   deduplication_key_tesim: ["50000084033"],
-  thumbnail_path_ss: "/downloads/624jm63xtc-cor?file=thumbnail",
+  thumbnail_path_ss: "/downloads/343r2282s-cor?file=thumbnail",
   suppressed_bsi: false,
   actionable_workflow_roles_ssim: [
     "admin_set/default-default-managing",
