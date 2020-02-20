@@ -1,17 +1,19 @@
 # frozen_string_literal: true
 require 'rails_helper'
 
-RSpec.feature "View Search Results", type: :system, js: true do
+RSpec.feature "View Search Results", type: :system, js: false do
   before do
     solr = Blacklight.default_index.connection
-    solr.add([COLLECTION, MULTI_VOLUME_CURATE_GENERIC_WORK, CURATE_GENERIC_WORK_CHILD, CURATE_GENERIC_WORK])
+    solr.add([COLLECTION, PARENT_CURATE_GENERIC_WORK, CHILD_CURATE_GENERIC_WORK_1, CHILD_CURATE_GENERIC_WORK_2, CHILD_CURATE_GENERIC_WORK_3, CURATE_GENERIC_WORK])
     solr.commit
     ENV['THUMBNAIL_URL'] = 'http://obviously_fake_url.com'
   end
 
   let(:collection_id) { COLLECTION[:id] }
-  let(:parent_work_id) { MULTI_VOLUME_CURATE_GENERIC_WORK[:id] }
-  let(:child_work_id) { CURATE_GENERIC_WORK_CHILD[:id] }
+  let(:parent_work_id) { PARENT_CURATE_GENERIC_WORK[:id] }
+  let(:child_work_1_id) { CHILD_CURATE_GENERIC_WORK_1[:id] }
+  let(:child_work_2_id) { CHILD_CURATE_GENERIC_WORK_2[:id] }
+  let(:child_work_3_id) { CHILD_CURATE_GENERIC_WORK_3[:id] }
   let(:simple_work_id) { CURATE_GENERIC_WORK[:id] }
 
   context 'when searching for a collection' do
@@ -22,6 +24,9 @@ RSpec.feature "View Search Results", type: :system, js: true do
       expect(page).to have_content('Chester W. Topp collection of Victorian yellowbacks and paperbacks')
       expect(page).to have_content('3 Items')
       expect(page).to have_content('Stuart A. Rose Manuscript, Archives, and Rare Book Library')
+      expect(page).to have_css('.document-thumbnail')
+      expect(page).to have_link('Thumbnail image')
+      find("img[src='http://obviously_fake_url.com/downloads/2150gb5mmj-cor?file=thumbnail']")
     end
   end
 
@@ -34,19 +39,25 @@ RSpec.feature "View Search Results", type: :system, js: true do
       expect(page).to have_content('4 Items')
       expect(page).to have_content('Sample Parent Creator')
       expect(page).to have_content('Text')
+      expect(page).to have_css('.document-thumbnail')
+      expect(page).to have_link('Thumbnail image')
+      find("img[src='http://obviously_fake_url.com/downloads/433dz08ksb-cor?file=thumbnail']")
     end
   end
 
   context 'when searching for a hierarchical child work' do
     it 'has title, link to parent work, creator, date, and format on the page' do
       visit "/"
-      fill_in 'q', with: child_work_id
+      fill_in 'q', with: child_work_1_id
       click_on 'Search'
       expect(page).to have_content('Emocad. [1924]')
       expect(page).to have_content('Part of: Emocad.')
       expect(page).to have_content('Sample Child Creator')
       expect(page).to have_content('unknown')
       expect(page).to have_content('Text')
+      expect(page).to have_css('.document-thumbnail')
+      expect(page).to have_link('Thumbnail image')
+      find("img[src='http://obviously_fake_url.com/downloads/020fttdz2x-cor?file=thumbnail']")
     end
   end
 
@@ -60,6 +71,9 @@ RSpec.feature "View Search Results", type: :system, js: true do
       expect(page).to have_content('1776, unknown, 1920s, and 1973 approx.')
       expect(page).to have_content('Text')
       expect(page).to have_content('Public')
+      expect(page).to have_css('.document-thumbnail')
+      expect(page).to have_link('Thumbnail image')
+      find("img[src='http://obviously_fake_url.com/downloads/825x69p8dh-cor?file=thumbnail']")
     end
   end
 end

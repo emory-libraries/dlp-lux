@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'rails_helper'
 
-RSpec.describe "View a Collection", type: :system, js: true do
+RSpec.describe "View a Collection", type: :system, js: false do
   before do
     solr = Blacklight.default_index.connection
     solr.add(work_attributes)
@@ -16,8 +16,8 @@ RSpec.describe "View a Collection", type: :system, js: true do
     COLLECTION
   end
 
-  it 'has the uv html on the page' do
-    expect(page.html).to match(/universal-viewer-iframe/)
+  it 'does not have the uv html on the page' do
+    expect(page.html).not_to match(/universal-viewer-iframe/)
   end
 
   it 'has only Collection-specific partials' do

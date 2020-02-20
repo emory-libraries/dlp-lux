@@ -1,9 +1,9 @@
 # frozen_string_literal: true
-CURATE_GENERIC_WORK_CHILD = {
+CHILD_CURATE_GENERIC_WORK_1 = {
   system_create_dtsi: "2019-12-13T21:09:40Z",
   system_modified_dtsi: "2020-01-10T23:07:26Z",
   has_model_ssim: ["CurateGenericWork"],
-  id: "303qv9s4n4-cor",
+  id: "423612jm8k-cor",
   accessControl_ssim: ["366e79d6-283c-4d84-9bee-16fccc402a68"],
   hasRelatedMediaFragment_ssim: ["624jm63xtc-cor"],
   hasRelatedImage_ssim: ["624jm63xtc-cor"],
@@ -37,7 +37,7 @@ CURATE_GENERIC_WORK_CHILD = {
   subject_topics_tesim: ["College yearbooks--Georgia--Oxford."],
   system_of_record_ID_tesim: ["alma:990030187270302486"],
   deduplication_key_tesim: ["50000084033"],
-  thumbnail_path_ss: "/downloads/624jm63xtc-cor?file=thumbnail",
+  thumbnail_path_ss: "/downloads/020fttdz2x-cor?file=thumbnail",
   suppressed_bsi: false,
   actionable_workflow_roles_ssim: [
     "admin_set/default-default-managing",

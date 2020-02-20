@@ -2,8 +2,7 @@
 <%# default partial to display solr document fields in catalog index view -%>
 
 <dl class="row">
-  <dt class="col-sm-3"><%= render_document_partials document,
-    [:thumbnail] %></dt>
+  <dt class="col-sm-3"><%= render_document_partials document, [:thumbnail] %></dt>
   <dd class="col-sm-9">
     <dl>
       <% doc_presenter.fields_to_render.each do |field_name, field| -%>

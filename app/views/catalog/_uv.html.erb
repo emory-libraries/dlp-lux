@@ -1,13 +1,11 @@
-<% if can?(:read, document) && !document["child_works_for_lux_tesim"] %>
-  <div class="uv-container">
-    <iframe
-        class="universal-viewer-iframe"
-        src="<%= request&.base_url %>/uv/uv.html#?manifest=<%= Rails.application.config.iiif_url %>/<%= document.id %>/manifest"
-        width="924px"
-        height="668px"
-        allowfullscreen
-        frameborder="0">
-    </iframe>
-  </div>
-  </br>
-<% end %>
+<div class="uv-container">
+  <iframe
+      class="universal-viewer-iframe"
+      src="<%= request&.base_url %>/uv/uv.html#?manifest=<%= Rails.application.config.iiif_url %>/<%= document.id %>/manifest"
+      width="924px"
+      height="668px"
+      allowfullscreen
+      frameborder="0">
+  </iframe>
+</div>
+</br>

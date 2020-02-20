@@ -1,1 +1,5 @@
+<% if document["child_works_for_lux_tesim"] || document["has_model_ssim"] == ["Collection"]  %>
+<% else %>
+  <%= render "uv", document: document %>
+<% end %>
 <%= render "metadata_all", document: document %>
