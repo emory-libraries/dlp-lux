@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'rails_helper'
 
-RSpec.feature "View Search Results", type: :system, js: true do
+RSpec.feature "View Search Results", type: :system, js: false do
   before do
     solr = Blacklight.default_index.connection
     solr.add([COLLECTION, PARENT_CURATE_GENERIC_WORK, CHILD_CURATE_GENERIC_WORK_1, CHILD_CURATE_GENERIC_WORK_2, CHILD_CURATE_GENERIC_WORK_3, CURATE_GENERIC_WORK])
@@ -57,7 +57,7 @@ RSpec.feature "View Search Results", type: :system, js: true do
       expect(page).to have_content('Text')
       expect(page).to have_css('.document-thumbnail')
       expect(page).to have_link('Thumbnail image')
-      find("img[src='http://obviously_fake_url.com/downloads/624jm63xtc-cor?file=thumbnail']")
+      find("img[src='http://obviously_fake_url.com/downloads/020fttdz2x-cor?file=thumbnail']")
     end
   end
 

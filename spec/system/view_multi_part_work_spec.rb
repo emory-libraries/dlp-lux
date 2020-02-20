@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'rails_helper'
 
-RSpec.describe "View a multi part Work", type: :system, js: true do
+RSpec.describe "View a multi part Work", type: :system, js: false do
   before do
     solr = Blacklight.default_index.connection
     solr.add([COLLECTION, PARENT_CURATE_GENERIC_WORK, CHILD_CURATE_GENERIC_WORK_1, CHILD_CURATE_GENERIC_WORK_2, CHILD_CURATE_GENERIC_WORK_3, CURATE_GENERIC_WORK])

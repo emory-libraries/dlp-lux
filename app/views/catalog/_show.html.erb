@@ -1,5 +1,5 @@
-<% if can?(:read, document) && !document["child_works_for_lux_tesim"]  %>
+<% if document["child_works_for_lux_tesim"] || document["has_model_ssim"] == ["Collection"]  %>
+<% else %>
   <%= render "uv", document: document %>
-<% elsif document["has_model_ssim"] == ["Collection"] %>
 <% end %>
 <%= render "metadata_all", document: document %>
