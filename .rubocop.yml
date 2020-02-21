@@ -71,3 +71,4 @@ RSpec/ExampleLength:
 Style/MethodDefParentheses:
   Exclude:
         - 'app/helpers/blacklight/blacklight_helper_behavior.rb'
+        
