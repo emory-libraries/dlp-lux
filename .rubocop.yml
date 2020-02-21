@@ -9,7 +9,6 @@ AllCops:
         - 'tmp/**/*'
         - 'vendor/**/*'
         - 'node_modules/**/*'
-        - app/helpers/blacklight/configuration_helper_behavior.rb
 
 RSpec/MessageSpies:
     EnforcedStyle: receive
