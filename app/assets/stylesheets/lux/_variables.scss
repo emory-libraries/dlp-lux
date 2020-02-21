@@ -1,2 +1,224 @@
 @import 'colors';
 $logo-image: image_url('EU_hz1Line_280');
+
+@charset "UTF-8";
+/* CSS Document */
+
+nav.bg-light, nav.bg-light {
+	background-color: #fff !important;
+}
+nav.navbar {
+	/*border-bottom: 1px #ECECEC solid;*/
+	height: 140px;
+	overflow: hidden;
+}
+/*reset Emory's .badge class */
+/*nav.badge, nav span.badge-secondary {
+all:unset;
+background-color:#FFF;
+}*/
+
+
+/*NOTE:
+this mockup uses negative margins or absolute positioning on the desktop view
+of the EUL logo to position the emory utility nav so that it could
+be contained in the navigation toggle
+*/
+
+/*top "row" visually: EU + BL utility nav */
+/*130 px
+92 for second "row" with EUL logo
+112 with overlapping botton edge of EUL logo*/
+
+/* default Blacklight utility links */
+#user-util-collapse {
+	/*margin-top: -110px;
+	margin-left: -150px;*/ /*width of the EUL logo */
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 41px;
+	/*border-bottom: 1px #F5F5F5 solid;*/
+	border-bottom: 1px #ECECEC solid;
+	width: 100%;
+}
+
+.navbar {
+	padding:0;
+}
+
+/* Emory logo element */
+#EUL-brand-container {
+	margin-top: 10px; /*height of top util row*/
+	width: 40%;
+	height: 115px;
+	margin-left: -10px; /* when SVG inserted */
+}
+.branding-header {
+    padding: 43px 0px 0px 10px;
+	}
+/*emory left nav utility */
+
+#emory-util-about {
+	width: 50%;
+}
+.nav-menu-utility, .nav-menu-utility-left {
+	border: none;
+	padding-left: 0;
+}
+/* BLACKLIGHT UTILITY NAV */
+
+ul.navbar-nav {
+	width: 35%;
+	margin-left: 15%;
+	/*padding-left: 25%;*/
+}
+/*reset Blacklight's link styles in header */
+#user_util_collapse a.nav-link, .navbar-light .navbar-nav .nav-link, #advanced-search a {
+	color: #091c44;
+	font-size: 14px;
+}
+/*INCOMPLETE - HOVER COLOR */
+.topbar a:hover, #user_util_collapse .nav-link a:hover, .navbar-light .navbar-nav .nav-link a:hover {
+	text-decoration: none;
+	color: #336be6 !important;
+}
+a.navbar-logo {
+/*	border: 1px solid blue;*/
+	display: block !important;
+	width: 100%;
+	height: 110px;
+	background-image: url(eul-logo.png);
+	background-repeat: none;
+	background-position: 5px;
+	background-size: 90%;
+	margin: 25px 0 0 -10px;
+	overflow: hidden;
+}
+/*navbar-light vs navbar-dark*/
+/*background image icon missing when in small views*/
+nav.navbar .navbar-toggler-icon {
+/*testing visibility*/
+}
+.bookmark-badge {
+	display: inline-block;
+	/*	border: 1px #999 solid;*/
+	width: 18px;
+	padding: 0 2px;
+}
+/* SEARCHBOX */
+
+div.navbar-search {
+	/*margin-top: -125px;
+	margin-left: 35%;*/	/*minus the emory logo width*/
+	display: block !important;
+	/*	background-color: yellow;*/
+	/*border: 1px solid red;*/
+	width: 95%;
+	/*margin-top: 13px*/; /*independent of eul-logo */
+	margin-bottom:13px;
+	padding-left: 15%;
+	padding-right:0px;
+	height:75px;
+}
+/*BL specific overrides */
+.navbar-search form.search-query-form {
+	width: 100% !important;
+	max-width: 100% !important;/*flex: unset;
+	-webkit-box-flex: unset;*/
+}
+.navbar-search input {
+	font-family: "Open Sans", sans-serif;
+}
+form.search-query-form {
+	display: block;
+	width: 100%;
+	padding-right: 0 !important;/*border: 1px solid red;*/
+/*	background-color: green;*/
+}
+/*main search form inner container */
+.input-group {
+/*background-color: #0F9;*/
+}
+/* FIELDED SEARCH */
+/*#search-field {
+}*/
+.custom-select {
+	/*	background-color: red;*/
+	display: inline-block;
+	width: 23%;
+	font-family: "Open Sans", sans-serif;
+	margin: 0;
+	height: 50px;
+}
+/* 2 instances of this in the same block element. need very precise selectors here, or add markup */
+.input-group > span.twitter-typeahead {
+	width: 55%;/*	background-color: yellow;*/
+}
+.input-group > span.twitter-typeahead > span.twitter-typeahead {
+	width: 100%;
+	height: 50x;/*	background-color: orange;*/
+}
+/*search button span*/
+/*NEEDS EMORY STYLES*/
+.input-group-append {
+	/*	background-color: red;*/
+	display: inline-block;
+	/*width: 20%;*/
+	margin: 0;/*	border: 1px #6666FF solid;*/
+}
+.navbar-search .search-field {
+    width: 25%;
+}
+.input-group-append button#search {
+	text-transform: uppercase;
+	border-radius: 0;
+}
+.input-group>.input-group-append>.btn {
+border-radius: 0;
+
+}
+/*styles for when this was at right of searcbox */
+#advanced-search {
+	/*display: inline-block;
+	padding-left: 10%;*/
+}
+/*adjusts unequal height of inline search form elements */
+input.form-control {
+	height: 50px;
+	position: relative;
+	top: 2px;
+}
+/* FACETS */
+#facets button {
+	font-family: "Open Sans", sans-serif;
+}
+.facet-values .facet-label {
+	text-indent: 0;
+	padding-left: 0;
+}
+/* CONTENT STYLES */
+
+/*tiles from EUL styles are on a grid system */
+/*tile-listing.has-description.has-action {
+	grid-template-rows: repeat(3, -webkit-min-content) 1fr;
+	grid-template-rows: repeat(3, min-content) 1fr;
+}
+*/
+.intro-hero {
+	background-image: url(content-img-web/MSS1218_B070_I092_P0001_PROD.jpg);
+	margin-top: 15px;
+}
+.tiles {
+	margin-top: 0;
+}
+.tile-listing {
+	height: 693px;
+}
+.branding-footer-dropdown-menu {
+	background-image: url(https://libraries.emory.edu/assets/icons/php/icon.php?id=material-chevron_down&color=E9BF55&size[width]=15&size[height]=15);
+}
+footer {
+/*max-width: 1140px;
+	margin: 0 auto	*/
+}
