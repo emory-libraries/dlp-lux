@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'rails_helper'
 
-RSpec.feature "View Search Results", type: :system, js: false do
+RSpec.feature "View Search Results", type: :system, js: true do
   before do
     solr = Blacklight.default_index.connection
     solr.add([COLLECTION, PARENT_CURATE_GENERIC_WORK, CHILD_CURATE_GENERIC_WORK_1, CHILD_CURATE_GENERIC_WORK_2, CHILD_CURATE_GENERIC_WORK_3, CURATE_GENERIC_WORK])
@@ -20,7 +20,7 @@ RSpec.feature "View Search Results", type: :system, js: false do
     it 'has title, number of items, and library on the page' do
       visit "/"
       fill_in 'q', with: collection_id
-      click_on 'Search'
+      find('.submit-search-text').click
       expect(page).to have_content('Chester W. Topp collection of Victorian yellowbacks and paperbacks')
       expect(page).to have_content('3 Items')
       expect(page).to have_content('Stuart A. Rose Manuscript, Archives, and Rare Book Library')
@@ -34,7 +34,7 @@ RSpec.feature "View Search Results", type: :system, js: false do
     it 'has title, number of items, creator, and format on the page' do
       visit "/"
       fill_in 'q', with: parent_work_id
-      click_on 'Search'
+      find('.submit-search-text').click
       expect(page).to have_content('Emocad.')
       expect(page).to have_content('4 Items')
       expect(page).to have_content('Sample Parent Creator')
@@ -49,7 +49,7 @@ RSpec.feature "View Search Results", type: :system, js: false do
     it 'has title, link to parent work, creator, date, and format on the page' do
       visit "/"
       fill_in 'q', with: child_work_1_id
-      click_on 'Search'
+      find('.submit-search-text').click
       expect(page).to have_content('Emocad. [1924]')
       expect(page).to have_content('Part of: Emocad.')
       expect(page).to have_content('Sample Child Creator')
@@ -65,7 +65,7 @@ RSpec.feature "View Search Results", type: :system, js: false do
     it 'has title, creator, date, format, and access fields on the page' do
       visit "/"
       fill_in 'q', with: simple_work_id
-      click_on 'Search'
+      find('.submit-search-text').click
       expect(page).to have_content('The Title of my Work')
       expect(page).to have_content('Smith, Somebody')
       expect(page).to have_content('1776, unknown, 1920s, and 1973 approx.')

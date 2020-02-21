@@ -6,18 +6,14 @@
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#user-util-collapse" aria-controls="user-util-collapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse justify-content-md-end" id="user-util-collapse">
-
       <%= render 'shared/user_util_links' %>
     </div>
   </div>
 </nav>
-
-<% unless @_blacklight_advanced_search_engine %>
-  <div class="navbar-search navbar navbar-light bg-light" role="navigation">
-    <div class="<%= container_classes %>">
-      <%= render_search_bar %>
-    </div>
+<!-- Need to make it so this doesn't show on advanced search page -->
+<div class="navbar-search navbar navbar-light bg-light" role="navigation">
+  <div class="<%= container_classes %>">
+    <%= render_search_bar %>
   </div>
-<% end %>
+</div>
