@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# [Blacklight overwrite] Fix label for contraint element when facet field is not added in Lux L#80
+# [Blacklight overwrite] Fix label for contraint element when facet field is not added in Lux L#81
 # (currently applies to Contributors and Keywords)
 
 module Blacklight::ConfigurationHelperBehavior
