@@ -2,72 +2,72 @@ inherit_gem:
   bixby: bixby_default.yml
 
 AllCops:
-  TargetRubyVersion: 2.5
-  Exclude:
-    - "bin/**/*"
-    - "db/**/*"
-    - "tmp/**/*"
-    - "vendor/**/*"
-    - "node_modules/**/*"
-    - app/helpers/blacklight/configuration_helper_behavior.rb
+    TargetRubyVersion: 2.5
+    Exclude:
+        - 'bin/**/*'
+        - 'db/**/*'
+        - 'tmp/**/*'
+        - 'vendor/**/*'
+        - 'node_modules/**/*'
+        - app/helpers/blacklight/configuration_helper_behavior.rb
 
 RSpec/MessageSpies:
-  EnforcedStyle: receive
+    EnforcedStyle: receive
 
 Layout/LeadingCommentSpace:
-  Enabled: false
+    Enabled: false
 
 Lint/EmptyWhen:
-  Exclude:
-    - app/models/marc_indexer.rb
+    Exclude:
+      - app/models/marc_indexer.rb
 
 Metrics/ClassLength:
-  Exclude:
-    - "spec/**/*"
-    - "app/controllers/catalog_controller.rb"
-    - "app/models/marc_indexer.rb"
+    Exclude:
+        - 'spec/**/*'
+        - 'app/controllers/catalog_controller.rb'
+        - 'app/models/marc_indexer.rb'
 
 Metrics/BlockLength:
-  Exclude:
-    - "spec/**/*"
-    - "app/controllers/catalog_controller.rb"
-    - "config/routes.rb"
+    Exclude:
+        - 'spec/**/*'
+        - 'app/controllers/catalog_controller.rb'
+        - 'config/routes.rb'
 
 Metrics/LineLength:
-  Exclude:
-    - "spec/**/*"
+    Exclude:
+        - 'spec/**/*'
 
 Metrics/AbcSize:
-  Exclude:
-    - "app/models/marc_indexer.rb"
+    Exclude:
+        - 'app/models/marc_indexer.rb'
 
 Metrics/CyclomaticComplexity:
-  Exclude:
-    - "app/models/marc_indexer.rb"
+    Exclude:
+        - 'app/models/marc_indexer.rb'
 
 Metrics/MethodLength:
-  Exclude:
-    - "app/models/marc_indexer.rb"
-    - "app/values/uv_configuration.rb"
+    Exclude:
+        - 'app/models/marc_indexer.rb'
+        - 'app/values/uv_configuration.rb'
 
 Metrics/ModuleLength:
-  Exclude:
-    - "lib/blacklight/access_controls/ability.rb"
-    - "app/helpers/blacklight/blacklight_helper_behavior.rb"
+    Exclude:
+        - 'lib/blacklight/access_controls/ability.rb'
+        - 'app/helpers/blacklight/blacklight_helper_behavior.rb'
 
 Metrics/PerceivedComplexity:
-  Exclude:
-    - "app/models/marc_indexer.rb"
+    Exclude:
+        - 'app/models/marc_indexer.rb'
 
 RSpec/DescribeClass:
-  Exclude:
-    - "spec/system/visibility_spec.rb"
-    - "spec/routing/uv_config_routes_spec.rb"
+    Exclude:
+        - 'spec/system/visibility_spec.rb'
+        - 'spec/routing/uv_config_routes_spec.rb'
 
 RSpec/ExampleLength:
-  Exclude:
-    - "spec/**/*"
+    Exclude:
+        - 'spec/**/*'
 
 Style/MethodDefParentheses:
   Exclude:
-    - "app/helpers/blacklight/blacklight_helper_behavior.rb"
+        - 'app/helpers/blacklight/blacklight_helper_behavior.rb'
