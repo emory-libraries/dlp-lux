@@ -118,6 +118,8 @@ class CatalogController < ApplicationController
     config.add_facet_field 'subject_geo_sim', limit: 5, label: 'Subject - Geographic Locations'
     config.add_facet_field 'human_readable_rights_statement_ssim', label: 'Rights Status'
     config.add_facet_field 'visibility_group_ssi', label: 'Access'
+    config.add_facet_field 'contributors_sim', label: 'Contributors', show: false
+    config.add_facet_field 'keywords_sim', label: 'Keywords', show: false
 
     #config.add_facet_field 'pub_date_ssim', label: 'Publication Year', single: true
     #config.add_facet_field 'subject_ssim', label: 'Topic', limit: 20, index_range: 'A'..'Z'
@@ -187,7 +189,7 @@ class CatalogController < ApplicationController
     config.add_show_field 'subject_names_tesim', label: 'Subject - Names', link_to_facet: 'subject_names_sim'
     config.add_show_field 'subject_geo_tesim', label: 'Subject - Geographic Locations', link_to_facet: 'subject_geo_sim'
     config.add_show_field 'subject_time_periods_tesim', label: 'Subject - Time Periods'
-    config.add_show_field 'keywords_tesim', label: 'Keywords'
+    config.add_show_field 'keywords_tesim', label: 'Keywords', link_to_facet: 'keywords_sim'
     # For "Find this Item" section of show page
     # config.add_show_field 'persistent_url_tesim', label: 'Persistent URL'
     config.add_show_field 'system_of_record_ID_tesim', label: 'System of Record ID'
