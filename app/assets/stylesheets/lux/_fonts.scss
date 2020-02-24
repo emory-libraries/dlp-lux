@@ -1,7 +1,6 @@
 @font-face {
-  font-family: "Noto Sans";
-  src: font_url("") format(""),
-  font_url("proximanova-regular.woff") format("woff");
+  font-family: "Noto Sans", sans-serif;
+  src: font_url("https://fonts.googleapis.com/css?family=Noto+Sans&display=swap");
   font-weight: normal;
   font-style: normal;
 }

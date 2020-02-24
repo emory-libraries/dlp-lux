@@ -11,9 +11,11 @@
     </div>
   </div>
 </nav>
-<!-- Need to make it so this doesn't show on advanced search page -->
-<div class="navbar-search navbar navbar-light bg-light" role="navigation">
-  <div class="<%= container_classes %>">
-    <%= render_search_bar %>
+<!-- Don't show regular search on advanced search page -->
+<% unless request.original_fullpath == "/advanced" %>
+  <div class="navbar-search navbar navbar-light bg-light" role="navigation">
+    <div class="<%= container_classes %>">
+      <%= render_search_bar %>
+    </div>
   </div>
-</div>
+<% end %>

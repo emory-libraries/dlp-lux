@@ -425,7 +425,7 @@ RSpec.describe 'Search the catalog using advanced search', type: :system, js: fa
     end
   end
 
-  xit 'does not display simple search bar' do
+  it 'does not display simple search bar' do
     visit root_path
     click_on "Advanced Search"
     expect(page).to have_no_css('.search-query-form')
