@@ -10,13 +10,10 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
- 
+ *= require lux
+ *= require blacklight
  *= require 'blacklight_advanced_search'
 
-
- *
  * Used by blacklight_range_limit
  *= require  'blacklight_range_limit'
  *
@@ -25,24 +22,9 @@
      max-width: 150px;
      vertical-align: top;
      float: left;
- } 
- *= require 'blacklight_advanced_search'
-
-
- *
- * Used by blacklight_range_limit
- *= require  'blacklight_range_limit'
- *
-*/
+ }
 
  /* .document-metadata dt {
     align: left;
- } 
- *= require 'blacklight_advanced_search'
-
-
- *
- * Used by blacklight_range_limit
- *= require  'blacklight_range_limit'
- *
+ }
 */

@@ -31,6 +31,7 @@ Metrics/BlockLength:
         - 'spec/**/*'
         - 'app/controllers/catalog_controller.rb'
         - 'config/routes.rb'
+        - 'coverage/config/routes.rb'
 
 Metrics/LineLength:
     Exclude:

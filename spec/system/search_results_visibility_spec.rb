@@ -2,7 +2,7 @@
 require 'rails_helper'
 include Warden::Test::Helpers
 
-RSpec.describe "View search results for works with different levels of visibility", clean: true, type: :system do
+RSpec.describe "View search results for works with different levels of visibility", js: true, clean: true, type: :system do
   before do
     delete_all_documents_from_solr
     solr = Blacklight.default_index.connection
@@ -16,8 +16,7 @@ RSpec.describe "View search results for works with different levels of visibilit
              ])
     solr.commit
     visit "/"
-
-    click_on 'Search'
+    find('.submit-search-text').click
   end
 
   let(:emory_high_work_id) { '111-321' }
