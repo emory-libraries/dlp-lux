@@ -1,16 +1,27 @@
-<div class="big-nav collapse navbar-collapse justify-content-md-end">
-  <div class="col-6">
-    <!-- <a class="mb-0 navbar-brand lux-logo" href="/">Emory Digital Collections</a> -->
-    <%= image_tag("shield.png", :alt => "Emory Digital Collections") %>
-  </div>
-  <!-- Don't show regular search on advanced search page -->
-  <div class="col-6">
-    <% unless request.original_fullpath == "/advanced" %>
-      <div class="navbar-search navbar navbar-light bg-light" role="navigation">
-        <div class="<%= container_classes %>">
-          <%= render_search_bar %>
-        </div>
-      </div>
+<div class="big-nav collapse navbar-collapse">
+  <div class="navbar-brand">
+    <%= link_to root_path do %>
+      <%= image_tag("shield.svg", :alt => "Emory Digital Collections") %>
     <% end %>
+  </div>
+  <div class="col-md-4">
+    <div class="row">
+      <div class="branding-header-organization">
+          Emory University
+      </div>
+    </div>
+    <div class="row">
+      <div class="branding-header-division">
+          Emory Libraries
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="justify-end" role="navigation">
+      <!-- Don't show regular search on advanced search page -->
+      <% unless request.original_fullpath == "/advanced" %>
+        <%= render_search_bar %>
+      <% end %>
+    </div>
   </div>
 </div>
