@@ -1,27 +1,15 @@
-// Emory colors from https://brand.emory.edu/color.html
-// Primary Palette
-$emory-blue: #012169;
-$dark-blue: #0c2340;
-$medium-blue: #0033a0;
-$light-blue: #007dba;
-$yellow: #f2a900;
-$gold: #b58500;
-$metallic-gold: #84754e;
+// Colors from Emory Libraries Pattern Library: https://github.com/emory-libraries/Pattern-Library/blob/master/src/scss/vends/emory-libraries/config/_colors.scss
 
-// Secondary Palette
-$cyan: #00aeef;
-$sky-blue: #41b6e6;
-$teal: #487f84;
-$sea-green: #006c5b;
-$olive: #5c8118;
-$orange: #c35413;
-$red: #da291c;
-$magenta: #c6007e;
-$purple: #6558b1;
-$grape: #6d2077;
+$dark-blue: #091C44;
+$base-blue: #082B73;
+$mid-blue: #004990;
+$base-bright-blue: #5387F7;
+$accessible-bright-blue: #336BE6;
 
-// Neutrals Palette
-$black: #101820;
-$cool-gray-5: #b1b3b3;
-$cool-gray-2: #d0d0ce;
-$cool-gray-1: #d9d9d6;
+$gold: #E9BF55;
+
+$charcoal: #605858;
+$base-slate: #B6BDCC;
+$light-slate: #E7EAF1;
+$black: #000000;
+$white: #FFFFFF;
