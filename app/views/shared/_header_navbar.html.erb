@@ -2,20 +2,16 @@
 
 <nav class="navbar navbar-expand-md navbar-light bg-light topbar" role="navigation">
   <div class="<%= container_classes %>">
-    <%= link_to application_name, root_path, class: 'mb-0 navbar-brand navbar-logo' %>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#user-util-collapse" aria-controls="user-util-collapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse justify-content-md-end" id="user-util-collapse">
-      <%= render 'shared/user_util_links' %>
+    <div class="container">
+      <div class="row">
+        <%= render 'shared/top_links' %>
+      </div>
+      <div class="row">
+        <%= render 'shared/big_nav' %>
+      </div>
     </div>
   </div>
 </nav>
-<!-- Don't show regular search on advanced search page -->
-<% unless request.original_fullpath == "/advanced" %>
-  <div class="navbar-search navbar navbar-light bg-light" role="navigation">
-    <div class="<%= container_classes %>">
-      <%= render_search_bar %>
-    </div>
-  </div>
-<% end %>
