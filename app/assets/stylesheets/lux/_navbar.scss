@@ -1,1 +1,34 @@
 @import 'colors';
+@import 'fonts';
+@import 'variables';
+
+.branding-header-organization {
+  text-transform: uppercase;
+  text-align: left;
+  color: $dark-blue;
+  font-size: $font-size-sm;
+  font-family: $font-family-serif;
+}
+
+.branding-header-division {
+  text-align: left;
+  font-size: $h4-font-size;
+  color: $dark-blue;
+  font-family: $font-family-sans-serif;
+  font-weight: $font-weight-bold;
+}
+
+.nav-link-left {
+  font-size: $font-size-xs;
+  text-transform: uppercase;
+  font-weight: $font-weight-bold;
+  color: $mid-blue;
+}
+
+.nav-link-right {
+  font-size: $font-size-sm;
+  text-transform: uppercase;
+  font-weight: $font-weight-bold;
+  color: $dark-blue;
+  padding: $nav-link-padding-x;
+}
