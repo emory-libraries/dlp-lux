@@ -1,0 +1,105 @@
+.footer-branding {
+  display: grid;
+  grid-template-areas: "logo" "dropdown";
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, -webkit-min-content);
+  grid-template-rows: repeat(2, min-content);
+  max-width: 130px;
+}
+@media (min-width: 901px) {
+  .footer-branding {
+    max-width: 155px;
+  }
+}
+.footer-branding-logo {
+  grid-area: logo;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.footer-branding-logo .logo {
+  width: 100%;
+  z-index: 1;
+}
+.footer-branding-logo .logo svg {
+  width: 100%;
+}
+.footer-branding-dropdown {
+  grid-area: dropdown;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.footer-branding-dropdown-menu {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  background: none;
+  max-width: 135px;
+  background-repeat: no-repeat;
+  background-position: right 50%;
+}
+.footer-branding-dropdown-menu option {
+  margin: 0;
+  padding: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.footer-branding {
+  grid-column-gap: 5px;
+  background-color: #091C44;
+}
+.footer-branding-logo {
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+  margin-top: -40px;
+}
+.footer-branding-logo .logo svg {
+  fill: #FFFFFF;
+}
+.footer-branding-logo .logo svg #badge-bg {
+  opacity: 1 !important;
+  fill: #091C44;
+}
+.footer-branding-dropdown-menu {
+  // background-image: url(../icons/php/icon.php?id=material-chevron_down&color=E9BF55&size[width]=15&size[height]=15);
+  background-size: 15px;
+  padding-right: 15px;
+  font: inherit;
+}
+.footer-branding-dropdown-menu {
+  font-family: "Open Sans", sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  font-style: normal;
+  line-height: 1.6364;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-align: left;
+  color: #E9BF55;
+}
+.footer-branding-dropdown-menu option {
+  margin: 0;
+  padding: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font: initial;
+  font-family: sans-serif;
+  color: #605858;
+}
