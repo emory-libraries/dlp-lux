@@ -1,4 +1,3 @@
-@import 'colors';
 @import 'fonts';
 @import 'variables';
 
@@ -18,17 +17,14 @@
   font-weight: $font-weight-bold;
 }
 
-.nav-link-left {
-  font-size: $font-size-xs;
-  text-transform: uppercase;
-  font-weight: $font-weight-bold;
-  color: $mid-blue;
-}
+// Navbar nav
+//
+// Custom navbar navigation (doesn't require `.nav`, but does make use of `.nav-link`).
 
-.nav-link-right {
-  font-size: $font-size-sm;
-  text-transform: uppercase;
-  font-weight: $font-weight-bold;
-  color: $dark-blue;
-  padding: $nav-link-padding-x;
+.navbar-nav {
+  .nav-link {
+    font-weight: $nav-link-weight;
+    text-transform: uppercase;
+    font-size: $font-size-sm;
+  }
 }

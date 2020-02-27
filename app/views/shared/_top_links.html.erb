@@ -1,6 +1,8 @@
 <div class="top-links collapse navbar-collapse" id="user-util-collapse">
   <ul class="navbar-nav col-4">
-    <li class="nav-item"><%= link_to "Home", root_path, class: "nav-link-left" %></li>
+    <li class="nav-item"><%= link_to "Home", root_path, class: "nav-link" %></li>
+    <li class="nav-item"><%= link_to "About", root_path, class: "nav-link disabled" %></li>
+    <li class="nav-item"><%= link_to "Contact", root_path, class: "nav-link disabled" %></li>
   </ul>
   <%= render 'shared/user_util_links' %>
 </div>
