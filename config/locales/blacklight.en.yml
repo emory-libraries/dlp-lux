@@ -7,3 +7,6 @@ en:
       logout: 'Log Out'
       bookmarks: 'Bookmarks'
       search_history: 'History'
+    form:
+      search:
+        placeholder: 'Search in Digital Collections'

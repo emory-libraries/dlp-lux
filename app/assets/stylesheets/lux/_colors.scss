@@ -5,8 +5,7 @@
 $dark-blue: #091C44;
 $base-blue: #082B73;
 $mid-blue: #004990;
-$base-bright-blue: #5387F7;
-$accessible-bright-blue: #336BE6;
+$bright-blue: #336BE6;
 $light-blue: #D0DEFD;
 
 $gold: #E9BF55;
@@ -40,7 +39,7 @@ $colors: map-merge(
   $colors
 );
 
-$primary:       $accessible-bright-blue;
+$primary:       $bright-blue;
 $secondary:     $charcoal;
 $success:       $green;
 $info:          $light-blue;

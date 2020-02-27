@@ -14,12 +14,6 @@
 $body-bg:                   $white !default;
 $body-color:                $charcoal;
 
-//== Typography
-$system-font-stack: -apple-system,BlinkMacSystemFont,"Segoe UI",Cantarell,Roboto,Oxygen-Sans,Ubuntu,"Helvetica Neue",sans-serif;
-
-$font-family-sans-serif: "Open Sans", "Verdana", $system-font-stack;
-$font-family-serif: 'Cardo', serif;
-
 // stylelint-enable value-keyword-case
 $font-size-base:              1rem !default; // Assumes the browser default, typically `16px`
 $font-size-lg:                $font-size-base * 1.25 !default;
@@ -42,8 +36,11 @@ $font-weight-bolder:          bolder !default;
 
 
 $navbar-light-color:                $mid-blue;
-$navbar-light-hover-color:          $accessible-bright-blue;
+$navbar-light-hover-color:          $bright-blue;
 $nav-link-weight:                   $font-weight-bold;
 $nav-link-disabled-color:           $base-slate;
+
+// Darken percentage for links with `.text-*` class (e.g. `.text-success`)
+$emphasized-link-hover-darken-percentage: 15% !default;
 
 $border-radius:               .0rem;
