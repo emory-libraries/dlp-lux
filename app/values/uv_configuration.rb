@@ -20,6 +20,11 @@ class UvConfiguration < ActiveSupport::HashWithIndifferentAccess
           "options" => {
             "pagingToggleEnabled" => true
           }
+        },
+        "moreInfoRightPanel" => {
+          "content" => {
+            "manifestHeader" => nil
+          }
         }
       }
     }

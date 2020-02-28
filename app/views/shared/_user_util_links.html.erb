@@ -7,14 +7,14 @@
     <% if current_user %>
       <li class="nav-item">
         <% if current_user.display_name %>
-          <%= link_to "#{t('blacklight.header_links.logout')} #{current_user.display_name} ", destroy_user_session_path, class: 'nav-link-right' %>
+          <%= link_to "#{t('blacklight.header_links.logout')} #{current_user.display_name} ", destroy_user_session_path, class: 'nav-link' %>
         <% else %>
-          <%= link_to t('blacklight.header_links.logout'), destroy_user_session_path, class: 'nav-link-right' %>
+          <%= link_to t('blacklight.header_links.logout'), destroy_user_session_path, class: 'nav-link' %>
         <% end %>
       </li>
     <% else %>
       <li class="nav-item">
-        <%= link_to t('blacklight.header_links.login'), new_user_session_path, class: 'nav-link-right' %>
+        <%= link_to t('blacklight.header_links.login'), new_user_session_path, class: 'nav-link' %>
       </li>
     <% end %>
   <% end %>
