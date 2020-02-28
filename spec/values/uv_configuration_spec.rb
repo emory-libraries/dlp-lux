@@ -11,6 +11,9 @@ describe UvConfiguration do
         "shareEnabled" => false,
         "downloadEnabled" => false
       )
+      expect(described_class.default_values["modules"]["moreInfoRightPanel"]["content"]).to include(
+        "manifestHeader" => nil
+      )
     end
   end
 
