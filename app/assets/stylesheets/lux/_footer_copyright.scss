@@ -1,3 +1,14 @@
+.footer-copyright {
+  grid-row: 6;
+  grid-column: 1/span 2;
+}
+@media (min-width: 901px) {
+  .footer-copyright {
+    grid-row: 3;
+    grid-column: 1/span 5;
+  }
+}
+
 .copyright .link,
 .copyright a {
   display: -webkit-inline-box;
@@ -63,6 +74,7 @@
         flex-wrap: wrap;
   }
 }
+
 .copyright-notice + .copyright-notice::before,
 .copyright-notice + .copyright-address::before,
 .copyright-notice + .copyright-phone::before, .copyright-address + .copyright-notice::before,
@@ -78,6 +90,7 @@
           transform: translatey(-50%);
   left: 0;
 }
+
 .copyright-notice {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -114,6 +127,7 @@
     display: block;
   }
 }
+
 .copyright-notice .copyright-signature {
   -ms-flex-preferred-size: 100%;
       flex-basis: 100%;
@@ -140,9 +154,11 @@
     content: " - ";
   }
 }
+
 .copyright-address {
   grid-area: address;
 }
+
 .copyright-phone {
   grid-area: phone;
 }
@@ -167,6 +183,7 @@
     font-size: 13px;
   }
 }
+
 .copyright .link,
 .copyright a {
   font-weight: bold;

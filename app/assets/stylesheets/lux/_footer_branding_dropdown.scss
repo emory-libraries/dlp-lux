@@ -1,0 +1,61 @@
+.footer-branding-dropdown {
+  grid-area: dropdown;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.footer-branding-dropdown-menu {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  background: none;
+  max-width: 145px;
+  background-repeat: no-repeat;
+  background-position: right 50%;
+}
+
+.footer-branding-dropdown-menu option {
+  margin: 0;
+  padding: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.footer-branding-dropdown-menu {
+  background-image: url(https://libraries.emory.edu/assets/icons/php/icon.php?id=material-chevron_down&color=E9BF55&size[width]=15&size[height]=15);
+  background-size: 15px;
+  padding-right: 15px;
+  font: inherit;
+}
+
+.footer-branding-dropdown-menu {
+  font-family: "Open Sans", sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  font-style: normal;
+  line-height: 1.6364;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-align: left;
+  color: #E9BF55;
+}
+
+.footer-branding-dropdown-menu option {
+  margin: 0;
+  padding: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font: initial;
+  font-family: sans-serif;
+  color: #605858;
+}

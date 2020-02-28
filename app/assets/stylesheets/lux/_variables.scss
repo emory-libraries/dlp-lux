@@ -3,8 +3,11 @@
 @import 'fonts';
 @import 'footer';
 @import 'footer_branding';
-@import 'footer_copyright';
+@import 'footer_branding_logo';
+@import 'footer_branding_dropdown';
+@import 'footer_list';
 @import 'footer_version';
+@import 'footer_copyright';
 
 //== Typography
 $system-font-stack: -apple-system,BlinkMacSystemFont,"Segoe UI",Cantarell,Roboto,Oxygen-Sans,Ubuntu,"Helvetica Neue",sans-serif;

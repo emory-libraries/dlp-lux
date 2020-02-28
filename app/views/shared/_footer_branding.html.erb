@@ -1,32 +1,6 @@
-<div class="footer-branding">
-  <a class="footer-branding-logo" href="/">
-    <%= image_tag "footer-logo.svg" %>
-  </a>
-  <div class="footer-branding-dropdown">
-    <select class="footer-branding-dropdown-menu"
-            v-model="selection"
-            onchange="redirect(this)">
-      <option value="">Select a Location</option>
-      <option value="https://web.library.emory.edu">Emory Libraries</option>
-      <option value="https://business.library.emory.edu">Business</option>
-      <option value="https://health.library.emory.edu">Health Sciences</option>
-      <option value="https://web.library.emory.edu/about/libraries/woodruff-building/music-media-library">Music & Media</option>
-      <option value="http://digitalscholarship.emory.edu">Center for Digital Scholarship</option>
-      <option value="http://it.emory.edu/studentdigitallife/study_production_spaces/computing-center-at-cox-hall">Computing Center</option>
-      <option value="http://library.law.emory.edu">Law</option>
-      <option value="http://libraryservicecenter.org">Library Service Center</option>
-      <option value="https://oxford.library.emory.edu">Oxford College</option>
-      <option value="https://rose.library.emory.edu">Rose</option>
-      <option value="https://web.library.emory.edu/about/libraries/other-libraries/science-commons">Science Commons</option>
-      <option value="http://www.pitts.emory.edu">Theology</option>
-    </select>
+<div class="footer-branding footer-branding">
+  <%= link_to root_path, class: "footer-branding-logo" do %>
+    <%= render "shared/footer_branding_logo" %>
+  <% end %>
+  <%= render "shared/footer_branding_dropdown" %>
   </div>
-</div>
-
-<noscript>
-  <div class="footer-branding">
-    <a class="footer-branding-logo" href="/">
-      <%= image_tag "footer-logo.svg" %>
-    </a>
-  </div>
-</noscript>
