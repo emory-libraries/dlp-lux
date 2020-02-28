@@ -1,0 +1,28 @@
+.footer-branding {
+  grid-column: 1/span 2;
+  grid-row: 1;
+}
+@media (min-width: 901px) {
+  .footer-branding {
+    grid-column: 3;
+  }
+}
+
+.footer-branding {
+  display: grid;
+  grid-template-areas: "logo" "dropdown";
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, -webkit-min-content);
+  grid-template-rows: repeat(2, min-content);
+  max-width: 145px;
+}
+@media (min-width: 901px) {
+  .footer-branding {
+    max-width: 155px;
+  }
+}
+
+.footer-branding {
+  grid-column-gap: 5px;
+  background-color: #091C44;
+}
