@@ -7,14 +7,21 @@
   color: $dark-blue;
   font-size: $font-size-sm;
   font-family: $font-family-serif;
+  &:hover { color: $mid-blue;
+            text-decoration: none;
+  }
 }
 
 .branding-header-division {
+  text-decoration: none;
   text-align: left;
   font-size: $h4-font-size;
   color: $dark-blue;
   font-family: $font-family-sans-serif;
   font-weight: $font-weight-bold;
+  &:hover { color: $mid-blue;
+            text-decoration: none;
+  }
 }
 
 // Navbar nav
