@@ -11,11 +11,12 @@
 //
 // Settings for the `<body>` element.
 
-$body-bg:                   $white !default;
+$body-bg:                   $white;
 $body-color:                $charcoal;
 
 // stylelint-enable value-keyword-case
 $font-size-base:              1rem; // Assumes the browser default, typically `16px`
+$font-size-base-serif:        $font-size-base * 1.125; // Emory uses slightly larger fonts for serif
 $font-size-sm:                $font-size-base * .875;
 
 $h4-font-size:                $font-size-base * 1.5;
@@ -23,6 +24,8 @@ $h4-font-size:                $font-size-base * 1.5;
 $font-weight-normal:          400;
 $font-weight-bold:            700;
 $font-weight-bolder:          bolder;
+
+$line-height-base:            1.5;
 
 $branding-hover-color:              $mid-blue;
 
@@ -37,13 +40,27 @@ $navbar-divider-opacity:         0.2;
 $navbar-nav-link-padding-x:      .5rem;
 
 // Darken percentage for links with `.text-*` class (e.g. `.text-success`)
-$emphasized-link-hover-darken-percentage: 15% !default;
+$emphasized-link-hover-darken-percentage: 15%;
 
-$border-radius:               .0rem;
+$border-radius:               .3rem;
+$border-radius-lg:            .3rem !default;
+$border-radius-sm:            .2rem !default;
 
 // Card
 $card-cap-bg:                       $dark-blue;
 $card-cap-color:                    $gold;
 
+// Buttons + Forms
+//
+// Shared variables that are reassigned to `$input-` and `$btn-` specific variables.
+
+$input-btn-line-height:             $line-height-base * 1.2;
+
 // Form
 $input-border-color:                $base-slate;
+// $input-font-family:                 $font-family-serif;
+// $input-font-size:                   $font-size-base-serif;
+
+// Button
+$btn-font-size:                      $font-size-sm;
+$btn-font-weight:                    $font-weight-bold;
