@@ -3,6 +3,7 @@
 
 .branding-header {
   color: $dark-blue;
+  line-height: 1;
   &:hover { color: $mid-blue;
             text-decoration: none;
   }
@@ -20,7 +21,6 @@
   font-size: $h4-font-size;
   font-family: $font-family-sans-serif;
   font-weight: $font-weight-bold;
-  line-height: 1;
 }
 
 // Navbar nav
@@ -32,5 +32,12 @@
     font-weight: $nav-link-weight;
     text-transform: uppercase;
     font-size: $font-size-sm;
+    padding-right: 0 !important;
+    &::after {
+      color: $navbar-divider-color;
+      content: $navbar-divider;
+      opacity: $navbar-divider-opacity;
+      padding-left: $navbar-nav-link-padding-x;
+    }
   }
 }
