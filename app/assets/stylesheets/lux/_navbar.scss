@@ -30,14 +30,6 @@
 .navbar-nav {
   .nav-link {
     font-weight: $nav-link-weight;
-    text-transform: uppercase;
     font-size: $font-size-sm;
-    padding-right: 0 !important;
-    &::after {
-      color: $navbar-divider-color;
-      content: $navbar-divider;
-      opacity: $navbar-divider-opacity;
-      padding-left: $navbar-nav-link-padding-x;
-    }
   }
 }

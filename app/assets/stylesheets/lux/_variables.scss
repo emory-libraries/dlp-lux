@@ -33,18 +33,14 @@ $navbar-light-color:                $mid-blue;
 $navbar-light-hover-color:          $bright-blue;
 $nav-link-weight:                   $font-weight-bold;
 $nav-link-disabled-color:           $base-slate;
-
-$navbar-divider-color:          $dark-blue;
-$navbar-divider:                quote("|");
-$navbar-divider-opacity:         0.2;
-$navbar-nav-link-padding-x:      .5rem;
+$navbar-nav-link-padding-x:         .75rem;
 
 // Darken percentage for links with `.text-*` class (e.g. `.text-success`)
 $emphasized-link-hover-darken-percentage: 15%;
 
-$border-radius:               .3rem;
-$border-radius-lg:            .3rem !default;
-$border-radius-sm:            .2rem !default;
+$border-radius:               .15rem;
+$border-radius-lg:            .3rem;
+$border-radius-sm:            .2rem;
 
 // Card
 $card-cap-bg:                       $dark-blue;
