@@ -1,8 +1,8 @@
+@import url(https://fonts.googleapis.com/css?family=Cardo:400,700|Open+Sans:400,700&display=swap);
+@import 'lux/buttons';
 @import 'lux/cards';
 @import 'lux/colors';
-@import 'lux/navbar';
 @import 'lux/fonts';
-@import 'lux/logo';
 @import 'lux/footer';
 @import 'lux/footer_branding';
 @import 'lux/footer_branding_logo';
@@ -10,4 +10,6 @@
 @import 'lux/footer_list';
 @import 'lux/footer_version';
 @import 'lux/footer_copyright';
+@import 'lux/navbar';
+@import 'lux/search_form';
 @import 'bootstrap';

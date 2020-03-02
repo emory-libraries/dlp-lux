@@ -1,5 +1,4 @@
 @import 'colors';
-@import 'logo';
 @import 'fonts';
 
 // Variables
@@ -11,34 +10,97 @@
 //
 // Settings for the `<body>` element.
 
-$body-bg:                   $white !default;
+$body-bg:                   $white;
 $body-color:                $charcoal;
 
 // stylelint-enable value-keyword-case
-$font-size-base:              1rem !default; // Assumes the browser default, typically `16px`
-$font-size-lg:                $font-size-base * 1.25 !default;
-$font-size-sm:                $font-size-base * .875 !default;
-$font-size-xs:                $font-size-base * .6875 !default;
+$font-size-base:              1rem; // Assumes the browser default, typically `16px`
+$font-size-base-serif:        $font-size-base * 1.125; // Emory uses slightly larger fonts for serif
+$font-size-sm:                $font-size-base * .875;
+$font-size-lg:                $font-size-base * 1.25;
 
-$h4-font-size:                $font-size-base * 1.5 !default;
+$h4-font-size:                $font-size-base * 1.5;
 
-$font-weight-lighter:         lighter !default;
-$font-weight-light:           300 !default;
-$font-weight-normal:          400 !default;
-$font-weight-bold:            700 !default;
-$font-weight-bolder:          bolder !default;
+$font-weight-normal:          400;
+$font-weight-bold:            700;
+$font-weight-bolder:          bolder;
 
+$line-height-base:            1.5;
 
-$navbar-light-color:                $mid-blue;
-$navbar-light-hover-color:          $bright-blue;
-$nav-link-weight:                   $font-weight-bold;
-$nav-link-disabled-color:           $base-slate;
+// Spacing
+//
+// Control the default styling of most Bootstrap elements by modifying these
+// variables. Mostly focused on spacing.
+// You can add more entries to the $spacers map, should you need more variation.
+
+$spacer: 1rem ;
+$spacers: ();
+// stylelint-disable-next-line scss/dollar-variable-default
+$spacers: map-merge(
+  (
+    0: 0,
+    1: ($spacer * .25),
+    2: ($spacer * .5),
+    3: $spacer,
+    4: ($spacer * 1.5),
+    5: ($spacer * 3)
+  ),
+  $spacers
+);
+
+// Navs
+
+$nav-link-padding-y:                .5rem;
+$nav-link-padding-x:                1rem;
+
+// Navbar
+
+$navbar-padding-y:                  $spacer / 2;
+$navbar-padding-x:                  $spacer;
+
+$navbar-nav-link-padding-x:         .5rem;
+
+$branding-organization-font-size:            $font-size-sm;
+$branding-division-font-size:                $h4-font-size;
+// Compute the branding padding-y so the branding will have the same height as navbar-text and nav-link
+$nav-link-height:                            $font-size-base * $line-height-base + $nav-link-padding-y * 2;
+$branding-organization-height:               $branding-organization-font-size * (2/3);
+$branding-division-height:                   $branding-division-font-size * (2/3);
+
+$branding-padding-y:                         2;
+
+$branding-hover-color:                        $mid-blue;
+
+$navbar-light-color:                         $mid-blue;
+$navbar-light-hover-color:                   $bright-blue;
+$nav-link-weight:                            $font-weight-bold;
+$nav-link-disabled-color:                    $base-slate;
+
+$navbar-nav-link-padding-x:         .75rem;
+
 
 // Darken percentage for links with `.text-*` class (e.g. `.text-success`)
-$emphasized-link-hover-darken-percentage: 15% !default;
+$emphasized-link-hover-darken-percentage: 15%;
 
-$border-radius:               .0rem;
+$border-radius:               .15rem;
+$border-radius-lg:            .3rem;
+$border-radius-sm:            .2rem;
 
 // Card
 $card-cap-bg:                       $dark-blue;
 $card-cap-color:                    $gold;
+
+// Buttons + Forms
+//
+// Shared variables that are reassigned to `$input-` and `$btn-` specific variables.
+
+$input-btn-line-height:             $line-height-base * 1.2;
+
+// Form
+$input-border-color:                $base-slate;
+// $input-font-family:                 $font-family-serif;
+// $input-font-size:                   $font-size-base-serif;
+
+// Button
+$btn-font-size:                      $font-size-sm;
+$btn-font-weight:                    $font-weight-bold;

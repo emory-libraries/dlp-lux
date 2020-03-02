@@ -1,27 +1,33 @@
-<div class="big-nav collapse navbar-collapse">
-  <div class="navbar-brand">
-    <%= link_to root_path do %>
-      <%= image_tag("shield.svg", :alt => "Emory Digital Collections") %>
+<div class="branding-header">
+  <div class="branding-header logo">
+    <%= link_to "https://libraries.emory.edu/" do %>
+      <%= image_tag("shield.svg", :alt => "Emory Library") %>
     <% end %>
   </div>
-  <div class="col-md-4">
+  <div class="branding-header">
     <div class="row">
-      <div class="branding-header-organization">
-        <%= link_to "Emory University", "http://emory.edu", class: "branding-header-organization" %>
+      <div class="branding-header organization">
+        <%= link_to "Emory University", "https://libraries.emory.edu/", class: "branding-header organization" %>
       </div>
     </div>
     <div class="row">
-      <div class="navbar-brand">
-        <%= link_to "Emory Libraries", "https://libraries.emory.edu/", class: "branding-header-division" %>
+      <div class="branding-header division">
+        <%= link_to "Emory Libraries", "https://libraries.emory.edu/", class: "branding-header division" %>
       </div>
-    </div>
-  </div>
-  <div class="container-fluid">
-    <div class="justify-end" role="navigation">
-      <!-- Don't show regular search on advanced search page -->
-      <% unless request.original_fullpath == "/advanced" %>
-        <%= render_search_bar %>
-      <% end %>
     </div>
   </div>
 </div>
+
+
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#user-util-collapse" aria-controls="user-util-collapse" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+<!-- The following div is needed to force the search form to the right side of the page  -->
+<div class="collapse navbar-collapse" id="keeps-search-bar-right">
+</div>
+<!-- Don't show regular search on advanced search page -->
+<form class="form-inline my-2 my-lg-0" id="search-form">
+  <% unless request.original_fullpath == "/advanced" %>
+    <%= render_search_bar %>
+  <% end %>
+</form>

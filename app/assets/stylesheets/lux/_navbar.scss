@@ -1,18 +1,34 @@
 @import 'fonts';
 @import 'variables';
 
-.branding-header-organization {
-  text-transform: uppercase;
-  text-align: left;
+.branding-header {
+  display: inline-block;
   color: $dark-blue;
-  font-size: $font-size-sm;
+  margin-right: $navbar-padding-x;
+  white-space: nowrap;
+  &:hover {
+    color: $branding-hover-color;
+    text-decoration: none;
+  }
+}
+
+.branding-header.logo {
+  padding-top: $branding-padding-y;
+  padding-bottom: $branding-padding-y;
+  padding-right: 1;
+  padding-left: $navbar-nav-link-padding-x;
+}
+
+.branding-header.organization {
+  line-height: $branding-organization-height;
+  text-transform: uppercase;
+  font-size: $branding-organization-font-size;
   font-family: $font-family-serif;
 }
 
-.branding-header-division {
-  text-align: left;
+.branding-header.division {
+  padding-bottom: $branding-padding-y;
   font-size: $h4-font-size;
-  color: $dark-blue;
   font-family: $font-family-sans-serif;
   font-weight: $font-weight-bold;
 }
@@ -24,7 +40,11 @@
 .navbar-nav {
   .nav-link {
     font-weight: $nav-link-weight;
-    text-transform: uppercase;
     font-size: $font-size-sm;
   }
+}
+
+//
+#search-form {
+  padding-right: $navbar-nav-link-padding-x + $nav-link-padding-x;
 }
