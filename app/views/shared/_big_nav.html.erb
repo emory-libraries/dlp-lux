@@ -27,7 +27,7 @@
   </ul>
 </div>
 <!-- Don't show regular search on advanced search page -->
-<form class="form-inline my-2 my-lg-0">
+<form class="form-inline my-2 my-lg-0" id="search-form">
   <% unless request.original_fullpath == "/advanced" %>
     <%= render_search_bar %>
   <% end %>

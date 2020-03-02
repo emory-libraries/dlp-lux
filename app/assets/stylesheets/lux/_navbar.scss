@@ -16,6 +16,7 @@
   padding-top: $branding-padding-y;
   padding-bottom: $branding-padding-y;
   padding-right: 1;
+  padding-left: $navbar-nav-link-padding-x;
 }
 
 .branding-header.organization {
@@ -41,4 +42,9 @@
     font-weight: $nav-link-weight;
     font-size: $font-size-sm;
   }
+}
+
+//
+#search-form {
+  padding-right: $navbar-nav-link-padding-x + $nav-link-padding-x;
 }
