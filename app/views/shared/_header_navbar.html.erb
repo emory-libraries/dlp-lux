@@ -1,17 +1,12 @@
 <!-- [Blacklight overwrite] Do not render search bar on advanced search page#L16 -->
 
-<nav class="navbar navbar-expand-md navbar-light topbar" role="navigation">
-  <div class="<%= container_classes %>">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#user-util-collapse" aria-controls="user-util-collapse" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="container">
-      <div class="row">
-        <%= render 'shared/top_links' %>
-      </div>
-      <div class="row">
-        <%= render 'shared/big_nav' %>
-      </div>
+<nav class="navbar navbar-expand-md navbar-light">
+  <div class="col-md-12">
+    <div class="row">
+      <%= render 'shared/top_links' %>
+    </div>
+    <div class="row">
+      <%= render 'shared/big_nav' %>
     </div>
   </div>
 </nav>

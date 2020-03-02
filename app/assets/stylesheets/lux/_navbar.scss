@@ -2,22 +2,31 @@
 @import 'variables';
 
 .branding-header {
+  display: inline-block;
   color: $dark-blue;
-  line-height: 1;
-  &:hover { color: $mid-blue;
-            text-decoration: none;
+  margin-right: $navbar-padding-x;
+  white-space: nowrap;
+  &:hover {
+    color: $branding-hover-color;
+    text-decoration: none;
   }
 }
 
+.branding-header.logo {
+  padding-top: $branding-padding-y;
+  padding-bottom: $branding-padding-y;
+  padding-right: 1;
+}
+
 .branding-header.organization {
+  line-height: $branding-organization-height;
   text-transform: uppercase;
-  font-size: $font-size-sm;
+  font-size: $branding-organization-font-size;
   font-family: $font-family-serif;
 }
 
 .branding-header.division {
-  text-decoration: none;
-  text-align: left;
+  padding-bottom: $branding-padding-y;
   font-size: $h4-font-size;
   font-family: $font-family-sans-serif;
   font-weight: $font-weight-bold;
