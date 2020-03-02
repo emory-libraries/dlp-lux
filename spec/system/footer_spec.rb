@@ -3,6 +3,55 @@ require 'rails_helper'
 include Warden::Test::Helpers
 
 RSpec.describe 'footer', type: :system, js: true do
+  let(:options) do
+    [
+      {
+        name: "Business",
+        url: "https://business.library.emory.edu/"
+      },
+      {
+        name: "Cox Hall Computing Center",
+        url: "http://it.emory.edu/studentdigitallife/study_production_spaces/computing-center-at-cox-hall/"
+      },
+      {
+        name: "Health Sciences",
+        url: "https://health.library.emory.edu/"
+      },
+      {
+        name: "Law",
+        url: "http://library.law.emory.edu/"
+      },
+      {
+        name: "Library Service Center",
+        url: "http://libraryservicecenter.org/"
+      },
+      {
+        name: "Music & Media",
+        url: "https://libraries.emory.edu/music-media/index.html"
+      },
+      {
+        name: "Oxford College",
+        url: "https://oxford.library.emory.edu/"
+      },
+      {
+        name: "Rose",
+        url: "https://rose.library.emory.edu/"
+      },
+      {
+        name: "Science Commons",
+        url: "https://libraries.emory.edu/science-commons/index.html"
+      },
+      {
+        name: "Theology",
+        url: "http://pitts.emory.edu/"
+      },
+      {
+        name: "Woodruff",
+        url: "https://libraries.emory.edu/woodruff/index.html"
+      }
+    ]
+  end
+
   it 'has links to additional Lux pages' do
     visit "/"
     expect(page).to have_link("About Digital Collections", href: root_path)
@@ -12,49 +61,11 @@ RSpec.describe 'footer', type: :system, js: true do
   end
 
   it 'has links to other library sites' do
-    visit "/"
-    select "Business", from: "Locations (Footer)"
-    expect(current_url).to eq("https://business.library.emory.edu/")
-
-    visit "/"
-    select "Cox Hall Computing Center", from: "Locations (Footer)"
-    expect(current_url).to eq("http://it.emory.edu/studentdigitallife/study_production_spaces/computing-center-at-cox-hall/")
-
-    visit "/"
-    select "Health Sciences", from: "Locations (Footer)"
-    expect(current_url).to eq("https://health.library.emory.edu/")
-
-    visit "/"
-    select "Law", from: "Locations (Footer)"
-    expect(current_url).to eq("http://library.law.emory.edu/")
-
-    visit "/"
-    select "Library Service Center", from: "Locations (Footer)"
-    expect(current_url).to eq("http://libraryservicecenter.org/")
-
-    visit "/"
-    select "Music & Media", from: "Locations (Footer)"
-    expect(current_url).to eq("https://libraries.emory.edu/music-media/index.html")
-
-    visit "/"
-    select "Oxford College", from: "Locations (Footer)"
-    expect(current_url).to eq("https://oxford.library.emory.edu/")
-
-    visit "/"
-    select "Rose", from: "Locations (Footer)"
-    expect(current_url).to eq("https://rose.library.emory.edu/")
-
-    visit "/"
-    select "Science Commons", from: "Locations (Footer)"
-    expect(current_url).to eq("https://libraries.emory.edu/science-commons/index.html")
-
-    visit "/"
-    select "Theology", from: "Locations (Footer)"
-    expect(current_url).to eq("http://pitts.emory.edu/")
-
-    visit "/"
-    select "Woodruff", from: "Locations (Footer)"
-    expect(current_url).to eq("https://libraries.emory.edu/woodruff/index.html")
+    options.each do |option|
+      visit root_path
+      select option[:name], from: "Locations (Footer)"
+      expect(current_url).to eq(option[:url])
+    end
   end
 
   it 'has version information' do
