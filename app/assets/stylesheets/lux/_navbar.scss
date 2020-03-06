@@ -41,6 +41,8 @@
   .nav-link {
     font-weight: $nav-link-weight;
     font-size: $font-size-sm;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 }
 
