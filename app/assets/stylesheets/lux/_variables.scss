@@ -16,7 +16,7 @@ $body-color:                $charcoal;
 // stylelint-enable value-keyword-case
 $font-size-base:              1rem; // Assumes the browser default, typically `16px`
 $font-size-base-serif:        $font-size-base * 1.125; // Emory uses slightly larger fonts for serif
-$font-size-sm:                $font-size-base * .875;
+$font-size-sm:                $font-size-base * 0.6875;
 $font-size-lg:                $font-size-base * 1.25;
 
 $h4-font-size:                $font-size-base * 1.5;
@@ -25,7 +25,7 @@ $font-weight-normal:          400;
 $font-weight-bold:            700;
 $font-weight-bolder:          bolder;
 
-$line-height-base:            1.5;
+$line-height-base:            1.64;
 
 // Spacing
 //
@@ -50,24 +50,23 @@ $spacers: map-merge(
 
 // Navs
 
-$nav-link-padding-y:                .5rem;
+$nav-link-padding-y:                1rem;
 $nav-link-padding-x:                1rem;
 
 // Navbar
 
-$navbar-padding-y:                  $spacer / 2;
-$navbar-padding-x:                  $spacer;
+$navbar-padding-y:                  0;
+$navbar-padding-x:                  2rem;
 
-$navbar-nav-link-padding-x:         .5rem;
-
-$branding-organization-font-size:            $font-size-sm;
+$branding-organization-font-size:            0.875rem;
 $branding-division-font-size:                $h4-font-size;
 // Compute the branding padding-y so the branding will have the same height as navbar-text and nav-link
-$nav-link-height:                            $font-size-base * $line-height-base + $nav-link-padding-y * 2;
-$branding-organization-height:               $branding-organization-font-size * (2/3);
-$branding-division-height:                   $branding-division-font-size * (2/3);
+$nav-link-height:                            $font-size-sm * $line-height-base + $nav-link-padding-y * 2;
+$branding-organization-height:               1.25rem;
+$branding-division-height:                   1.5rem;
 
-$branding-padding-y:                         2;
+$branding-padding-y:                         0.875rem;
+$branding-padding-x:                         0.75rem;
 
 $branding-hover-color:                        $mid-blue;
 
@@ -78,11 +77,15 @@ $nav-link-disabled-color:                    $base-slate;
 
 $navbar-nav-link-padding-x:         0.625rem;
 
+$navbar-border-color:               $super-light-blue;
+$navbar-border-width:               2px;
+$nav-divider-color:                 $super-light-blue;
+$nav-divider:                       quote("|");
 
 // Darken percentage for links with `.text-*` class (e.g. `.text-success`)
 $emphasized-link-hover-darken-percentage: 15%;
 
-$border-radius:               .15rem;
+$border-radius:               0.3125rem;
 $border-radius-lg:            .3rem;
 $border-radius-sm:            .2rem;
 
@@ -104,3 +107,6 @@ $input-border-color:                $base-slate;
 // Button
 $btn-font-size:                      $font-size-sm;
 $btn-font-weight:                    $font-weight-bold;
+
+//Custom select - search form
+$custom-select-color:                $charcoal;

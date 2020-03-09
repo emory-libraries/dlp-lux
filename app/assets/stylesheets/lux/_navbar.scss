@@ -4,7 +4,6 @@
 .branding-header {
   display: inline-block;
   color: $dark-blue;
-  margin-right: $navbar-padding-x;
   white-space: nowrap;
   &:hover {
     color: $branding-hover-color;
@@ -14,9 +13,6 @@
 
 .branding-header.logo {
   padding-top: $branding-padding-y;
-  padding-bottom: $branding-padding-y;
-  padding-right: 1;
-  padding-left: $navbar-nav-link-padding-x;
 }
 
 .branding-header.organization {
@@ -24,13 +20,15 @@
   text-transform: uppercase;
   font-size: $branding-organization-font-size;
   font-family: $font-family-serif;
+  padding-left: $branding-padding-x;
 }
 
 .branding-header.division {
-  padding-bottom: $branding-padding-y;
+  padding-left: $branding-padding-x;
   font-size: $h4-font-size;
   font-family: $font-family-sans-serif;
   font-weight: $font-weight-bold;
+  line-height: $branding-division-height;
 }
 
 // Navbar nav
@@ -44,9 +42,14 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
+
 }
 
-//
-#search-form {
-  padding-right: $navbar-nav-link-padding-x + $nav-link-padding-x;
+a.nav-link.last {
+  padding-right: 0 !important;
+}
+
+.utility-nav {
+  border: $navbar-border-width $navbar-border-color;
+  border-bottom-style: solid;
 }
