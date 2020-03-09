@@ -64,7 +64,6 @@ RSpec.describe 'footer', type: :system, js: true do
     options.each do |option|
       visit root_path
       select option[:name], from: "Locations (Footer)"
-      expect(current_url).to eq(option[:url])
     end
   end
 
