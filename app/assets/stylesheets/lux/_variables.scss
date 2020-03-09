@@ -58,15 +58,15 @@ $nav-link-padding-x:                1rem;
 $navbar-padding-y:                  0;
 $navbar-padding-x:                  2rem;
 
-$branding-organization-font-size:            $font-size-sm;
+$branding-organization-font-size:            0.875rem;
 $branding-division-font-size:                $h4-font-size;
 // Compute the branding padding-y so the branding will have the same height as navbar-text and nav-link
 $nav-link-height:                            $font-size-sm * $line-height-base + $nav-link-padding-y * 2;
-$branding-organization-height:               $branding-organization-font-size * (2/3);
-$branding-division-height:                   $branding-division-font-size * (2/3);
+$branding-organization-height:               1.25rem;
+$branding-division-height:                   1.5rem;
 
 $branding-padding-y:                         0.875rem;
-$branding-padding-x:                         0.875rem;
+$branding-padding-x:                         0.75rem;
 
 $branding-hover-color:                        $mid-blue;
 

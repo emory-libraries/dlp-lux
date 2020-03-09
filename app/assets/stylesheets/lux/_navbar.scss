@@ -13,8 +13,8 @@
 
 .branding-header.logo {
   padding-top: $branding-padding-y !important;
-  padding-bottom: $branding-padding-y;
-  padding-left: $navbar-nav-link-padding-x;
+  // padding-bottom: $branding-padding-y;
+  // padding-left: $navbar-nav-link-padding-x;
 }
 
 .branding-header.organization {
@@ -26,11 +26,11 @@
 }
 
 .branding-header.division {
-  padding-bottom: $branding-padding-y;
   padding-left: $branding-padding-x;
   font-size: $h4-font-size;
   font-family: $font-family-sans-serif;
   font-weight: $font-weight-bold;
+  line-height: $branding-division-height;
 }
 
 // Navbar nav
