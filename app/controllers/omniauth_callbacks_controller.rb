@@ -10,7 +10,9 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def cookie_pot
-    cookies[:bearer_token] = {
+    # cookies.signed["protected"] = "Hello, I can be read, but I can't be tampered with."
+
+    cookies.signed["bearer_token"] = {
       value: "This is a test token value",
       expires: 1.hour.from_now,
       httponly: true,
