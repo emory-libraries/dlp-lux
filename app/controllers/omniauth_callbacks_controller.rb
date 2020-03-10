@@ -14,7 +14,8 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       value: "This is a test token value",
       expires: 1.hour.from_now,
       httponly: true,
-      secure: request.ssl?
+      secure: request.ssl?,
+      domain: ".emory.edu"
     }
   end
 end
