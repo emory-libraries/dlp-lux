@@ -1,6 +1,9 @@
 // bootstrap does flex-grow: 1 by default which makes the
 // text input roughly the same size as the select in many cases
 .input-group {
+  &.col-md-12 {
+    padding-right: 0;
+  }
   > .form-control,
   > .custom-select {
     width: fit-content;
@@ -15,5 +18,14 @@
     &.search-q {
       flex-grow: 3;
     }
+  }
+}
+
+.form-inline {
+  &.col-lg-7,
+  &.col-md-12,
+  &.col-sm-12,
+  {
+    padding-right: 0;
   }
 }
