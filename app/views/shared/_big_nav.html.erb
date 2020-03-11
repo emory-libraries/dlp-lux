@@ -23,7 +23,7 @@
   <span class="navbar-toggler-icon"></span>
 </button>
 <!-- Don't show regular search on advanced search page -->
-<form class="form-inline my-2 my-lg-0" id="search-form">
+<form class="form-inline col-md-8 my-2 my-lg-0" id="search-form">
   <% unless request.original_fullpath == "/advanced" %>
     <%= render_search_bar %>
   <% end %>
