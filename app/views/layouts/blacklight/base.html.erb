@@ -40,6 +40,10 @@
 
     <%= render partial: 'shared/flash_msg', layout: 'shared/flash_messages' %>
 
+    <% if request.fullpath == "/" %>
+      <%= render '/catalog/hero_image' %>
+    <% end %>
+
     <div class="row">
       <%= content_for?(:content) ? yield(:content) : yield %>
     </div>

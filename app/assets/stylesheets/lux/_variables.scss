@@ -82,6 +82,15 @@ $navbar-border-width:               2px;
 $nav-divider-color:                 $super-light-blue;
 $nav-divider:                       quote("|");
 
+// Hero Image
+
+$hero-title-font-size:                $font-size-base * 1.75;
+$hero-title-font-size-large:          $font-size-base * 3.125;
+
+$hero-image-height:                   15rem;
+$hero-image-height-large:             27.5rem;
+
+
 // Darken percentage for links with `.text-*` class (e.g. `.text-success`)
 $emphasized-link-hover-darken-percentage: 15%;
 
