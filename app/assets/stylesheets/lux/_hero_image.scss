@@ -1,0 +1,31 @@
+@import 'fonts';
+@import 'variables';
+@import 'bootstrap';
+
+.carousel-item {
+  height: $hero-image-height;
+}
+@include media-breakpoint-up(md) {
+  .carousel-item {
+    height: $hero-image-height-large;
+  }
+}
+
+.intro-hero-title {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+
+  font-family: $font-family-serif;
+  font-weight: $font-weight-bold;
+  font-size: $hero-title-font-size;
+}
+@include media-breakpoint-up(md) {
+  .intro-hero-title {
+    font-size: $hero-title-font-size-large;
+  }
+}
+
+.intro-hero-subtitle, .intro-hero-subtitle:hover {
+  color: $white;
+}

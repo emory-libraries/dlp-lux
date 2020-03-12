@@ -1,0 +1,23 @@
+<% presenter = HeroImagePresenter.new %>
+<% images = presenter.images %>
+<div class="carousel slide mt-3 mb-3" data-ride="carousel">
+  <div class="carousel-caption">
+    <h1 class="intro-hero-title">Emory Digital Collections</h1>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <%= image_tag images.first["file"], class: "d-block w-100 carousel-image", alt: images.first["name"]%>
+      <div class="carousel-caption d-none d-md-block">
+        <%= link_to "View Featured Item", images.first["path"], class: "intro-hero-subtitle" %>
+      </div>
+    </div>
+    <% images.drop(1).each do |img| %>
+      <div class="carousel-item">
+        <%= image_tag img["file"], class: "d-block w-100 carousel-image", alt: img["name"]%>
+        <div class="carousel-caption d-none d-md-block">
+          <%= link_to "View Featured Item", img["path"], class: "intro-hero-subtitle" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

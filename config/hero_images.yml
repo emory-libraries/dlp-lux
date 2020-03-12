@@ -1,0 +1,16 @@
+hero_images:
+  - file: sample_image_1.jpg
+    name: Sample Image 1
+    path: root_path
+  - file: sample_image_2.jpg
+    name: Sample Image 2
+    path: root_path
+  - file: sample_image_3.jpg
+    name: Sample Image 3
+    path: root_path
+  - file: sample_image_4.jpg
+    name: Sample Image 4
+    path: root_path
+  - file: sample_image_5.jpg
+    name: Sample Image 5
+    path: root_path
