@@ -16,9 +16,6 @@ RSpec.describe OmniauthCallbacksController, :clean, type: :request do
     )
   end
 
-  # let(:key) { Rails.application.secrets.shared_cookie_key }
-  let(:key) { "y8W9gASeJKAO906o2wwUVRDqZQgERrsH" }
-  let(:crypt) { ActiveSupport::MessageEncryptor.new(key) }
   let(:user) { User.from_omniauth(auth_hash) }
 
   before do
