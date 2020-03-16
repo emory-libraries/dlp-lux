@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 require 'openssl'
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
-
   def shibboleth
     Rails.logger.debug "OmniauthCallbacksController#shibboleth: request.env['omniauth.auth']: #{request.env['omniauth.auth']}"
     # had to create the `from_omniauth(auth_hash)` class method on our User model
