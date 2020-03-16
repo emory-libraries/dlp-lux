@@ -1,0 +1,36 @@
+<div class="container">
+  <%= render "static/content_chunk",
+        title: link_to("<h1 class='heading -h1-alt'>About Emory Digital Collections</h1>".html_safe, "/about"),
+        aria_label: "digital collections wiki", bod_text: "Placeholder for intro copy"
+  %>
+
+  <%= render "static/content_chunk",
+        title:
+          "<h2 class='heading -h2'>How to use Digital Collections</h2>".html_safe,
+        aria_label: "how tos",
+        bod_text: "Searching, browsing (facets)<br>
+          downloading<br>
+          Access Controls, reading rooms<br>
+          Links - metadata site".html_safe
+  %>
+
+  <%= render "static/content_chunk",
+        title: "<h2 class='heading -h2'>Technical Information</h2>".html_safe,
+        aria_label: "technical information",
+        bod_text: "Link out to wiki (and Samvera/Blacklight)?"
+  %>
+
+  <%= render "static/content_chunk",
+        title:
+          link_to("<h2 class='heading -h2'>Copyright and Reuse</h2>".html_safe,
+          "/copyright-reuse"),
+        aria_label: "copyright and reuse information",
+        bod_text: "Placeholder for copy"
+  %>
+
+  <%= render "static/content_chunk",
+        title:
+          link_to("<h2 class='heading -h2'>Contact</h2>".html_safe, "/contact"),
+        aria_label: "contact information", bod_text: "Placeholder for copy"
+  %>
+</div>
