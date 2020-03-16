@@ -12,12 +12,27 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def cookie_pot
     # cookies.signed["protected"] = "Hello, I can be read, but I can't be tampered with."
 
-    cookies.signed["bearer_token"] = {
-      value: "This is a test token value",
+    cookies["bearer_token"] = {
+      # value: cookie_verifier.generate("This is a test token value"),
+      value: dont_spoof_my_cookie,
       expires: 1.hour.from_now,
       httponly: true,
       secure: request.ssl?,
       domain: ".emory.edu"
     }
   end
+
+  def dont_spoof_my_cookie
+    cookie_value = "This is a test token value"
+    key = Rails.application.secrets.shared_cookie_key
+    crypt = ActiveSupport::MessageEncryptor.new(key)
+    crypt.encrypt_and_sign(cookie_value)
+  end
+
+  # def cookie_verifier
+  #   unless @verifier
+  #     @verifier = ActiveSupport::MessageVerifier.new(Rails.application.secrets.shared_cookie_key)
+  #   end
+  #   @verifier
+  # end
 end
