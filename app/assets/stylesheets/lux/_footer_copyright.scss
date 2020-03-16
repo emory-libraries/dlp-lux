@@ -75,22 +75,6 @@
   }
 }
 
-.copyright-notice + .copyright-notice::before,
-.copyright-notice + .copyright-address::before,
-.copyright-notice + .copyright-phone::before, .copyright-address + .copyright-notice::before,
-.copyright-address + .copyright-address::before,
-.copyright-address + .copyright-phone::before, .copyright-phone + .copyright-notice::before,
-.copyright-phone + .copyright-address::before,
-.copyright-phone + .copyright-phone::before {
-  display: block;
-  position: absolute;
-  display: block;
-  top: 50%;
-  -webkit-transform: translatey(-50%);
-          transform: translatey(-50%);
-  left: 0;
-}
-
 .copyright-notice {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -270,32 +254,23 @@
   text-decoration: underline;
 }
 .copyright-notice, .copyright-address, .copyright-phone {
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
   text-align: center;
 }
-@media (min-width: 901px) {
-  .copyright-notice + .copyright-notice:last-child::before,
-.copyright-notice + .copyright-address:last-child::before,
-.copyright-notice + .copyright-phone:last-child::before, .copyright-address + .copyright-notice:last-child::before,
-.copyright-address + .copyright-address:last-child::before,
-.copyright-address + .copyright-phone:last-child::before, .copyright-phone + .copyright-notice:last-child::before,
-.copyright-phone + .copyright-address:last-child::before,
-.copyright-phone + .copyright-phone:last-child::before {
-    content: "|";
-  }
-}
 @media (min-width: 1265px) {
-  .copyright-notice + .copyright-notice:not(:first-child)::before,
-.copyright-notice + .copyright-address:not(:first-child)::before,
-.copyright-notice + .copyright-phone:not(:first-child)::before, .copyright-address + .copyright-notice:not(:first-child)::before,
-.copyright-address + .copyright-address:not(:first-child)::before,
-.copyright-address + .copyright-phone:not(:first-child)::before, .copyright-phone + .copyright-notice:not(:first-child)::before,
-.copyright-phone + .copyright-address:not(:first-child)::before,
-.copyright-phone + .copyright-phone:not(:first-child)::before {
+  .copyright-address::before {
     content: "|";
+    padding-right: 10px;
   }
 }
+@media (min-width: 901px) {
+  .copyright-phone::before {
+    content: "|";
+    padding-right: 10px;
+  }
+}
+
 @media (min-width: 901px) and (min-width: max-width) and (min-width: 1265px) {
   .copyright-notice:first-child, .copyright-address:first-child, .copyright-phone:first-child {
     padding-left: 0;
