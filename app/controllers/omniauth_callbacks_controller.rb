@@ -1,5 +1,7 @@
 # frozen_string_literal: true
+require 'openssl'
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
+
   def shibboleth
     Rails.logger.debug "OmniauthCallbacksController#shibboleth: request.env['omniauth.auth']: #{request.env['omniauth.auth']}"
     # had to create the `from_omniauth(auth_hash)` class method on our User model
@@ -11,7 +13,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def cookie_pot
     cookies["bearer_token"] = {
-      value: encrypt_shared_cookie,
+      value: encrypt_string("This is a test token value"),
       expires: 1.hour.from_now,
       httponly: true,
       secure: request.ssl?,
@@ -19,12 +21,12 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     }
   end
 
-  def encrypt_shared_cookie
-    cookie_value = "This is a test token value"
-    # key = Rails.application.secrets.shared_cookie_key
-    # Hard coding temporarily
-    key = "y8W9gASeJKAO906o2wwUVRDqZQgERrsH"
-    crypt = ActiveSupport::MessageEncryptor.new(key)
-    crypt.encrypt_and_sign(cookie_value)
+  def encrypt_string(str)
+    cipher_salt1 = 'some-random-salt-'
+    cipher_salt2 = 'another-random-salt-'
+    cipher = OpenSSL::Cipher.new('AES-128-ECB').encrypt
+    cipher.key = OpenSSL::PKCS5.pbkdf2_hmac_sha1(cipher_salt1, cipher_salt2, 20_000, cipher.key_len)
+    encrypted = cipher.update(str) + cipher.final
+    encrypted.unpack('H*')[0].upcase
   end
 end
