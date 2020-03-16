@@ -90,5 +90,4 @@ end
 
 group :test do
   gem 'rspec_junit_formatter'
-  gem "show_me_the_cookies"
 end

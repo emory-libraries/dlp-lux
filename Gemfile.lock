@@ -1177,8 +1177,6 @@ GEM
     selenium-webdriver (3.142.6)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
-    show_me_the_cookies (5.0.0)
-      capybara (>= 2, < 4)
     sidekiq (5.2.7)
       connection_pool (~> 2.2, >= 2.2.2)
       rack (>= 1.5.0)
@@ -1312,7 +1310,6 @@ DEPENDENCIES
   rspec_junit_formatter
   sass-rails (~> 5.0)
   selenium-webdriver
-  show_me_the_cookies
   simple_form
   solr_wrapper (>= 0.3)
   spring
