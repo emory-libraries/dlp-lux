@@ -7,38 +7,4 @@
           ), bod_text: "Placeholder for intro copy"
     %>
   </div>
-  <div>
-    <%= render "static/content_chunk",
-          title:
-            "<h2 class='heading -h2'>How to use Digital Collections</h2>".html_safe,
-          bod_text: "Searching, browsing (facets)<br>
-            downloading<br>
-            Access Controls, reading rooms<br>
-            Links - metadata site".html_safe
-    %>
-
-    <%= render "static/content_chunk",
-          title: "<h2 class='heading -h2'>Technical Information</h2>".html_safe,
-          bod_text: "Link out to wiki (and Samvera/Blacklight)?"
-    %>
-
-    <%= render "static/content_chunk",
-          title:
-            link_to("<h2 class='heading -h2'>Copyright and Reuse</h2>".html_safe,
-            "/copyright-reuse"),
-          bod_text: "Placeholder for copy"
-    %>
-
-    <%= render "static/content_chunk",
-          title:
-            link_to("<h2 class='heading -h2'>Contact</h2>".html_safe, "/contact"),
-          bod_text: "Placeholder for copy"
-    %>
-
-    <%= render "static/content_chunk",
-          title:
-            link_to("<h2 class='heading -h2'>Donate</h2>".html_safe, "/donate"),
-          bod_text: "Materials<br>Funds<br>Units / Libraries".html_safe
-    %>
-  </div>
 </div>
