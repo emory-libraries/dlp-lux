@@ -62,10 +62,6 @@ class ApplicationController < ActionController::Base
     response["response"]["docs"].first["visibility_ssi"]
   end
 
-  def about
-    render "static/about"
-  end
-
   private
 
     def current_ability
