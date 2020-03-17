@@ -4,7 +4,7 @@ class StaticController < ApplicationController
   def about
     render "static/about"
   end
-  
+
   # Accesses static contact page: /contact
   def contact
     render "static/contact"

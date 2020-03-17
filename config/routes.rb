@@ -43,6 +43,6 @@ Rails.application.routes.draw do
   get "/uv/config/:id", to: "application#uv_config", as: "uv_config", defaults: { format: :json }
   get "/contact", to: "static#contact"
   get "/about", to: "static#about"
-  
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
