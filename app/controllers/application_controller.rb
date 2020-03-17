@@ -62,10 +62,6 @@ class ApplicationController < ActionController::Base
     response["response"]["docs"].first["visibility_ssi"]
   end
 
-  def contact
-    render "static/contact"
-  end
-
   private
 
     def current_ability
