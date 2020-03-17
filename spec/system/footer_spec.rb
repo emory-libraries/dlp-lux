@@ -54,7 +54,7 @@ RSpec.describe 'footer', type: :system, js: true do
 
   it 'has links to additional Lux pages' do
     visit "/"
-    expect(page).to have_link("About Digital Collections", href: root_path)
+    expect(page).to have_link("About Digital Collections", href: about_path)
     expect(page).to have_link("Copyright and Reuse", href: root_path)
     expect(page).to have_link("Contact", href: root_path)
     expect(page).to have_link("Donate", href: root_path)
