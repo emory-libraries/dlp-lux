@@ -9,4 +9,9 @@ class StaticController < ApplicationController
   def contact
     render "static/contact"
   end
+
+  # Accesses static copyright and reuse page: /copyright-reuse
+  def copyright_reuse
+    render "static/copyright_reuse"
+  end
 end
