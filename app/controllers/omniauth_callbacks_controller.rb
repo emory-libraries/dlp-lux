@@ -13,7 +13,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def cookie_pot
     cookies["bearer_token"] = {
       value: encrypt_string("This is a test token value"),
-      expires: 1.hour.from_now,
+      expires: 1.day.from_now,
       httponly: true,
       secure: request.ssl?,
       domain: ".emory.edu"
