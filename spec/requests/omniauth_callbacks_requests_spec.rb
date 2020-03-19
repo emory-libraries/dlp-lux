@@ -25,7 +25,7 @@ RSpec.describe OmniauthCallbacksController, :clean, type: :request do
   it "sets a cookie" do
     get '/users/auth/shibboleth/callback'
     expect(response.cookies).to include "bearer_token"
-    expect(decrypt_string(response.cookies["bearer_token"])).to eq "This is a test token value"
+    expect(decrypt_string(response.cookies["bearer_token"])).to eq "This is a token value"
   end
 
   def decrypt_string(encrypted_str)
