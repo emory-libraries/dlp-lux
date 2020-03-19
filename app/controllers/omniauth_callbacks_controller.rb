@@ -21,8 +21,8 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def encrypt_string(str)
-    cipher_salt1 = 'some-random-salt-'
-    cipher_salt2 = 'another-random-salt-'
+    cipher_salt1 = ENV["IIIF_COOKIE_SALT_1"] || 'some-random-salt-'
+    cipher_salt2 = ENV["IIIF_COOKIE_SALT_2"] || 'another-random-salt-'
     cipher = OpenSSL::Cipher.new('AES-128-ECB').encrypt
     cipher.key = OpenSSL::PKCS5.pbkdf2_hmac_sha1(cipher_salt1, cipher_salt2, 20_000, cipher.key_len)
     encrypted = cipher.update(str) + cipher.final
