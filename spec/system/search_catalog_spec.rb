@@ -2,7 +2,6 @@
 
 require 'rails_helper'
 include Warden::Test::Helpers
-OmniAuth.config.test_mode = true
 
 RSpec.describe 'Search the catalog', type: :system, js: false do
   before do
@@ -166,19 +165,7 @@ RSpec.describe 'Search the catalog', type: :system, js: false do
     }
   end
 
-  let(:auth_hash) do
-    OmniAuth.config.mock_auth[:shibboleth] = OmniAuth::AuthHash.new(
-      provider: 'shibboleth',
-      uid: "janeq",
-      info: {
-        display_name: "Jane Quest",
-        uid: 'janeq',
-        mail: 'janeq@emory.edu'
-      }
-    )
-  end
-
-  let(:user) { User.from_omniauth(auth_hash) }
+  let(:user) { FactoryBot.create(:user) }
 
   it 'gets correct search results' do
     visit root_path
