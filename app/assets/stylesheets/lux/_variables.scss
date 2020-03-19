@@ -79,8 +79,13 @@ $navbar-nav-link-padding-x:         0.625rem;
 
 $navbar-border-color:               $super-light-slate;
 $navbar-border-width:               1px;
+
 $nav-divider-color:                 $super-light-slate;
-$nav-divider:                       quote("|");
+$nav-divider-height:                0.75rem;
+$nav-divider-width:                 1px;
+
+$nav-divider-top:                   $nav-link-padding-y + ($font-size-sm / 4);
+$nav-divider-right:                 0;
 
 // Hero Image
 

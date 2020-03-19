@@ -41,8 +41,19 @@
     font-size: $font-size-sm;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    position: relative;
   }
-
+}
+@media (min-width: 768px) {
+  .nav-link:not(.last)::after {
+    content: "";
+    position: absolute;
+    right: $nav-divider-right;
+    top: $nav-divider-top;
+    height: $nav-divider-height;
+    width: $nav-divider-width;
+    background-color: $nav-divider-color;
+  }
 }
 
 a.nav-link.last {
