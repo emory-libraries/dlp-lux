@@ -15,10 +15,10 @@
     <% end %>
 
     <label for="q" class="sr-only sr-only-focusable"><%= t('blacklight.search.form.search.label') %></label>
-    <%= text_field_tag :q, params[:q], placeholder: t('blacklight.search.form.search.placeholder'), class: "search-q q form-control rounded-#{search_fields.length > 1 ? '0' : 'left'}", id: "q", autofocus: presenter.autofocus?, data: { autocomplete_enabled: presenter.autocomplete_enabled?, autocomplete_path: search_action_path(action: :suggest) }  %>
+    <%= text_field_tag :q, params[:q], placeholder: t('blacklight.search.form.search.placeholder'), class: "search-q q form-control", id: "q", autofocus: presenter.autofocus?, data: { autocomplete_enabled: presenter.autocomplete_enabled?, autocomplete_path: search_action_path(action: :suggest) }  %>
 
     <span class="input-group-append">
-      <button class="btn btn-primary" id="search">
+      <button class="btn btn-primary rounded-0" id="search">
         <%= t('blacklight.search.form.submit') %>
       </button>
     </span>
