@@ -87,7 +87,22 @@ $nav-divider-width:                 1px;
 $nav-divider-top:                   $nav-link-padding-y + ($font-size-sm / 4);
 $nav-divider-right:                 0;
 
+// Search Form
+
 $search-form-height:                3.125rem;
+$search-form-padding-y:             1.25rem;
+$search-form-margin-x:              0.3125rem;
+
+$search-form-select-padding-left:      3.75rem;
+$search-form-select-padding-right:     1.25rem;
+$custom-select-color:                  $charcoal;
+$input-line-height:                    2.375;
+
+$search-form-q-padding-y:           0.625rem;
+$search-form-q-padding-x:           1.25rem;
+
+$search-form-button-width:          6rem;
+$search-form-button-padding-x:      1.5625rem;
 
 // Hero Image
 
@@ -118,13 +133,7 @@ $input-btn-line-height:             $line-height-base * 1.2;
 
 // Form
 $input-border-color:                $base-slate;
-// $input-font-family:                 $font-family-serif;
-// $input-font-size:                   $font-size-base-serif;
 
 // Button
 $btn-font-size:                      $font-size-sm;
 $btn-font-weight:                    $font-weight-bold;
-
-//Custom select - search form
-$custom-select-color:                $charcoal;
-$input-line-height:                     2.375;

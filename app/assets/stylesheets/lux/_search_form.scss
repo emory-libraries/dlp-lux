@@ -4,22 +4,35 @@
   &.col-md-12 {
     padding-right: 0;
   }
-  > .form-control,
-  > .custom-select {
-    // width: fit-content;
-    // min-width: 140px;
-  }
   > .custom-select {
     &.search-field {
-      // flex-grow: 1;
       height: $search-form-height;
       max-width: fit-content;
+      margin-right: $search-form-margin-x;
+      padding: 0 $search-form-select-padding-left 0 $search-form-select-padding-right;
+
+      background: url("https://libraries.emory.edu/assets/icons/php/icon.php?id=material-keyboard_arrow_down&color=5387F7&size[width]=20&size[height]=20") no-repeat right 0.5rem center;
+      border-radius: $border-radius !important;
+      -moz-box-shadow:    inset 1px 2px 4px rgba(182, 189, 204, 0.5);
+      -webkit-box-shadow: inset 1px 2px 4px rgba(182, 189, 204, 0.5);
+      box-shadow:         inset 1px 2px 4px rgba(182, 189, 204, 0.5);
     }
   }
   > .form-control {
     &.search-q {
-      // flex-grow: 3;
       height: $search-form-height;
+      margin-right: $search-form-margin-x;
+      padding: $search-form-q-padding-y $search-form-q-padding-x;
+
+      border-radius: $border-radius-xs !important;
+      -moz-box-shadow:    inset 1px 2px 4px rgba(182, 189, 204, 0.5);
+      -webkit-box-shadow: inset 1px 2px 4px rgba(182, 189, 204, 0.5);
+      box-shadow:         inset 1px 2px 4px rgba(182, 189, 204, 0.5);
+      color: $charcoal;
+    }
+
+    &.search-q:focus {
+      border-color: #5387F7;
     }
   }
 }
@@ -30,43 +43,17 @@
   &.col-sm-12
   {
     padding-right: 0;
-    padding-bottom: 20px;
+    padding-bottom: $search-form-padding-y;
   }
 }
 
-.custom-select.search-field {
-  background: url("https://libraries.emory.edu/assets/icons/php/icon.php?id=material-keyboard_arrow_down&color=5387F7&size[width]=20&size[height]=20") no-repeat right 0.5rem center;
-  margin-right: 5px;
-  padding: 0px 60px 0px 20px;
-  border-radius: $border-radius !important;
-  -moz-box-shadow:    inset 1px 2px 4px rgba(182, 189, 204, 0.5);
-  -webkit-box-shadow: inset 1px 2px 4px rgba(182, 189, 204, 0.5);
-  box-shadow:         inset 1px 2px 4px rgba(182, 189, 204, 0.5);
-}
-
-.search-q {
-  border-radius: $border-radius-xs !important;
-  -moz-box-shadow:    inset 1px 2px 4px rgba(182, 189, 204, 0.5);
-  -webkit-box-shadow: inset 1px 2px 4px rgba(182, 189, 204, 0.5);
-  box-shadow:         inset 1px 2px 4px rgba(182, 189, 204, 0.5);
-  color: $charcoal !important;
-  margin-right: 5px;
-  padding: 10px 20px !important;
-  // min-width: 230px;
-}
-
-.search-q:focus {
-  border-color: #5387F7 !important;
-}
-
 button#search {
-  width: 96px;
-  padding-left: 25px;
-  padding-right: 25px;
-  border: 1px solid #336BE6;
+  width: $search-form-button-width;
+  padding: 0 $search-form-button-padding-x;
+  border: 1px solid $bright-blue;
 }
 
 button#search:hover {
-  border-color: #004990;
-  background-color: #004990;
+  border-color: $mid-blue;
+  background-color: $mid-blue;
 }
