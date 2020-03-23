@@ -36,6 +36,10 @@
 //
 // Custom navbar navigation (doesn't require `.nav`, but does make use of `.nav-link`).
 
+.navbar {
+  max-width: 1235px;
+}
+
 .navbar-nav {
   .nav-link {
     font-weight: $nav-link-weight;
