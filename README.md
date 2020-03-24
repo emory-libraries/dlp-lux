@@ -50,7 +50,8 @@ URL for the Hyrax instance that serves the Work's IIIF manifest. An example:
 
 ## HTTP Password protection in production mode
 In order to prevent search engine crawling of the system before it's ready to launch, we use HTTP password protection. This is set via environment variables.
-It is enabled by default. Set `HTTP_PASSWORD_PROTECT='false'` to disable this feature.
+Set `HTTP_PASSWORD_PROTECT='true'` to enable this feature.
+Set `HTTP_PASSWORD_PROTECT='false'` to disable this feature.
 Set the login and password via environment variables `HTTP_USERNAME` and `HTTP_PASSWORD`
 
 ## Loading sample data
