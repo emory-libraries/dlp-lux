@@ -65,6 +65,11 @@ class ApplicationController < ActionController::Base
   private
 
     def current_ability
-      @current_ability ||= Ability.new(current_user, request.headers["REMOTE_ADDR"])
+      @current_ability ||= Ability.new(current_user, user_ip)
+    end
+
+    def user_ip
+      return request.headers["X-Forwarded-For"] if request.headers["X-Forwarded-For"]
+      return request.headers["REMOTE_ADDR"] if request.headers["REMOTE_ADDR"]
     end
 end

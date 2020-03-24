@@ -139,8 +139,13 @@ RSpec.describe "Visibility requests", :clean, type: :request do
         expect(response.content_type).to eq "text/html"
       end
 
-      it "does not load the 'show' page for a work with 'Rose High View' visibility" do
-        get "/catalog/#{rose_high_work_id}"
+      it "does not load the 'show' page for a work with 'Rose High View' visibility using remote address" do
+        get "/catalog/#{rose_high_work_id}", headers: { "REMOTE_ADDR": non_reading_room_ip }
+        expect(response.status).to eq 404
+      end
+
+      it "does not load the 'show' page for a work with 'Rose High View' visibility using x-forwarded-for" do
+        get "/catalog/#{rose_high_work_id}", headers: { "X-Forwarded-For": non_reading_room_ip }
         expect(response.status).to eq 404
       end
 
@@ -152,10 +157,17 @@ RSpec.describe "Visibility requests", :clean, type: :request do
     end
 
     context "when in the Rose Reading Room" do
-      it "loads the 'show' page for a work with 'Rose High View' visibility" do
+      it "loads the 'show' page for a work with 'Rose High View' visibility using Remote Address header" do
         get("/catalog/#{rose_high_work_id}", headers: { "REMOTE_ADDR": reading_room_ip })
 
         expect(request.headers["REMOTE_ADDR"]).to eq reading_room_ip
+        expect(response.status).to eq 200
+      end
+
+      it "loads the 'show' page for a work with 'Rose High View' visibility using X-Forwarded-For header" do
+        get("/catalog/#{rose_high_work_id}", headers: { "X-Forwarded-For": reading_room_ip })
+
+        expect(request.headers["X-Forwarded-For"]).to eq reading_room_ip
         expect(response.status).to eq 200
       end
     end
