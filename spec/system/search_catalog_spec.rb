@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
+include Warden::Test::Helpers
 
 RSpec.describe 'Search the catalog', type: :system, js: false do
   before do
@@ -20,6 +21,7 @@ RSpec.describe 'Search the catalog', type: :system, js: false do
               publisher,
               creator_of_collection])
     solr.commit
+    login_as(user)
   end
 
   let(:orange) do
@@ -163,6 +165,8 @@ RSpec.describe 'Search the catalog', type: :system, js: false do
     }
   end
 
+  let(:user) { FactoryBot.create(:user) }
+
   it 'gets correct search results' do
     visit root_path
     # Search for something
@@ -216,6 +220,56 @@ RSpec.describe 'Search the catalog', type: :system, js: false do
         'Target in uniform title',
         'Target in creator, model is collection'
       )
+    end
+  end
+
+  it 'performs searches from about page' do
+    visit "/about"
+    fill_in 'q', with: '222'
+    click_on 'search'
+
+    within 'span.page-entries' do
+      expect(page).to have_content('1 entry found')
+    end
+  end
+
+  it 'performs searches from copyright-reuse page' do
+    visit "/copyright-reuse"
+    fill_in 'q', with: '222'
+    click_on 'search'
+
+    within 'span.page-entries' do
+      expect(page).to have_content('1 entry found')
+    end
+  end
+
+  it 'performs searches from contact page' do
+    visit "/contact"
+    fill_in 'q', with: '222'
+    click_on 'search'
+
+    within 'span.page-entries' do
+      expect(page).to have_content('1 entry found')
+    end
+  end
+
+  it 'performs searches from bookmarks page' do
+    visit "/bookmarks"
+    fill_in 'q', with: '222'
+    click_on 'search'
+
+    within 'span.page-entries' do
+      expect(page).to have_content('1 entry found')
+    end
+  end
+
+  it 'performs searches from search_history page' do
+    visit "/search_history"
+    fill_in 'q', with: '222'
+    click_on 'search'
+
+    within 'span.page-entries' do
+      expect(page).to have_content('1 entry found')
     end
   end
 end
