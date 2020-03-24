@@ -44,16 +44,33 @@ module Blacklight
 
       # @param [Hash] image_options to pass to the image tag
       def thumbnail_value(image_options)
-        value = if thumbnail_method
-                  view_context.send(thumbnail_method, document, image_options)
-                elsif thumbnail_field
-                  image_url = (ENV['THUMBNAIL_URL'] || '') + thumbnail_value_from_document
+        value = if thumbnail_field
+                  image_url = thumbnail_image_url
                   image_options[:alt] = "Thumbnail image"
                   image_options[:class] = "img-fluid"
                   view_context.image_tag image_url, image_options if image_url.present?
                 end
 
         value || default_thumbnail_value(image_options)
+      end
+
+      def thumbnail_image_url
+        visibility = document["visibility_ssi"]
+        case visibility
+        when "open"
+          (ENV['THUMBNAIL_URL'] || '') + thumbnail_value_from_document
+        when "low_res"
+          (ENV['THUMBNAIL_URL'] || '') + thumbnail_value_from_document
+        when "emory_low"
+          return '/assets/login-required.png' unless view_context&.current_user
+          (ENV['THUMBNAIL_URL'] || '') + thumbnail_value_from_document
+        when "authenticated"
+          return '/assets/login-required.png' unless view_context&.current_user
+          (ENV['THUMBNAIL_URL'] || '') + thumbnail_value_from_document
+        when "rose_high"
+          byebug
+          return '/assets/reading-room-only.png' unless false
+        end
       end
 
       def default_thumbnail_value(image_options)
