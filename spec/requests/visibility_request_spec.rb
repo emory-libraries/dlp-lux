@@ -139,12 +139,12 @@ RSpec.describe "Visibility requests", :clean, type: :request do
         expect(response.content_type).to eq "text/html"
       end
 
-      it "does not load the 'show' page for a work with 'Rose High View' visibility" do
+      it "does not load the 'show' page for a work with 'Rose High View' visibility using remote address" do
         get "/catalog/#{rose_high_work_id}", headers: { "REMOTE_ADDR": non_reading_room_ip }
         expect(response.status).to eq 404
       end
 
-      it "does not load the 'show' page for a work with 'Rose High View' visibility" do
+      it "does not load the 'show' page for a work with 'Rose High View' visibility using x-forwarded-for" do
         get "/catalog/#{rose_high_work_id}", headers: { "X-Forwarded-For": non_reading_room_ip }
         expect(response.status).to eq 404
       end
