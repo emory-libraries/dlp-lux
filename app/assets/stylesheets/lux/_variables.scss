@@ -87,12 +87,15 @@ $nav-divider-width:                 1px;
 $nav-divider-top:                   $nav-link-padding-y + ($font-size-sm / 4);
 $nav-divider-right:                 0;
 
+$navbar-toggler-height:             3.125rem;
+
 // Search Form
 
 $search-form-height:                3.125rem;
 $search-form-padding-y:             1.25rem;
 $search-form-margin-x:              0.3125rem;
 
+$search-form-select-width:             12.5rem;
 $search-form-select-padding-left:      3.75rem;
 $search-form-select-padding-right:     1.25rem;
 $custom-select-color:                  $charcoal;

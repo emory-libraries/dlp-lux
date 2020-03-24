@@ -1,5 +1,11 @@
 // bootstrap does flex-grow: 1 by default which makes the
 // text input roughly the same size as the select in many cases
+form.search-query-form {
+  width: 100%;
+  position: relative;
+  top: 2px;
+}
+
 .input-group {
   &.col-md-12 {
     padding-right: 0;
@@ -7,7 +13,7 @@
   > .custom-select {
     &.search-field {
       height: $search-form-height;
-      max-width: fit-content;
+      max-width: $search-form-select-width;
       margin-right: $search-form-margin-x;
       padding: 0 $search-form-select-padding-left 0 $search-form-select-padding-right;
 
@@ -56,4 +62,8 @@ button#search {
 button#search:hover {
   border-color: $mid-blue;
   background-color: $mid-blue;
+}
+
+.navbar-toggler {
+  height: $navbar-toggler-height;
 }
