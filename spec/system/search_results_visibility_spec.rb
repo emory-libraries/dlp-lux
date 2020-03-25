@@ -129,7 +129,7 @@ RSpec.describe "View search results for works with different levels of visibilit
   end
 
   context "as a user in the Rose Reading Room" do
-    it 'has the original thumbnail' do
+    xit 'has the original thumbnail' do
       visit "/"
       fill_in 'q', with: rose_high_work_id
       click_on('search')
