@@ -19,9 +19,9 @@ form.search-query-form {
 
       background: url("https://libraries.emory.edu/assets/icons/php/icon.php?id=material-keyboard_arrow_down&color=5387F7&size[width]=20&size[height]=20") no-repeat right 0.5rem center;
       border-radius: $border-radius !important;
-      -moz-box-shadow:    inset 1px 2px 4px rgba(182, 189, 204, 0.5);
-      -webkit-box-shadow: inset 1px 2px 4px rgba(182, 189, 204, 0.5);
-      box-shadow:         inset 1px 2px 4px rgba(182, 189, 204, 0.5);
+      -moz-box-shadow:    $search-form-box-shadow;
+      -webkit-box-shadow: $search-form-box-shadow;
+      box-shadow:         $search-form-box-shadow;
     }
   }
   > .form-control {
@@ -31,9 +31,9 @@ form.search-query-form {
       padding: $search-form-q-padding-y $search-form-q-padding-x;
 
       border-radius: $border-radius-xs !important;
-      -moz-box-shadow:    inset 1px 2px 4px rgba(182, 189, 204, 0.5);
-      -webkit-box-shadow: inset 1px 2px 4px rgba(182, 189, 204, 0.5);
-      box-shadow:         inset 1px 2px 4px rgba(182, 189, 204, 0.5);
+      -moz-box-shadow:    $search-form-box-shadow;
+      -webkit-box-shadow: $search-form-box-shadow;
+      box-shadow:         $search-form-box-shadow;
       color: $charcoal;
     }
 
