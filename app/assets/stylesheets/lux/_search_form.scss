@@ -1,22 +1,40 @@
 // bootstrap does flex-grow: 1 by default which makes the
 // text input roughly the same size as the select in many cases
+form.search-query-form {
+  width: 100%;
+  position: relative;
+  top: 2px;
+}
+
 .input-group {
   &.col-md-12 {
     padding-right: 0;
   }
-  > .form-control,
-  > .custom-select {
-    width: fit-content;
-  }
   > .custom-select {
     &.search-field {
-      flex-grow: 1;
-      max-width: fit-content;
+      height: $search-form-height;
+      max-width: $search-form-select-width;
+      margin-right: $search-form-margin-x;
+      padding: 0 $search-form-select-padding-left 0 $search-form-select-padding-right;
+
+      background: url("https://libraries.emory.edu/assets/icons/php/icon.php?id=material-keyboard_arrow_down&color=5387F7&size[width]=20&size[height]=20") no-repeat right 0.5rem center;
+      border-radius:      $border-radius !important;
+      box-shadow:         $search-form-box-shadow;
     }
   }
   > .form-control {
     &.search-q {
-      flex-grow: 3;
+      height: $search-form-height;
+      margin-right: $search-form-margin-x;
+      padding: $search-form-q-padding-y $search-form-q-padding-x;
+
+      border-radius:      $border-radius-xs !important;
+      box-shadow:         $search-form-box-shadow;
+      color: $charcoal;
+    }
+
+    &.search-q:focus {
+      border-color: #5387F7;
     }
   }
 }
@@ -24,8 +42,24 @@
 .form-inline {
   &.col-lg-7,
   &.col-md-12,
-  &.col-sm-12,
+  &.col-sm-12
   {
     padding-right: 0;
+    padding-bottom: $search-form-padding-y;
   }
+}
+
+button#search {
+  width: $search-form-button-width;
+  padding: 0 $search-form-button-padding-x;
+  border: 1px solid $bright-blue;
+}
+
+button#search:hover {
+  border-color: $mid-blue;
+  background-color: $mid-blue;
+}
+
+.navbar-toggler {
+  height: $navbar-toggler-height;
 }
