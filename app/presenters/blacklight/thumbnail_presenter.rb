@@ -56,6 +56,23 @@ module Blacklight
         value || default_thumbnail_value(image_options)
       end
 
+      def thumbnail_image_url
+        visibility = document["visibility_ssi"]
+        case visibility
+        when "open", "low_res"
+          return lux_thumbnail_url
+        when "emory_low", "authenticated" # Authenticated is the same as Emory High Download
+          return '/assets/login-required.png' unless view_context&.current_user
+          return lux_thumbnail_url
+        when "rose_high"
+          return '/assets/reading-room-only.png'
+        end
+      end
+
+      def lux_thumbnail_url
+        (ENV['THUMBNAIL_URL'] || '') + thumbnail_value_from_document
+      end
+
       def default_thumbnail_value(image_options)
         return unless default_thumbnail
 
