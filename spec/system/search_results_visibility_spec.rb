@@ -91,7 +91,7 @@ RSpec.describe "View search results for works with different levels of visibilit
         click_on('search')
         expect(page).to have_css('.document-thumbnail')
         expect(page).to have_link('Thumbnail image')
-        expect(page).to have_css("img[src='/assets/login-required.png']")
+        expect(page.find("img.img-fluid")['outerHTML']).to match(/login-required/)
         expect(page).not_to have_css("img[src='http://obviously_fake_url.com/downloads/#{emory_low_work_id}?file=thumbnail']")
       end
     end
