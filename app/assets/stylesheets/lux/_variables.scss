@@ -94,7 +94,7 @@ $navbar-toggler-height:             3.125rem;
 $search-form-height:                3.125rem;
 $search-form-padding-y:             1.25rem;
 $search-form-margin-x:              0.3125rem;
-$search-form-box-shadow:            inset 1px 2px 4px $base-slate-transparent;
+$search-form-box-shadow:            inset 1px 2px 4px rgba($base-slate, 0.5);
 
 $search-form-select-width:             12.5rem;
 $search-form-select-padding-left:      3.75rem;

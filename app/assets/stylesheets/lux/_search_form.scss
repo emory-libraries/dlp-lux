@@ -18,9 +18,7 @@ form.search-query-form {
       padding: 0 $search-form-select-padding-left 0 $search-form-select-padding-right;
 
       background: url("https://libraries.emory.edu/assets/icons/php/icon.php?id=material-keyboard_arrow_down&color=5387F7&size[width]=20&size[height]=20") no-repeat right 0.5rem center;
-      border-radius: $border-radius !important;
-      -moz-box-shadow:    $search-form-box-shadow;
-      -webkit-box-shadow: $search-form-box-shadow;
+      border-radius:      $border-radius !important;
       box-shadow:         $search-form-box-shadow;
     }
   }
@@ -30,9 +28,7 @@ form.search-query-form {
       margin-right: $search-form-margin-x;
       padding: $search-form-q-padding-y $search-form-q-padding-x;
 
-      border-radius: $border-radius-xs !important;
-      -moz-box-shadow:    $search-form-box-shadow;
-      -webkit-box-shadow: $search-form-box-shadow;
+      border-radius:      $border-radius-xs !important;
       box-shadow:         $search-form-box-shadow;
       color: $charcoal;
     }
