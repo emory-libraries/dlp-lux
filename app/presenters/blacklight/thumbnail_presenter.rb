@@ -68,7 +68,6 @@ module Blacklight
           return '/assets/login-required.png' unless view_context&.current_user
           (ENV['THUMBNAIL_URL'] || '') + thumbnail_value_from_document
         when "rose_high"
-          byebug
           return '/assets/reading-room-only.png' unless false
         end
       end
