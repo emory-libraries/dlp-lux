@@ -2,7 +2,7 @@
 require 'rails_helper'
 include Warden::Test::Helpers
 
-RSpec.describe "View search results for works with different levels of visibility", js: false, clean: true, type: :system do
+RSpec.describe "View search results for works with different levels of visibility", js: true, clean: true, type: :system do
   before do
     delete_all_documents_from_solr
     solr = Blacklight.default_index.connection
