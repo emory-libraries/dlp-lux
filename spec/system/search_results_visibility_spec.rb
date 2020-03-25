@@ -95,7 +95,6 @@ RSpec.describe "View search results for works with different levels of visibilit
         expect(page).not_to have_css("img[src='http://obviously_fake_url.com/downloads/#{emory_low_work_id}?file=thumbnail']")
       end
     end
-
   end
 
   context "as an authenticated user" do
@@ -125,7 +124,6 @@ RSpec.describe "View search results for works with different levels of visibilit
         find("img[src='http://obviously_fake_url.com/downloads/#{emory_high_work_id}?file=thumbnail']")
       end
     end
-
   end
 
   context "as a user in the Rose Reading Room" do
