@@ -15,8 +15,7 @@ RSpec.describe "View search results for works with different levels of visibilit
                work_with_private_visibility
              ])
     solr.commit
-    visit "/"
-    click_on('search')
+    ENV['THUMBNAIL_URL'] = 'http://obviously_fake_url.com'
   end
 
   let(:emory_high_work_id) { '111-321' }
@@ -51,6 +50,8 @@ RSpec.describe "View search results for works with different levels of visibilit
   end
 
   it 'shows search results for all except private works' do
+    visit "/"
+    click_on('search')
     expect(page).to have_content 'Work with Open Access'
     expect(page).to have_content 'Work with Emory High visibility'
     expect(page).to have_content 'Work with Public Low Resolution'
@@ -58,5 +59,93 @@ RSpec.describe "View search results for works with different levels of visibilit
     expect(page).to have_content 'Work with Rose High View visibility'
 
     expect(page).not_to have_content 'Work with Private visibility'
+  end
+
+  context 'when searching for a Public work' do
+    it 'has the original thumbnail' do
+      visit "/"
+      fill_in 'q', with: public_work_id
+      click_on('search')
+      expect(page).to have_css('.document-thumbnail')
+      expect(page).to have_link('Thumbnail image')
+      find("img[src='http://obviously_fake_url.com/downloads/#{public_work_id}?file=thumbnail']")
+    end
+  end
+
+  context 'when searching for a Public Low View work' do
+    it 'has the original thumbnail' do
+      visit "/"
+      fill_in 'q', with: public_low_view_work_id
+      click_on('search')
+      expect(page).to have_css('.document-thumbnail')
+      expect(page).to have_link('Thumbnail image')
+      find("img[src='http://obviously_fake_url.com/downloads/#{public_low_view_work_id}?file=thumbnail']")
+    end
+  end
+
+  context "as an unauthenticated user" do
+    context 'when searching for an Emory Low Download work' do
+      it 'has a generic "Please Login for Access" thumbnail' do
+        visit "/"
+        fill_in 'q', with: emory_low_work_id
+        click_on('search')
+        expect(page).to have_css('.document-thumbnail')
+        expect(page).to have_link('Thumbnail image')
+        expect(page).to have_css("img[src='/assets/login-required.png']")
+        expect(page).not_to have_css("img[src='http://obviously_fake_url.com/downloads/#{emory_low_work_id}?file=thumbnail']")
+      end
+    end
+  end
+
+  context "as an authenticated user" do
+    let(:user) { FactoryBot.create(:user) }
+    before do
+      login_as user
+    end
+
+    context 'when searching for an Emory Low Download work' do
+      it 'has the original thumbnail' do
+        visit "/"
+        fill_in 'q', with: emory_low_work_id
+        click_on('search')
+        expect(page).to have_css('.document-thumbnail')
+        expect(page).to have_link('Thumbnail image')
+        find("img[src='http://obviously_fake_url.com/downloads/#{emory_low_work_id}?file=thumbnail']")
+      end
+    end
+
+    context 'when searching for an Emory High Download work' do
+      it 'has the original thumbnail' do
+        visit "/"
+        fill_in 'q', with: emory_high_work_id
+        click_on('search')
+        expect(page).to have_css('.document-thumbnail')
+        expect(page).to have_link('Thumbnail image')
+        find("img[src='http://obviously_fake_url.com/downloads/#{emory_high_work_id}?file=thumbnail']")
+      end
+    end
+  end
+
+  context "as a user in the Rose Reading Room" do
+    xit 'has the original thumbnail' do
+      visit "/"
+      fill_in 'q', with: rose_high_work_id
+      click_on('search')
+      expect(page).to have_css('.document-thumbnail')
+      expect(page).to have_link('Thumbnail image')
+      find("img[src='http://obviously_fake_url.com/downloads/#{rose_high_work_id}?file=thumbnail']")
+    end
+  end
+
+  context "as a user outside the Rose Reading Room" do
+    it 'has a generic "Reading Room Only" thumbnail' do
+      visit "/"
+      fill_in 'q', with: rose_high_work_id
+      click_on('search')
+      expect(page).to have_css('.document-thumbnail')
+      expect(page).to have_link('Thumbnail image')
+      expect(page).to have_css("img[src='/assets/reading-room-only.png']")
+      expect(page).not_to have_css("img[src='http://obviously_fake_url.com/downloads/#{rose_high_work_id}?file=thumbnail']")
+    end
   end
 end
