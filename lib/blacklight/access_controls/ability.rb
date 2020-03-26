@@ -102,6 +102,7 @@ module Blacklight
         @user_groups = default_user_groups
         @user_groups |= current_user.groups if current_user.respond_to? :groups
         @user_groups |= ['registered', 'emory_low'] unless current_user.new_record?
+        #NOTE: The user's IP address got passed in through the options hash
         @user_groups |= rose_user_groups if rose_reading_room_ips.include? options
 
         @user_groups

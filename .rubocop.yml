@@ -68,6 +68,10 @@ RSpec/ExampleLength:
     Exclude:
         - 'spec/**/*'
 
+RSpec/AnyInstance:
+    Exclude:
+        - 'spec/system/search_results_visibility_spec.rb'
+
 Style/MethodDefParentheses:
   Exclude:
         - 'app/helpers/blacklight/blacklight_helper_behavior.rb'
