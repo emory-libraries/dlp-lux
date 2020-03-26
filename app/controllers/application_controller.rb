@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
              elsif v == "authenticated" && user_signed_in?
                uv_config_liberal
              elsif v == "emory_low" && user_signed_in?
-               uv_config_liberal
+               uv_config_liberal_low
              else
                default_config
              end
@@ -58,6 +58,32 @@ class ApplicationController < ActionController::Base
       }
     )
   end
+
+  # Construct a UV configuration for emory_low visibility with downloads and share enabled,
+  # and download dialogue options/content modifications
+  # @return [UvConfiguration]
+  def uv_config_liberal_low # rubocop:disable Metrics/MethodLength
+    UvConfiguration.new(
+      modules: {
+        footerPanel: {
+          options: {
+            shareEnabled: true,
+            downloadEnabled: true,
+            fullscreenEnabled: true
+          }
+        },
+        downloadDialogue: {
+          options: {
+            currentViewDisabledPercentage: 0, # set to an unreasonably low value so that Current View option is hidden
+            confinedImageSize: 100_000 # set to an unreasonably high value so that Whole Image Low Res option is hidden
+          },
+          content: {
+            wholeImageHighRes: "Whole Image 400px"
+          }
+        }
+      }
+    )
+  end # rubocop:enable Metrics/MethodLength
 
   def visibility_lookup(resource_id)
     response = Blacklight.default_index.connection.get 'select', params: { q: "id:#{resource_id}" }

@@ -173,6 +173,12 @@ RSpec.describe "UvConfiguration requests", :clean, type: :request do
           "downloadEnabled" => true,
           "fullscreenEnabled" => true
         )
+        expect(response_values["modules"]["downloadDialogue"]).to include("options", "content")
+        expect(response_values["modules"]["downloadDialogue"]["options"]).to include(
+          "currentViewDisabledPercentage" => 0,
+          "confinedImageSize" => 100_000
+        )
+        expect(response_values["modules"]["downloadDialogue"]["content"]).to include("wholeImageHighRes")
       end
     end
   end
