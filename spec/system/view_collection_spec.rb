@@ -37,4 +37,18 @@ RSpec.describe "View a Collection", type: :system, js: false do
   it 'has Collection specific metadata values' do
     expect(page).to have_content('Chester W. Topp collection of Victorian yellowbacks and paperbacks')
   end
+
+  it 'lacks a banner when banner_path_ss is nil' do
+    expect(page).not_to have_selector("#collection-banner")
+  end
+
+  context 'with banner' do
+    let(:work_attributes) do
+      COLLECTION.merge(banner_path_ss: '/branding/119f4qrfj9-cor/banner/banner.jpg')
+    end
+
+    it 'processes an img tag with the right id' do
+      expect(page.find('#collection-banner')['src']).to match(/banner.jpg/)
+    end
+  end
 end
