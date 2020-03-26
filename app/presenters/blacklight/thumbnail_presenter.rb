@@ -58,12 +58,12 @@ module Blacklight
         visibility = document["visibility_ssi"]
         case visibility
         when "open", "low_res"
-          lux_thumbnail_url
+          return lux_thumbnail_url
         when "emory_low", "authenticated" # Authenticated is the same as Emory High Download
-          return '/assets/login-required.png' unless view_context&.current_user
-          lux_thumbnail_url
+          return 'login-required.png' unless view_context&.current_user
+          return lux_thumbnail_url
         when "rose_high"
-          return '/assets/reading-room-only.png'
+          return 'reading-room-only.png'
         end
       end
 

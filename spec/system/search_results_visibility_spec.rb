@@ -2,7 +2,7 @@
 require 'rails_helper'
 include Warden::Test::Helpers
 
-RSpec.describe "View search results for works with different levels of visibility", js: false, clean: true, type: :system do
+RSpec.describe "View search results for works with different levels of visibility", js: true, clean: true, type: :system do
   before do
     delete_all_documents_from_solr
     solr = Blacklight.default_index.connection
@@ -91,7 +91,7 @@ RSpec.describe "View search results for works with different levels of visibilit
         click_on('search')
         expect(page).to have_css('.document-thumbnail')
         expect(page).to have_link('Thumbnail image')
-        expect(page).to have_css("img[src='/assets/login-required.png']")
+        expect(page.find("img.img-fluid")['outerHTML']).to match(/login-required/)
         expect(page).not_to have_css("img[src='http://obviously_fake_url.com/downloads/#{emory_low_work_id}?file=thumbnail']")
       end
     end
@@ -144,7 +144,7 @@ RSpec.describe "View search results for works with different levels of visibilit
       click_on('search')
       expect(page).to have_css('.document-thumbnail')
       expect(page).to have_link('Thumbnail image')
-      expect(page).to have_css("img[src='/assets/reading-room-only.png']")
+      expect(page.find("img.img-fluid")['outerHTML']).to match(/reading-room-only/)
       expect(page).not_to have_css("img[src='http://obviously_fake_url.com/downloads/#{rose_high_work_id}?file=thumbnail']")
     end
   end
