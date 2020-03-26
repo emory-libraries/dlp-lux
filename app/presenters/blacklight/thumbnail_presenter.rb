@@ -63,7 +63,8 @@ module Blacklight
           return 'login-required.png' unless view_context&.current_user
           return lux_thumbnail_url
         when "rose_high"
-          return 'reading-room-only.png'
+          return 'reading-room-only.png' unless view_context.current_ability.user_groups.include?('rose_high')
+          return lux_thumbnail_url
         end
       end
 

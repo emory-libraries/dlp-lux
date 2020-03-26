@@ -127,7 +127,10 @@ RSpec.describe "View search results for works with different levels of visibilit
   end
 
   context "as a user in the Rose Reading Room" do
-    xit 'has the original thumbnail' do
+    before do
+      allow_any_instance_of(Ability).to receive(:user_groups).and_return(['rose_high'])
+    end
+    it 'has the original thumbnail' do
       visit "/"
       fill_in 'q', with: rose_high_work_id
       click_on('search')
