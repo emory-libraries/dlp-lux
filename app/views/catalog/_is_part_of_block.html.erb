@@ -6,6 +6,10 @@
     <div class="card-body">
       <dl>
         <dd class="blacklight-member_of_collections"><a href=<%= document["member_of_collection_ids_ssim"]&.first %>><%= document["member_of_collections_ssim"]&.first %></a></dd>
+        <% if document['parent_work_for_lux_tesim'].present? %>
+          <% link, link_title = document['parent_work_for_lux_tesim'].first.split(', ') %>
+          <dd class='blacklight-parent_member_of_collections'><a href=<%= link %>><%= link_title %></a></dd>
+        <% end %>
       </dl>
     </div>
   </div>
