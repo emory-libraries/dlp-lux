@@ -5,7 +5,11 @@
     <div class="card-header"><%= title %></div>
     <div class="card-body">
       <dl>
-        <dd class="blacklight-member_of_collections"><a href=<%= document["member_of_collection_ids_ssim"]&.first %>><%= document["member_of_collections_ssim"]&.first %></a></dd>
+        <% if document['member_of_collection_ids_ssim'].present? %>
+            <% col_link = document["member_of_collection_ids_ssim"].first %>
+            <% col_title = document["member_of_collections_ssim"]&.first %>
+            <dd class="blacklight-member_of_collections"><a href=<%= col_link %>><%= col_title || "Parent Collection" %></a></dd>
+        <% end %>
         <% if document['parent_work_for_lux_tesim'].present? %>
           <% link, link_title = document['parent_work_for_lux_tesim'].first.split(', ') %>
           <dd class='blacklight-parent_member_of_collections'><a href=<%= link %>><%= link_title %></a></dd>

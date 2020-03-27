@@ -239,6 +239,7 @@ class CatalogController < ApplicationController
     # For "This item is part of:" section of show page
     config.add_show_field 'member_of_collections_ssim'
     config.add_show_field 'member_of_collection_ids_ssim'
+    config.add_show_field 'parent_work_for_lux_tesim'
     # For "View items in this digital collection" section of show page
     config.add_show_field 'title_tesim'
     # For "This item contains:" section of show page
@@ -249,7 +250,7 @@ class CatalogController < ApplicationController
     #
     # Search fields will inherit the :qt solr request handler from
     # config[:default_solr_parameters], OR can specify a different one
-    # with a :qt key/value. Below examples inherit, except for subject
+    # with a :qt keygst/value. Below examples inherit, except for subject
     # that specifies the same :qt as default for our own internal
     # testing purposes.
     #
