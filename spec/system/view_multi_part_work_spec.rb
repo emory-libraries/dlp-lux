@@ -35,4 +35,13 @@ RSpec.describe "View a multi part Work", type: :system, js: false do
     find("img[src='http://obviously_fake_url.com/downloads/0343r2282s-cor?file=thumbnail']")
     find("img[src='http://obviously_fake_url.com/downloads/211kh1895r-cor?file=thumbnail']")
   end
+
+  context 'when visiting the child work' do
+    it 'links the parent work in is part of' do
+      visit solr_document_path(child_work_1_id)
+
+      expect(page).to have_css('dd.blacklight-parent_member_of_collections')
+      expect(page).to have_link('Emocad.', href: '030prr4xkj-cor')
+    end
+  end
 end
