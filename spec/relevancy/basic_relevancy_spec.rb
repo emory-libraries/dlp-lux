@@ -44,7 +44,7 @@ RSpec.describe 'Search a prod-like catalog', type: :system, run_in_ci: false, re
     # Search for something
     fill_in 'q', with: 'barber'
     click_on 'search'
-    expect(page.find(:xpath, '/html/body/main/div[3]/section[1]/div[1]/div[1]/span/strong[3]').text.to_i).to be > 50
+    expect(/of\s(\d*)/.match(page.find('.page-entries').text)[1].to_i).to be > 50
   end
 
   it "finds at least 40 results for 'Jesse Jackson'" do
