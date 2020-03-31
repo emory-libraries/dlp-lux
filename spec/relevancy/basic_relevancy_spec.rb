@@ -3,7 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe 'Search a prod-like catalog', type: :system, run_in_ci: false, relevancy: true, js: true do
-
   let(:username) { "lux" }
   let(:password) { "lux2020" }
   let(:url) do
@@ -95,6 +94,6 @@ RSpec.describe 'Search a prod-like catalog', type: :system, run_in_ci: false, re
   end
 
   def rank_in_results_title
-    page.find(".document-title-heading", text:work_title).find(".document-counter").text.to_i
+    page.find(".document-title-heading", text: work_title).find(".document-counter").text.to_i
   end
 end
