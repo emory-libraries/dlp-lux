@@ -8,7 +8,7 @@ module Blacklight
     # Classes added to a document's show content div
     # @return [String]
     def show_content_classes
-      "#{main_content_classes} show-document"
+      "col-12 show-document"
     end
 
     ##
@@ -22,7 +22,7 @@ module Blacklight
     # Classes added to a document's sidebar div
     # @return [String]
     def show_sidebar_classes
-      sidebar_classes
+      "d-none"
     end
 
     ##
