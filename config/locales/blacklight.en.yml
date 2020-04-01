@@ -8,6 +8,8 @@ en:
       bookmarks: 'Bookmarks'
       search_history: 'History'
     search:
+      facets:
+        title: 'Browse All Items'
       form:
         search:
           placeholder: 'Search Digital Collections'
