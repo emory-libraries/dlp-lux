@@ -1,0 +1,67 @@
+<%# VARIABLE KEY %>
+<% d = document %>
+<% b_t_a = (d['title_tesim']&.first.split(' ').first(3).join(' ') + '...') if d['title_tesim']&.first.split(' ').size > 3 %>
+<% its_a_collection = d['has_model_ssim']&.first == 'Collection' %>
+<% not_related_collection = d['member_of_collection_ids_ssim'].nil? %>
+<% related_collection = d['member_of_collection_ids_ssim'].present? %>
+<% its_a_work = d['has_model_ssim']&.first == 'CurateGenericWork' %>
+<% no_parent = d['parent_work_for_lux_tesim'].nil? %>
+<% has_parent = d['parent_work_for_lux_tesim'].present? %>
+<% standard_link = "/catalog/#{d['id']}" %>
+<% standard_title = d['title_tesim']&.first %>
+<% collection_link = "/catalog/#{d['member_of_collection_ids_ssim']&.first}" %>
+<% parent_work_link = "/catalog/#{d['parent_work_for_lux_tesim']&.first&.split(', ')&.first}" %>
+<% b_t_p_o = 'Back to Parent Object' %>
+<% b_t_c = 'Back to Collection' %>
+<%# END OF KEY %>
+
+<div class="container">
+  <div class="row">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/" class="breadcrumb-link">Home</a></li>
+        <% if its_a_collection && not_related_collection %>
+          <%= render 'shared/breadcrumb', curr_page: true, breadcrumb_title_abbr: b_t_a, breadcrumb_link: standard_link, 
+                        breadcrumb_title: standard_title
+          %>
+        <% elsif its_a_collection && related_collection %>
+          <%= render 'shared/breadcrumb', curr_page: false, breadcrumb_title_abbr: nil, breadcrumb_link: collection_link,
+                        breadcrumb_title: b_t_p_o
+          %>
+          <%= render 'shared/breadcrumb', curr_page: true, breadcrumb_title_abbr: b_t_a, breadcrumb_link: standard_link, 
+                        breadcrumb_title: standard_title
+          %>
+        <% elsif its_a_work && no_parent && related_collection %>
+          <%= render 'shared/breadcrumb', curr_page: false, breadcrumb_title_abbr: nil, breadcrumb_link: collection_link,
+                        breadcrumb_title: b_t_c
+          %>
+          <%= render 'shared/breadcrumb', curr_page: true, breadcrumb_title_abbr: b_t_a, breadcrumb_link: standard_link, 
+                        breadcrumb_title: standard_title
+          %>
+        <% elsif its_a_work && has_parent && related_collection %>
+          <%= render 'shared/breadcrumb', curr_page: false, breadcrumb_title_abbr: nil, breadcrumb_link: collection_link,
+                        breadcrumb_title: b_t_c
+          %>
+          <%= render 'shared/breadcrumb', curr_page: false, breadcrumb_title_abbr: nil, breadcrumb_link: parent_work_link,
+                        breadcrumb_title: b_t_p_o
+          %>
+          <%= render 'shared/breadcrumb', curr_page: true, breadcrumb_title_abbr: b_t_a, breadcrumb_link: standard_link, 
+                        breadcrumb_title: standard_title
+          %>
+        <% elsif its_a_work && no_parent && not_related_collection %>
+          <%= render 'shared/breadcrumb', curr_page: true, breadcrumb_title_abbr: b_t_a, breadcrumb_link: standard_link, 
+                        breadcrumb_title: standard_title
+          %>
+        <% elsif its_a_work && has_parent && not_related_collection %>
+          <%= render 'shared/breadcrumb', curr_page: false, breadcrumb_title_abbr: nil, breadcrumb_link: parent_work_link,
+                        breadcrumb_title: b_t_p_o
+          %>
+          <%= render 'shared/breadcrumb', curr_page: true, breadcrumb_title_abbr: b_t_a, breadcrumb_link: standard_link, 
+                        breadcrumb_title: standard_title
+          %>
+
+        <% end %>
+      </ol>
+    </nav>
+  </div>
+</div>

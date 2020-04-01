@@ -1,0 +1,16 @@
+
+<li class="breadcrumb-item <%= 'active' if curr_page %>", 
+  aria-current=<%= 'page' if curr_page %>
+>
+  <% if breadcrumb_title_abbr.present? %>
+    <%= link_to breadcrumb_title_abbr, breadcrumb_link, 
+      class: "breadcrumb-link#{' current-page' if curr_page}", 
+      onMouseover: "this.text='#{breadcrumb_title}'",
+      onMouseOut: "this.text='#{breadcrumb_title_abbr}'"
+    %>
+  <% else %>
+    <%= link_to breadcrumb_title, breadcrumb_link, 
+      class: "breadcrumb-link#{' current-page' if curr_page}"
+    %>
+  <% end %>
+</li>

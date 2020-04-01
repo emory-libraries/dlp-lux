@@ -1,7 +1,24 @@
-<div class="col-md-4">
-  <%= title %>
-</div>
-<div class="col-md-8">
-  <p class="text -rich-text"></p>
-  <p class="static-body-text"><%= bod_text %></p>
+<div class="container">
+  <div class="row">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/" class="breadcrumb-link">Home</a></li>
+        <%= render 'shared/breadcrumb',
+              curr_page: true,
+              breadcrumb_title_abbr: breadcrumb_title_abbr,
+              breadcrumb_link: breadcrumb_link,
+              breadcrumb_title: breadcrumb_title
+        %>
+      </ol>
+    </nav>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <%= title %>
+    </div>
+    <div class="col-md-8">
+      <p class="text -rich-text"></p>
+      <p class="static-body-text"><%= bod_text %></p>
+    </div>
+  </div>
 </div>

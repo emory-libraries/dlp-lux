@@ -1,9 +1,10 @@
-<div class="container">
-  <div class="row">
-    <%= render "static/content_chunk",
-          title:
-            link_to("<h2 class='static-h2'>Contact Us</h2>".html_safe, "/contact"),
-          bod_text: "Placeholder for copy"
-    %>
-  </div>
-</div>
+<% breadcrumb_title = "Contact Us"; breadcrumb_link = '/contact' %>
+<% breadcrumb_title_abbr = nil %>
+<%= render "static/content_chunk",
+      breadcrumb_title: breadcrumb_title,
+      breadcrumb_title_abbr: breadcrumb_title_abbr,
+      breadcrumb_link: breadcrumb_link, 
+      title:
+        link_to("<h2 class='static-h2'>#{breadcrumb_title}</h2>".html_safe, breadcrumb_link),
+      bod_text: "Placeholder for copy"
+%>

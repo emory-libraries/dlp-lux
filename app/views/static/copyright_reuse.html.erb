@@ -1,10 +1,11 @@
-<div class="container">
-  <div class="row">
-    <%= render "static/content_chunk",
-          title:
-            link_to("<h2 class='static-h2'>Copyright and Reuse</h2>".html_safe,
-            "/copyright-reuse"),
-          bod_text: "Placeholder for copy"
-    %>
-  </div>
-</div>  
+<% breadcrumb_title = "Copyright and Reuse"; breadcrumb_link = '/copyright-reuse' %>
+<% breadcrumb_title_abbr = nil %>
+<%= render "static/content_chunk",
+      breadcrumb_title: breadcrumb_title,
+      breadcrumb_title_abbr: breadcrumb_title_abbr,
+      breadcrumb_link: breadcrumb_link, 
+      title:
+        link_to("<h2 class='static-h2'>#{breadcrumb_title}</h2>".html_safe,
+        breadcrumb_link),
+      bod_text: "Placeholder for copy"
+%>
