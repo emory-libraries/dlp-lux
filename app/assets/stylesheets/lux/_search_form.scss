@@ -34,7 +34,7 @@ form.search-query-form {
     }
 
     &.search-q:focus {
-      border-color: #5387F7;
+      border-color: $alt-bright-blue;
     }
   }
 }
@@ -53,11 +53,16 @@ button#search {
   width: $search-form-button-width;
   padding: 0 $search-form-button-padding-x;
   border: 1px solid $bright-blue;
-}
 
-button#search:hover {
-  border-color: $mid-blue;
-  background-color: $mid-blue;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-bold;
+
+  &:hover {
+    border-color: $mid-blue;
+    background-color: $mid-blue;
+  }
 }
 
 .navbar-toggler {
