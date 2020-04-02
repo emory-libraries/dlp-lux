@@ -1,0 +1,8 @@
+@import "lux/variables";
+
+div#document.document > div > h1 {
+  font: normal bold 48px/normal "Cardo", serif;
+  text-transform: none;
+  letter-spacing: normal;
+  color: $dark-blue;
+}

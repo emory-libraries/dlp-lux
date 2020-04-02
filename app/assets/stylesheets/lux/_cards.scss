@@ -3,7 +3,11 @@
 div.card-header {
   font-weight: $font-weight-bold;
   text-transform: uppercase;
-  font-size: $font-size-sm;
+  font-size: .80rem;
   background-color: $dark-blue;
   color: $gold;
+}
+
+div.card-header:first-child {
+  border-radius: 0;
 }
