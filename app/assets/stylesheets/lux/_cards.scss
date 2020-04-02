@@ -12,19 +12,22 @@ div.card-header:first-child {
   border-radius: 0;
 }
 
-div.about-this-item, div.about-this-collection, div.subjects-keywords, div.publication-details, div.additional-details {
-  > div.card-body > dl > div.card-line {
-    display: flex;
-    flex-wrap: wrap;
+@media (min-width: 768px) {
+  div.about-this-item, div.about-this-collection, div.subjects-keywords, div.publication-details, div.additional-details {
+    > div.card-body > dl > div.card-line {
+      display: flex;
+      flex-wrap: wrap;
 
-    > dt {
-      width: 33%;
-    }
+      > dt {
+          width: 40%;
+      }
 
-    > dd {
-      margin-left: auto;
-      width: 66%;
+      > dd {
+        margin-left: auto;
+        width: 60%;
+      }
     }
   }
 }
+
 

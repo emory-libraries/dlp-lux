@@ -6,12 +6,14 @@
     <div class="card-body">
       <dl>
         <% fields.each do |field_name, field| %>
-          <dt class="blacklight-<%= field_name.parameterize %>"><%= render_document_show_field_label document, field: field_name %></dt>
-          <% if field_name == "finding_aid_link_ssm" %>
-            <dd class="blacklight-<%= field_name.parameterize %>"><a href="<%= doc_presenter.field_value field %>">Finding Aid</a></dd>
-          <% else %>
-            <dd class="blacklight-<%= field_name.parameterize %>"><%= doc_presenter.field_value field %></dd>
-          <% end %>
+          <div class="card-line">
+            <dt class="blacklight-<%= field_name.parameterize %>"><%= render_document_show_field_label document, field: field_name %></dt>
+            <% if field_name == "finding_aid_link_ssm" %>
+              <dd class="blacklight-<%= field_name.parameterize %>"><a href="<%= doc_presenter.field_value field %>">Finding Aid</a></dd>
+            <% else %>
+              <dd class="blacklight-<%= field_name.parameterize %>"><%= doc_presenter.field_value field %></dd>
+            <% end %>
+          </div>
         <% end %>
       </dl>
     </div>
