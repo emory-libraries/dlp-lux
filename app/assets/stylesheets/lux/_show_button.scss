@@ -2,7 +2,7 @@
 
 .button {
   display: inline-block;
-  font: normal bold 11px/1.6364 "Open Sans", sans-serif;
+  font: normal bold 11px/1.6364 $font-family-sans-serif;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   text-align: left;
@@ -11,36 +11,36 @@
   height: 50px;
 
   &:hover {
-    color: #FFFFFF;
+    color: $white;
     text-decoration: none;
   }
 
   &.link {
-    border: 1px solid #336BE6;
-    background-color: #336BE6;
-    color: #FFFFFF;
+    border: 1px solid $bright-blue;
+    background-color: $bright-blue;
+    color: $white;
     transition: all 0.25s ease;
 
     &:hover {
-      border-color: #004990;
-      background-color: #004990;
+      border-color: $mid-blue;
+      background-color: $mid-blue;
     }
   }
 
   &.back-to {
     border: 1px solid transparent;
     background-color: transparent;
-    border-color: #605858;
-    color: #605858;
+    border-color: $charcoal;
+    color: $charcoal;
     transition: color 0.15s ease-in-out, 
       background-color 0.15s ease-in-out, 
       border-color 0.15s ease-in-out, 
       box-shadow 0.15s ease-in-out;
 
     &:hover {
-      color: #FFFFFF;
-      border-color: #605858;
-      background-color: #605858;
+      color: $white;
+      border-color: $charcoal;
+      background-color: $charcoal;
     }
   }
 }
