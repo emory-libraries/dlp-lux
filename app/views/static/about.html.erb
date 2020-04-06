@@ -2,6 +2,7 @@
 <% breadcrumb_title = "About Emory Digital Collections"; breadcrumb_link = '/about' %>
 <% breadcrumb_title_abbr = breadcrumb_title.split(' ').first(3).join(' ') + '...'%>
 <%= render "static/content_chunk",
+      curr_page: true,
       breadcrumb_title: breadcrumb_title,
       breadcrumb_title_abbr: breadcrumb_title_abbr,
       breadcrumb_link: breadcrumb_link, 

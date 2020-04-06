@@ -102,7 +102,7 @@ RSpec.describe "Breadcrumb links when viewing assorted pages", type: :system, js
     let(:work_attributes) { CURATE_GENERIC_WORK }
 
     include_examples "check_page_for_link_static", "Home", "/contact"
-    include_examples "check_page_for_current_link_static", "Contact", "/contact"
+    include_examples "check_page_for_current_link_static", "Contact Us", "/contact"
   end
 
   context "when on /copyright-reuse" do
