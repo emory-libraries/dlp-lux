@@ -28,7 +28,7 @@ RSpec.describe 'Search the catalog by facets', type: :system, js: false do
     expect(page).to have_css('.filter-name', text: /\ASubject - Names\z/)
 
     visit '/?f%5Bsubject_geo_sim%5D%5B%5D=Sample+Geo'
-    expect(page).to have_css('.filter-name', text: /\ASubject - Geographic Locations\z/)
+    expect(page).to have_css('.filter-name', text: /\ASubject - Geographic\z/)
 
     visit '/?f%5Bhuman_readable_rights_statement_ssim%5D%5B%5D=Sample+Rights'
     expect(page).to have_css('.filter-name', text: /\ARights Status\z/)

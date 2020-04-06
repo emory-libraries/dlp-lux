@@ -116,6 +116,15 @@ $hero-title-font-size-large:          $font-size-base * 3.125;
 $hero-image-height:                   15rem;
 $hero-image-height-large:             27.5rem;
 
+// Facets
+
+$facets-heading-font-size:    $font-size-base * 1.5;
+$facets-heading-margin-y:     1.125rem;
+
+$facet-line-height:           1.5rem;
+
+$facet-label-font-size:       $font-size-base * 0.9375;
+$facet-label-line-height:     $facet-label-font-size * 1.2;
 
 // Darken percentage for links with `.text-*` class (e.g. `.text-success`)
 $emphasized-link-hover-darken-percentage: 15%;
@@ -124,10 +133,6 @@ $border-radius:               0.3125rem;
 $border-radius-lg:            0.3rem;
 $border-radius-sm:            0.2rem;
 $border-radius-xs:            0.125rem;
-
-// Card
-$card-cap-bg:                       $dark-blue;
-$card-cap-color:                    $gold;
 
 // Buttons + Forms
 //
