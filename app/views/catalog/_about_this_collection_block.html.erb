@@ -1,17 +1,17 @@
 <% doc_presenter = show_presenter(document) %>
 <% fields = presenter.new(document: doc_presenter.fields_to_render).terms %>
 <% if fields.length > 0 %>
-  <div class="<%= presenter_class %> card mb-2">
-    <div class="card-header"><%= title %></div>
+  <div class="<%= presenter_class %> card mb-2 rounded-0">
+    <div class="card-header rounded-0"><%= title %></div>
     <div class="card-body">
       <dl>
         <% fields.each do |field_name, field| %>
-          <div class="card-line">
-            <dt class="blacklight-<%= field_name.parameterize %>"><%= render_document_show_field_label document, field: field_name %></dt>
+          <div class="row">
+            <dt class="blacklight-<%= field_name.parameterize %> col-md-5"><%= render_document_show_field_label document, field: field_name %></dt>
             <% if field_name == "finding_aid_link_ssm" %>
-              <dd class="blacklight-<%= field_name.parameterize %>"><a href="<%= doc_presenter.field_value field %>">Finding Aid</a></dd>
+              <dd class="blacklight-<%= field_name.parameterize %> col-md-7"><a href="<%= doc_presenter.field_value field %>">Finding Aid</a></dd>
             <% else %>
-              <dd class="blacklight-<%= field_name.parameterize %>"><%= doc_presenter.field_value field %></dd>
+              <dd class="blacklight-<%= field_name.parameterize %> col-md-7"><%= doc_presenter.field_value field %></dd>
             <% end %>
           </div>
         <% end %>

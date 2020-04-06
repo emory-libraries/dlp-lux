@@ -2,13 +2,13 @@
 
 .button {
   display: inline-block;
-  font: normal bold 11px/1.6364 $font-family-sans-serif;
-  letter-spacing: 0.05em;
+  font: normal bold $font-size-sm $font-family-sans-serif;
+  letter-spacing: 0.05rem;
   text-transform: uppercase;
   text-align: left;
   -webkit-transition: all 0.25s ease;
-  padding: 0.875rem 1.5625rem;
-  height: 50px;
+  padding: $branding-padding-y $search-form-button-padding-x;
+  height: $navbar-toggler-height;
 
   &:hover {
     color: $white;

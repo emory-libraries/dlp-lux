@@ -8,26 +8,3 @@ div.card-header {
   color: $gold;
 }
 
-div.card-header:first-child {
-  border-radius: 0;
-}
-
-@media (min-width: 768px) {
-  div.about-this-item, div.about-this-collection, div.subjects-keywords, div.publication-details, div.additional-details {
-    > div.card-body > dl > div.card-line {
-      display: flex;
-      flex-wrap: wrap;
-
-      > dt {
-          width: 40%;
-      }
-
-      > dd {
-        margin-left: auto;
-        width: 60%;
-      }
-    }
-  }
-}
-
-

@@ -1,7 +1,7 @@
 <% child_works = presenter.new(document: document).children %>
 <% if child_works %>
-  <div class="<%= presenter_class %> card mb-2">
-    <div class="card-header">This item contains:</div>
+  <div class="<%= presenter_class %> card mb-2 rounded-0">
+    <div class="card-header rounded-0">This item contains:</div>
     <div class="card-body">
       <% child_works.each do |w| %>
         <dl class="row">
