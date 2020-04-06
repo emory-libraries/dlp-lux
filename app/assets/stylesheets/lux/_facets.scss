@@ -1,0 +1,126 @@
+// The following rules are selectively brought in
+// and adapted from Blacklight's _facets.scss
+
+@media (min-width: 992px) {
+  .facets-toggleable-md .facets-collapse {
+    display: block !important;
+    width: 100%;
+  }
+}
+
+.facets-heading {
+  font-size: $facets-heading-font-size;
+}
+
+.facets > .navbar {
+  padding: 0;
+  margin-bottom: $facets-heading-margin-y;
+}
+
+.facet-limit {
+  margin-bottom: $spacer;
+}
+
+.facet-limit-active {
+  @extend .border-success;
+
+  .card-header {
+    @extend .bg-success;
+  }
+}
+
+.facet-field-heading > .btn {
+  line-height: $facet-line-height;
+  color: #212529;
+}
+
+.facet-values {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  margin-bottom: 0;
+
+  li {
+
+    display: table-row;
+    font-size: $facet-label-font-size;
+    line-height: $facet-label-line-height;
+    .selected {
+      @extend .text-success;
+      font-weight: $font-weight-bold;
+
+      &.facet-count {
+        font-weight: $font-weight-normal;
+      }
+    }
+
+  }
+
+  @mixin hyphens-auto {
+    overflow-wrap: break-word;
+    -webkit-hyphens: auto;
+    -o-hyphens: auto;
+    hyphens: auto;
+  }
+
+  .facet-label {
+    display: table-cell;
+    text-indent: -$spacer;
+    padding-left: $spacer;
+    padding-bottom: $spacer / 2;
+    @include hyphens-auto;
+
+    a {
+      font-weight: $font-weight-bold;
+      color: $alt-bright-blue;
+
+      &.remove {
+        color: $charcoal;
+        font-weight: $font-weight-bold;
+        padding-left: $spacer / 2;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .facet-count {
+    display: table-cell;
+    vertical-align: top;
+    text-align: right;
+    width: 5em;
+  }
+}
+
+.facet-extended-list {
+  .sort-options {
+    text-align:right;
+  }
+
+  .prev-next-links {
+    float:left;
+  }
+}
+
+// The following rules are selectively brought in
+// and adapted from Blacklight's _bootstrap_overrides.scss
+
+.facet-field-heading {
+  border-bottom: 0;
+  
+  button {
+    &::after {
+      content: "❯";
+      float: right;
+      transform: rotate(90deg);
+    }
+
+    &.collapsed {
+      border-bottom: 0;
+
+      &::after {
+        transform: rotate(0deg);
+        transition: transform 0.1s ease;
+      }
+    }
+  }
+}

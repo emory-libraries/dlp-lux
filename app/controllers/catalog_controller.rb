@@ -116,7 +116,7 @@ class CatalogController < ApplicationController
                                                 }
     config.add_facet_field 'subject_topics_sim', limit: 5, label: 'Subject - Topics'
     config.add_facet_field 'subject_names_sim', limit: 5, label: 'Subject - Names'
-    config.add_facet_field 'subject_geo_sim', limit: 5, label: 'Subject - Geographic Locations'
+    config.add_facet_field 'subject_geo_sim', limit: 5, label: 'Subject - Geographic'
     config.add_facet_field 'human_readable_rights_statement_ssim', label: 'Rights Status'
     config.add_facet_field 'visibility_group_ssi', label: 'Access'
     config.add_facet_field 'contributors_sim', label: 'Contributors', show: false
