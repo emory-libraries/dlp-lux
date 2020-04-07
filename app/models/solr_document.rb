@@ -109,21 +109,4 @@ class SolrDocument
   def back_parent_coll_breadcrumb
     { curr_page: false, abbr: nil, link: collection_link, title: I18n.t('b_t_p_o') }
   end
-
-  # breadcrumb hash arrays
-  def parent_coll_arr
-    [back_parent_coll_breadcrumb, item_breadcrumb]
-  end
-
-  def no_par_work_w_coll_arr
-    [back_collection_breadcrumb, item_breadcrumb]
-  end
-
-  def par_work_w_coll_arr
-    [back_collection_breadcrumb, back_parent_breadcrumb, item_breadcrumb]
-  end
-
-  def par_work_w_no_coll
-    [back_parent_breadcrumb, item_breadcrumb]
-  end
 end
