@@ -9,6 +9,7 @@
   -webkit-transition: all 0.25s ease;
   padding: $branding-padding-y $search-form-button-padding-x;
   height: $navbar-toggler-height;
+  line-height: $show-button-line-height;
 
   &:hover {
     color: $white;
@@ -43,4 +44,8 @@
       background-color: $charcoal;
     }
   }
+}
+
+div.constraints-container {
+  margin-bottom: $search-form-margin-x;
 }
