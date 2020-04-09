@@ -1,0 +1,114 @@
+@import 'lux/variables';
+
+div.breadcrumbs-container {
+  margin-top: $search-form-margin-x;
+}
+
+.breadcrumbs-crumb a {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+.breadcrumbs-crumb a::after {
+  content: attr(data-subtext);
+  display: block;
+}
+.breadcrumbs-crumb a .icon {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.breadcrumbs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: $bread-crumb-margin 0 0 0;
+}
+.breadcrumbs-crumb + .breadcrumbs-crumb::before {
+  content: "›";
+  margin-left: $bread-crumb-margin;
+  margin-right: $bread-crumb-margin;
+}
+
+.breadcrumbs-crumb {
+  font-size: $bread-crumb-font-size !important;
+  line-height: 1.4 !important;
+}
+.breadcrumbs-crumb + .breadcrumbs-crumb::before {
+  color: $bread-light-blue;
+  font-weight: bold;
+}
+.breadcrumbs-crumb a {
+  font-weight: bold;
+  font-style: normal;
+  color: $bread-light-blue;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+  background: none;
+  border: none;
+}
+.breadcrumbs-crumb a .icon {
+  margin-right: 1ex;
+}
+.breadcrumbs-crumb a .icon,
+.breadcrumbs-crumb a .icon svg {
+  width: $h4-font-size;
+  height: $h4-font-size;
+}
+.breadcrumbs-crumb a .icon svg {
+  fill: $bread-light-blue;
+}
+.breadcrumbs-crumb a:hover, .breadcrumbs-crumb a.is-hover, .breadcrumbs-crumb a:focus, .breadcrumbs-crumb a.is-focus {
+  color: $mid-blue;
+  text-decoration: none;
+}
+.breadcrumbs-crumb a:hover .icon svg, .breadcrumbs-crumb a.is-hover .icon svg, .breadcrumbs-crumb a:focus .icon svg, .breadcrumbs-crumb a.is-focus .icon svg {
+  fill: $mid-blue;
+}
+.breadcrumbs-crumb a:active, .breadcrumbs-crumb a.is-active {
+  color: $mid-blue;
+}
+.breadcrumbs-crumb a:active .icon svg, .breadcrumbs-crumb a.is-active .icon svg {
+  fill: $mid-blue;
+}
+.breadcrumbs-crumb a::after {
+  font: italic normal $font-size-base/1.9375 $font-family-sans-serif;
+  letter-spacing: normal;
+  text-transform: none;
+  text-align: left;
+  color: $charcoal;
+  font-size: $bread-font-size-after !important;
+  line-height: 1 !important;
+}
+.breadcrumbs-crumb a.-popular {
+  font: normal normal $font-size-base-serif/2.05 $font-family-serif;
+  letter-spacing: normal;
+  text-transform: none;
+  text-align: left;
+  color: $white;
+  font-size: $font-size-lg !important;
+  color: $white;
+}
+.breadcrumbs-crumb a.-popular:hover, .breadcrumbs-crumb a.-popular.is-hover, .breadcrumbs-crumb a.-popular:focus, .breadcrumbs-crumb a.-popular.is-focus {
+  color: $bright-blue;
+}
+.breadcrumbs-crumb a.-popular:active, .breadcrumbs-crumb a.-popular.is-active {
+  color: $bright-blue;
+}
+.breadcrumbs-crumb a.-underline {
+  text-decoration: underline;
+}
