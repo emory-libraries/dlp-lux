@@ -16,7 +16,11 @@ function desktopWidth(w) {
 }
 
 function matchFacetsHeight() {
-  return $('.tile-listing').css("height", $('#facet-panel-collapse').height())
+  if ($('#facet-panel-collapse').height() < 560) {
+    setDefaultHeight()
+  } else {
+    return $('.tile-listing').css("height", $('#facet-panel-collapse').height())
+  }
 }
 
 function setDefaultHeight() {
