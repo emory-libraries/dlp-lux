@@ -124,3 +124,7 @@
     }
   }
 }
+
+section#sidebar.search {
+  margin-top: map-get($spacers, 4);
+}

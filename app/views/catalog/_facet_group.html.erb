@@ -3,7 +3,8 @@
 <div id="facets<%= "-#{groupname}" unless groupname.nil? %>" class="facets sidenav facets-toggleable-md">
   <div class="navbar navbar-light navbar-expand-lg">
     <h2 class="facets-heading">
-      <%= groupname.blank? ? t('blacklight.search.facets.title') : t("blacklight.search.facets-#{groupname}.title") %>
+      <% h2_title = request.fullpath != '/' ? "Limit Your Search" : t('blacklight.search.facets.title') %>
+      <%= groupname.blank? ? h2_title : t("blacklight.search.facets-#{groupname}.title") %>
     </h2>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#facet-panel<%= "-#{groupname}" unless groupname.nil? %>-collapse" aria-controls="facet-panel<%= "-#{groupname}" unless groupname.nil? %>-collapse" aria-expanded="false" aria-label="Toggle facets">
       <span class="navbar-toggler-icon"></span>
