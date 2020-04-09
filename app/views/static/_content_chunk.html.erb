@@ -1,7 +1,26 @@
-<div class="col-md-4">
-  <%= title %>
-</div>
-<div class="col-md-8">
-  <p class="text -rich-text"></p>
-  <p class="static-body-text"><%= bod_text %></p>
+<div class="container">
+  <div class="row">
+    <nav aria-label="breadcrumb">
+      <ul class="breadcrumbs">
+        <%= render 'catalog/breadcrumbs', crumb_hashes: [
+                      {
+                        curr_page: true, 
+                        abbr: breadcrumb_title_abbr, 
+                        link: breadcrumb_link, 
+                        title: breadcrumb_title
+                      }
+              ]
+        %>
+      </ul>
+    </nav>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <%= title %>
+    </div>
+    <div class="col-md-8">
+      <p class="text -rich-text"></p>
+      <p class="static-body-text"><%= bod_text %></p>
+    </div>
+  </div>
 </div>

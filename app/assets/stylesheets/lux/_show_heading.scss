@@ -1,0 +1,9 @@
+@import "lux/variables";
+
+h1.show-header {
+  font: normal bold $h1-show-font-size/normal $font-family-serif;
+  text-transform: none;
+  letter-spacing: normal;
+  color: $dark-blue;
+  text-align: center;
+}

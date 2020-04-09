@@ -1,10 +1,14 @@
-<div class="container">
-  <div class="row">
-    <%= render "static/content_chunk",
-          title: link_to(
-            "<h1 class='static-h1'>About Emory Digital Collections</h1>".html_safe,
-            "/about"
-          ), bod_text: "Placeholder for intro copy"
-    %>
-  </div>
-</div>
+
+<% breadcrumb_title = "About Emory Digital Collections"; breadcrumb_link = '/about' %>
+<% breadcrumb_title_abbr = breadcrumb_title.split(' ').first(3).join(' ') + '...'%>
+<%= render "static/content_chunk",
+      curr_page: true,
+      breadcrumb_title: breadcrumb_title,
+      breadcrumb_title_abbr: breadcrumb_title_abbr,
+      breadcrumb_link: breadcrumb_link, 
+      title: link_to(
+        "<h1 class='static-h1'>#{breadcrumb_title}</h1>".html_safe,
+        breadcrumb_link
+      ), bod_text: "Placeholder for intro copy"
+%>
+

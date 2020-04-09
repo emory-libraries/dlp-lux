@@ -1,14 +1,14 @@
 <% child_works = presenter.new(document: document).children %>
 <% if child_works %>
-  <div class="<%= presenter_class %> card mb-2">
-    <div class="card-header">This item contains:</div>
+  <div class="<%= presenter_class %> card mb-2 rounded-0">
+    <div class="card-header rounded-0">This item contains:</div>
     <div class="card-body">
-      <dl class="row">
       <% child_works.each do |w| %>
-        <dt class="col-sm-3"><img class="img-fluid" src=<%= (ENV['THUMBNAIL_URL'] || '') + w[:thumbnail_path] %>></dt>
-        <dd class="col-sm-9"><a href=<%= w[:id] %>><%= w[:title] %></a></dd>
+        <dl class="row">
+          <dt class="col-sm-3"><img class="img-fluid" src=<%= (ENV['THUMBNAIL_URL'] || '') + w[:thumbnail_path] %>></dt>
+          <dd class="col-sm-9"><a href=<%= w[:id] %>><%= w[:title] %></a></dd>
+        </dl>
       <% end %>
-      </dl>
     </div>
   </div>
 <% end %>
