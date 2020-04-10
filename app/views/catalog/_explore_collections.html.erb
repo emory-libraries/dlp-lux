@@ -1,0 +1,18 @@
+<% presenter = ExploreCollectionsPresenter.new %>
+<% collections = presenter.collections %>
+<div class="homepage-content-header">
+  <h2 class="homepage-content-heading explore-collections-heading">Explore Our Collections</h2>
+</div>
+<div class="tiles row justify-content-between">
+  <% collections.each do |c| %>
+    <div class="col-12 col-sm-6 col-lg-4 mt-3">
+      <div class="tile-listing has-badge has-description has-action card">
+        <div class="tile-badge"> Featured Collection </div>
+        <div class="tile-listing-image"><%= image_tag c["image"], alt: c["title"] %></div>
+        <%= link_to c["title"], c["path"], class: "link tile-listing-title" %>
+        <p class="tile-listing-description mt-2"><%= c["description"] %></p>
+        <%= link_to "View Collection", c["path"], class: "link tile-listing-action mt-auto" %>
+      </div>
+    </div>
+  <% end %>
+</div>

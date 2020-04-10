@@ -121,11 +121,21 @@ $hero-image-height-large:             27.5rem;
 
 $facets-heading-font-size:    $font-size-base * 1.5;
 $facets-heading-margin-y:     1.125rem;
+
+$homepage-content-heading-font-size:    $font-size-base * 1.5;
+
 $facet-line-height:           1.5rem;
 
 $facet-label-font-size:       $font-size-base * 0.9375;
 $facet-label-line-height:     $facet-label-font-size * 1.2;
 $facet-top-margin:            2rem;
+
+// Explore Collections Cards
+
+$explore-collections-title-font-size:       $font-size-base * 1.375;
+$explore-collections-description-font-size: $font-size-base * 0.875;
+$explore-collections-action-font-size:      $font-size-base * 0.75;
+$explore-collections-badge-font-size:       $font-size-base * 0.75;
 
 // Darken percentage for links with `.text-*` class (e.g. `.text-success`)
 $emphasized-link-hover-darken-percentage: 15%;
@@ -143,6 +153,12 @@ $input-btn-line-height:             $line-height-base * 1.2;
 
 // Form
 $input-border-color:                $base-slate;
+
+// Links
+$link-hover-transition:     all 0.25s ease;
+
+// Button
+$show-button-line-height:            1.325rem;
 
 // Breadcrumb
 $bread-font-size-after:              $nav-divider-height;
