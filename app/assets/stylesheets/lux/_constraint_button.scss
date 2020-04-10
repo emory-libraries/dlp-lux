@@ -13,6 +13,11 @@ span.applied-filter.constraint {
   > .constraint-value {
     font: normal bold $font-size-sm $font-family-sans-serif;
     padding: $branding-padding-y;
+
+    > span.filter-name::after {
+      content: " > ";
+      color: $base-slate;
+    }
   }
 
   > .btn.remove {

@@ -126,6 +126,7 @@ $facet-line-height:           1.5rem;
 
 $facet-label-font-size:       $font-size-base * 0.9375;
 $facet-label-line-height:     $facet-label-font-size * 1.2;
+$facet-top-margin:            2rem;
 
 // Darken percentage for links with `.text-*` class (e.g. `.text-success`)
 $emphasized-link-hover-darken-percentage: 15%;
@@ -154,3 +155,7 @@ $results-sort-min-height:            $search-form-height * 2;
 $results-border-radius:              0;
 $results-box-position:               $results-border-radius;
 $results-drop-menu-min-w:            4.063rem;
+$results-document-head-margin:       2.2rem;
+$results-pagination-margin:          0.563rem;
+$results-sort-padding:               3.25rem;
+

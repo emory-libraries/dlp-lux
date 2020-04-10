@@ -13,7 +13,7 @@
 }
 
 .facets > .navbar {
-  padding: 0;
+  padding: $navbar-padding-y;
   margin-bottom: $facets-heading-margin-y;
 }
 
@@ -31,14 +31,14 @@
 
 .facet-field-heading > .btn {
   line-height: $facet-line-height;
-  color: #212529;
+  color: $alt-dark-blue;
 }
 
 .facet-values {
   display: table;
   table-layout: fixed;
   width: 100%;
-  margin-bottom: 0;
+  margin-bottom: $navbar-padding-y;
 
   li {
 
@@ -105,7 +105,7 @@
 // and adapted from Blacklight's _bootstrap_overrides.scss
 
 .facet-field-heading {
-  border-bottom: 0;
+  border-bottom: $results-border-radius;
   
   button {
     &::after {
@@ -126,5 +126,5 @@
 }
 
 section#sidebar.search {
-  margin-top: map-get($spacers, 4);
+  margin-top: $facet-top-margin;
 }
