@@ -1,5 +1,9 @@
 @import 'lux/variables';
 
+div.breadcrumbs-container {
+  margin-top: $search-form-margin-x;
+}
+
 .breadcrumbs-crumb a {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
