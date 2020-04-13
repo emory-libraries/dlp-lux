@@ -1,0 +1,28 @@
+@import 'variables';
+
+div#sortAndPerPage {
+  margin-bottom: $branding-padding-x;
+
+  > div.sort-tools > div.per-page-dropdown, div#sort-dropdown {
+    > button.dropdown-toggle {
+      border-radius: $results-border-radius;
+    }
+
+    > .dropdown-menu {
+      width: -webkit-fill-available;
+      border-radius: $results-border-radius;
+    }
+  }
+
+  > div.sort-tools > div.per-page-dropdown {
+    > .dropdown-menu {
+      min-width: $results-drop-menu-min-w;
+    }
+  }
+
+  > div > div.page-links {
+    margin: $results-pagination-margin $navbar-padding-y;
+    padding-left: $results-sort-padding;
+  }
+}
+

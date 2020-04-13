@@ -6,8 +6,10 @@
   <dd class="col-sm-9">
     <dl>
       <% doc_presenter.fields_to_render.each do |field_name, field| -%>
-        <dt class="blacklight-<%= field_name.parameterize %>"><%= render_index_field_label document, field: field_name %></dt>
-        <dd class="blacklight-<%= field_name.parameterize %>"><%= doc_presenter.field_value field %></dd>
+        <div class="row">
+          <dt class="blacklight-<%= field_name.parameterize %> index-field-name"><%= render_index_field_label document, field: field_name %></dt>
+          <dd class="blacklight-<%= field_name.parameterize %>"><%= doc_presenter.field_value field %></dd>
+        </div>
       <% end -%>
     </dl>
   </dd>

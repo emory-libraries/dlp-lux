@@ -1,0 +1,27 @@
+@import 'variables';
+
+span.applied-filter.constraint {
+  height: $navbar-toggler-height;
+  text-transform: uppercase;
+  vertical-align: top;
+  margin-bottom: map-get($spacers, 1);
+
+  > .constraint-value, .btn.remove {
+    border-radius: $results-border-radius;
+  }
+
+  > .constraint-value {
+    font: normal bold $font-size-sm $font-family-sans-serif;
+    padding: $branding-padding-y;
+
+    > span.filter-name::after {
+      content: " > ";
+      color: $base-slate;
+    }
+  }
+
+  > .btn.remove {
+    padding-top: $branding-padding-x;
+    padding-bottom: $branding-padding-x;
+  }
+}
