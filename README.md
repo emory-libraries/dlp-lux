@@ -88,16 +88,17 @@ where `<env>` is one of production, test, or arch.
 
 ## Run blacklight performance tests
 * Before your announced testing time window:
-*   Install Apache Jmeter https://jmeter.apache.org/
-*   From the project jmeter directory, run jmeter in GUI mode (`jmeter` with no command-line arguments on unix-like systems).
-*     Open `jmeter/blacklight.jmx` from the file menu.
-*     In the `User Defined Variables` panel, set the values of `threads` and `loops` to 1 for initial smoke-test run.
-*     Check that the server name in the `HTTP Request Defaults` matches the server you want to run against (`digital.library.emory.edu` for production)
-*     Add a username and password to the `HTTP Authorization Manager` if running against a system with HTTP basic auth in place.
-*     "Save test plan as" and a temporary filename (blacklight-tmp.jmx for instance)
-*    Run jmeter from the command line, replacing "trialname" with an unused filename: `jmeter -n -t blacklight-tmp.jmx -l trialname.jtl -e -o report-trialname`
-*   Look for "Err: 0 (0.00%)" in the jmeter output; if there were errors, troubleshoot those before continuing to load testing.
+  *   Install Apache Jmeter https://jmeter.apache.org/
+  *   From the project jmeter directory, run jmeter in GUI mode (`jmeter` with no command-line arguments on unix-like systems).
+    *   Open `jmeter/blacklight.jmx` from the file menu.
+    *   In the `User Defined Variables` panel, set the values of `threads` and `loops` to 1 for initial smoke-test run.
+    *   Check that the server name in the `HTTP Request Defaults` matches the server you want to run against (`digital.library.emory.edu` for production)
+    *   Add a username and password to the `HTTP Authorization Manager` if running against a system with HTTP basic auth in place.
+    *   "Save test plan as" and a temporary filename (blacklight-tmp.jmx for instance)
+  *   Run jmeter from the command line, replacing "trialname" with an unused filename: `jmeter -n -t blacklight-tmp.jmx -l trialname.jtl -e -o report-trialname`
+  *   Look for "Err: 0 (0.00%)" in the jmeter output; if there were errors, troubleshoot those before continuing to load testing.
 * During your announced testing time window:
-*   Re-open your temporary copy of the test plan in the jmeter GUI
-*   In the `User Defined Variables` panel, set the value of `threads` to the initial number of simultaneous users you want to simulate, and the value of `loops` to the number of times you want each simulated user to run through the suite of pages.  Save your changes.
-*   Run jmeter from the command line, replacing "trialname" with a new unused filename: `jmeter -n -t blacklight-tmp.jmx -l trialname.jtl -e -o report-trialname` 
+  *   Re-open your temporary copy of the test plan in the jmeter GUI
+  *   In the `User Defined Variables` panel, set the value of `threads` to the initial number of simultaneous users you want to simulate, and the value of `loops` to the number of times you want each simulated user to run through the suite of pages.  Save your changes.
+  *   Run jmeter from the command line, replacing "trialname" with a new unused filename: `jmeter -n -t blacklight-tmp.jmx -l trialname.jtl -e -o report-trialname`
+  * Repeat the previous two steps for each level of load to be simulated.
