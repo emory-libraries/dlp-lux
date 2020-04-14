@@ -496,7 +496,7 @@ class CatalogController < ApplicationController
     # label in pulldown is followed by the name of the SOLR field to sort by and
     # whether the sort is ascending or descending (it must be asc or desc
     # except in the relevancy case).
-    config.add_sort_field 'score desc, year_for_lux_ssi desc, title_ssort asc', label: 'relevance'
+    config.add_sort_field 'score desc, year_for_lux_ssi desc, title_ssort asc', label: 'Relevance'
     config.add_sort_field 'year_for_lux_ssi asc, title_ssort asc', label: 'Date (oldest)'
     config.add_sort_field 'year_for_lux_ssi desc, title_ssort asc', label: 'Date (newest)'
     config.add_sort_field 'creator_ssort asc', label: 'Creator (A-Z)'

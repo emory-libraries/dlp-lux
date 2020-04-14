@@ -158,7 +158,7 @@ $input-border-color:                $base-slate;
 $link-hover-transition:     all 0.25s ease;
 
 // Button
-$show-button-line-height:            1.325rem;
+$show-button-line-height:            1.25 rem;
 
 // Breadcrumb
 $bread-font-size-after:              $nav-divider-height;
@@ -174,3 +174,8 @@ $results-document-head-margin:       2.2rem;
 $results-pagination-margin:          0.563rem;
 $results-sort-padding:               3.25rem;
 
+// Advanced Search
+
+$advanced-search-subtitle-font-size:  $font-size-base * 1.5;
+$advanced-search-button-height:       3.125rem;
+$advanced-search-button-padding:      0.875rem 1.5625rem;

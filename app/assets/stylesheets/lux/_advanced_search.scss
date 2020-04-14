@@ -1,0 +1,42 @@
+@import 'variables';
+
+.advanced-search-start-over {
+  border: 1px solid $charcoal;
+  font: normal bold $font-size-sm $font-family-sans-serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: $white;
+  background-color: $charcoal;
+  transition: $link-hover-transition;
+  padding: $advanced-search-button-padding;
+  height: $advanced-search-button-height;
+
+  &:hover {
+    color: $charcoal;
+    background-color: $white;
+    text-decoration: none;
+  }
+}
+
+.query-criteria-heading {
+  font-size:   $advanced-search-subtitle-font-size;
+}
+
+.form-control {
+  height: $search-form-height;
+  margin-right: $search-form-margin-x;
+  padding: $search-form-q-padding-y $search-form-q-padding-x;
+
+  border-radius: $border-radius-xs !important;
+  color: $charcoal;
+
+  &.sort-select {
+    height: $search-form-height;
+    max-width: $search-form-select-width;
+    margin-right: $search-form-margin-x;
+    padding: 0 $search-form-select-padding-left 0 $search-form-select-padding-right;
+
+    background: url("https://libraries.emory.edu/assets/icons/php/icon.php?id=material-keyboard_arrow_down&color=5387F7&size[width]=20&size[height]=20") no-repeat right 0.5rem center;
+    border-radius:      $border-radius !important;
+  }
+}
