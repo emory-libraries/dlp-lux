@@ -25,6 +25,8 @@
       <dd class="col-sm-8 col-lg-9 document-details"><%= display_num_children document %></dd>
     <% elsif document["parent_work_for_lux_tesim"] %>
       <dd class="col-sm-8 col-lg-9 document-details">Part of: <%= link_to_parent_work document %></dd>
+    <% else %>
+      <dd class="col-sm-8 col-lg-9 document-details"></dd>
     <% end %>
     <%= document_actions %>
   </div>
