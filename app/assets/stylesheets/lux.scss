@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Cardo:400,700|Open+Sans:400,700&display=swap);
+@import 'lux/advanced_search';
 @import 'lux/breadcrumbs';
 @import 'lux/cards';
 @import 'lux/collection_image';
@@ -22,5 +23,7 @@
 @import 'lux/sort_widgets';
 @import 'lux/show_button';
 @import 'lux/show_heading';
+@import 'lux/static_body';
+@import 'lux/static_headers';
 @import 'lux/hero_image';
 @import 'bootstrap';

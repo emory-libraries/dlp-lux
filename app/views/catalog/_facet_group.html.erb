@@ -2,7 +2,7 @@
 <% if has_facet_values? facet_field_names(groupname), @response %>
 <div id="facets<%= "-#{groupname}" unless groupname.nil? %>" class="facets sidenav facets-toggleable-md">
   <div class="navbar navbar-light navbar-expand-lg">
-    <h2 class="facets-heading">
+    <h2 class="homepage-content-heading">
       <% h2_title = request.fullpath != '/' ? "Limit Your Search" : t('blacklight.search.facets.title') %>
       <%= groupname.blank? ? h2_title : t("blacklight.search.facets-#{groupname}.title") %>
     </h2>

@@ -29,6 +29,7 @@ COLLECTION = {
   member_of_collection_ids_ssim: ['805fbg79d6-cor'],
   collection_ids_ssim: [],
   thumbnail_path_ss: "/downloads/2150gb5mmj-cor?file=thumbnail",
+  hasRelatedImage_ssim: ['2150gb5mmj-cor'],
   generic_type_sim: ["Collection"],
   bytes_lts: 312_470_524,
   edit_access_person_ssim: ["tmiles2"],

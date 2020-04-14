@@ -26,7 +26,7 @@ RSpec.feature "View Search Results", type: :system, js: false do
       expect(page).to have_content('Stuart A. Rose Manuscript, Archives, and Rare Book Library')
       expect(page).to have_css('.document-thumbnail')
       expect(page).to have_link('Thumbnail image')
-      find("img[src='http://obviously_fake_url.com/downloads/2150gb5mmj-cor?file=thumbnail']")
+      find("img[src='http://obviously_fake_url.com/iiif/2150gb5mmj-cor/thumbnail']")
     end
   end
 
@@ -41,7 +41,7 @@ RSpec.feature "View Search Results", type: :system, js: false do
       expect(page).to have_content('Text')
       expect(page).to have_css('.document-thumbnail')
       expect(page).to have_link('Thumbnail image')
-      find("img[src='http://obviously_fake_url.com/downloads/433dz08ksb-cor?file=thumbnail']")
+      find("img[src='http://obviously_fake_url.com/iiif/433dz08ksb-cor/thumbnail']")
     end
   end
 
@@ -57,7 +57,7 @@ RSpec.feature "View Search Results", type: :system, js: false do
       expect(page).to have_content('Text')
       expect(page).to have_css('.document-thumbnail')
       expect(page).to have_link('Thumbnail image')
-      find("img[src='http://obviously_fake_url.com/downloads/020fttdz2x-cor?file=thumbnail']")
+      find("img[src='http://obviously_fake_url.com/iiif/020fttdz2x-cor/thumbnail']")
     end
   end
 
@@ -73,7 +73,7 @@ RSpec.feature "View Search Results", type: :system, js: false do
       expect(page).to have_content('Public')
       expect(page).to have_css('.document-thumbnail')
       expect(page).to have_link('Thumbnail image')
-      find("img[src='http://obviously_fake_url.com/downloads/825x69p8dh-cor?file=thumbnail']")
+      find("img[src='http://obviously_fake_url.com/iiif/825x69p8dh-cor/thumbnail']")
     end
   end
 end

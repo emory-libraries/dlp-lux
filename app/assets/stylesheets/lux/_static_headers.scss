@@ -1,0 +1,40 @@
+@import 'lux/variables';
+
+h1.static-heading {
+  font: normal bold $h1-show-font-size/normal $font-family-serif;
+  color: $base-blue;
+}
+
+div.row.static-subheading {
+  > p {
+    font: normal normal $hero-title-font-size/normal $font-family-serif;
+    color: $mid-blue;
+    margin-block-start: map-get($spacers, 3); 
+    margin-block-end: map-get($spacers, 3);
+  }
+}
+
+div.row.static-heading-row, div.row.static-subheading {
+  margin-left: map-get($spacers, 0);
+  margin-right: map-get($spacers, 0);
+}
+
+div.row.static-heading-row {
+  margin-top: map-get($spacers, 2);
+}
+
+.static-rule {
+  border-top: 1px solid $super-light-slate;
+  width: 100%;
+  background-color: transparent;
+  color: transparent;
+  margin-block-start: map-get($spacers, 2); 
+  margin-block-end: map-get($spacers, 2);
+}
+
+h2.static-blurb-header {
+  font: normal normal $h4-font-size/normal $font-family-serif;
+    color: $base-blue;
+    margin-block-start: map-get($spacers, 4); 
+    margin-block-end: map-get($spacers, 3);
+}
