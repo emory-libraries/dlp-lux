@@ -68,7 +68,7 @@ RSpec.describe "View search results for works with different levels of visibilit
       click_on('search')
       expect(page).to have_css('.document-thumbnail')
       expect(page).to have_link('Thumbnail image')
-      find("img[src='http://obviously_fake_url.com/downloads/#{public_work_id}?file=thumbnail']")
+      find("img[src='http://obviously_fake_url.com/iiif/222-456/thumbnail']")
     end
   end
 
@@ -79,7 +79,7 @@ RSpec.describe "View search results for works with different levels of visibilit
       click_on('search')
       expect(page).to have_css('.document-thumbnail')
       expect(page).to have_link('Thumbnail image')
-      find("img[src='http://obviously_fake_url.com/downloads/#{public_low_view_work_id}?file=thumbnail']")
+      find("img[src='http://obviously_fake_url.com/iiif/333-456/thumbnail']")
     end
   end
 
@@ -110,7 +110,7 @@ RSpec.describe "View search results for works with different levels of visibilit
         click_on('search')
         expect(page).to have_css('.document-thumbnail')
         expect(page).to have_link('Thumbnail image')
-        find("img[src='http://obviously_fake_url.com/downloads/#{emory_low_work_id}?file=thumbnail']")
+        find("img[src='http://obviously_fake_url.com/iiif/444-456/thumbnail']")
       end
     end
 
@@ -121,7 +121,7 @@ RSpec.describe "View search results for works with different levels of visibilit
         click_on('search')
         expect(page).to have_css('.document-thumbnail')
         expect(page).to have_link('Thumbnail image')
-        find("img[src='http://obviously_fake_url.com/downloads/#{emory_high_work_id}?file=thumbnail']")
+        find("img[src='http://obviously_fake_url.com/iiif/111-456/thumbnail']")
       end
     end
   end
@@ -136,7 +136,7 @@ RSpec.describe "View search results for works with different levels of visibilit
       click_on('search')
       expect(page).to have_css('.document-thumbnail')
       expect(page).to have_link('Thumbnail image')
-      find("img[src='http://obviously_fake_url.com/downloads/#{rose_high_work_id}?file=thumbnail']")
+      find("img[src='http://obviously_fake_url.com/iiif/555-456/thumbnail']")
     end
   end
 
@@ -148,7 +148,7 @@ RSpec.describe "View search results for works with different levels of visibilit
       expect(page).to have_css('.document-thumbnail')
       expect(page).to have_link('Thumbnail image')
       expect(page.find("img.img-fluid")['outerHTML']).to match(/reading-room-only/)
-      expect(page).not_to have_css("img[src='http://obviously_fake_url.com/downloads/#{rose_high_work_id}?file=thumbnail']")
+      expect(page).not_to have_css("img[src='http://obviously_fake_url.com/iiif/555-456/thumbnail']")
     end
   end
 end
