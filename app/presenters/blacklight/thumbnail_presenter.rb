@@ -69,7 +69,7 @@ module Blacklight
       end
 
       def lux_thumbnail_url
-        (ENV['THUMBNAIL_URL'] || '') + thumbnail_value_from_document
+        (ENV['THUMBNAIL_URL'] || '') + "/iiif/#{thumbnail_value_from_document}/thumbnail"
       end
 
       def default_thumbnail_value(image_options)

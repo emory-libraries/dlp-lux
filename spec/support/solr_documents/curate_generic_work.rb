@@ -77,6 +77,7 @@ CURATE_GENERIC_WORK = {
   member_of_collections_ssim: ['Chester W. Topp collection of Victorian yellowbacks and paperbacks'],
   member_of_collection_ids_ssim: ['805fbg79d6-cor'],
   thumbnail_path_ss: ['/downloads/825x69p8dh-cor?file=thumbnail'],
+  hasRelatedImage_ssim: ['825x69p8dh-cor'],
   human_readable_visibility_ssi: 'Public',
   visibility_group_ssi: 'Public'
 }.freeze
