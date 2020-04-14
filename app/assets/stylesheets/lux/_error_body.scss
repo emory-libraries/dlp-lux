@@ -1,0 +1,32 @@
+div.not-found-container {
+  margin-top: map-get($spacers, 4);
+  margin-bottom: map-get($spacers, 4);
+}
+
+ul.not-found-list {
+  margin-left: 0;
+  margin-right: 0; 
+  padding-left: 25px;
+  padding-right: 0;
+  list-style-type: none;
+}
+
+li.not-found-list-item {
+  display: block;
+  position: relative;
+  line-height: 31px;
+  text-transform: none;
+}
+
+li.not-found-list-item:before {
+  display: block;
+  content: "■";
+  color: #5387F7;
+  left: -25px;
+  position: absolute;
+  top: 0;
+}
+
+li.not-found-list-item > a {
+  font-weight: 700;
+}

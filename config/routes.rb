@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 Rails.application.routes.draw do
+  get 'errors/not_found'
+
   concern :range_searchable, BlacklightRangeLimit::Routes::RangeSearchable.new
   mount Blacklight::Engine => '/'
   mount BlacklightAdvancedSearch::Engine => '/'
@@ -44,6 +46,8 @@ Rails.application.routes.draw do
   get "/contact", to: "static#contact"
   get "/about", to: "static#about"
   get "/copyright-reuse", to: "static#copyright_reuse"
+
+  match '/404', to: 'errors#not_found', via: :all
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
