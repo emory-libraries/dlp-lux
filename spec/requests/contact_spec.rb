@@ -14,6 +14,9 @@ RSpec.describe "Contact page", type: :request do
   it "contains the requested headers" do
     get "/contact"
 
-    expect(response.body).to include 'Contact Us'
+    expect(response.body).to include 'Digital Repository Contacts'
+    expect(response.body).to include 'Send Feedback or Report a Problem'
+    expect(response.body).to include 'Digital Collections Contacts'
+    expect(response.body).to include 'Permissions / Reuse Questions'
   end
 end
