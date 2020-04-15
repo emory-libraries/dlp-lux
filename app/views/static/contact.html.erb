@@ -1,11 +1,63 @@
-<% breadcrumb_title = "Contact Us"; breadcrumb_link = '/contact' %>
-<% breadcrumb_title_abbr = nil %>
-<%= render "static/content_chunk",
-      curr_page: true,
-      breadcrumb_title: breadcrumb_title,
-      breadcrumb_title_abbr: breadcrumb_title_abbr,
-      breadcrumb_link: breadcrumb_link, 
-      title:
-        link_to("<h2 class='static-h2'>#{breadcrumb_title}</h2>".html_safe, breadcrumb_link),
-      bod_text: "Placeholder for copy"
+<% title = I18n.t('contact'); abbr = title.split(' ').first(3).join(' ') + '...' %>
+
+<%= render 'catalog/breadcrumbs', crumb_hashes: [{ curr_page: true, abbr: abbr, link: '/about', title: title }]
 %>
+<div class="row static-heading-row about">
+<%= render 'static/static_heading', 
+              title: title, 
+              subheading: "Contact points for technical assistance and additional information about our digital collections." 
+%>
+</div>
+<div class="row static-body about">
+  <div class="col-lg-8 about-blurbs">
+    <h2 class="static-blurb-header feedback-blurb-header">Send Feedback or Report a Problem</h2>
+    <p class="static-blurb-body feedback-blurb">
+      <span class="static-blurb-subheading">Library Technology & Digital Strategies</span>
+      <br>
+      During our preview phase, we appreciate comments or questions through our <a href='https://emory.libwizard.com/f/dlp-feedback' class="static-blurb-link">feedback form</a>.
+    </p>
+
+    <h2 class="static-blurb-header contacts-blurb-header">Digital Collections Contacts</h2>
+    <p class="static-blurb-body contacts-blurb">
+      <span class="static-blurb-subheading">Stuart A. Rose Manuscript, Archives, and Rare Book Library</span>
+      <br>
+      404-727-6920
+      <br>
+      <a href='mailto:rose.library@emory.edu' class="static-blurb-link">rose.library@emory.edu</a>
+    </p>
+    <p class="static-blurb-body contacts-blurb">
+      <span class="static-blurb-subheading">Woodruff Health Sciences Center Library</span>
+      <br>
+      404-727-8727
+    </p>
+    <p class="static-blurb-body contacts-blurb">
+      <span class="static-blurb-subheading">Oxford College Library</span>
+      <br>
+      770-784-8380
+    </p>
+
+    <h2 class="static-blurb-header feedback-blurb-header">Permissions / Reuse Questions</h2>
+    <p class="static-blurb-body feedback-blurb">
+      <p>If you would like to reuse items in Emory Digital Collections and have questions about obtaining permissions, please visit the appropriate library’s site to inquire about the process:</p>
+      <ul>
+        <li><a href="http://rose.library.emory.edu/research-learning/research-services/permissions-citations.html" class="static-blurb-link">Rose Library Collections</a></li>
+        <li><a href="http://pitts.emory.edu/dia/permissions-for-use.cfm" class="static-blurb-link">Pitts Library Collections</a></li>
+        <li><a href="http://oxford.library.emory.edu/special-collections/index.html" class="static-blurb-link">Oxford Library Collections</a></li>
+        <li><a href="http://health.library.emory.edu/about/historical-collections.html" class="static-blurb-link">Woodruff Health Sciences Center Library Collections</a></li>
+        <li><a href="http://library.law.emory.edu/collections/archives-and-rare-books.html" class="static-blurb-link">Hugh F. MacMillan Law Library Collections</a></li>
+      </ul>
+      <p>For general information regarding copyright, please see the Scholarly Communications Office’s <a href="http://sco.library.emory.edu/copyright/using/index.html" class="static-blurb-link">Resources on Using Copyrighted Works</a>.</p>
+      <p>If you are a rightsholder and have questions about the copyright status or content of items in Emory Digital Collections, please see our <a href="/copyright-reuse" class="static-blurb-link">Digital Collections Copyright and Content Policy</a>.</p>
+    </p>
+  </div>
+  <div class=" col-lg-4">
+    <div class="explore-card about-explore">
+      <span class="explore-header">Explore</span>
+      <ul class="explore-links">
+        <li class="explore-link-item"><%= link_to "Emory Libraries Policies", "https://libraries.emory.edu/about/policies/index.html", class: "explore-link" %></li>
+        <li class="explore-link-item"><%= link_to "Visiting the Emory Libraries", "https://libraries.emory.edu/using-the-library/visitor-access.html", class: "explore-link" %></li>
+        <li class="explore-link-item"><%= link_to "Contact Emory Libraries", "https://libraries.emory.edu/contact/index.html", class: "explore-link" %></li>
+        </ul>
+    </div>
+  </div>
+</div>
