@@ -1,0 +1,6 @@
+<%= link_to "<span class='short-clear'>Clear</span><span class='long-clear'>#{t('blacklight.bookmarks.clear.action_title')}</span>".html_safe, 
+              clear_bookmarks_path, 
+              :method => :delete, 
+              :data => { :confirm => t('blacklight.bookmarks.clear.action_confirm') }, 
+              :class => 'clear-bookmarks btn btn-danger' 
+%>

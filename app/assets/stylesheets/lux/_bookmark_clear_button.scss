@@ -1,0 +1,17 @@
+@import 'variables';
+
+a.clear-bookmarks.btn {
+  border-radius: 0;
+}
+
+@media (max-width: 575px) {
+  a.clear-bookmarks.btn > span.long-clear {
+    display: none;
+  }
+}
+
+@media (min-width: 576px) {
+  a.clear-bookmarks.btn > span.short-clear {
+    display: none;
+  }
+}
