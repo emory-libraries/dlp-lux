@@ -14,4 +14,8 @@ class StaticController < ApplicationController
   def copyright_reuse
     render "static/copyright_reuse"
   end
+
+  def not_found
+    render status: 404
+  end
 end

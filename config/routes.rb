@@ -47,7 +47,7 @@ Rails.application.routes.draw do
   get "/about", to: "static#about"
   get "/copyright-reuse", to: "static#copyright_reuse"
 
-  match '/404', to: 'errors#not_found', via: :all
+  match '/404', to: 'static#not_found', via: :all
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
