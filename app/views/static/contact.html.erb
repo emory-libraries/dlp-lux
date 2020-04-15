@@ -1,4 +1,4 @@
-<% title = I18n.t('contact'); abbr = title.split(' ').first(3).join(' ') + '...' %>
+<% title = I18n.t('contact'); abbr = nil %>
 
 <%= render 'catalog/breadcrumbs', crumb_hashes: [{ curr_page: true, abbr: abbr, link: '/contact', title: title }]
 %>
