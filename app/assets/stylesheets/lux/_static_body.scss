@@ -4,6 +4,21 @@ p.static-blurb-body > a {
   font-weight: $font-weight-bold;
 }
 
+.static-blurb-subheading {
+  font-weight: $font-weight-bold;
+}
+
+.static-blurb-link {
+  color: $alt-bright-blue;
+  font-weight: $font-weight-bold;
+  transition: $link-hover-transition;
+
+  &:hover {
+    color: $mid-blue;
+    text-decoration: none;
+  }
+}
+
 div.explore-card {
   grid-gap: $navbar-nav-link-padding-x;
   padding: $navbar-padding-x;
