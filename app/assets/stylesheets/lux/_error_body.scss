@@ -4,31 +4,3 @@ div.not-found-container {
   margin-top: map-get($spacers, 4);
   margin-bottom: map-get($spacers, 4);
 }
-
-ul.not-found-list {
-  margin-left: $static-not-found-list-margin;
-  margin-right: 0; 
-  padding-left: $search-form-button-padding-x;
-  padding-right: 0;
-  list-style-type: none;
-}
-
-li.not-found-list-item {
-  display: block;
-  position: relative;
-  line-height: $static-not-found-list-line-h;
-  text-transform: none;
-}
-
-li.not-found-list-item:before {
-  display: block;
-  content: "■";
-  color: $alt-bright-blue;
-  left: -$search-form-button-padding-x;
-  position: absolute;
-  top: 0;
-}
-
-li.not-found-list-item > a {
-  font-weight: $font-weight-bold;
-}

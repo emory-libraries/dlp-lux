@@ -3,7 +3,7 @@
     <div class="row static-heading-row not-found">
       <%= render 'static/static_heading', 
               title: "Page Not Available", 
-              subheading: "You may have reached this page due to an incorrect address, or because the item you are trying to view has specific access restrictions. Use your browser's back button or return <a href='/'>home</a> to continue. For more assistance, <a href='/contact'>contact us</a>.".html_safe
+              subheading: "You may have reached this page due to an incorrect address, or because the item you are trying to view has specific access restrictions. Use your browser's back button or return <a href='/' class='static-blurb-link'>home</a> to continue. For more assistance, <a href='/contact' class='static-blurb-link'>contact us</a>.".html_safe
       %>
     </div>
     <div class="row static-body not-found">
@@ -15,9 +15,9 @@
       %>
       <ul class="not-found-list">
         <li class="not-found-list-item">Items marked "Log In Required" are limited to those with an Emory University login.</li>
-        <li class="not-found-list-item">A limited number of objects can be viewed only in the Rose Library reading room. Contact the <a href="mailto:rose.library@emory.edu">Rose Library via email</a> for more information.</li>
-        <li class="not-found-list-item">Some items may no longer be available from the providing library. Refer to the contact information for each digital collection and also consult our <a href='/contact'>Contact</a> page.</li>
-        <li class="not-found-list-item">Additional information is available within our user guide at <a href="https://wiki.service.emory.edu/display/DLPP/Emory+Digital+Collections+User+Guide">our wiki site</a>.</li>
+        <li class="not-found-list-item">A limited number of objects can be viewed only in the Rose Library reading room. Contact the <a href="mailto:rose.library@emory.edu" class='static-blurb-link'>Rose Library via email</a> for more information.</li>
+        <li class="not-found-list-item">Some items may no longer be available from the providing library. Refer to the contact information for each digital collection and also consult our <a href='/contact' class='static-blurb-link'>Contact</a> page.</li>
+        <li class="not-found-list-item">Additional information is available within our user guide at <a href="https://wiki.service.emory.edu/display/DLPP/Emory+Digital+Collections+User+Guide" class='static-blurb-link'>our wiki site</a>.</li>
       </ul>
     </div>
 </div>
