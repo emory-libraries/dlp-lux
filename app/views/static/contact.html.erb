@@ -2,14 +2,14 @@
 
 <%= render 'catalog/breadcrumbs', crumb_hashes: [{ curr_page: true, abbr: abbr, link: '/about', title: title }]
 %>
-<div class="row static-heading-row about">
+<div class="row static-heading-row contact">
 <%= render 'static/static_heading', 
               title: title, 
               subheading: "Contact points for technical assistance and additional information about our digital collections." 
 %>
 </div>
-<div class="row static-body about">
-  <div class="col-lg-8 about-blurbs">
+<div class="row static-body contact">
+  <div class="col-lg-8 contact-blurbs">
     <h2 class="static-blurb-header feedback-blurb-header">Send Feedback or Report a Problem</h2>
     <p class="static-blurb-body feedback-blurb">
       <span class="static-blurb-subheading">Library Technology & Digital Strategies</span>
@@ -51,7 +51,7 @@
     </p>
   </div>
   <div class=" col-lg-4">
-    <div class="explore-card about-explore">
+    <div class="explore-card contact-explore">
       <span class="explore-header">Explore</span>
       <ul class="explore-links">
         <li class="explore-link-item"><%= link_to "Emory Libraries Policies", "https://libraries.emory.edu/about/policies/index.html", class: "explore-link" %></li>
