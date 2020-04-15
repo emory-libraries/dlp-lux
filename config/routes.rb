@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 Rails.application.routes.draw do
-  get 'errors/not_found'
-
   concern :range_searchable, BlacklightRangeLimit::Routes::RangeSearchable.new
   mount Blacklight::Engine => '/'
   mount BlacklightAdvancedSearch::Engine => '/'
