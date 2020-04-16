@@ -1,0 +1,13 @@
+@import 'variables';
+
+h1.bookmarks.show-header {
+  text-align: left;
+}
+
+h2.bookmarks-subheading {
+  font: normal normal $hero-title-font-size $font-family-serif;
+}
+
+div#sortAndPerPage.sort-pagination.bookmarks > div > div.page-links {
+  padding-left: 1rem;
+}
