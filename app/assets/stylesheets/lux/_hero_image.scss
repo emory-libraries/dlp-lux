@@ -2,15 +2,6 @@
 @import 'variables';
 @import 'bootstrap';
 
-.carousel-item {
-  height: $hero-image-height;
-}
-@include media-breakpoint-up(md) {
-  .carousel-item {
-    height: $hero-image-height-large;
-  }
-}
-
 .intro-hero-title {
   position: relative;
   top: 50%;
@@ -26,6 +17,12 @@
   }
 }
 
-.intro-hero-subtitle, .intro-hero-subtitle:hover {
-  color: $white;
+@include media-breakpoint-up(lg) {
+  .intro-hero-title {
+    transform: translateY(-100%);
+  }
+}
+
+.carousel-image {
+  filter: brightness(60%);
 }
