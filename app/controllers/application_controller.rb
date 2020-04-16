@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied, with: :render_404
 
   def render_404
-    render file: Rails.root.join('public', '404.html'), status: :not_found, layout: true
+    render file: Rails.root.join('app', 'views', 'static', 'not_found.html.erb'), status: :not_found, layout: true
   end
 
   # GET /uv/config
