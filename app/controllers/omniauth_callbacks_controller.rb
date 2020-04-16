@@ -12,7 +12,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def cookie_pot
     cookies[:bearer_token] = {
-      value: encrypt_string("This is a token value", (1.day.from_now).to_s),
+      value: encrypt_string("This is a token value", 1.day.from_now.to_s),
       expires: 1.day.from_now,
       httponly: true,
       secure: request.ssl?,
@@ -20,8 +20,8 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     }
   end
 
-  def encrypt_string(str, salt_1)
-    cipher_salt1 = salt_1
+  def encrypt_string(str, salt1)
+    cipher_salt1 = salt1
     cipher_salt2 = ENV["IIIF_COOKIE_SALT_2"] || 'another-random-salt-'
     cipher = OpenSSL::Cipher.new('AES-128-ECB').encrypt
     cipher.key = OpenSSL::PKCS5.pbkdf2_hmac_sha1(cipher_salt1, cipher_salt2, 20_000, cipher.key_len)
