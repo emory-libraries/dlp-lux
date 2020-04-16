@@ -112,6 +112,7 @@ RSpec.describe "View a Work", type: :system, js: false do
     expect(page).to have_content('Copyright Date:')
     expect(page).to have_content('Re-Use License:')
     expect(page).to have_content('Access Restrictions:')
+    expect(page).to have_content('Emory Libraries provides copyright information as a courtesy and makes no representation about copyright or other legal status of materials in its digital collections.')
   end
 
   it 'has all correct metadata values' do
