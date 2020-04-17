@@ -1,0 +1,8 @@
+td.query > a {
+  font-weight: $font-weight-bold;
+  transition: $link-hover-transition;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
