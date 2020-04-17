@@ -12,7 +12,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def cookie_pot
-    encryption_string = SecureRandom.hex
+    encryption_string = 1.day.from_now.to_s
     cookies["bearer_token"] = {
       value: encrypt_string(encryption_string),
       expires: 1.day.from_now,
