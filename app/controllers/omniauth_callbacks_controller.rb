@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 require 'openssl'
+require 'securerandom'
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def shibboleth
     Rails.logger.debug "OmniauthCallbacksController#shibboleth: request.env['omniauth.auth']: #{request.env['omniauth.auth']}"
@@ -11,8 +12,9 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def cookie_pot
+    encryption_string = 1.day.from_now.to_s
     cookies["bearer_token"] = {
-      value: encrypt_string("This is a token value"),
+      value: encrypt_string(encryption_string),
       expires: 1.day.from_now,
       httponly: true,
       secure: request.ssl?,
