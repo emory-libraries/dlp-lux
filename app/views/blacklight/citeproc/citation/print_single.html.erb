@@ -1,4 +1,9 @@
 <div class="modal-body">
+  <p>
+    <i>
+      Provided as a suggestion only. Please verify these automated citations against the guidelines of your preferred style.
+    </i>
+  </p>
 <% @citations.each do |citation| %>
   <h3><%= t("blacklight.citeproc.styles.#{citation[:label]}") %></h3>
   <%= citation[:citation].html_safe %>
