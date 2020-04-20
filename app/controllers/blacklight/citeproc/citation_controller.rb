@@ -35,7 +35,8 @@ module Blacklight::Citeproc
       render layout: false
     end
 
-    def print_multiple(ids)
+    def print_bookmarks
+      ids = bookmark_ids
       _, documents = get_docs(ids)
       bibtex = ::BibTeX::Bibliography.new
       documents.each { |d| fill_bibtex(bibtex, d) }
@@ -49,10 +50,6 @@ module Blacklight::Citeproc
       @citations.sort_by! { |c| c[:citation] }
       urlize_id
       render :print_multiple, layout: false
-    end
-
-    def print_bookmarks
-      print_multiple bookmark_ids
     end
 
     private
