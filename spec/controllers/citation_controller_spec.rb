@@ -14,7 +14,7 @@ RSpec.describe Blacklight::Citeproc::CitationController, type: :controller do
   let(:work_attributes) { CURATE_GENERIC_WORK }
 
   describe '#print_single' do
-    before { get :print_single, params: {id: id} }
+    before { get :print_single, params: { id: id } }
 
     it 'renders the print single template' do
       expect(response.content_type).to eq "text/html"
