@@ -1,0 +1,10 @@
+<div class="modal-body">
+  <% style_count = @citations.map{|c| c[:style]}.uniq.size %>
+  <% counter = 0 %>
+<% @citations.each do |citation| %>
+  <% counter += 1 %>
+  <h3><%= t("blacklight.citeproc.styles.#{citation[:label]}") %></h3>
+  <%= citation[:citation].html_safe %>
+  <%= "<p></p>".html_safe if counter % 3 == 0 %>
+<% end %>
+</div>

@@ -15,6 +15,30 @@ class CatalogController < ApplicationController
   end
 
   configure_blacklight do |config|
+    config.citeproc = {
+      #bibtex_field: 'bibtex_s' # Optional. If you are already indexing BibTeX into solr, this will be the preferred way to get bibliographic data
+      fields: {
+        author: 'creator_tesim',
+        edition: 'edition_tesim',
+        institution: 'institution_tesim',
+        organization: 'holding_repository_tesim',
+        publisher: 'publisher_tesim',
+        series: ['member_of_collections_ssim', 'series_title_tesim'],
+        title: 'title_tesim',
+        type: 'content_genres_tesim',
+        url: 'id',
+        year: 'date_issued_tesim'
+      },
+      styles: %w[apa chicago-fullnote-bibliography modern-language-association],
+      format: {
+        field: 'format',
+        default_format: :book,
+        mappings: {
+          book: ['Book', 'Musical Score', 'Ebook'],
+          misc: ['Map/Globe', 'Non-musical Recording', 'Musical Recording', 'Image', 'Software/Data', 'Video/Film']
+        }
+      }
+    }
     # default advanced config values
     config.advanced_search ||= Blacklight::OpenStructWithHashAccess.new
     # config.advanced_search[:qt] ||= 'advanced'
