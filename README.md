@@ -102,3 +102,10 @@ where `<env>` is one of production, test, or arch.
   *   In the `User Defined Variables` panel, set the value of `threads` to the initial number of simultaneous users you want to simulate, and the value of `loops` to the number of times you want each simulated user to run through the suite of pages.  Save your changes.
   *   Run jmeter from the command line, replacing "trialname" with a new unused filename: `jmeter -n -t blacklight-tmp.jmx -l trialname.jtl -e -o report-trialname`
   * Repeat the previous two steps for each level of load to be simulated.
+
+## Run jmeter smoke test
+* Install and run Apache Jmeter in GUI mode as above.
+* Open `jmeter/blacklight.jmx` from the file menu.
+* Add a username and password to the `HTTP Authorization Manager` if running against a system with HTTP basic auth in place.
+* Hit the green forward arrow to start the tests running.
+* View the results in "View Results Tree" (green with a checkmark for successes, red with an x for failures)
