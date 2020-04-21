@@ -22,9 +22,9 @@ RSpec.describe "View a Work Citation", type: :system, js: false do
   end
 
   it 'has the right headers' do
-    expect(page).to have_content('APA 6th edition')
-    expect(page).to have_content('Chicago Fullnote Bibliography')
-    expect(page).to have_content('Modern Language Association')
+    expect(page).to have_content('APA, 6th edition')
+    expect(page).to have_content('Chicago')
+    expect(page).to have_content('MLA')
   end
 
   it 'provides the right link 3 times' do

@@ -1,0 +1,7 @@
+en:
+  blacklight:
+    citeproc:
+      styles:
+        apa: APA, 6th edition
+        chicago-fullnote-bibliography: Chicago
+        modern-language-association: MLA
