@@ -146,3 +146,4 @@ tags
 # End of https://www.gitignore.io/api/vim,rails,linux,macos,visualstudiocode
 
 public/uv/
+jmeter.log
