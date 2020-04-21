@@ -39,6 +39,10 @@
   max-width: 1170px;
 }
 
+li.list-group-item > .nav-link {
+  padding: map-get($spacers, 1) map-get($spacers, 3);
+}
+
 .navbar-nav {
   .nav-link {
     font-weight: $nav-link-weight;

@@ -29,6 +29,12 @@ RSpec.describe "View a Collection", type: :system, js: false do
     expect(page).to have_content('This item is part of:')
   end
 
+  it 'has a tool card with the right options' do
+    expect(page).to have_link('Cite')
+    expect(page).to have_link('Help')
+    expect(page).to have_link('Feedback')
+  end
+
   it 'has Collection specific metadata labels' do
     expect(page).to have_content('View items in this digital collection')
     expect(page).to have_link('View items in this digital collection', href: "#{root_path}?f%5Bmember_of_collections_ssim%5D%5B%5D=#{CGI.escape(work_attributes[:title_tesim]&.first)}&per_page=10")
