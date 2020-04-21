@@ -1,4 +1,15 @@
 <ul class="footer-list"><li><%= link_to "About Digital Collections", about_path, class: "link" %></li></ul>
-<ul class="footer-list"><li><%= link_to "Copyright and Reuse", copyright_reuse_path, class: "link" %></li></ul>
-<ul class="footer-list"><li><%= link_to "Contact", contact_path, class: "link" %></li></ul>
-<ul class="footer-list"><li><%= link_to "Donate", root_path, class: "link" %></li></ul>
+<ul class="footer-list">
+  <li>
+    <%= link_to "Copyright & Content", 
+                  'https://libraries.emory.edu/about/policies/digital-collections-copyright-and-content-policy.html', 
+                  class: "link" 
+    %>
+  </li>
+</ul>
+<ul class="footer-list"><li><%= link_to "Contact & Feedback", contact_path, class: "link" %></li></ul>
+<ul class="footer-list">
+  <li>
+    <%= link_to "Donate", 'https://libraries.emory.edu/about/support-emory-libraries/index.html', class: "link" %>
+  </li>
+</ul>

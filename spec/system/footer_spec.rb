@@ -55,9 +55,15 @@ RSpec.describe 'footer', type: :system, js: true do
   it 'has links to additional Lux pages' do
     visit "/"
     expect(page).to have_link("About Digital Collections", href: about_path)
-    expect(page).to have_link("Copyright and Reuse", href: copyright_reuse_path)
-    expect(page).to have_link("Contact", href: contact_path)
-    expect(page).to have_link("Donate", href: root_path)
+    expect(page).to have_link(
+      "Copyright & Content",
+      href: 'https://libraries.emory.edu/about/policies/digital-collections-copyright-and-content-policy.html'
+    )
+    expect(page).to have_link("Contact & Feedback", href: contact_path)
+    expect(page).to have_link(
+      "Donate",
+      href: 'https://libraries.emory.edu/about/support-emory-libraries/index.html'
+    )
   end
 
   it 'has links to other library sites' do
