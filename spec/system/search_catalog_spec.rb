@@ -233,16 +233,6 @@ RSpec.describe 'Search the catalog', type: :system, js: false do
     end
   end
 
-  it 'performs searches from copyright-reuse page' do
-    visit "/copyright-reuse"
-    fill_in 'q', with: '222'
-    click_on 'search'
-
-    within 'span.page-entries' do
-      expect(page).to have_content('1 entry found')
-    end
-  end
-
   it 'performs searches from contact page' do
     visit "/contact"
     fill_in 'q', with: '222'
