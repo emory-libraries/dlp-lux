@@ -43,7 +43,6 @@ Rails.application.routes.draw do
   get "/uv/config/:id", to: "application#uv_config", as: "uv_config", defaults: { format: :json }
   get "/contact", to: "static#contact"
   get "/about", to: "static#about"
-  get "/copyright-reuse", to: "static#copyright_reuse"
 
   match '/404', to: 'static#not_found', via: :all
 
