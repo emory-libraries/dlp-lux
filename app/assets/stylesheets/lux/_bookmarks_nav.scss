@@ -1,5 +1,5 @@
 @import 'variables';
 
-a#citationLink.nav-link::after, a#emailLink.nav-link::after {
+a#citationLink.nav-link::after, a.help-show-link.nav-link::after, a.feedback-show-link.nav-link::after {
   position: relative;
 }
