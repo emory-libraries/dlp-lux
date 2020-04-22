@@ -44,6 +44,10 @@ Rails.application.routes.draw do
   get "/contact", to: "static#contact"
   get "/about", to: "static#about"
 
+  # Redirect requests for PURLs to the same object in the catalog controller
+  # Status 303 is 'Found'. We don't want to suggest the object has moved.
+  get '/purl/:obj_id', to: redirect('/catalog/%{obj_id}', status: 303)
+
   match '/404', to: 'static#not_found', via: :all
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
