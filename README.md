@@ -105,7 +105,7 @@ where `<env>` is one of production, test, or arch.
 
 ## Run jmeter smoke test
 * Install and run Apache Jmeter in GUI mode as above.
-* Open `jmeter/blacklight.jmx` from the file menu.
+* Open `jmeter/smoke-test.jmx` from the file menu.
 * Add a username and password to the `HTTP Authorization Manager` if running against a system with HTTP basic auth in place.
 * Hit the green forward arrow to start the tests running.
 * View the results in "View Results Tree" (green with a checkmark for successes, red with an x for failures)
