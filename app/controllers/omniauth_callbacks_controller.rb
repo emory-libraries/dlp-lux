@@ -7,7 +7,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     # had to create the `from_omniauth(auth_hash)` class method on our User model
     @user = User.from_omniauth(request.env["omniauth.auth"])
     cookie_pot
-    set_flash_message :notice, :success, kind: "Shibboleth"
+    set_flash_message :notice, :success, kind: "Emory"
     sign_in_and_redirect @user
   end
 
