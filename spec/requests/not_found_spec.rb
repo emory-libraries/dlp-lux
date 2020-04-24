@@ -21,4 +21,9 @@ RSpec.describe "404 Error Custom Page", type: :request do
     expect(response.body).to include 'our wiki site'
     expect(response.body).to include 'https://wiki.service.emory.edu/display/DLPP/Emory+Digital+Collections+User+Guide'
   end
+
+  it "loads the page for unlogged in users looking for bookmarks" do
+    get "/bookmarks"
+    expect(response.status).to eq 404
+  end
 end
