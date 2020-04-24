@@ -5,6 +5,12 @@ class CatalogController < ApplicationController
   include Blacklight::Catalog
   include Blacklight::AccessControls::Catalog
 
+  rescue_from NameError, with: :render_404
+
+  def render_404
+    render file: Rails.root.join('app', 'views', 'static', 'not_found.html.erb'), status: :not_found, layout: true
+  end
+
   # Apply the blacklight-access_controls
   before_action :enforce_show_permissions, only: :show
 
