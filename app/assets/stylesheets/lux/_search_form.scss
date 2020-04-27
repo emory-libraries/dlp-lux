@@ -17,7 +17,7 @@ form.search-query-form {
       margin-right: $search-form-margin-x;
       padding: 0 $search-form-select-padding-left 0 $search-form-select-padding-right;
 
-      background: url("/assets/blue-material-keyboard_arrow_down.svg") no-repeat right 0.5rem center;
+      background: image-url("blue-material-keyboard_arrow_down.svg") no-repeat right 0.5rem center;
       border-radius:      $border-radius !important;
       box-shadow:         $search-form-box-shadow;
     }
