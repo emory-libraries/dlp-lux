@@ -13,3 +13,8 @@ en:
       form:
         search:
           placeholder: 'Search Digital Collections'
+    citation:
+      header: 'Document(s) Citations'
+      apa: 'APA, 6th edition'
+      chicago-fullnote-bibliography: 'Chicago'
+      modern-language-association: 'MLA'
