@@ -58,4 +58,13 @@ RSpec.describe 'Facet the catalog by year', type: :system, js: false do
       expect(page).not_to have_content('Eagle Excellence')
     end
   end
+
+  it 'gets search results when only date facet is applied' do
+    visit root_path
+    # Apply date facet with default parameters and make sure search results appear
+    find('input[value="Apply"]').click
+    expect(page).to have_content('Llama Love')
+    expect(page).to have_content('Newt Nutrition')
+    expect(page).to have_content('Eagle Excellence')
+  end
 end
