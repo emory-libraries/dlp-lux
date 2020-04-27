@@ -14,6 +14,7 @@ CURATE_GENERIC_WORK = {
   date_created_tesim: ['1776', 'XXXX', '192?', '1973?'],
   human_readable_date_created_tesim: ['1776', 'unknown', '1920s', '1973 approx.'],
   human_readable_date_issued_tesim: ['1652'],
+  human_readable_data_collection_dates_tesim: ['1942 approx.'],
   data_collection_dates_tesim: ['1985'],
   human_readable_content_type_ssim: ['Text'],
   content_type_tesim: ['http://id.loc.gov/vocabulary/resourceTypes/txt'],
