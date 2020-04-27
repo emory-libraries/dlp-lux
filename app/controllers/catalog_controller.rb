@@ -183,7 +183,7 @@ class CatalogController < ApplicationController
     config.add_show_field 'contributors_tesim', label: 'Contributor', link_to_facet: 'contributors_sim'
     config.add_show_field 'human_readable_date_created_tesim', label: 'Date Created'
     config.add_show_field 'human_readable_date_issued_tesim', label: 'Date Published / Issued'
-    config.add_show_field 'data_collection_dates_tesim', label: 'Data Collection Dates'
+    config.add_show_field 'human_readable_data_collection_dates_tesim', label: 'Data Collection Dates'
     config.add_show_field 'human_readable_content_type_ssim', label: 'Format', link_to_facet: true
     config.add_show_field 'content_genres_tesim', label: 'Genre', link_to_facet: 'content_genres_sim'
     config.add_show_field 'extent_tesim', label: 'Extent / Dimensions'

@@ -135,7 +135,7 @@ RSpec.describe "View a Work", type: :system, js: false do
     expect(page).to have_content('1920s')
     expect(page).to have_content('1973 approx.')
     expect(page).to have_content('1652')
-    expect(page).to have_content('1985')
+    expect(page).to have_content('1942 approx.')
     expect(page).to have_content('Text')
     expect(page).to have_content('Painting')
     expect(page).to have_content('152 p., [50] leaves of plates')
