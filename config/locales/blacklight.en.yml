@@ -1,4 +1,24 @@
 en:
+  views:
+    pagination:
+      first: '&laquo;&nbsp;First'
+      last: 'Last&nbsp;&raquo;'
+      previous: '&laquo;&nbsp;Previous'
+      next: 'Next&nbsp;&raquo;'
+      truncate: '…'
+      aria:
+        container_label: 'pagination links'
+        current_page: 'Current Page, Page %{page}'
+        go_to_page: 'Go to page %{page}'
+        go_to_previous_page: 'Go to previous page'
+        go_to_next_page: 'Go to next page'
+        go_to_first_page: 'Go to first page'
+        go_to_last_page: 'Go to last page'
+
+    pagination_compact:
+      previous: '&laquo;&nbsp;Previous'
+      next: 'Next&nbsp;&raquo;'
+
   blacklight:
     application_name: 'Emory Digital Collections'
     header_links:
