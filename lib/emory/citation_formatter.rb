@@ -1,4 +1,6 @@
 # frozen_string_literal: true
+require 'citeproc'
+
 module Emory
   class CitationFormatter
     attr_accessor :obj, :default_citations
@@ -52,25 +54,27 @@ module Emory
       end
 
       def auth_no_per
-        if obj[:creator_tesim]&.any? { |a| a&.split('')&.last == '.' }
-          return obj[:creator_tesim].map{ |a| a.first(a.size - 1) }
-        end
+        return obj[:creator_tesim].map { |a| a.first(a.size - 1) } if obj[:creator_tesim]&.any? { |a| a&.split('')&.last == '.' }
         obj[:creator_tesim]
       end
 
       def sanitized_apa_auth
         return apa_creator_name unless abnormal_chars? || obj[:creator_tesim].blank?
-        auth_no_per&.join(', & ') unless obj[:creator_tesim].blank?
+        "#{auth_no_per&.join(', & ')}. " unless obj[:creator_tesim].blank?
       end
 
       def sanitized_mla_auth
         return mla_creator_name unless abnormal_chars? || obj[:creator_tesim].blank?
-        auth_no_per&.join(', ') unless obj[:creator_tesim].blank?
+        "#{auth_no_per&.join(', ')}. " unless obj[:creator_tesim].blank?
+      end
+
+      def sanitized_chic_auth
+        "#{auth_no_per&.join(', ')}, " unless auth_no_per.nil?
       end
 
       def apa_default
         [
-          (sanitized_apa_auth.nil? ? nil : "#{sanitized_apa_auth}. "), ("(#{obj[:date_issued_tesim]&.first})" unless obj[:date_issued_tesim].nil?),
+          sanitized_apa_auth, ("(#{obj[:date_issued_tesim]&.first})" unless obj[:date_issued_tesim].nil?),
           ("[#{obj[:title_tesim]&.first}#{apa_edition}]. " unless obj[:title_tesim].nil?),
           proc_mid_com(obj[:member_of_collections_ssim]), proc_mid_per(obj[:holding_repository_tesim]), url, "."
         ].join('')
@@ -78,7 +82,7 @@ module Emory
 
       def chicago_default
         [
-          (auth_no_per.nil? ? nil : "#{auth_no_per&.join(', ')}, "), proc_mid_com(obj[:title_tesim]),
+          sanitized_chic_auth, proc_mid_com(obj[:title_tesim]),
           proc_mid_com(obj[:date_issued_tesim]), proc_mid_com(obj[:member_of_collections_ssim]),
           proc_mid_per(obj[:holding_repository_tesim]), url, "."
         ].join('')
@@ -86,7 +90,7 @@ module Emory
 
       def mla_default
         [
-          (sanitized_mla_auth.nil? ? nil : "#{sanitized_mla_auth}. "), proc_mid_per(obj[:title_tesim]), proc_mid_per(obj[:date_issued_tesim]),
+          sanitized_mla_auth, proc_mid_per(obj[:title_tesim]), proc_mid_per(obj[:date_issued_tesim]),
           proc_mid_per(obj[:member_of_collections_ssim]), proc_mid_per(obj[:holding_repository_tesim]), url, "."
         ].join('')
       end
@@ -96,11 +100,11 @@ module Emory
       end
 
       def apa_creator_name
-        "#{obj[:creator_tesim].map { |f| f.split(' ').last + ', ' + f.split(' ').first(f.split.size - 1)&.map(&:first)&.join('. ') }&.join(', & ')}."
+        "#{obj[:creator_tesim].map { |f| f.split(' ').last + ', ' + f.split(' ').first(f.split.size - 1)&.map(&:first)&.join('. ') }&.join(', & ')}. "
       end
 
       def mla_creator_name
-        obj[:creator_tesim].map { |f| f.split(' ').last + ', ' + f.split(' ').first(f.split.size - 1).join(' ') }&.join(', ')
+        "#{obj[:creator_tesim].map { |f| f.split(' ').last + ', ' + f.split(' ').first(f.split.size - 1).join(' ') }&.join(', ')}. "
       end
 
       def key_val_chunk_1
@@ -111,7 +115,7 @@ module Emory
       def key_val_chunk_2
         { archive: obj[:holding_repository_tesim]&.join(', '), publisher: obj[:publisher_tesim]&.join(', '), title: obj[:title_tesim]&.join(', '),
           "collection-title": obj[:member_of_collections_ssim]&.join(', '), type: [obj[:human_readable_content_type_ssim]&.first&.downcase]&.join(', '),
-          url: url, issued: obj[:date_issued_tesim] }
+          url: url, issued: (obj[:date_issued_tesim] || obj[:year_issued_isim] || obj[:year_created_isim] || [0])&.first&.to_i }
       end
 
       def key_val_chunk_3

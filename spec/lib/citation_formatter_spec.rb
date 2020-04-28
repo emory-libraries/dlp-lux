@@ -26,6 +26,18 @@ RSpec.describe Emory::CitationFormatter do
     expect(cit_gen.default_citations.values.uniq.size).to eq(3)
   end
 
+  it 'formats each default_citation correctly' do
+    expect(cit_gen.default_citations[:"chicago-fullnote-bibliography"]).to(
+      eq("Sample Parent Creator, Emocad., 1919/192X, Emory University Yearbooks, Oxford College Library (Oxford, Ga.). https://digital.library.emory.edu/purl/030prr4xkj-cor.")
+    )
+    expect(cit_gen.default_citations[:apa]).to(
+      eq("Creator, S. P. (1919/192X)[Emocad.]. Emory University Yearbooks, Oxford College Library (Oxford, Ga.). https://digital.library.emory.edu/purl/030prr4xkj-cor.")
+    )
+    expect(cit_gen.default_citations[:'modern-language-association']).to(
+      eq("Creator, Sample Parent. Emocad.. 1919/192X. Emory University Yearbooks. Oxford College Library (Oxford, Ga.). https://digital.library.emory.edu/purl/030prr4xkj-cor.")
+    )
+  end
+
   it 'always includes the url' do
     url = cit_gen.send(:url)
 
