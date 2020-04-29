@@ -74,7 +74,7 @@ class CatalogController < ApplicationController
     config.add_show_tools_partial(:bookmark, partial: 'bookmark_control', if: :render_bookmarks_control?)
     #config.add_show_tools_partial(:email, callback: :email_action, validator: :validate_email_params)
     #config.add_show_tools_partial(:sms, if: :render_sms_action?, callback: :sms_action, validator: :validate_sms_params)
-    config.add_show_tools_partial(:citation)
+
     config.add_show_tools_partial(:help, partial: 'help_link')
     config.add_show_tools_partial(:feedback, partial: 'feedback_link')
 
@@ -183,7 +183,7 @@ class CatalogController < ApplicationController
     config.add_show_field 'contributors_tesim', label: 'Contributor', link_to_facet: 'contributors_sim'
     config.add_show_field 'human_readable_date_created_tesim', label: 'Date Created'
     config.add_show_field 'human_readable_date_issued_tesim', label: 'Date Published / Issued'
-    config.add_show_field 'data_collection_dates_tesim', label: 'Data Collection Dates'
+    config.add_show_field 'human_readable_data_collection_dates_tesim', label: 'Data Collection Dates'
     config.add_show_field 'human_readable_content_type_ssim', label: 'Format', link_to_facet: true
     config.add_show_field 'content_genres_tesim', label: 'Genre', link_to_facet: 'content_genres_sim'
     config.add_show_field 'extent_tesim', label: 'Extent / Dimensions'
@@ -223,7 +223,7 @@ class CatalogController < ApplicationController
     config.add_show_field 'issn_tesim', label: 'ISSN'
     config.add_show_field 'isbn_tesim', label: 'ISBN'
     # For "Additional Details" section of show page
-    config.add_show_field 'conference_dates_tesim', label: 'Conference Dates'
+    config.add_show_field 'human_readable_conference_dates_tesim', label: 'Conference Dates'
     config.add_show_field 'conference_name_tesim', label: 'Event / Conference Name'
     config.add_show_field 'sponsor_tesim', label: 'Sponsor'
     config.add_show_field 'data_producers_tesim', label: 'Data Producer'
@@ -241,7 +241,7 @@ class CatalogController < ApplicationController
     config.add_show_field 'emory_rights_statements_tesim', label: 'Rights Statement'
     config.add_show_field 'human_readable_rights_statement_tesim', label: 'Rights Status'
     config.add_show_field 'rights_holders_tesim', label: 'Rights Holder'
-    config.add_show_field 'copyright_date_tesim', label: 'Copyright Date'
+    config.add_show_field 'human_readable_copyright_date_tesim', label: 'Copyright Date'
     config.add_show_field 'human_readable_re_use_license_tesim', label: 'Re-Use License'
     config.add_show_field 'access_restriction_notes_tesim', label: 'Access Restrictions'
     # For "This item is part of:" section of show page
