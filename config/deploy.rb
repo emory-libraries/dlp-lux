@@ -8,9 +8,6 @@ set :deploy_to, '/opt/dlp-lux'
 set :rails_env, 'production'
 set :assets_prefix, "#{shared_path}/public/assets"
 # set :migration_role, :app
-# use whenever to manage cron jobs
-set :whenever_command, "bundle exec whenever"
-require "whenever/capistrano"
 
 SSHKit.config.command_map[:rake] = 'bundle exec rake'
 set :branch, ENV['REVISION'] || ENV['BRANCH'] || ENV['BRANCH_NAME'] || 'master'
