@@ -2,7 +2,7 @@
 require 'rails_helper'
 
 RSpec.describe FindThisItemPresenter do
-  let(:pres) { described_class.new(document: CURATE_GENERIC_WORK, solr_document: CURATE_GENERIC_WORK) }
+  let(:pres) { described_class.new(document: CURATE_GENERIC_WORK) }
   let(:find_this_item_terms) do
     { id: '123',
       system_of_record_ID_tesim: ['System of record ID seems to be a user entered string'],
@@ -19,12 +19,6 @@ RSpec.describe FindThisItemPresenter do
     describe '#terms' do
       it 'has the correct terms' do
         expect(pres.terms).to eq(find_this_item_terms)
-      end
-    end
-
-    describe '#purl' do
-      it 'produces the right persistent url string' do
-        expect(pres.purl).to eq("https://digital.library.emory.edu/purl/123")
       end
     end
   end

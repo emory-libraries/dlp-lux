@@ -1,6 +1,5 @@
 <% doc_presenter = show_presenter(document) %>
-<% pres = presenter.new(document: doc_presenter.fields_to_render, solr_document: document) %>
-<% fields = pres.terms %>
+<% fields = presenter.new(document: doc_presenter.fields_to_render).terms %>
 <% if fields.length > 0 %>
   <div class="<%= presenter_class %> card mb-2 rounded-0">
     <div class="card-header rounded-0"><%= title %></div>
@@ -12,7 +11,7 @@
               <%= render_document_show_field_label document, field: field_name %></dt>
             <dd class="blacklight-<%= field_name.parameterize %> <%= add_class_dd %>">
               <%= doc_presenter.field_value field unless field_name == "id" %>
-              <%= link_to pres.purl, pres.purl if field_name == "id" %>
+              <%= link_to "https://digital.library.emory.edu/purl/#{document["id"]}", "https://digital.library.emory.edu/purl/#{document["id"]}" if field_name == "id" %>
             </dd>
           </div>
         <% end %>
