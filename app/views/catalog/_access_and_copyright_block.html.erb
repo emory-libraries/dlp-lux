@@ -1,5 +1,5 @@
 <% doc_presenter = show_presenter(document) %>
-<% fields = presenter.new(document: doc_presenter.fields_to_render).terms %>
+<% fields = presenter.new(document: doc_presenter.fields_to_render).terms(:access_and_copyright) %>
 <% if document["has_model_ssim"]&.first == "CurateGenericWork" %>
   <div class="<%= presenter_class %> card mb-2 rounded-0">
     <div class="card-header rounded-0"><%= title %></div>
