@@ -30,6 +30,7 @@ RSpec.describe "View a Collection", type: :system, js: false do
   end
 
   it 'has a tool card with the right options' do
+    expect(page).to have_link('Cite')
     expect(page).to have_link('Help')
     expect(page).to have_link('Feedback')
   end
