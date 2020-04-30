@@ -33,3 +33,7 @@ en:
       form:
         search:
           placeholder: 'Search Digital Collections'
+    citation:
+      apa: 'APA, 6th edition'
+      chicago-fullnote-bibliography: 'Chicago'
+      modern-language-association: 'MLA'
