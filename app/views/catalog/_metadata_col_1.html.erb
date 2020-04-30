@@ -1,5 +1,5 @@
 <div class="row-flex">
-  <%= render "is_part_of", document: document %>
+  <%= render 'is_part_of_block', document: document, presenter: MetadataPresenter, presenter_class: 'is-part-of', title: 'This item is part of:' %>
   <% if document["has_model_ssim"]&.first == "Collection" %>
   <%= render 'view_items_in_collection_block', document: document, presenter: MetadataPresenter, presenter_class: 'view-items-in-collection' %>
   <% end %>

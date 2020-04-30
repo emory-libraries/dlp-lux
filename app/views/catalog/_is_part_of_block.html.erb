@@ -1,5 +1,19 @@
+<script>
+
+  // Sends the custom dimension to Google Analytics.
+  gtag('event', "<%= document['member_of_collections_ssim']&.first %>",
+  {
+    'event_category': 'collection_view',
+    'event_label': '<%= document['title_tesim'].first %>'
+  });
+  gtag('event', "<%= document['holding_repository_tesim']&.first %>",
+  {
+    'event_category': 'holding_repository_view',
+    'event_label': '<%= document['title_tesim'].first %>'
+  });
+</script>
 <% doc_presenter = show_presenter(document) %>
-<% fields = presenter.new(document: doc_presenter.fields_to_render).terms %>
+<% fields = presenter.new(document: doc_presenter.fields_to_render).is_part_of %>
 <% if fields.length > 0 %>
   <div class="<%= presenter_class %> card mb-2 rounded-0">
     <div class="card-header rounded-0"><%= title %></div>
