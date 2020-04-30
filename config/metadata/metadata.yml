@@ -11,3 +11,13 @@ is_part_of:
   member_of_collections_ssim:
   member_of_collection_ids_ssim:
   parent_work_for_lux_tesim:
+find_this_item:
+  system_of_record_ID_tesim: 'System of Record ID'
+  emory_ark_tesim: 'Emory ARK'
+  other_identifiers_tesim: 'Other Identifiers'
+  institution_tesim: 'Institution'
+  holding_repository_tesim: 'Library'
+  administrative_unit_tesim: 'Administrative Unit'
+  sublocation_tesim: 'Sublocation'
+  local_call_number_tesim: 'Call Number'
+  contact_information_tesim: 'Contact Information'

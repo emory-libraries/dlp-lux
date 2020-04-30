@@ -8,9 +8,23 @@ RSpec.describe MetadataPresenter do
       { member_of_collections_ssim: ['Chester W. Topp collection of Victorian yellowbacks and paperbacks'],
         member_of_collection_ids_ssim: ['805fbg79d6-cor'] }
     end
-    describe '#is_part_of' do
+    let(:find_this_item_terms) do
+      { system_of_record_ID_tesim: ['System of record ID seems to be a user entered string'],
+        emory_ark_tesim: ['This is a legacy Emory ARK ID'],
+        other_identifiers_tesim: ['oclc:(OCoLC)772049332', 'barcode:050000087509'],
+        institution_tesim: ['Emory University'],
+        holding_repository_tesim: ['Oxford College Library'],
+        administrative_unit_tesim: ['Stuart A. Rose Manuscript, Archives, and Rare Book Library'],
+        sublocation_tesim: ['That weird cart in the third basement'],
+        local_call_number_tesim: ['ML450.B613 v. 3'],
+        contact_information_tesim: ['Call Milly'] }
+    end
+    describe '#terms' do
       it 'has the correct terms' do
-        expect(pres.is_part_of).to eq(is_part_of_terms)
+        expect(pres.terms(:is_part_of)).to eq(is_part_of_terms)
+      end
+      it 'has the correct terms' do
+        expect(pres.terms(:find_this_item)).to eq(find_this_item_terms)
       end
     end
   end
@@ -36,17 +50,17 @@ RSpec.describe MetadataPresenter do
     end
     describe '#about_this_collection' do
       it 'has the correct terms' do
-        expect(pres.about_this_collection).to eq(about_terms)
+        expect(pres.terms(:about_this_collection)).to eq(about_terms)
       end
     end
     describe '#view_items_in_this_collection' do
       it 'has the correct terms' do
-        expect(pres.view_items_in_this_collection).to eq(view_items_terms)
+        expect(pres.terms(:view_items_in_this_collection)).to eq(view_items_terms)
       end
     end
     describe '#is_part_of' do
       it 'has the correct terms' do
-        expect(pres.is_part_of).to eq(is_part_of_terms)
+        expect(pres.terms(:is_part_of)).to eq(is_part_of_terms)
       end
     end
   end

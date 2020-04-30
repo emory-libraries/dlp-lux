@@ -3,6 +3,6 @@
   <% if document["has_model_ssim"]&.first == "Collection" %>
   <%= render 'view_items_in_collection_block', document: document, presenter: MetadataPresenter, presenter_class: 'view-items-in-collection' %>
   <% end %>
-  <%= render "find_this_item", document: document %>
+  <%= render 'metadata_block', document: document, presenter: FindThisItemPresenter, presenter_class: 'find-this-item', title: 'Find This Item', add_class_dt: "col-md-12", add_class_dd: "col-md-12" %>
   <%= render "related_material", document: document %>
 </div>
