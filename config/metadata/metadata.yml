@@ -21,3 +21,8 @@ find_this_item:
   sublocation_tesim: 'Sublocation'
   local_call_number_tesim: 'Call Number'
   contact_information_tesim: 'Contact Information'
+access_and_copyright:
+  rights_holders_tesim: 'Rights Holder'
+  human_readable_copyright_date_tesim: 'Copyright Date'
+  human_readable_re_use_license_tesim: 'Re-Use License'
+  access_restriction_notes_tesim: 'Access Restrictions'
