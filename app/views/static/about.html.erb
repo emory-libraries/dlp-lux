@@ -1,4 +1,4 @@
-
+<% @page_title = "#{t('about')} - #{application_name}" %>
 <% title = I18n.t('about'); abbr = title.split(' ').first(3).join(' ') + '...' %>
 
 <%= render 'catalog/breadcrumbs', crumb_hashes: [{ curr_page: true, abbr: abbr, link: '/about', title: title }]

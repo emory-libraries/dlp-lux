@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 require 'rails_helper'
+include Warden::Test::Helpers
 
 RSpec.describe "Breadcrumb links when viewing assorted pages", type: :system, js: true do
   before do
@@ -103,5 +104,35 @@ RSpec.describe "Breadcrumb links when viewing assorted pages", type: :system, js
 
     include_examples "check_page_for_link_static", "Home", "/contact"
     include_examples "check_page_for_current_link_static", "Digital Repository Contacts", "/contact"
+  end
+
+  context "when on /search_history" do
+    let(:id) { '123' }
+    let(:work_attributes) { CURATE_GENERIC_WORK }
+
+    include_examples "check_page_for_link_static", "Home", "/search_history"
+    include_examples "check_page_for_current_link_static", "History", "/search_history"
+  end
+
+  context "when on /advanced" do
+    let(:id) { '123' }
+    let(:work_attributes) { CURATE_GENERIC_WORK }
+
+    include_examples "check_page_for_link_static", "Home", "/advanced"
+    include_examples "check_page_for_current_link_static", "Advanced Search", "/advanced"
+  end
+
+  context "when on /bookmarks" do
+    let(:id) { '123' }
+    let(:work_attributes) { CURATE_GENERIC_WORK }
+
+    it 'shows the right breadcrumbs' do
+      user = FactoryBot.create(:user)
+      login_as(user)
+      visit '/bookmarks'
+      home_crumb = page.all(:css, '#crumb.link').to_a.map(&:text)
+
+      expect(home_crumb).to include('Home', 'Bookmarks')
+    end
   end
 end

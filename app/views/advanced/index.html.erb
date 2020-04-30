@@ -1,5 +1,7 @@
 <% @page_title = "More Search Options - #{application_name}" %>
 
+<%= render 'catalog/breadcrumbs', crumb_hashes: [{ curr_page: true, abbr: nil, link: '/advanced', title: "Advanced Search" }]
+%>
 <div class="advanced-search-form col-sm-12">
   <div class="row align-items-center">
     <h1 class="advanced page-header show-header mr-3">

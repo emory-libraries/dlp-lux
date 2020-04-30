@@ -13,6 +13,10 @@ RSpec.describe "Contact page", type: :request do
     expect(response.content_type).to eq "text/html"
   end
 
+  it 'contains the correct page title' do
+    expect(response.body).to include '<title>Digital Repository Contacts - Emory Digital Collections</title>'
+  end
+
   it "contains the requested headers" do
     expect(response.body).to include 'Digital Repository Contacts'
     expect(response.body).to include 'Send Feedback or Report a Problem'
