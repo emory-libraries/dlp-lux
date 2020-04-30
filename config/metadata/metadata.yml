@@ -1,0 +1,13 @@
+about_this_collection:
+  abstract_tesim: 'Description'
+  finding_aid_link_ssm: 'Learn More'
+  creator_tesim: 'Creator'
+  contributors_tesim: 'Contributor'
+  primary_language_tesim: 'Primary Language'
+  notes_tesim: 'Note'
+view_items_in_this_collection:
+  title_tesim:
+is_part_of:
+  member_of_collections_ssim:
+  member_of_collection_ids_ssim:
+  parent_work_for_lux_tesim:

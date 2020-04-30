@@ -1,6 +1,6 @@
 <div class="row-flex">
   <% if document["has_model_ssim"]&.first == "Collection" %>
-    <%= render "about_this_collection", document: document %>
+  <%= render 'about_this_collection_block', document: document, presenter: MetadataPresenter, presenter_class: 'about-this-collection', title: 'About This Collection' %>
   <% end %>
   <% if document["has_model_ssim"]&.first == "CurateGenericWork" %>
     <%= render "this_item_contains", document: document %>
