@@ -74,7 +74,7 @@ class CatalogController < ApplicationController
     config.add_show_tools_partial(:bookmark, partial: 'bookmark_control', if: :render_bookmarks_control?)
     #config.add_show_tools_partial(:email, callback: :email_action, validator: :validate_email_params)
     #config.add_show_tools_partial(:sms, if: :render_sms_action?, callback: :sms_action, validator: :validate_sms_params)
-
+    config.add_show_tools_partial(:citation)
     config.add_show_tools_partial(:help, partial: 'help_link')
     config.add_show_tools_partial(:feedback, partial: 'feedback_link')
 
@@ -200,7 +200,7 @@ class CatalogController < ApplicationController
     config.add_show_field 'subject_time_periods_tesim', label: 'Subject - Time Periods'
     config.add_show_field 'keywords_tesim', label: 'Keywords', link_to_facet: 'keywords_sim'
     # For "Find this Item" section of show page
-    # config.add_show_field 'persistent_url_tesim', label: 'Persistent URL'
+    config.add_show_field 'id', label: 'Persistent URL'
     config.add_show_field 'system_of_record_ID_tesim', label: 'System of Record ID'
     config.add_show_field 'emory_ark_tesim', label: 'Emory ARK'
     config.add_show_field 'other_identifiers_tesim', label: 'Other Identifiers'

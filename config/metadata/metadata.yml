@@ -12,6 +12,7 @@ is_part_of:
   member_of_collection_ids_ssim:
   parent_work_for_lux_tesim:
 find_this_item:
+  id: 'Persistent URL'
   system_of_record_ID_tesim: 'System of Record ID'
   emory_ark_tesim: 'Emory ARK'
   other_identifiers_tesim: 'Other Identifiers'

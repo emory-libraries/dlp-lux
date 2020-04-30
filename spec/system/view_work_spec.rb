@@ -65,6 +65,7 @@ RSpec.describe "View a Work", type: :system, js: false do
     expect(page).to have_content('Keywords:')
 
     # Find This Item
+    expect(page).to have_content('Persistent URL:')
     expect(page).to have_content('System of Record ID:')
     expect(page).to have_content('Emory ARK:')
     expect(page).to have_content('Other Identifiers:')
@@ -115,6 +116,7 @@ RSpec.describe "View a Work", type: :system, js: false do
     expect(page).to have_content('Emory Libraries provides copyright information as a courtesy and makes no representation about copyright or other legal status of materials in its digital collections.')
 
     # Tools
+    expect(page).to have_link('Cite')
     expect(page).to have_link('Help')
     expect(page).to have_link('Feedback')
   end
@@ -153,6 +155,7 @@ RSpec.describe "View a Work", type: :system, js: false do
     expect(page).to have_content('words')
 
     # Find This Item
+    expect(page).to have_content("https://digital.library.emory.edu/purl/123")
     expect(page).to have_content('System of record ID seems to be a user entered string')
     expect(page).to have_content('This is a legacy Emory ARK ID')
     expect(page).to have_content('oclc:(OCoLC)772049332')
