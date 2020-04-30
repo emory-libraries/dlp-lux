@@ -20,10 +20,10 @@ RSpec.describe MetadataPresenter do
         contact_information_tesim: ['Call Milly'] }
     end
     describe '#terms' do
-      it 'has the correct terms' do
+      it 'has the "is part of" terms' do
         expect(pres.terms(:is_part_of)).to eq(is_part_of_terms)
       end
-      it 'has the correct terms' do
+      it 'has the "find this item" terms' do
         expect(pres.terms(:find_this_item)).to eq(find_this_item_terms)
       end
     end
@@ -48,18 +48,14 @@ RSpec.describe MetadataPresenter do
       { member_of_collections_ssim: ['A pretend Parent collection for the Yellowbacks Collection'],
         member_of_collection_ids_ssim: ['805fbg79d6-cor'] }
     end
-    describe '#about_this_collection' do
-      it 'has the correct terms' do
+    describe '#terms' do
+      it 'has the "about this collection" terms' do
         expect(pres.terms(:about_this_collection)).to eq(about_terms)
       end
-    end
-    describe '#view_items_in_this_collection' do
-      it 'has the correct terms' do
+      it 'has the "view items in this collection" terms' do
         expect(pres.terms(:view_items_in_this_collection)).to eq(view_items_terms)
       end
-    end
-    describe '#is_part_of' do
-      it 'has the correct terms' do
+      it 'has the "is part of" terms' do
         expect(pres.terms(:is_part_of)).to eq(is_part_of_terms)
       end
     end
