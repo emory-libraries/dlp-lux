@@ -4,7 +4,8 @@ require 'rails_helper'
 RSpec.describe FindThisItemPresenter do
   let(:pres) { described_class.new(document: CURATE_GENERIC_WORK) }
   let(:find_this_item_terms) do
-    { system_of_record_ID_tesim: ['System of record ID seems to be a user entered string'],
+    { id: '123',
+      system_of_record_ID_tesim: ['System of record ID seems to be a user entered string'],
       emory_ark_tesim: ['This is a legacy Emory ARK ID'],
       other_identifiers_tesim: ['oclc:(OCoLC)772049332', 'barcode:050000087509'],
       institution_tesim: ['Emory University'],
