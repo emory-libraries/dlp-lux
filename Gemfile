@@ -51,6 +51,8 @@ gem 'twitter-typeahead-rails', '0.11.1.pre.corejavascript'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
+# Use Whenever for temp file cleanup chron jobs
+gem 'whenever', require: false
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
