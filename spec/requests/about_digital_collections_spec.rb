@@ -14,7 +14,7 @@ RSpec.describe "About Digital Collections", type: :request do
     expect(response.content_type).to eq "text/html"
   end
 
-  it 'contains the correct page title'do
+  it 'contains the correct page title' do
     expect(response.body).to include '<title>About Emory Digital Collections - Emory Digital Collections</title>'
   end
 
