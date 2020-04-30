@@ -1,19 +1,17 @@
-<div class="container breadcrumbs-container">
-  <div class="row">
-    <nav aria-label="breadcrumb">
-      <ul class="breadcrumbs">
-        <li class="breadcrumbs-crumb"><a href="/" class="link" id="crumb">Home</a></li>
-        <% crumb_hashes.each do |c| %>
-          <li class="breadcrumbs-crumb">
-            <%= link_to c[:abbr] || c[:title], c[:link], 
-                  class: "link#{' current-page' if c[:curr_page]}",
-                  id: "crumb", 
-                  onMouseover: "this.text='#{c[:title]}'",
-                  onMouseOut: "this.text='#{c[:abbr] || c[:title]}'"
-            %>
-          </li>
-        <% end %>
-      </ul>
-    </nav>
-  </div>
+<div class="breadcrumbs-container">
+  <nav aria-label="breadcrumb">
+    <ul class="breadcrumbs">
+      <li class="breadcrumbs-crumb"><a href="/" class="link" id="crumb">Home</a></li>
+      <% crumb_hashes.each do |c| %>
+        <li class="breadcrumbs-crumb">
+          <%= link_to c[:abbr] || c[:title], c[:link], 
+                class: "link#{' current-page' if c[:curr_page]}",
+                id: "crumb", 
+                onMouseover: "this.text=\"#{c[:title]}\"",
+                onMouseOut: "this.text=\"#{c[:abbr] || c[:title]}\""
+          %>
+        </li>
+      <% end %>
+    </ul>
+  </nav>
 </div>
