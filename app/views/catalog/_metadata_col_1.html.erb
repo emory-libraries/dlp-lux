@@ -4,5 +4,5 @@
   <%= render 'view_items_in_collection_block', document: document, presenter: MetadataPresenter, presenter_class: 'view-items-in-collection' %>
   <% end %>
   <%= render 'metadata_block', document: document, presenter: FindThisItemPresenter, presenter_class: 'find-this-item', title: 'Find This Item', add_class_dt: "col-md-12", add_class_dd: "col-md-12" %>
-  <%= render "related_material", document: document %>
+  <%= render 'metadata_block', document: document, presenter: RelatedMaterialPresenter, presenter_class: 'related-material', title: 'Related Material', add_class_dt: "col-md-12", add_class_dd: "col-md-12" %>
 </div>
