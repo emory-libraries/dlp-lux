@@ -1,7 +1,7 @@
 <div class="row-flex">
   <%= render "is_part_of", document: document %>
   <% if document["has_model_ssim"]&.first == "Collection" %>
-    <%= render "view_items_in_collection", document: document %>
+  <%= render 'view_items_in_collection_block', document: document, presenter: MetadataPresenter, presenter_class: 'view-items-in-collection' %>
   <% end %>
   <%= render "find_this_item", document: document %>
   <%= render "related_material", document: document %>
