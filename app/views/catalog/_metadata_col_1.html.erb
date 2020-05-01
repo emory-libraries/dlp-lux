@@ -1,8 +1,8 @@
 <div class="row-flex">
-  <%= render "is_part_of", document: document %>
+  <%= render 'is_part_of_block', document: document, presenter: MetadataPresenter, presenter_class: 'is-part-of', title: 'This item is part of:' %>
   <% if document["has_model_ssim"]&.first == "Collection" %>
-    <%= render "view_items_in_collection", document: document %>
+    <%= render 'view_items_in_collection_block', document: document, presenter: MetadataPresenter, presenter_class: 'view-items-in-collection' %>
   <% end %>
-  <%= render "find_this_item", document: document %>
-  <%= render "related_material", document: document %>
+  <%= render 'find_this_item_block', document: document, presenter: MetadataPresenter, presenter_class: 'find-this-item', title: 'Find This Item', add_class_dt: "col-md-12", add_class_dd: "col-md-12" %>
+  <%= render 'metadata_block', document: document, presenter: RelatedMaterialPresenter, presenter_class: 'related-material', title: 'Related Material', add_class_dt: "col-md-12", add_class_dd: "col-md-12" %>
 </div>
