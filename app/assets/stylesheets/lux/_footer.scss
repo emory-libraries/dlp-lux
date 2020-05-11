@@ -13,6 +13,10 @@
   }
 }
 
+@media (min-width: 901px) {
+  .footer { max-height: 457px; }
+}
+
 .footer {
   font: normal normal 16px/1.7692 "Open Sans", sans-serif;
   letter-spacing: normal;
