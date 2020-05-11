@@ -90,7 +90,7 @@ RSpec.describe 'Search the catalog using advanced search', type: :system, js: fa
 
   it 'searches the right fields for All Fields target' do
     visit root_path
-    click_on "Advanced Search"
+    click_link("Advanced Search", match: :first)
     # Search for something
     fill_in 'all_fields_advanced', with: 'iMCnR6E8'
     click_on 'advanced-search-submit'
@@ -152,7 +152,7 @@ RSpec.describe 'Search the catalog using advanced search', type: :system, js: fa
 
   it 'searches the right fields for Title target' do
     visit root_path
-    click_on "Advanced Search"
+    click_link("Advanced Search", match: :first)
     # Search for something
     fill_in 'title', with: 'iMCnR6E8'
     click_on 'advanced-search-submit'
@@ -170,7 +170,7 @@ RSpec.describe 'Search the catalog using advanced search', type: :system, js: fa
 
   it 'searches the right fields for Creator target' do
     visit root_path
-    click_on "Advanced Search"
+    click_link("Advanced Search", match: :first)
     # Search for something
     fill_in 'creator', with: 'iMCnR6E8'
     click_on 'advanced-search-submit'
@@ -186,7 +186,7 @@ RSpec.describe 'Search the catalog using advanced search', type: :system, js: fa
 
   it 'searches the right field for Subject - Topics target' do
     visit root_path
-    click_on "Advanced Search"
+    click_link("Advanced Search", match: :first)
     # Search for something
     fill_in 'subject_topics', with: 'iMCnR6E8'
     click_on 'advanced-search-submit'
@@ -201,7 +201,7 @@ RSpec.describe 'Search the catalog using advanced search', type: :system, js: fa
 
   it 'searches the right field for Subject - Names target' do
     visit root_path
-    click_on "Advanced Search"
+    click_link("Advanced Search", match: :first)
     # Search for something
     fill_in 'subject_names', with: 'iMCnR6E8'
     click_on 'advanced-search-submit'
@@ -216,7 +216,7 @@ RSpec.describe 'Search the catalog using advanced search', type: :system, js: fa
 
   it 'searches the right field for Subject - Geographic Locations target' do
     visit root_path
-    click_on "Advanced Search"
+    click_link("Advanced Search", match: :first)
     # Search for something
     fill_in 'subject_geo', with: 'iMCnR6E8'
     click_on 'advanced-search-submit'
@@ -231,7 +231,7 @@ RSpec.describe 'Search the catalog using advanced search', type: :system, js: fa
 
   it 'searches the right field for Subject - Time Periods target' do
     visit root_path
-    click_on "Advanced Search"
+    click_link("Advanced Search", match: :first)
     # Search for something
     fill_in 'subject_time_periods', with: 'iMCnR6E8'
     click_on 'advanced-search-submit'
@@ -246,7 +246,7 @@ RSpec.describe 'Search the catalog using advanced search', type: :system, js: fa
 
   it 'searches the right field for Keywords target' do
     visit root_path
-    click_on "Advanced Search"
+    click_link("Advanced Search", match: :first)
     # Search for something
     fill_in 'keywords', with: 'iMCnR6E8'
     click_on 'advanced-search-submit'
@@ -261,7 +261,7 @@ RSpec.describe 'Search the catalog using advanced search', type: :system, js: fa
 
   it 'searches the right field for Table of Contents target' do
     visit root_path
-    click_on "Advanced Search"
+    click_link("Advanced Search", match: :first)
     # Search for something
     fill_in 'table_of_contents', with: 'iMCnR6E8'
     click_on 'advanced-search-submit'
@@ -276,7 +276,7 @@ RSpec.describe 'Search the catalog using advanced search', type: :system, js: fa
 
   it 'searches the right field for Description / Abstract target' do
     visit root_path
-    click_on "Advanced Search"
+    click_link("Advanced Search", match: :first)
     # Search for something
     fill_in 'abstract', with: 'iMCnR6E8'
     click_on 'advanced-search-submit'
@@ -291,7 +291,7 @@ RSpec.describe 'Search the catalog using advanced search', type: :system, js: fa
 
   it 'searches the right field for Publisher target' do
     visit root_path
-    click_on "Advanced Search"
+    click_link("Advanced Search", match: :first)
     # Search for something
     fill_in 'publisher', with: 'iMCnR6E8'
     click_on 'advanced-search-submit'
@@ -306,7 +306,7 @@ RSpec.describe 'Search the catalog using advanced search', type: :system, js: fa
 
   it 'searches the right field for Genre target' do
     visit root_path
-    click_on "Advanced Search"
+    click_link("Advanced Search", match: :first)
     # Search for something
     fill_in 'content_genres', with: 'iMCnR6E8'
     click_on 'advanced-search-submit'
@@ -321,7 +321,7 @@ RSpec.describe 'Search the catalog using advanced search', type: :system, js: fa
 
   it 'searches the right field for Note target' do
     visit root_path
-    click_on "Advanced Search"
+    click_link("Advanced Search", match: :first)
     # Search for something
     fill_in 'notes', with: 'iMCnR6E8'
     click_on 'advanced-search-submit'
@@ -336,7 +336,7 @@ RSpec.describe 'Search the catalog using advanced search', type: :system, js: fa
 
   it 'searches the right field for Author Notes target' do
     visit root_path
-    click_on "Advanced Search"
+    click_link("Advanced Search", match: :first)
     # Search for something
     fill_in 'author_notes', with: 'iMCnR6E8'
     click_on 'advanced-search-submit'
@@ -351,7 +351,7 @@ RSpec.describe 'Search the catalog using advanced search', type: :system, js: fa
 
   it 'searches the right field for Grant / Funding Information target' do
     visit root_path
-    click_on "Advanced Search"
+    click_link("Advanced Search", match: :first)
     # Search for something
     fill_in 'grant_information_notes', with: 'iMCnR6E8'
     click_on 'advanced-search-submit'
@@ -366,7 +366,7 @@ RSpec.describe 'Search the catalog using advanced search', type: :system, js: fa
 
   it 'searches the right field for Technical Note target' do
     visit root_path
-    click_on "Advanced Search"
+    click_link("Advanced Search", match: :first)
     # Search for something
     fill_in 'technical_note', with: 'iMCnR6E8'
     click_on 'advanced-search-submit'
@@ -381,7 +381,7 @@ RSpec.describe 'Search the catalog using advanced search', type: :system, js: fa
 
   it 'searches the right field for Data Source Notes target' do
     visit root_path
-    click_on "Advanced Search"
+    click_link("Advanced Search", match: :first)
     # Search for something
     fill_in 'data_source_notes', with: 'iMCnR6E8'
     click_on 'advanced-search-submit'
@@ -396,7 +396,7 @@ RSpec.describe 'Search the catalog using advanced search', type: :system, js: fa
 
   it 'searches the right field for Related Material target' do
     visit root_path
-    click_on "Advanced Search"
+    click_link("Advanced Search", match: :first)
     # Search for something
     fill_in 'related_material_notes', with: 'iMCnR6E8'
     click_on 'advanced-search-submit'
@@ -411,7 +411,7 @@ RSpec.describe 'Search the catalog using advanced search', type: :system, js: fa
 
   it 'searches multiple fields at once' do
     visit root_path
-    click_on "Advanced Search"
+    click_link("Advanced Search", match: :first)
     # Search for two fields
     fill_in 'title', with: '2Hvw5Q55'
     fill_in 'publisher', with: '3Guv4P44'
@@ -427,13 +427,13 @@ RSpec.describe 'Search the catalog using advanced search', type: :system, js: fa
 
   it 'does not display simple search bar' do
     visit root_path
-    click_on "Advanced Search"
+    click_link("Advanced Search", match: :first)
     expect(page).to have_no_css('.search-query-form')
   end
 
   it 'does not display facets' do
     visit root_path
-    click_on "Advanced Search"
+    click_link("Advanced Search", match: :first)
     expect(page).to have_no_css('.limit-criteria')
   end
 end

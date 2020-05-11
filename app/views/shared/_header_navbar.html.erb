@@ -2,8 +2,11 @@
 
 <nav class="navbar navbar-expand-md navbar-light mx-auto">
   <div class="col-md-12">
-    <div class="row">
-      <%= render 'shared/top_links' %>
+    <div class="row non-mobile-links">
+      <div class="non-collapse-navbar">
+        <%= render 'shared/static_links' %>
+        <%= render 'shared/user_util_links' %>
+      </div>
     </div>
     <div class="row justify-content-between">
       <%= render 'shared/big_nav' %>
