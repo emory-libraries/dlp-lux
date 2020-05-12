@@ -73,6 +73,10 @@ a.nav-link.last {
   border-bottom-style: solid;
 }
 
+.utility-nav {
+  margin-bottom: map-get($spacers, 2);
+}
+
 @media (min-width: 768px) { 
   .navbar-collapse.utility-nav.collapse { display: none !important; }
   .non-collapse-navbar {
