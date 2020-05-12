@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   justify-items: center;
-  margin-top: 80px;
+  margin-top: $footer-margin-top;
   padding-top: 0 !important;
   grid-area: footer;
 }
@@ -13,16 +13,20 @@
   }
 }
 
+@media (min-width: 901px) {
+  .footer { max-height: $footer-max-height; }
+}
+
 .footer {
-  font: normal normal 16px/1.7692 "Open Sans", sans-serif;
+  font: normal normal 16px/1.7692 $font-family-sans-serif;
   letter-spacing: normal;
   text-transform: none;
   text-align: left;
-  color: #D0DEFD;
-  background-color: #091C44;
-  font-size: 12px;
-  grid-row-gap: 15px;
-  grid-column-gap: 30px;
+  color: $light-blue;
+  background-color: $dark-blue;
+  font-size: $explore-collections-action-font-size;
+  grid-row-gap: $footer-grid-row-gap;
+  grid-column-gap: $navbar-padding-x;
 }
 .footer {
   -webkit-transition: padding 0.25s ease;
@@ -30,42 +34,42 @@
 }
 @media (max-width: 600px) {
   .footer {
-    padding: 0 20px 0 20px;
+    padding: 0 $footer-standard-padding 0 $footer-standard-padding;
   }
 }
 @media (min-width: 601px) and (max-width: 900px) {
   .footer {
-    padding: 0 20px 0 20px;
+    padding: 0 $footer-standard-padding 0 $footer-standard-padding;
   }
 }
 @media (min-width: 901px) {
   .footer {
-    padding: 0 40px 0 40px;
+    padding: 0 $footer-wide-padding 0 $footer-wide-padding;
   }
 }
 @media (min-width: 1200px) {
   .footer {
-    padding: 0 40px 0 40px;
+    padding: 0 $footer-wide-padding 0 $footer-wide-padding;
   }
 }
 @media (min-width: 1290px) {
   .footer {
-    padding: 40px calc((100vw - 1250px) / 2) 40px calc((100vw - 1250px) / 2);
+    padding: $footer-wide-padding calc((100vw - 1250px) / 2) $footer-wide-padding calc((100vw - 1250px) / 2);
   }
 }
 @media (min-width: 901px) {
   .footer {
-    font-size: 12.5px;
+    font-size: $footer-font-nine-twelve;
   }
 }
 @media (min-width: 1200px) {
   .footer {
-    font-size: 13px;
+    font-size: $bread-crumb-font-size;
   }
 }
 @media (min-width: 1080px) {
   .footer-branding {
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-left: $footer-margin-left-right;
+    margin-right: $footer-margin-left-right;
   }
 }
