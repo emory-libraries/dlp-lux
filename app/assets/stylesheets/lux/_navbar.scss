@@ -68,7 +68,26 @@ a.nav-link.last {
   padding-right: 0 !important;
 }
 
-.utility-nav {
+.utility-nav, .non-collapse-navbar {
   border: $navbar-border-width $navbar-border-color;
   border-bottom-style: solid;
+}
+
+.utility-nav {
+  margin-bottom: map-get($spacers, 2);
+}
+
+@media (min-width: 768px) { 
+  .navbar-collapse.utility-nav.collapse { display: none !important; }
+  .non-collapse-navbar {
+    display: flex;
+    flex-basis: auto;
+    flex-grow: 1;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+@media (max-width: 767px) { 
+  .non-mobile-links { display: none !important; }
 }
