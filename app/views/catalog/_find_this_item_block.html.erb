@@ -1,9 +1,5 @@
 <% doc_presenter = show_presenter(document) %>
 <% fields = presenter.new(document: doc_presenter.fields_to_render).terms %>
-<% def purl doc_id 
-     "https://digital.library.emory.edu/purl/#{doc_id}"
-   end
-%>
 <% if fields.length > 0 %>
   <div class="<%= presenter_class %> card mb-2 rounded-0">
     <div class="card-header rounded-0"><%= title %></div>
