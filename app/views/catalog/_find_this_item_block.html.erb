@@ -11,7 +11,7 @@
               <%= render_document_show_field_label document, field: field_name %></dt>
             <dd class="blacklight-<%= field_name.parameterize %> <%= add_class_dd %>">
               <%= doc_presenter.field_value field unless field_name == "id" %>
-              <%= link_to "https://digital.library.emory.edu/purl/#{document["id"]}", "https://digital.library.emory.edu/purl/#{document["id"]}" if field_name == "id" %>
+              <%= link_to purl(doc_presenter.field_value(field)), purl(doc_presenter.field_value(field)) if field_name == "id" %>
             </dd>
           </div>
         <% end %>
