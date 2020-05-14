@@ -1,6 +1,6 @@
 @import 'variables';
 
 div.constraints-container { 
-  margin-top: $search-form-padding-y;
+  margin-top: $constraint-container-margin-top;
   margin-bottom: map-get($spacers, 3);
 }  

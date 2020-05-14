@@ -1,8 +1,8 @@
 @import 'lux/variables';
 
 div.breadcrumbs-container {
-  margin-top: $nav-divider-height;
-  margin-bottom: $nav-link-padding-y;
+  margin-top: $bread-container-margin-top;
+  margin-bottom: $bread-container-margin-bottom;
 }
 
 .breadcrumbs-crumb a {
