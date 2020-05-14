@@ -1,42 +1,8 @@
-// bootstrap does flex-grow: 1 by default which makes the
-// text input roughly the same size as the select in many cases
+// Search form
 form.search-query-form {
   width: 100%;
   position: relative;
   top: 2px;
-}
-
-.input-group {
-  &.col-md-12 {
-    padding-right: 0;
-  }
-  > .custom-select {
-    &.search-field {
-      height: $search-form-height;
-      max-width: $search-form-select-width;
-      margin-right: $search-form-margin-x;
-      padding: 0 $search-form-select-padding-left 0 $search-form-select-padding-right;
-
-      background: image-url("blue-material-keyboard_arrow_down.svg") no-repeat right 0.5rem center;
-      border-radius:      $border-radius !important;
-      box-shadow:         $search-form-box-shadow;
-    }
-  }
-  > .form-control {
-    &.search-q {
-      height: $search-form-height;
-      margin-right: $search-form-margin-x;
-      padding: $search-form-q-padding-y $search-form-q-padding-x;
-
-      border-radius:      $border-radius-xs !important;
-      box-shadow:         $search-form-box-shadow;
-      color: $charcoal;
-    }
-
-    &.search-q:focus {
-      border-color: $alt-bright-blue;
-    }
-  }
 }
 
 .form-inline {
@@ -49,6 +15,88 @@ form.search-query-form {
   }
 }
 
+.input-group {
+  &.col-md-12 {
+    padding-right: 0;
+  }
+
+
+
+  // Search form text input
+  > .form-control {
+    &.search-q {
+      height: $search-form-height;
+      margin-right: $search-form-margin-x;
+      padding: $search-form-q-padding-y $search-form-q-padding-x;
+
+      border-radius:      $border-radius-xs !important;
+      box-shadow:         $search-form-box-shadow;
+      color: $charcoal;
+    }
+    &.search-q:focus {
+      border-color: $alt-bright-blue;
+    }
+  }
+}
+
+
+
+// Search form dropdown
+div.bootstrap-select {
+  padding: 0;
+  margin-right: $search-form-margin-x;
+  color: $charcoal;
+  background: $search-form-select-background;
+  min-width: $search-form-select-width;
+}
+
+.dropdown-toggle::after {
+  display: none !important;
+}
+
+button.fielded-search {
+  border: $search-form-select-border;
+  height: $search-form-height;
+  box-shadow: $search-form-box-shadow;
+  padding-left: $search-form-select-padding-x;
+
+  &[aria-expanded="true"]{
+    background: $search-form-select-active-background;
+    box-shadow: none;
+  }
+}
+
+div.bootstrap-select .dropdown-toggle:focus {
+  outline: 0 !important;
+  box-shadow: none;
+
+  &[aria-expanded="true"]{
+    box-shadow: $search-form-box-shadow;
+    border-radius: 0;
+  }
+}
+
+div.dropdown-menu {
+  border-radius: 0;
+  margin-top: 0;
+  border: $search-form-select-border;
+
+  li a:active {
+    outline: none;
+  }
+}
+
+a.dropdown-item {
+  color: $charcoal;
+
+  &.active {
+    color: $white;
+  }
+}
+
+
+
+// Search form submit button
 button#search {
   width: $search-form-button-width;
   padding: 0 $search-form-button-padding-x;
@@ -63,8 +111,4 @@ button#search {
     border-color: $mid-blue;
     background-color: $mid-blue;
   }
-}
-
-.navbar-toggler {
-  height: $navbar-toggler-height;
 }

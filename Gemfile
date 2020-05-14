@@ -17,6 +17,7 @@ gem 'blacklight-marc', '>= 7.0.0.rc1'
 gem 'blacklight_advanced_search', '~>7.0'
 gem 'blacklight_range_limit'
 gem 'bootstrap', '~> 4.0'
+gem 'bootstrap-select-rails', '>= 1.13'
 gem 'citeproc-ruby'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

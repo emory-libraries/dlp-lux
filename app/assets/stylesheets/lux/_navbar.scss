@@ -96,3 +96,7 @@ a.nav-link.last {
 @media (max-width: 767px) { 
   .non-mobile-links { display: none !important; }
 }
+
+.navbar-toggler {
+  height: $navbar-toggler-height;
+}
