@@ -104,6 +104,11 @@
   }
 }
 
+#facets-toggler {
+  position: absolute;
+  left: $facet-toggler-position;
+}
+
 // The following rules are selectively brought in
 // and adapted from Blacklight's _bootstrap_overrides.scss
 

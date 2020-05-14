@@ -2,6 +2,14 @@
 
 div#sortAndPerPage {
   margin-bottom: $branding-padding-x;
+  justify-content: space-between;
+  margin-left: 5px;
+  margin-right: 5px;
+
+  > .sort-tools {
+    margin-left: auto;
+    right: 0;
+  }
 
   > div.sort-tools > div.per-page-dropdown, div#sort-dropdown {
     > button.dropdown-toggle {
