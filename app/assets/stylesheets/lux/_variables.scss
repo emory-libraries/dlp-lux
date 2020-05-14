@@ -69,6 +69,8 @@ $branding-division-height:                   1.5rem;
 $branding-padding-y:                         0.875rem;
 $branding-padding-x:                         0.5rem;
 
+$branding-margin-top:                        0.625rem;
+
 $branding-hover-color:                        $mid-blue;
 
 $navbar-light-color:                         $mid-blue;
@@ -160,9 +162,11 @@ $link-hover-transition:     all 0.25s ease;
 $show-button-line-height:            1.25 rem;
 
 // Breadcrumb
-$bread-font-size-after:              $nav-divider-height;
+$bread-font-size-after:              0.75rem;
 $bread-crumb-font-size:              0.81rem;
 $bread-crumb-margin:                 0.45rem;
+$bread-container-margin-top:         0.75rem;
+$bread-container-margin-bottom:      1rem;
 
 // Search Results
 $results-sort-min-height:            $search-form-height * 2;
@@ -191,5 +195,8 @@ $footer-standard-padding:   $search-form-padding-y;
 $footer-wide-padding:       $search-form-padding-y * 2;
 $footer-font-nine-twelve:   0.781rem;
 $footer-margin-left-right:  $advanced-search-button-height;
+
+// Constraints
+$constraint-container-margin-top:   1.25rem;
 
 

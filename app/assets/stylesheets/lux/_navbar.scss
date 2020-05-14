@@ -1,6 +1,11 @@
 @import 'fonts';
 @import 'variables';
 
+.branding-row {
+  margin-top: $branding-margin-top;
+  margin-bottom: 0;
+}
+
 .branding-header {
   display: inline-block;
   color: $dark-blue;
