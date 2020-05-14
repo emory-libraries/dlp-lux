@@ -23,10 +23,12 @@
 }
 
 .facet-limit-active {
-  @extend .border-success;
+  background-color: $base-blue;
 
   .card-header {
-    @extend .bg-success;
+    background-color: $base-blue;
+
+    > button { color: $white; }
   }
 }
 
@@ -47,7 +49,7 @@
     font-size: $facet-label-font-size;
     line-height: $facet-label-line-height;
     .selected {
-      @extend .text-success;
+      color: $base-blue;
       font-weight: $font-weight-bold;
 
       &.facet-count {
