@@ -102,6 +102,10 @@ $search-form-select-padding-left:      3.75rem;
 $search-form-select-padding-right:     1.25rem;
 $custom-select-color:                  $charcoal;
 $input-line-height:                    2.375;
+$search-form-select-background:        image-url("blue-arrow-down.svg") no-repeat right 0.875rem center;
+$search-form-select-active-background: $light-slate image-url("blue-arrow-down.svg") no-repeat right 0.875rem center;
+$search-form-select-border:            1px solid $base-slate;
+$search-form-select-padding-x:         1.125rem;
 
 $search-form-q-padding-y:           0.625rem;
 $search-form-q-padding-x:           1.25rem;

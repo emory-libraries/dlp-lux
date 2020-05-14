@@ -21,6 +21,8 @@
 //= require bootstrap
 //= require blacklight/blacklight
 
+//= require bootstrap-select
+
 //= require_tree .
 
 
