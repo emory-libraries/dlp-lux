@@ -58,31 +58,48 @@ RSpec.describe 'Search the catalog', type: :system, js: false do
 
   it 'has correct sorting behavior for Date (Newest)' do
     visit '/?q=&search_field=common_fields&sort=year_for_lux_ssi+desc%2C+title_ssort+asc'
-    expect(page).to have_content("Results\n1.\nred Apple\n2.\nYellow Banana\n3.\nOrange Carrot\n4.\nA Potato\nSelect")
+    expect(page).to have_content('1. red Apple')
+    expect(page).to have_content('2. Yellow Banana')
+    expect(page).to have_content('3. Orange Carrot')
+    expect(page).to have_content('4. A Potato')
   end
 
   it 'has correct sorting behavior for Date (Oldest)' do
     visit '/?q=&search_field=common_fields&sort=year_for_lux_ssi+asc%2C+title_ssort+asc'
-    expect(page).to have_content("Results\n1.\nOrange Carrot\n2.\nYellow Banana\n3.\nred Apple\n4.\nA Potato\nSelect")
+    expect(page).to have_content('1. Orange Carrot')
+    expect(page).to have_content('2. Yellow Banana')
+    expect(page).to have_content('3. red Apple')
+    expect(page).to have_content('4. A Potato')
   end
 
   it 'has correct sorting behavior for Creator (A-Z)' do
     visit '/?q=&search_field=common_fields&sort=creator_ssort+asc'
-    expect(page).to have_content("Results\n1.\nOrange Carrot\n2.\nYellow Banana\n3.\nred Apple\n4.\nA Potato\nSelect")
+    expect(page).to have_content('1. Orange Carrot')
+    expect(page).to have_content('2. Yellow Banana')
+    expect(page).to have_content('3. red Apple')
+    expect(page).to have_content('4. A Potato')
   end
 
   it 'has correct sorting behavior for Creator (Z-A)' do
     visit '/?q=&search_field=common_fields&sort=creator_ssort+desc'
-    expect(page).to have_content("Results\n1.\nred Apple\n2.\nYellow Banana\n3.\nOrange Carrot\n4.\nA Potato\nSelect")
+    expect(page).to have_content('1. red Apple')
+    expect(page).to have_content('2. Yellow Banana')
+    expect(page).to have_content('3. Orange Carrot')
   end
 
   it 'has correct sorting behavior for Title (A-Z)' do
     visit '/?q=&search_field=common_fields&sort=title_ssort+asc%2C+year_for_lux_ssi+desc'
-    expect(page).to have_content("Results\n1.\nOrange Carrot\n2.\nA Potato\n3.\nred Apple\n4.\nYellow Banana\nSelect")
+    expect(page).to have_content('1. Orange Carrot')
+    expect(page).to have_content('2. A Potato')
+    expect(page).to have_content('3. red Apple')
+    expect(page).to have_content('4. Yellow Banana')
   end
 
   it 'has correct sorting behavior for Title (Z-A)' do
     visit '/?q=&search_field=common_fields&sort=title_ssort+desc%2C+year_for_lux_ssi+desc'
-    expect(page).to have_content("Results\n1.\nYellow Banana\n2.\nred Apple\n3.\nA Potato\n4.\nOrange Carrot\nSelect")
+    expect(page).to have_content('1. Yellow Banana')
+    expect(page).to have_content('2. red Apple')
+    expect(page).to have_content('3. A Potato')
+    expect(page).to have_content('4. Orange Carrot')
   end
 end

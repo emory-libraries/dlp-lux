@@ -4,6 +4,10 @@ h3.heading.-h3 {
   font: normal bold $h4-font-size $font-family-sans-serif;
 }
 
+span.document-counter {
+  margin-right: map-get($spacers, 4);
+}
+
 article.document > dl.row {
   margin-left: map-get($spacers, 5);
 
@@ -27,38 +31,4 @@ div.index-document-functions > form.bookmark-toggle {
 
 dt.index-field-name {
   padding-right: map-get($spacers, 2);
-}
-
-.header-row { 
-  width: 100%;
-
-  @media (min-width: 1175px) {
-    > .col-sm-11 {
-      padding-left: 0px;
-
-      > .document-title-heading {
-        padding-left: 5px;
-      }
-    } 
-  }
-
-  @media (min-width: 745px) and (max-width: 1174px) {
-    > .col-sm-11 {
-      padding-left: 10px;
-
-      > .document-title-heading {
-        padding-left: 8px;
-      }
-    } 
-  }
-
-  @media (min-width: 695px) and (max-width: 744px) {
-    > .col-sm-11 {
-      padding-left: 20px;
-
-      > .document-title-heading {
-        padding-left: 10px;
-      }
-    } 
-  }
 }
