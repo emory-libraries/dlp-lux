@@ -27,6 +27,7 @@ RSpec.describe "View a Collection", type: :system, js: false do
     expect(page).not_to have_css('.about-this-item')
     expect(page).to have_css('.is-part-of')
     expect(page).to have_content('This item is part of:')
+    expect(page).to have_content('Find This Collection')
   end
 
   it 'has a tool card with the right options' do
