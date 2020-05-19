@@ -7,8 +7,13 @@
       <dl>
         <% fields.each do |field_name, field| %>
           <div class="row">
-            <dt class="blacklight-<%= field_name.parameterize %> <%= add_class_dt %>"><%= render_document_show_field_label document, field: field_name %></dt>
-            <dd class="blacklight-<%= field_name.parameterize %> <%= add_class_dd %>"><%= doc_presenter.field_value field %></dd>
+            <dt class="blacklight-<%= field_name.parameterize %> <%= add_class_dt %>">
+              <%= render_document_show_field_label document, field: field_name %>
+            </dt>
+            <dd class="blacklight-<%= field_name.parameterize %> <%= add_class_dd %>">
+              <%= dates_on_separate_lines(document, field_name).html_safe if field_is_for_dates?(field_name) %>
+              <%= doc_presenter.field_value field if !field_is_for_dates?(field_name) %>
+            </dd>
           </div>
         <% end %>
       </dl>

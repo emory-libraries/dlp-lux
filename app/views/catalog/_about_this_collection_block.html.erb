@@ -11,7 +11,10 @@
             <% if field_name == "finding_aid_link_ssm" %>
               <dd class="blacklight-<%= field_name.parameterize %> col-md-7"><a href="<%= doc_presenter.field_value field %>">Finding Aid</a></dd>
             <% else %>
-              <dd class="blacklight-<%= field_name.parameterize %> col-md-7"><%= doc_presenter.field_value field %></dd>
+              <dd class="blacklight-<%= field_name.parameterize %> col-md-7">
+                <%= dates_on_separate_lines(document, field_name).html_safe if field_is_for_dates?(field_name) %>
+                <%= doc_presenter.field_value field if !field_is_for_dates?(field_name) %>
+              </dd>
             <% end %>
           </div>
         <% end %>
