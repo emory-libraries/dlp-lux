@@ -40,8 +40,8 @@ div.row.static-heading-row {
 }
 
 h2.static-blurb-header {
-  font: normal normal $h4-font-size/normal $font-family-serif;
-    color: $base-blue;
-    margin-block-start: map-get($spacers, 4); 
-    margin-block-end: map-get($spacers, 3);
+  font: normal normal $h1-show-font-size/normal $font-family-serif;
+  color: $base-blue;
+  margin-block-start: map-get($spacers, 4); 
+  margin-block-end: map-get($spacers, 3);
 }
