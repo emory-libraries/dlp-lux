@@ -11,8 +11,11 @@
               <%= render_document_show_field_label document, field: field_name %>
             </dt>
             <dd class="blacklight-<%= field_name.parameterize %> <%= add_class_dd %>">
-              <%= dates_on_separate_lines(document, field_name).html_safe if field_is_for_dates?(field_name) %>
-              <%= doc_presenter.field_value field if !field_is_for_dates?(field_name) %>
+              <% if field_is_for_dates?(field_name) %>
+                <%= dates_on_separate_lines(document, field_name).html_safe %>
+              <% else %>
+                <%= doc_presenter.field_value field %>
+              <% end %>
             </dd>
           </div>
         <% end %>
