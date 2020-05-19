@@ -32,6 +32,7 @@ div.explore-card {
   grid-template-areas: "heading" "list"; 
   grid-template-rows: repeat(2,min-content) 1fr;
   color: $charcoal;
+  margin-block-start: $explore-collections-top-margin;
 }
 
 span.explore-header {
