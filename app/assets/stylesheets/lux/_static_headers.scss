@@ -3,6 +3,7 @@
 h1.static-heading {
   font: normal bold $h1-show-font-size/normal $font-family-serif;
   color: $base-blue;
+  line-height: $h1-line-height;
 }
 
 div.row.static-subheading {
