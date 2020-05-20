@@ -39,7 +39,7 @@ RSpec.describe Emory::CitationFormatter do
   end
 
   it 'always includes the url' do
-    url = cit_gen.send(:url)
+    url = cit_gen.send(:url, document)
 
     expect(cit_gen.citation_for(apa)).to include(url)
     expect(cit_gen.citation_for(chicago)).to include(url)

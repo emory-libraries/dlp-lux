@@ -18,7 +18,7 @@ module Emory
     end
 
     def citation_for(style)
-      sanitized_citation(CiteProc::Processor.new(style: style, format: 'html').import(item).render(:bibliography, id: :item).first)
+      sanitized_citation(CiteProc::Processor.new(style: style, format: 'html').import(item).render(:bibliography, id: :item).first, obj)
     rescue CiteProc::Error, TypeError, ArgumentError
       @default_citations[style.to_sym]
     end
@@ -26,7 +26,7 @@ module Emory
     private
 
       def item
-        CiteProc::Item.new(key_value_chunk_1.merge(key_value_chunk_2).merge(key_value_chunk_3))
+        CiteProc::Item.new(issued_inserter(key_value_chunk_1.merge(key_value_chunk_2).merge(key_value_chunk_3)))
       end
 
       def mla_url_test
@@ -61,8 +61,7 @@ module Emory
           title: obj[:title_tesim]&.join(', '),
           "collection-title": obj[:member_of_collections_ssim]&.join(', '),
           type: [obj[:human_readable_content_type_ssim]&.first&.downcase]&.join(', '),
-          url: url,
-          issued: (obj[:date_issued_tesim] || obj[:year_issued_isim] || obj[:year_created_isim] || [0])&.first&.to_i
+          url: url(obj)
         }
       end
 
@@ -76,6 +75,12 @@ module Emory
           keyword: obj[:keywords_tesim]&.join(', '),
           "publisher-place": obj[:place_of_production_tesim]&.join(', ')
         }
+      end
+
+      def issued_inserter(hsh)
+        return hsh.merge(issued: obj[:date_issued_tesim].first.to_i) if obj[:date_issued_tesim].present?
+        return hsh.merge(issued: obj[:date_created_tesim].first.to_i) if obj[:date_created_tesim].present?
+        hsh
       end
   end
 end
