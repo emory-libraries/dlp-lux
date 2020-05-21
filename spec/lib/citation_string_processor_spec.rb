@@ -8,8 +8,12 @@ RSpec.describe CitationStringProcessor, type: :helper do
       expect(helper.append_string_with_comma(["blah"])).to eq("blah, ")
     end
 
-    it 'returns nil if field nil' do
+    it 'returns nil if field empty string' do
       expect(helper.append_string_with_comma([""])).to be_nil
+    end
+
+    it 'returns nil if field nil' do
+      expect(helper.append_string_with_comma([nil])).to be_nil
     end
   end
 
@@ -18,12 +22,17 @@ RSpec.describe CitationStringProcessor, type: :helper do
       expect(helper.append_string_with_period(["blah"])).to eq("blah. ")
     end
 
-    it 'returns nil if field nil' do
+    it 'returns nil if field empty string' do
       expect(helper.append_string_with_period([""])).to be_nil
+    end
+
+    it 'returns nil if field nil' do
+      expect(helper.append_string_with_period([nil])).to be_nil
     end
   end
 
   let!(:obj) { CURATE_GENERIC_WORK }
+  let!(:alt_obj) { CHILD_CURATE_GENERIC_WORK_1 }
 
   describe '#apa_edition' do
     it 'prepends a comma and space if edition_tesim present' do
@@ -32,6 +41,10 @@ RSpec.describe CitationStringProcessor, type: :helper do
 
     it 'returns nil if obj nil' do
       expect(helper.apa_edition(nil)).to be_nil
+    end
+
+    it 'returns nil if obj has no edition_tesim field' do
+      expect(helper.apa_edition(alt_obj)).to be_nil
     end
   end
 

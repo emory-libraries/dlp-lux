@@ -78,76 +78,46 @@ RSpec.describe Emory::CitationFormatter do
   end
 
   context '#key_value_chunk_1' do
-    it "has the right keys" do
-      expect(cit_gen.send(:key_value_chunk_1).keys).to(
-        eq([:id, :abstract, :archive_location, :author, :"call-number", :edition, :institution])
-      )
-    end
+    key_arr = [:id, :abstract, :archive_location, :author, :"call-number", :edition, :institution]
+    keys_values_hsh = {
+      id: :item,
+      abstract: nil,
+      archive_location: nil,
+      author: "Sample Parent Creator",
+      "call-number": nil,
+      edition: nil,
+      institution: "Emory University"
+    }
 
-    it 'has the right values' do
-      keys_values_arr = [
-        [:id, :item],
-        [:abstract, nil],
-        [:archive_location, nil],
-        [:author, "Sample Parent Creator"],
-        [:"call-number", nil],
-        [:edition, nil],
-        [:institution, "Emory University"]
-      ]
-      cit_gen_chunk = cit_gen.send(:key_value_chunk_1)
-
-      keys_values_arr.each do |k, v|
-        expect(cit_gen_chunk[k]).to eq(v)
-      end
-    end
+    include_examples "check_citation_item_key_and_values", :key_value_chunk_1, key_arr, keys_values_hsh
   end
 
   context '#key_value_chunk_2' do
-    it "has the right keys" do
-      expect(cit_gen.send(:key_value_chunk_2).keys).to(
-        eq([:archive, :publisher, :title, :"collection-title", :type, :url])
-      )
-    end
+    key_arr = [:archive, :publisher, :title, :"collection-title", :type, :url]
+    keys_values_hsh = {
+      archive: "Oxford College Library (Oxford, Ga.)",
+      publisher: nil,
+      title: "Emocad.",
+      "collection-title": "Emory University Yearbooks",
+      type: "text",
+      url: "https://digital.library.emory.edu/purl/030prr4xkj-cor"
+    }
 
-    it 'has the right values' do
-      keys_values_arr = [
-        [:archive, "Oxford College Library (Oxford, Ga.)"],
-        [:publisher, nil],
-        [:title, "Emocad."],
-        [:"collection-title", "Emory University Yearbooks"],
-        [:type, "text"],
-        [:url, "https://digital.library.emory.edu/purl/030prr4xkj-cor"]
-      ]
-      cit_gen_chunk = cit_gen.send(:key_value_chunk_2)
-
-      keys_values_arr.each do |k, v|
-        expect(cit_gen_chunk[k]).to eq(v)
-      end
-    end
+    include_examples "check_citation_item_key_and_values", :key_value_chunk_2, key_arr, keys_values_hsh
   end
 
   context '#key_value_chunk_3' do
-    it "has the right keys" do
-      expect(cit_gen.send(:key_value_chunk_3).keys).to(
-        eq([:dimensions, :event, :genre, :ISBN, :ISSN, :keyword, :"publisher-place"])
-      )
-    end
+    key_arr = [:dimensions, :event, :genre, :ISBN, :ISSN, :keyword, :"publisher-place"]
+    keys_values_hsh = {
+      dimensions: nil,
+      event: nil,
+      genre: nil,
+      ISBN: nil,
+      ISSN: nil,
+      keyword: nil,
+      "publisher-place": "Oxford, Georgia"
+    }
 
-    it 'has the right values' do
-      keys_values_arr = [
-        [:dimensions, nil],
-        [:event, nil],
-        [:genre, nil],
-        [:ISBN, nil],
-        [:ISSN, nil],
-        [:keyword, nil],
-        [:"publisher-place", "Oxford, Georgia"]
-      ]
-      cit_gen_chunk = cit_gen.send(:key_value_chunk_3)
-
-      keys_values_arr.each do |k, v|
-        expect(cit_gen_chunk[k]).to eq(v)
-      end
-    end
+    include_examples "check_citation_item_key_and_values", :key_value_chunk_3, key_arr, keys_values_hsh
   end
 end
