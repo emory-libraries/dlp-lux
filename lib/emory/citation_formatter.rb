@@ -69,9 +69,13 @@ module Emory
       end
 
       def issued_inserter(hsh)
-        return hsh.merge(issued: obj[:date_issued_tesim].first.to_i) if obj[:date_issued_tesim].present?
-        return hsh.merge(issued: obj[:date_created_tesim].first.to_i) if obj[:date_created_tesim].present?
-        hsh
+        if obj[:date_issued_tesim]&.any?(&:present?)
+          hsh.merge(issued: obj[:date_issued_tesim].first.to_i)
+        elsif obj[:year_created_isim]&.any?(&:present?) && !obj[:year_created_isim].first.zero?
+          hsh.merge(issued: obj[:year_created_isim].first)
+        else
+          hsh
+        end
       end
   end
 end
