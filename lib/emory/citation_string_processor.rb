@@ -60,13 +60,10 @@ module CitationStringProcessor
 
   def chicago_default_citation
     [
-      formatted_chicago_author,
-      append_string_with_comma(obj[:title_tesim]),
+      formatted_chicago_author, append_string_with_comma(obj[:title_tesim]),
       append_string_with_comma(obj[:date_issued_tesim] || obj[:human_readable_date_created_tesim]),
       append_string_with_comma(obj[:member_of_collections_ssim]),
-      append_string_with_period(obj[:holding_repository_tesim]),
-      url(obj),
-      "."
+      append_string_with_period(obj[:holding_repository_tesim]), url(obj), "."
     ].join('')
   end
 

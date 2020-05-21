@@ -53,4 +53,101 @@ RSpec.describe Emory::CitationFormatter do
   it "sanitizes the MLA author name correctly in default citation if it's properly formatted" do
     expect(cit_gen.default_citations[mla.to_sym]).to include('Creator, Sample Parent')
   end
+
+  context '#abnormal_chars?' do
+    it 'returns true if abnormal character is found' do
+      ab_doc = document.dup.merge(creator_tesim: ["/"])
+      ab_doc2 = document.dup.merge(creator_tesim: ["1"])
+      ab_doc3 = document.dup.merge(creator_tesim: [","])
+      cit_gennie = described_class.new(ab_doc)
+      cit_gennie2 = described_class.new(ab_doc2)
+      cit_gennie3 = described_class.new(ab_doc3)
+
+      expect(cit_gennie.send(:abnormal_chars?)).to be_truthy
+      expect(cit_gennie2.send(:abnormal_chars?)).to be_truthy
+      expect(cit_gennie3.send(:abnormal_chars?)).to be_truthy
+    end
+
+    it 'returns false if abnormal character is not found' do
+      ab_doc = document.dup.merge(creator_tesim: ["ç"])
+      cit_gennie = described_class.new(ab_doc)
+
+      expect(cit_gen.send(:abnormal_chars?)).to be_falsey
+      expect(cit_gennie.send(:abnormal_chars?)).to be_falsey
+    end
+  end
+
+  context '#key_value_chunk_1' do
+    it "has the right keys" do
+      expect(cit_gen.send(:key_value_chunk_1).keys).to(
+        eq([:id, :abstract, :archive_location, :author, :"call-number", :edition, :institution])
+      )
+    end
+
+    it 'has the right values' do
+      keys_values_arr = [
+        [:id, :item],
+        [:abstract, nil],
+        [:archive_location, nil],
+        [:author, "Sample Parent Creator"],
+        [:"call-number", nil],
+        [:edition, nil],
+        [:institution, "Emory University"]
+      ]
+      cit_gen_chunk = cit_gen.send(:key_value_chunk_1)
+
+      keys_values_arr.each do |k, v|
+        expect(cit_gen_chunk[k]).to eq(v)
+      end
+    end
+  end
+
+  context '#key_value_chunk_2' do
+    it "has the right keys" do
+      expect(cit_gen.send(:key_value_chunk_2).keys).to(
+        eq([:archive, :publisher, :title, :"collection-title", :type, :url])
+      )
+    end
+
+    it 'has the right values' do
+      keys_values_arr = [
+        [:archive, "Oxford College Library (Oxford, Ga.)"],
+        [:publisher, nil],
+        [:title, "Emocad."],
+        [:"collection-title", "Emory University Yearbooks"],
+        [:type, "text"],
+        [:url, "https://digital.library.emory.edu/purl/030prr4xkj-cor"]
+      ]
+      cit_gen_chunk = cit_gen.send(:key_value_chunk_2)
+
+      keys_values_arr.each do |k, v|
+        expect(cit_gen_chunk[k]).to eq(v)
+      end
+    end
+  end
+
+  context '#key_value_chunk_3' do
+    it "has the right keys" do
+      expect(cit_gen.send(:key_value_chunk_3).keys).to(
+        eq([:dimensions, :event, :genre, :ISBN, :ISSN, :keyword, :"publisher-place"])
+      )
+    end
+
+    it 'has the right values' do
+      keys_values_arr = [
+        [:dimensions, nil],
+        [:event, nil],
+        [:genre, nil],
+        [:ISBN, nil],
+        [:ISSN, nil],
+        [:keyword, nil],
+        [:"publisher-place", "Oxford, Georgia"]
+      ]
+      cit_gen_chunk = cit_gen.send(:key_value_chunk_3)
+
+      keys_values_arr.each do |k, v|
+        expect(cit_gen_chunk[k]).to eq(v)
+      end
+    end
+  end
 end

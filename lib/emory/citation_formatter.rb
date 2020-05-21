@@ -29,15 +29,6 @@ module Emory
         CiteProc::Item.new(issued_inserter(key_value_chunk_1.merge(key_value_chunk_2).merge(key_value_chunk_3)))
       end
 
-      def mla_url_test
-        [
-          obj[:holding_repository_tesim],
-          obj[:edition_tesim],
-          obj[:publisher_tesim],
-          obj[:date_issued_tesim]
-        ].any?(&:present?)
-      end
-
       def abnormal_chars?
         obj[:creator_tesim]&.any? { |a| a.match(/[^\p{L}\s]+/) }
       end
@@ -60,7 +51,7 @@ module Emory
           publisher: obj[:publisher_tesim]&.join(', '),
           title: obj[:title_tesim]&.join(', '),
           "collection-title": obj[:member_of_collections_ssim]&.join(', '),
-          type: [obj[:human_readable_content_type_ssim]&.first&.downcase]&.join(', '),
+          type: obj[:human_readable_content_type_ssim]&.first&.downcase,
           url: url(obj)
         }
       end
