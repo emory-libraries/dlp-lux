@@ -8,11 +8,11 @@ module CitationStringProcessor
   end
 
   def append_string_with_comma(field)
-    "#{field&.first}, " if field.any?(&:present?)
+    "#{field&.first}, " if field&.any?(&:present?)
   end
 
   def append_string_with_period(field)
-    "#{field&.first}. " if field.any?(&:present?)
+    "#{field&.first}. " if field&.any?(&:present?)
   end
 
   def apa_edition(obj)
