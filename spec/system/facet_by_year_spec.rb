@@ -67,4 +67,25 @@ RSpec.describe 'Facet the catalog by year', type: :system, js: false do
     expect(page).to have_content('Newt Nutrition')
     expect(page).to have_content('Eagle Excellence')
   end
+
+  describe 'when "unknown" limiter is clicked' do
+    context 'on homepage' do
+      it "provides a constraint on the next page" do
+        visit root_path
+        click_on "Unknown"
+
+        expect(page).to have_content('Remove constraint Date: Unknown')
+      end
+    end
+
+    context 'on search results page' do
+      it "provides a constraint on the next page" do
+        visit root_path
+        click_on 'search'
+        click_on "Unknown"
+
+        expect(page).to have_content('Remove constraint Date: Unknown')
+      end
+    end
+  end
 end
