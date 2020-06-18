@@ -27,6 +27,8 @@ en:
       logout: 'Log Out'
       bookmarks: 'Bookmarks'
       search_history: 'History'
+    meta: 
+      description: 'The digital front door to the unique cultural heritage and scholarship material from Emory Libraries. Discover, view, and download images, books, and more from our campus repositories.'
     search:
       facets:
         title: 'Browse All Items'
