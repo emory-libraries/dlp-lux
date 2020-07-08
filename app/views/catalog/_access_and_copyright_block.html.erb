@@ -8,7 +8,13 @@
         <dt class="blacklight-emory_rights_statement">Rights Statement:</dt>
         <dd class="blacklight-emory_rights_statement"><%= document["emory_rights_statements_tesim"]&.first %></dd>
         <dt class="blacklight-rights_statement">Rights Status:</dt>
-        <dd class="blacklight-rights_statement"><a href=<%= document["rights_statement_tesim"]&.first %>><%= document["human_readable_rights_statement_ssim"]&.first %></a></dd>
+        <dd class="blacklight-rights_statement">
+          <% if document["rights_statement_tesim"]&.first == "Not Applicable" %>
+            <%= document["human_readable_rights_statement_ssim"]&.first %>
+          <% else %>
+            <a href=<%= document["rights_statement_tesim"]&.first %>><%= document["human_readable_rights_statement_ssim"]&.first %></a>
+          <% end %>
+        </dd>
         <% fields.each do |field_name, field| %>
           <dt class="blacklight-<%= field_name.parameterize %>"><%= render_document_show_field_label document, field: field_name %></dt>
           <dd class="blacklight-<%= field_name.parameterize %>"><%= doc_presenter.field_value field %></dd>
