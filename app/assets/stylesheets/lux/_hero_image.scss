@@ -11,6 +11,10 @@
   font-weight: $font-weight-bold;
   font-size: $hero-title-font-size;
 }
+.intro-hero-text {
+  position: relative;
+  transform: translateY(-185%);
+}
 @include media-breakpoint-up(md) {
   .intro-hero-title {
     font-size: $hero-title-font-size-large;
