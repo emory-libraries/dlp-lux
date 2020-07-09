@@ -21,6 +21,10 @@ en:
 
   blacklight:
     application_name: 'Emory Digital Collections'
+    citation:
+      apa: 'APA, 6th edition'
+      chicago-fullnote-bibliography: 'Chicago'
+      modern-language-association: 'MLA'
     header_links:
       advanced_search: 'Advanced Search'
       login: 'Login'
@@ -35,10 +39,8 @@ en:
       form:
         search:
           placeholder: 'Search Digital Collections'
-    citation:
-      apa: 'APA, 6th edition'
-      chicago-fullnote-bibliography: 'Chicago'
-      modern-language-association: 'MLA'
+    search_history:
+      recent: 'Your recent searches (cleared after your browser session)'
 
   static:
     not_found:
