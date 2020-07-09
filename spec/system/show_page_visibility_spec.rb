@@ -11,7 +11,10 @@ RSpec.describe "View Works with different levels of visibility", type: :system d
                work_with_public_low_view_visibility,
                work_with_emory_low_visibility,
                work_with_rose_high_visibility,
-               work_with_private_visibility
+               work_with_private_visibility,
+               full_work_with_emory_low_visibility,
+               full_work_with_public_low_view_visibility,
+               full_work_with_open_visibility
              ])
     solr.commit
   end
@@ -22,6 +25,9 @@ RSpec.describe "View Works with different levels of visibility", type: :system d
   let(:emory_low_work_id) { '444-321' }
   let(:rose_high_work_id) { '555-321' }
   let(:private_work_id) { '666-321' }
+  let(:full_public_low_view_work_id) { '123' }
+  let(:full_emory_low_work_id) { '124' }
+  let(:full_open_work_id) { '125' }
 
   let(:work_with_emory_high_visibility) do
     WORK_WITH_EMORY_HIGH_VISIBILITY
@@ -45,6 +51,18 @@ RSpec.describe "View Works with different levels of visibility", type: :system d
 
   let(:work_with_private_visibility) do
     WORK_WITH_PRIVATE_VISIBILITY
+  end
+
+  let(:full_work_with_public_low_view_visibility) do
+    CURATE_GENERIC_WORK.dup.merge(visibility_ssi: ['low_res'])
+  end
+
+  let(:full_work_with_emory_low_visibility) do
+    CURATE_GENERIC_WORK.dup.merge(visibility_ssi: ['emory_low'], id: '124')
+  end
+
+  let(:full_work_with_open_visibility) do
+    CURATE_GENERIC_WORK.dup.merge(id: '125')
   end
 
   context 'as a guest user' do
@@ -111,6 +129,35 @@ RSpec.describe "View Works with different levels of visibility", type: :system d
       visit solr_document_path(private_work_id)
       expect(page).not_to have_content 'Work with Private visibility'
       expect(page).to have_content 'Page Not Available'
+    end
+  end
+
+  context 'access restriction warning' do
+    it 'displays the right warning when work is deemed public low' do
+      visit solr_document_path(full_public_low_view_work_id)
+      expect(page).to have_content(
+        'This item is provided at low resolution only. Downloads are not permitted for this material.'
+      )
+    end
+
+    it 'displays the right warning when work is deemed emory low' do
+      user = FactoryBot.create(:user)
+      login_as user
+      visit solr_document_path(full_emory_low_work_id)
+
+      expect(page).to have_content(
+        'This item is provided at low resolution only.'
+      )
+    end
+
+    it 'displays no warning when work is deemed any other visibility' do
+      visit solr_document_path(full_open_work_id)
+
+      expect(page).to have_no_content(
+        'This item is provided at low resolution only.'
+      ).or have_no_content(
+        'Downloads are not permitted for this material.'
+      )
     end
   end
 end

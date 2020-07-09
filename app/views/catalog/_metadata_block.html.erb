@@ -4,6 +4,15 @@
   <div class="<%= presenter_class %> card mb-2 rounded-0">
     <div class="card-header rounded-0"><%= title %></div>
     <div class="card-body">
+      <% if presenter == AboutThisItemPresenter && document['visibility_ssi'] == 'low_res' %>
+        <p class="resolution-download-restriction">
+          <%= t('blacklight.work.about_this_item.low_resolution') %> <%= t('blacklight.work.about_this_item.downloads') %>
+        </p>
+      <% elsif presenter == AboutThisItemPresenter && document['visibility_ssi'] == 'emory_low' %>
+        <p class="resolution-download-restriction">
+          <%= t('blacklight.work.about_this_item.low_resolution') %>
+        </p>
+      <% end %>
       <dl>
         <% fields.each do |field_name, field| %>
           <div class="row">
