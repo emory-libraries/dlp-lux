@@ -45,3 +45,9 @@ en:
       about_this_item:
         downloads: 'Downloads are not permitted for this material.'
         low_resolution: 'This item is provided at low resolution only.'
+
+  static:
+    not_found:
+      header: 'Page Not Found'
+      subheading: "You may have reached this page due to an incorrect address. Use your browser's back button or return <a href='/' class='static-blurb-link'>home</a> to continue. For more assistance, <a href='/contact' class='static-blurb-link'>contact us</a>."
+
