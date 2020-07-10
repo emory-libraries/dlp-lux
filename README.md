@@ -54,15 +54,6 @@ Set `HTTP_PASSWORD_PROTECT='true'` to enable this feature.
 Set `HTTP_PASSWORD_PROTECT='false'` to disable this feature.
 Set the login and password via environment variables `HTTP_USERNAME` and `HTTP_PASSWORD`
 
-## Loading sample data
-
-In order to have a local solr instance with data in it, run this rake task:
-  ```
-  rake lux:load_sample_data
-  ```
-
-This will populate your local development instance of solr with a snapshot of curate data. The catalog_controller currently limits solr searches to items where the visibility is not restricted, or the visibility is discovery.
-
 ## Deploying to Emory servers
 
 1. To deploy, first connect to the Emory VPN.
