@@ -74,13 +74,15 @@ RSpec.describe "Visibility requests", :clean, type: :request do
       it "does not load the 'show' page for a work with 'Emory High Download' visibility" do
         get "/catalog/#{emory_high_work_id}"
 
-        expect(response.status).to eq 404
+        # Should redirect to login page
+        expect(response.status).to eq 302
       end
 
       it "does not load the 'show' page for a work with 'Emory Low Download' visibility" do
         get "/catalog/#{emory_low_work_id}"
 
-        expect(response.status).to eq 404
+        # Should redirect to login page
+        expect(response.status).to eq 302
       end
 
       it "does not load the 'show' page for a work with 'Rose High View' visibility" do

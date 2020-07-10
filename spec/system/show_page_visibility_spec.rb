@@ -56,7 +56,7 @@ RSpec.describe "View Works with different levels of visibility", type: :system d
       # Should not see page content
       visit solr_document_path(emory_high_work_id)
       expect(page).not_to have_content 'Work with Emory High visibility'
-      expect(page).to have_content 'Page Not Found'
+      expect(current_path).to eq(new_user_session_path)
 
       # Should see (low res) page content
       visit solr_document_path(public_low_view_work_id)
@@ -65,7 +65,7 @@ RSpec.describe "View Works with different levels of visibility", type: :system d
       # Should not see page content
       visit solr_document_path(emory_low_work_id)
       expect(page).not_to have_content 'Work with Emory Low visibility'
-      expect(page).to have_content 'Page Not Found'
+      expect(current_path).to eq(new_user_session_path)
 
       # Should not see page content
       visit solr_document_path(rose_high_work_id)
