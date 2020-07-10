@@ -9,7 +9,7 @@ span.document-counter {
 }
 
 article.document > dl.row {
-  margin-left: map-get($spacers, 5);
+  margin-left: map-get($spacers, 0);
 
   > dt {
     padding-left: $navbar-padding-y
@@ -21,14 +21,21 @@ dd.document-details {
 }
 
 div.document-heading-second-row {
-  margin-left: $results-document-head-margin;
-  padding-right: $results-document-head-margin;
+  margin-left: map-get($spacers, 0);
 }
 
-div.index-document-functions > form.bookmark-toggle {
-  text-align: right;
+div.index-document-functions > .bookmark-toggle {
+  width: max-content;
 }
 
 dt.index-field-name {
   padding-right: map-get($spacers, 2);
+}
+
+.document-thumbnail > a > img {
+  width: $results-thumbnail-width;
+}
+
+.documents-list > .document {
+  margin-bottom: $results-document-bottom-margin;
 }
