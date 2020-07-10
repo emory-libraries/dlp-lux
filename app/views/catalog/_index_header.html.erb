@@ -6,28 +6,23 @@
       How many bootstrap columns need to be reserved
       for bookmarks control depends on size.
   -%>
-  <% document_actions = capture do %>
-    <% # bookmark functions for items/docs -%>
-    <%= render_index_doc_actions document, wrapping_class: "index-document-functions col-sm-4 col-lg-3" %>
-  <% end %>
   <h3 class="heading -h3 index_title document-title-heading col-md-12">
     <% if counter = document_counter_with_offset(document_counter) %>
       <span class="document-counter">
         <%= t('blacklight.search.documents.counter', counter: counter) %>
-      </span>
+      </span><br>
     <% end %>
     <%= link_to_document document, counter: counter %>
   </h3>
   <div class="row col-12 document-heading-second-row">
     <% if document["member_works_count_isi"] %>
-      <dd class="col-sm-8 col-lg-9 document-details"><%= display_num_members document %></dd>
+      <dd class="document-details"><%= display_num_members document %></dd>
     <% elsif document["child_works_for_lux_tesim"] %>
-      <dd class="col-sm-8 col-lg-9 document-details"><%= display_num_children document %></dd>
+      <dd class="document-details"><%= display_num_children document %></dd>
     <% elsif document["parent_work_for_lux_tesim"] %>
-      <dd class="col-sm-8 col-lg-9 document-details">Part of: <%= link_to_parent_work document %></dd>
+      <dd class="document-details">Part of: <%= link_to_parent_work document %></dd>
     <% else %>
-      <dd class="col-sm-8 col-lg-9 document-details"></dd>
+      <dd class="document-details"></dd>
     <% end %>
-    <%= document_actions %>
   </div>
 </header>
