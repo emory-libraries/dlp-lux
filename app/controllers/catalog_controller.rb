@@ -12,6 +12,8 @@ class CatalogController < ApplicationController
     case visibility
     when 'emory_low', 'authenticated'
       redirect_to new_user_session_path
+    when 'rose_high', 'restricted'
+      render file: Rails.root.join('app', 'views', 'static', 'reading_room_not_found.html.erb'), status: :not_found, layout: true
     else
       render file: Rails.root.join('app', 'views', 'static', 'not_found.html.erb'), status: :not_found, layout: true
     end
