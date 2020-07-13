@@ -86,6 +86,7 @@ class ApplicationController < ActionController::Base
   end # rubocop:enable Metrics/MethodLength
 
   def visibility_lookup(resource_id)
+    return nil if resource_id === nil
     response = Blacklight.default_index.connection.get 'select', params: { q: "id:#{resource_id}" }
     response["response"]["docs"].first["visibility_ssi"]
   end
