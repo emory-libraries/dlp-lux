@@ -4,7 +4,7 @@
   <% end %>
   <% if document["has_model_ssim"]&.first == "CurateGenericWork" %>
     <%= render 'this_item_contains_block', document: document, presenter: ThisItemContainsPresenter, presenter_class: 'this-item-contains', title: 'This item contains:' %>
-    <%= render 'metadata_block', document: document, presenter: AboutThisItemPresenter, presenter_class: 'about-this-item', title: 'About This Item', add_class_dt: "col-md-5", add_class_dd: "col-md-7" %>
+    <%= render 'about_this_item_block', document: document, presenter: AboutThisItemPresenter, presenter_class: 'about-this-item', title: 'About This Item', add_class_dt: "col-md-5", add_class_dd: "col-md-7" %>
   <% end %>
   <%= render 'metadata_block', document: document, presenter: SubjectsKeywordsPresenter, presenter_class: 'subjects-keywords', title: 'Subjects / Keywords', add_class_dt: "col-md-5", add_class_dd: "col-md-7" %>
   <%= render 'metadata_block', document: document, presenter: PublicationDetailsPresenter, presenter_class: 'publication-details', title: 'Publication Details', add_class_dt: "col-md-5", add_class_dd: "col-md-7" %>
