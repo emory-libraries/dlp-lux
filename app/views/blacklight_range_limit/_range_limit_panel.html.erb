@@ -79,7 +79,7 @@
     <% end %>
 
     <%= link_to t('blacklight.range_limit.view_larger', field_name: label),
-        range_limit_panel_url(id: field_name, range_start: 0, range_end: 2019),
+        range_limit_panel_url(id: field_name),
         class: 'view_larger mt-1',
         data: { blacklight_modal: 'trigger' } %>
 
