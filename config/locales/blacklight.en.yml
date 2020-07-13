@@ -41,6 +41,10 @@ en:
           placeholder: 'Search Digital Collections'
     search_history:
       recent: 'Your recent searches (cleared after your browser session)'
+    work:
+      about_this_item:
+        downloads: 'Downloads are not permitted for this material.'
+        low_resolution: 'This item is provided at low resolution only.'
 
   static:
     not_found:
