@@ -8,7 +8,13 @@ class CatalogController < ApplicationController
   rescue_from NameError, with: :render_404
 
   def render_404
-    render file: Rails.root.join('app', 'views', 'static', 'not_found.html.erb'), status: :not_found, layout: true
+    visibility = visibility_lookup(resource_id_param)
+    case visibility
+    when 'emory_low', 'authenticated'
+      redirect_to new_user_session_path
+    else
+      render file: Rails.root.join('app', 'views', 'static', 'not_found.html.erb'), status: :not_found, layout: true
+    end
   end
 
   # Apply the blacklight-access_controls

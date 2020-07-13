@@ -85,14 +85,42 @@ RSpec.describe "View search results for works with different levels of visibilit
 
   context "as an unauthenticated user" do
     context 'when searching for an Emory Low Download work' do
-      it 'has a generic "Please Login for Access" thumbnail' do
+      before do
         visit "/"
         fill_in 'q', with: emory_low_work_id
         click_on('search')
+      end
+
+      it 'has a generic "Please Login for Access" thumbnail' do
         expect(page).to have_css('.document-thumbnail')
         expect(page).to have_link('Thumbnail image')
         expect(page.find("img.img-fluid")['outerHTML']).to match(/login-required/)
         expect(page).not_to have_css("img[src='http://obviously_fake_url.com/downloads/#{emory_low_work_id}?file=thumbnail']")
+      end
+
+      it 'redirects to the login page when user tries to view Emory Low Download work' do
+        click_on('Thumbnail image')
+        expect(current_path).to eq(new_user_session_path)
+      end
+    end
+
+    context 'when searching for an Emory High Download work' do
+      before do
+        visit "/"
+        fill_in 'q', with: emory_high_work_id
+        click_on('search')
+      end
+
+      it 'has a generic "Please Login for Access" thumbnail' do
+        expect(page).to have_css('.document-thumbnail')
+        expect(page).to have_link('Thumbnail image')
+        expect(page.find("img.img-fluid")['outerHTML']).to match(/login-required/)
+        expect(page).not_to have_css("img[src='http://obviously_fake_url.com/downloads/#{emory_high_work_id}?file=thumbnail']")
+      end
+
+      it 'redirects to the login page when user tries to view Emory High Download work' do
+        click_on('Thumbnail image')
+        expect(current_path).to eq(new_user_session_path)
       end
     end
   end
