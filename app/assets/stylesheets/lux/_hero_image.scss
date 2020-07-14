@@ -5,25 +5,65 @@
 .intro-hero-title {
   position: relative;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(50%);
 
   font-family: $font-family-serif;
   font-weight: $font-weight-bold;
-  font-size: $hero-title-font-size;
+  font-size: $font-size-lg;
 }
+
 .intro-hero-text {
+  font: normal bold $font-size-sm $font-family-sans-serif;
   position: relative;
-  transform: translateY(-185%);
+  transform: translateY(90%);
 }
+
+@media (min-width: 400px) {
+  .intro-hero-title {
+    transform: translateY(35%);
+  }
+
+  .intro-hero-text {
+    transform: translateY(25%);
+  }
+}
+
+@include media-breakpoint-up(sm) {
+  .intro-hero-title {
+    transform: translateY(-50%);
+    font-size: $hero-title-font-size;
+  }
+
+  .intro-hero-text {
+    font: normal bold $font-size-base $font-family-sans-serif;
+    position: relative;
+    transform: translateY(-75%);
+  }
+}
+
 @include media-breakpoint-up(md) {
   .intro-hero-title {
-    font-size: $hero-title-font-size-large;
+    font-size: $hero-title-font-size-md;
+    transform: translateY(-125%);
+  }
+
+  .intro-hero-text {
+    font: normal bold $font-size-base $font-family-sans-serif;
+    position: relative;
+    transform: translateY(-300%);
   }
 }
 
 @include media-breakpoint-up(lg) {
   .intro-hero-title {
-    transform: translateY(-100%);
+    font-size: $hero-title-font-size-large;
+    transform: translateY(-150%);
+  }
+
+  .intro-hero-text {
+    font: normal bold $hero-title-font-size $font-family-sans-serif;
+    position: relative;
+    transform: translateY(-225%);
   }
 }
 
