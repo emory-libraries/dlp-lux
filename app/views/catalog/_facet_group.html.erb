@@ -4,7 +4,11 @@
   <div class="navbar navbar-light navbar-expand-lg">
     <h2 class="homepage-content-heading">
       <% h2_title = request.fullpath != '/' ? "Limit Your Search" : t('blacklight.search.facets.title') %>
-      <%= groupname.blank? ? h2_title : t("blacklight.search.facets-#{groupname}.title") %>
+      <% if h2_title == t('blacklight.search.facets.title') && groupname.blank? %>
+        <%= link_to h2_title, search_action_path(:utf8 => '✓', :search_field => 'common_fields', :q => ''), method: :get, class: "browse-link" %>
+      <% else %>
+        <%= groupname.blank? ? h2_title : t("blacklight.search.facets-#{groupname}.title") %>
+      <% end %>
     </h2>
     <button class="navbar-toggler navbar-toggler-right" id="facets-toggler" type="button" data-toggle="collapse" data-target="#facet-panel<%= "-#{groupname}" unless groupname.nil? %>-collapse" aria-controls="facet-panel<%= "-#{groupname}" unless groupname.nil? %>-collapse" aria-expanded="false" aria-label="Toggle facets">
       <span class="navbar-toggler-icon"></span>

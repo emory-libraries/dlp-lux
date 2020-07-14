@@ -136,3 +136,12 @@
 section#sidebar.search {
   margin-top: $facet-top-margin;
 }
+
+.browse-link {
+  color: $base-blue;
+  
+  &:hover {
+    color: $bright-blue;
+    text-decoration: none;
+  }
+}
