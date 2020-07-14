@@ -19,4 +19,8 @@ RSpec.describe 'front page', type: :system do
       visible: false
     )
   end
+
+  it 'has Explore Our Collections hyperlink', js: true do
+    expect(page).to have_link('Explore Our Collections')
+  end
 end
