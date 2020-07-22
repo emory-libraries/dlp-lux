@@ -20,8 +20,9 @@ dd.document-details {
   margin-right: $navbar-padding-y
 }
 
-div.document-heading-second-row {
+dl.document-heading-second-row {
   margin-left: map-get($spacers, 0);
+  margin-bottom: map-get($spacers, 0);
 }
 
 div.index-document-functions > .bookmark-toggle {
