@@ -90,11 +90,9 @@ RSpec.describe 'footer', type: :system, js: true do
     expect(page).to have_link("Copyright Statement", href: "http://www.emory.edu/home/about-this-site/copyright.html")
   end
 
-  context 'logo' do
+  context 'logo link' do
     it 'has the right alt text' do
-      ['a.footer-branding-logo', 'path.st0', 'g#badge-bg', 'g#badge'].each do |c|
-        expect(page.find(c).text).to match(/Emory Libraries/)
-      end
+      expect(page.find('a.footer-branding-logo')['title']).to match(/Emory Libraries/)
     end
   end
 end
