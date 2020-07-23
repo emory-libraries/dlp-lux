@@ -76,4 +76,14 @@ RSpec.feature "View Search Results", type: :system, js: false do
       find("img[src='http://obviously_fake_url.com/iiif/825x69p8dh-cor/thumbnail']")
     end
   end
+
+  context 'screen reader readability' do
+    it 'wraps document-details row in a dl' do
+      visit "/"
+      fill_in 'q', with: simple_work_id
+      click_on('search')
+
+      expect(page).to have_css('dl.document-heading-second-row')
+    end
+  end
 end
