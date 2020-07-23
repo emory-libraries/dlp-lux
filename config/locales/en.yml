@@ -35,3 +35,5 @@ en:
   b_t_c: 'Back to Collection'
   about: 'About Emory Digital Collections'
   contact: 'Digital Repository Contacts'
+  footer:
+    alt: 'Emory Libraries'

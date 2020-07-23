@@ -52,8 +52,9 @@ RSpec.describe 'footer', type: :system, js: true do
     ]
   end
 
+  before { visit '/' }
+
   it 'has links to additional Lux pages' do
-    visit "/"
     expect(page).to have_link("About Digital Collections", href: about_path)
     expect(page).to have_link(
       "Copyright & Content",
@@ -74,23 +75,24 @@ RSpec.describe 'footer', type: :system, js: true do
   end
 
   it 'has version information' do
-    visit "/"
     expect(page).to have_css(".footer-version")
     expect(page).to have_content BRANCH
   end
 
   it 'has copyright information' do
-    visit "/"
-    expect(page).to have_css(".footer-copyright")
-    expect(page).to have_css(".copyright-notice")
-    expect(page).to have_css(".copyright-signature")
-    expect(page).to have_css(".copyright-year")
-    expect(page).to have_css(".copyright-owner")
-    expect(page).to have_css(".copyright-rights")
-    expect(page).to have_css(".copyright-policies")
+    [
+      ".footer-copyright", ".copyright-notice", ".copyright-signature", ".copyright-year", ".copyright-owner",
+      ".copyright-rights", ".copyright-policies", ".copyright-address", ".copyright-phone"
+    ].each do |c|
+      expect(page).to have_css(c)
+    end
     expect(page).to have_link("Privacy Policy", href: "https://libraries.emory.edu/about/policies/privacy-policy.html")
     expect(page).to have_link("Copyright Statement", href: "http://www.emory.edu/home/about-this-site/copyright.html")
-    expect(page).to have_css(".copyright-address")
-    expect(page).to have_css(".copyright-phone")
+  end
+
+  context 'logo link' do
+    it 'has the right alt text' do
+      expect(page.find('a.footer-branding-logo')['title']).to match(/Emory Libraries/)
+    end
   end
 end
