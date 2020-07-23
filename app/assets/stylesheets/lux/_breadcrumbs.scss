@@ -56,14 +56,14 @@ div.breadcrumbs-container {
 }
 
 .breadcrumbs-crumb + .breadcrumbs-crumb::before {
-  color: $bread-light-blue;
+  color: $bright-blue;
   font-weight: bold;
 }
 
 .breadcrumbs-crumb a {
   font-weight: bold;
   font-style: normal;
-  color: $bread-light-blue;
+  color: $bright-blue;
   -webkit-transition: all 0.25s ease;
   transition: all 0.25s ease;
   background: none;
@@ -81,7 +81,7 @@ div.breadcrumbs-container {
 }
 
 .breadcrumbs-crumb a .icon svg {
-  fill: $bread-light-blue;
+  fill: $bright-blue;
 }
 
 .breadcrumbs-crumb a:hover, .breadcrumbs-crumb a.is-hover, .breadcrumbs-crumb a:focus, .breadcrumbs-crumb a.is-focus {
