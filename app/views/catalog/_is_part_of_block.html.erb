@@ -16,17 +16,19 @@
 <% doc_presenter = show_presenter(document) %>
 <% fields = presenter.new(document: doc_presenter.fields_to_render).terms(:is_part_of) %>
 <% if fields.length > 0 %>
-  <div class="<%= presenter_class %> card mb-2 rounded-0">
+  <div class="<%= presenter_class %> card mb-2 rounded-0" title="<%= title %>">
     <div class="card-header rounded-0"><%= title %></div>
     <div class="card-body">
-      <dl>
+      <dl title="<%= title %>">
         <% if document['member_of_collection_ids_ssim'].present? %>
             <% col_link = document["member_of_collection_ids_ssim"].first %>
             <% col_title = document["member_of_collections_ssim"]&.first %>
+            <dt title="parent collection link"></dt>
             <dd class="blacklight-member_of_collections"><a href=<%= col_link %>><%= col_title || "Parent Collection" %></a></dd>
         <% end %>
         <% if document['parent_work_for_lux_tesim'].present? %>
           <% link, link_title = document['parent_work_for_lux_tesim'].first.split(', ') %>
+          <dt title="parent work link"></dt>
           <dd class='blacklight-parent_member_of_collections'><a href=<%= link %>><%= link_title %></a></dd>
         <% end %>
       </dl>

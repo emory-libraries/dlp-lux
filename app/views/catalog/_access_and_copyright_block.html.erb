@@ -1,10 +1,10 @@
 <% doc_presenter = show_presenter(document) %>
 <% fields = presenter.new(document: doc_presenter.fields_to_render).terms(:access_and_copyright) %>
 <% if document["has_model_ssim"]&.first == "CurateGenericWork" %>
-  <div class="<%= presenter_class %> card mb-2 rounded-0">
+  <div class="<%= presenter_class %> card mb-2 rounded-0" title="<%= title %>">
     <div class="card-header rounded-0"><%= title %></div>
     <div class="card-body">
-      <dl>
+      <dl title="<%= title %>">
         <dt class="blacklight-emory_rights_statement">Rights Statement:</dt>
         <dd class="blacklight-emory_rights_statement"><%= document["emory_rights_statements_tesim"]&.first %></dd>
         <dt class="blacklight-rights_statement">Rights Status:</dt>
@@ -19,7 +19,7 @@
           <dt class="blacklight-<%= field_name.parameterize %>"><%= render_document_show_field_label document, field: field_name %></dt>
           <dd class="blacklight-<%= field_name.parameterize %>"><%= doc_presenter.field_value field %></dd>
         <% end %>
-          <p class="copyright-dislaimer">Emory Libraries provides copyright information as a courtesy and makes no representation about copyright or other legal status of materials in its digital collections.</p>
+          <p class="copyright-dislaimer" title="copyright dislaimer">Emory Libraries provides copyright information as a courtesy and makes no representation about copyright or other legal status of materials in its digital collections.</p>
       </dl>
     </div>
   </div>
