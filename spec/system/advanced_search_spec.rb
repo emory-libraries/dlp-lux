@@ -45,6 +45,7 @@ RSpec.describe 'Search the catalog using advanced search', type: :system, js: fa
      'related_datasets',
      'table_of_contents']
   end
+  let(:search_term) { 'iMCnR6E8' }
 
   before do
     delete_all_documents_from_solr
@@ -54,45 +55,38 @@ RSpec.describe 'Search the catalog using advanced search', type: :system, js: fa
         id: i.to_s,
         has_model_ssim: ['CurateGenericWork'],
         title_tesim: "Target in #{f}",
-        "#{f}_tesim".to_sym => ['iMCnR6E8'],
+        "#{f}_tesim".to_sym => [search_term],
+        visibility_ssi: ['open']
+      )
+    end
+
+    def solr_add(solr, id:, title:, uniform_title: nil, publisher: nil)
+      solr.add(
+        id: id,
+        has_model_ssim: ['CurateGenericWork'],
+        title_tesim: title,
+        uniform_title_tesim: uniform_title,
+        publisher_tesim: publisher,
         visibility_ssi: ['open']
       )
     end
 
     # Handle special case of targeted title field
-    solr.add(
-      id: '9999',
-      has_model_ssim: ['CurateGenericWork'],
-      title_tesim: ['Target in title iMCnR6E8'],
-      visibility_ssi: ['open']
-    )
+    solr_add(solr, id: '9999', title: ['Target in title iMCnR6E8'])
 
     # Add objects to be targeted with multi-field search
-    solr.add(
-      id: '111',
-      has_model_ssim: ['CurateGenericWork'],
-      title_tesim: 'Targets in uniform_title and publisher',
-      uniform_title_tesim: ['2Hvw5Q55'],
-      publisher_tesim: ['3Guv4P44'],
-      visibility_ssi: ['open']
-    )
-
-    solr.add(
-      id: '222',
-      has_model_ssim: ['CurateGenericWork'],
-      title_tesim: 'Target in uniform_title only',
-      uniform_title_tesim: ['2Hvw5Q55'],
-      visibility_ssi: ['open']
-    )
+    solr_add(solr, id: '111', title: 'Targets in uniform_title and publisher', uniform_title: ['2Hvw5Q55'], publisher: ['3Guv4P44'])
+    solr_add(solr, id: '222', title: 'Target in uniform_title only', uniform_title: ['2Hvw5Q55'])
 
     solr.commit
+
+    visit root_path
+    click_link("Advanced Search", match: :first)
   end
 
   it 'searches the right fields for All Fields target' do
-    visit root_path
-    click_link("Advanced Search", match: :first)
     # Search for something
-    fill_in 'all_fields_advanced', with: 'iMCnR6E8'
+    fill_in 'all_fields_advanced', with: search_term
     click_on 'advanced-search-submit'
 
     result_titles = []
@@ -150,290 +144,88 @@ RSpec.describe 'Search the catalog using advanced search', type: :system, js: fa
     )
   end
 
-  it 'searches the right fields for Title target' do
-    visit root_path
-    click_link("Advanced Search", match: :first)
-    # Search for something
-    fill_in 'title', with: 'iMCnR6E8'
-    click_on 'advanced-search-submit'
-
-    within '#documents' do
-      result_titles = page.all(:css, 'h3.document-title-heading/a').to_a.map(&:text)
-      expect(result_titles).to contain_exactly(
-        'Target in title iMCnR6E8',
-        'Target in uniform_title',
-        'Target in series_title',
-        'Target in parent_title'
-      )
-    end
-  end
-
-  it 'searches the right fields for Creator target' do
-    visit root_path
-    click_link("Advanced Search", match: :first)
-    # Search for something
-    fill_in 'creator', with: 'iMCnR6E8'
-    click_on 'advanced-search-submit'
-
-    within '#documents' do
-      result_titles = page.all(:css, 'h3.document-title-heading/a').to_a.map(&:text)
-      expect(result_titles).to contain_exactly(
-        'Target in creator',
-        'Target in contributors'
-      )
-    end
-  end
-
-  it 'searches the right field for Subject - Topics target' do
-    visit root_path
-    click_link("Advanced Search", match: :first)
-    # Search for something
-    fill_in 'subject_topics', with: 'iMCnR6E8'
-    click_on 'advanced-search-submit'
-
-    within '#documents' do
-      result_titles = page.all(:css, 'h3.document-title-heading/a').to_a.map(&:text)
-      expect(result_titles).to contain_exactly(
-        'Target in subject_topics'
-      )
-    end
-  end
-
-  it 'searches the right field for Subject - Names target' do
-    visit root_path
-    click_link("Advanced Search", match: :first)
-    # Search for something
-    fill_in 'subject_names', with: 'iMCnR6E8'
-    click_on 'advanced-search-submit'
-
-    within '#documents' do
-      result_titles = page.all(:css, 'h3.document-title-heading/a').to_a.map(&:text)
-      expect(result_titles).to contain_exactly(
-        'Target in subject_names'
-      )
-    end
-  end
-
-  it 'searches the right field for Subject - Geographic Locations target' do
-    visit root_path
-    click_link("Advanced Search", match: :first)
-    # Search for something
-    fill_in 'subject_geo', with: 'iMCnR6E8'
-    click_on 'advanced-search-submit'
-
-    within '#documents' do
-      result_titles = page.all(:css, 'h3.document-title-heading/a').to_a.map(&:text)
-      expect(result_titles).to contain_exactly(
-        'Target in subject_geo'
-      )
-    end
-  end
-
-  it 'searches the right field for Subject - Time Periods target' do
-    visit root_path
-    click_link("Advanced Search", match: :first)
-    # Search for something
-    fill_in 'subject_time_periods', with: 'iMCnR6E8'
-    click_on 'advanced-search-submit'
-
-    within '#documents' do
-      result_titles = page.all(:css, 'h3.document-title-heading/a').to_a.map(&:text)
-      expect(result_titles).to contain_exactly(
-        'Target in subject_time_periods'
-      )
-    end
-  end
-
-  it 'searches the right field for Keywords target' do
-    visit root_path
-    click_link("Advanced Search", match: :first)
-    # Search for something
-    fill_in 'keywords', with: 'iMCnR6E8'
-    click_on 'advanced-search-submit'
-
-    within '#documents' do
-      result_titles = page.all(:css, 'h3.document-title-heading/a').to_a.map(&:text)
-      expect(result_titles).to contain_exactly(
-        'Target in keywords'
-      )
-    end
-  end
-
-  it 'searches the right field for Table of Contents target' do
-    visit root_path
-    click_link("Advanced Search", match: :first)
-    # Search for something
-    fill_in 'table_of_contents', with: 'iMCnR6E8'
-    click_on 'advanced-search-submit'
-
-    within '#documents' do
-      result_titles = page.all(:css, 'h3.document-title-heading/a').to_a.map(&:text)
-      expect(result_titles).to contain_exactly(
-        'Target in table_of_contents'
-      )
-    end
-  end
-
-  it 'searches the right field for Description / Abstract target' do
-    visit root_path
-    click_link("Advanced Search", match: :first)
-    # Search for something
-    fill_in 'abstract', with: 'iMCnR6E8'
-    click_on 'advanced-search-submit'
-
-    within '#documents' do
-      result_titles = page.all(:css, 'h3.document-title-heading/a').to_a.map(&:text)
-      expect(result_titles).to contain_exactly(
-        'Target in abstract'
-      )
-    end
-  end
-
-  it 'searches the right field for Publisher target' do
-    visit root_path
-    click_link("Advanced Search", match: :first)
-    # Search for something
-    fill_in 'publisher', with: 'iMCnR6E8'
-    click_on 'advanced-search-submit'
-
-    within '#documents' do
-      result_titles = page.all(:css, 'h3.document-title-heading/a').to_a.map(&:text)
-      expect(result_titles).to contain_exactly(
-        'Target in publisher'
-      )
-    end
-  end
-
-  it 'searches the right field for Genre target' do
-    visit root_path
-    click_link("Advanced Search", match: :first)
-    # Search for something
-    fill_in 'content_genres', with: 'iMCnR6E8'
-    click_on 'advanced-search-submit'
-
-    within '#documents' do
-      result_titles = page.all(:css, 'h3.document-title-heading/a').to_a.map(&:text)
-      expect(result_titles).to contain_exactly(
-        'Target in content_genres'
-      )
-    end
-  end
-
-  it 'searches the right field for Note target' do
-    visit root_path
-    click_link("Advanced Search", match: :first)
-    # Search for something
-    fill_in 'notes', with: 'iMCnR6E8'
-    click_on 'advanced-search-submit'
-
-    within '#documents' do
-      result_titles = page.all(:css, 'h3.document-title-heading/a').to_a.map(&:text)
-      expect(result_titles).to contain_exactly(
-        'Target in notes'
-      )
-    end
-  end
-
-  it 'searches the right field for Author Notes target' do
-    visit root_path
-    click_link("Advanced Search", match: :first)
-    # Search for something
-    fill_in 'author_notes', with: 'iMCnR6E8'
-    click_on 'advanced-search-submit'
-
-    within '#documents' do
-      result_titles = page.all(:css, 'h3.document-title-heading/a').to_a.map(&:text)
-      expect(result_titles).to contain_exactly(
-        'Target in author_notes'
-      )
-    end
-  end
-
-  it 'searches the right field for Grant / Funding Information target' do
-    visit root_path
-    click_link("Advanced Search", match: :first)
-    # Search for something
-    fill_in 'grant_information_notes', with: 'iMCnR6E8'
-    click_on 'advanced-search-submit'
-
-    within '#documents' do
-      result_titles = page.all(:css, 'h3.document-title-heading/a').to_a.map(&:text)
-      expect(result_titles).to contain_exactly(
-        'Target in grant_information'
-      )
-    end
-  end
-
-  it 'searches the right field for Technical Note target' do
-    visit root_path
-    click_link("Advanced Search", match: :first)
-    # Search for something
-    fill_in 'technical_note', with: 'iMCnR6E8'
-    click_on 'advanced-search-submit'
-
-    within '#documents' do
-      result_titles = page.all(:css, 'h3.document-title-heading/a').to_a.map(&:text)
-      expect(result_titles).to contain_exactly(
-        'Target in technical_note'
-      )
-    end
-  end
-
-  it 'searches the right field for Data Source Notes target' do
-    visit root_path
-    click_link("Advanced Search", match: :first)
-    # Search for something
-    fill_in 'data_source_notes', with: 'iMCnR6E8'
-    click_on 'advanced-search-submit'
-
-    within '#documents' do
-      result_titles = page.all(:css, 'h3.document-title-heading/a').to_a.map(&:text)
-      expect(result_titles).to contain_exactly(
-        'Target in data_source_notes'
-      )
-    end
-  end
-
-  it 'searches the right field for Related Material target' do
-    visit root_path
-    click_link("Advanced Search", match: :first)
-    # Search for something
-    fill_in 'related_material_notes', with: 'iMCnR6E8'
-    click_on 'advanced-search-submit'
-
-    within '#documents' do
-      result_titles = page.all(:css, 'h3.document-title-heading/a').to_a.map(&:text)
-      expect(result_titles).to contain_exactly(
-        'Target in related_material_notes'
-      )
-    end
-  end
+  include_examples 'searches_the_right_field_for', 'Title', 'title', [
+    'Target in title iMCnR6E8',
+    'Target in uniform_title',
+    'Target in series_title',
+    'Target in parent_title'
+  ]
+  include_examples 'searches_the_right_field_for', 'Creator', 'creator', [
+    'Target in creator',
+    'Target in contributors'
+  ]
+  include_examples 'searches_the_right_field_for', 'Subject - Topics', 'subject_topics', [
+    'Target in subject_topics'
+  ]
+  include_examples 'searches_the_right_field_for', 'Subject - Names', 'subject_names', [
+    'Target in subject_names'
+  ]
+  include_examples 'searches_the_right_field_for', 'Subject - Geographic Locations', 'subject_geo', [
+    'Target in subject_geo'
+  ]
+  include_examples 'searches_the_right_field_for', 'Subject - Time Periods', 'subject_time_periods', [
+    'Target in subject_time_periods'
+  ]
+  include_examples 'searches_the_right_field_for', 'Keywords', 'keywords', [
+    'Target in keywords'
+  ]
+  include_examples 'searches_the_right_field_for', 'Table of Contents', 'table_of_contents', [
+    'Target in table_of_contents'
+  ]
+  include_examples 'searches_the_right_field_for', 'Description / Abstract', 'abstract', [
+    'Target in abstract'
+  ]
+  include_examples 'searches_the_right_field_for', 'Publisher', 'publisher', [
+    'Target in publisher'
+  ]
+  include_examples 'searches_the_right_field_for', 'Genre', 'content_genres', [
+    'Target in content_genres'
+  ]
+  include_examples 'searches_the_right_field_for', 'Note', 'notes', [
+    'Target in notes'
+  ]
+  include_examples 'searches_the_right_field_for', 'Author Notes', 'author_notes', [
+    'Target in author_notes'
+  ]
+  include_examples 'searches_the_right_field_for', 'Grant / Funding Information', 'grant_information_notes', [
+    'Target in grant_information'
+  ]
+  include_examples 'searches_the_right_field_for', 'Technical Note', 'technical_note', [
+    'Target in technical_note'
+  ]
+  include_examples 'searches_the_right_field_for', 'Data Source Notes', 'data_source_notes', [
+    'Target in data_source_notes'
+  ]
+  include_examples 'searches_the_right_field_for', 'Related Material', 'related_material_notes', [
+    'Target in related_material_notes'
+  ]
 
   it 'searches multiple fields at once' do
-    visit root_path
-    click_link("Advanced Search", match: :first)
     # Search for two fields
     fill_in 'title', with: '2Hvw5Q55'
     fill_in 'publisher', with: '3Guv4P44'
     click_on 'advanced-search-submit'
 
     within '#documents' do
-      result_titles = page.all(:css, 'h3.document-title-heading/a').to_a.map(&:text)
-      expect(result_titles).to contain_exactly(
+      expect(resulting_titles).to contain_exactly(
         'Targets in uniform_title and publisher'
       )
     end
   end
 
   it 'does not display simple search bar' do
-    visit root_path
-    click_link("Advanced Search", match: :first)
     expect(page).to have_no_css('.search-query-form')
   end
 
   it 'does not display facets' do
-    visit root_path
-    click_link("Advanced Search", match: :first)
     expect(page).to have_no_css('.limit-criteria')
+  end
+
+  context 'accessibility for screen readers' do
+    context 'any/all dropdown' do
+      it 'has a title that can be read by screen reader' do
+        expect(page.find('select#op.input-small')['title']).to eq('find items that match')
+      end
+    end
   end
 end
