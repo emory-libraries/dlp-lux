@@ -45,6 +45,8 @@ en:
       about_this_item:
         downloads: 'Downloads are not permitted for this material.'
         low_resolution: 'This item is provided at low resolution only.'
+      view_items_collection: 'View items in this digital collection'
+      this_item_contains: 'This item contains:'
 
   static:
     not_found:

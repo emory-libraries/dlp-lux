@@ -209,4 +209,14 @@ RSpec.describe "View a Work", type: :system, js: false do
   it 'has a linked rights statement' do
     expect(page).to have_link('In Copyright - Non-Commercial Use Permitted', href: 'http://rightsstatements.org/vocab/InC-NC/1.0/')
   end
+
+  context 'accessibility html' do
+    context 'dls' do
+      it 'each have a title attribute' do
+        page_dls = page.find_all('dl')
+
+        expect(page_dls.map { |d| d['title'] }.compact.size).to eq(page_dls.size)
+      end
+    end
+  end
 end

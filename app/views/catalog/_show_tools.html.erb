@@ -1,10 +1,10 @@
 <% if show_doc_actions? %>
-  <div class="card mb-2 rounded-0">
+  <div class="card mb-2 rounded-0" title="<%= t('blacklight.tools.title') %>">
     <div class="card-header rounded-0">
       <%= t('blacklight.tools.title') %>
     </div>
 
-    <ul class="list-group list-group-flush">
+    <ul class="list-group list-group-flush" title="<%= t('blacklight.tools.title') %> Links">
       <%= render_show_doc_actions @document do |config, inner| %>
         <li class="list-group-item <%= config.key %>">
           <%= inner %>
