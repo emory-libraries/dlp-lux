@@ -54,10 +54,6 @@ RSpec.describe "View a Collection", type: :system, js: false do
       COLLECTION.merge(banner_path_ss: '/branding/119f4qrfj9-cor/banner/banner.jpg')
     end
 
-    before do
-      visit solr_document_path(id)
-    end
-
     it 'processes an img tag with the right id' do
       expect(banner['src']).to match(/banner.jpg/)
     end
