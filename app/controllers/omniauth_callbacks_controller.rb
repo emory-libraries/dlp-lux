@@ -8,7 +8,8 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @user = User.from_omniauth(request.env["omniauth.auth"])
     cookie_pot
     set_flash_message :notice, :success, kind: "Emory"
-    sign_in_and_redirect @user
+    sign_in @user
+    redirect_to request.env["omniauth.origin"] || root_path
   end
 
   def cookie_pot
