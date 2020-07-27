@@ -3,7 +3,12 @@
     (document["has_model_ssim"] == ["Collection"] && document["banner_path_ss"].nil?) 
 %>
 <% elsif document["has_model_ssim"] == ["Collection"] && document["banner_path_ss"].present? %>
-  <img src=<%= (ENV['THUMBNAIL_URL'] || '') + document["banner_path_ss"] %> class="img-fluid" id="collection-banner">
+  <img 
+    src=<%= (ENV['THUMBNAIL_URL'] || '') + document["banner_path_ss"] %> 
+    class="img-fluid" 
+    id="collection-banner"
+    title="collection feature image"
+  >
 <% else %>
   <%= render "uv", document: document %>
 <% end %>
