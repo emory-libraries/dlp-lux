@@ -54,8 +54,22 @@ RSpec.describe "View a Collection", type: :system, js: false do
       COLLECTION.merge(banner_path_ss: '/branding/119f4qrfj9-cor/banner/banner.jpg')
     end
 
+    before do
+      visit solr_document_path(id)
+    end
+
     it 'processes an img tag with the right id' do
-      expect(page.find('#collection-banner')['src']).to match(/banner.jpg/)
+      expect(banner['src']).to match(/banner.jpg/)
+    end
+
+    context 'banner accessibility' do
+      it 'has a title easily ready by a screen reader' do
+        expect(banner['title']).to eq('collection feature image')
+      end
+    end
+
+    def banner
+      page.find('#collection-banner')
     end
   end
 end
