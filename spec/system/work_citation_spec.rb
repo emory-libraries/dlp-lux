@@ -8,7 +8,7 @@ RSpec.describe "View a Work Citation", type: :system, js: false do
     solr.commit
     allow(Rails.application.config).to receive(:iiif_url).and_return('https://example.com')
     visit solr_document_path(id)
-    click_link('citationLink')
+    first("#citationLink").click
   end
 
   let(:id) { "030prr4xkj-cor" }

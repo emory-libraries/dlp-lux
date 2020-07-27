@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row d-none d-lg-flex">
   <div class="col-md-3">
     <%= render "metadata_col_1", document: document %>
   </div>
@@ -7,5 +7,10 @@
   </div>
   <div class="col-md-3">
     <%= render "metadata_col_3", document: document %>
+  </div>
+</div>
+<div class="row d-lg-none">
+  <div class="col">
+    <%= render 'metadata_mobile', document: document %>
   </div>
 </div>
