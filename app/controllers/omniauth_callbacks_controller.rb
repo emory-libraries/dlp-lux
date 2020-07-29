@@ -3,13 +3,14 @@ require 'openssl'
 require 'securerandom'
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def shibboleth
+    Rails.logger.debug "OmniauthCallbacksController#shibboleth: session[:requested_page]: #{session[:requested_page]}"
     Rails.logger.debug "OmniauthCallbacksController#shibboleth: request.env['omniauth.auth']: #{request.env['omniauth.auth']}"
     # had to create the `from_omniauth(auth_hash)` class method on our User model
     @user = User.from_omniauth(request.env["omniauth.auth"])
     cookie_pot
     set_flash_message :notice, :success, kind: "Emory"
     sign_in @user
-    redirect_to request.env["omniauth.origin"] || root_path
+    redirect_to session[:requested_page] || request.env["omniauth.origin"] || root_path
   end
 
   def cookie_pot

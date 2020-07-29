@@ -20,18 +20,30 @@ RSpec.describe OmniauthCallbacksController do
       }
     )
 
-  context "when origin is present" do
+  context "when both origin and requested_page are present" do
+    before do
+      request.env["omniauth.origin"] = '/example'
+      session[:requested_page] = '/example/1'
+      post :shibboleth
+    end
+
+    it "redirects to origin" do
+      expect(response.redirect_url).to eq 'http://test.host/example/1'
+    end
+  end
+
+  context "when requested_page is missing" do
     before do
       request.env["omniauth.origin"] = '/example'
       post :shibboleth
     end
 
-    it "redirects to origin" do
-      expect(response.redirect_url).to eq 'http://test.host/example'
+    it "redirects to home" do
+      expect(response.redirect_url).to include 'http://test.host/example'
     end
   end
 
-  context "when origin is missing" do
+  context "when both are missing" do
     it "redirects to home" do
       expect(response.redirect_url).to include 'http://test.host/'
     end
