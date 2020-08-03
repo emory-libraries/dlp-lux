@@ -11,6 +11,8 @@ class CatalogController < ApplicationController
     visibility = visibility_lookup(resource_id_param)
     case visibility
     when 'emory_low', 'authenticated'
+      Rails.logger.debug "CatalogController#render_404: request.url: #{request.url}"
+      session[:requested_page] = request.url
       redirect_to new_user_session_path
     when 'rose_high', 'restricted'
       render file: Rails.root.join('app', 'views', 'static', 'reading_room_not_found.html.erb'), status: :not_found, layout: true
