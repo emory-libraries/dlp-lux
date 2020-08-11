@@ -1,3 +1,8 @@
+$(document).ready( function() {
+  setExploreCollectionsHeight()
+  $(window).on('resize', setExploreCollectionsHeight)
+})
+
 function setExploreCollectionsHeight() {
   if (desktopWidth(window)) {
     matchFacetsHeight()
