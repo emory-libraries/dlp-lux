@@ -8,6 +8,6 @@ class HeroImagePresenter
   end
 
   def images
-    @images = @config['hero_images']
+    @images = @config['hero_images'].shuffle
   end
 end
