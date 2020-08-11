@@ -23,6 +23,7 @@ RSpec.describe "About Digital Collections", type: :request do
     expect(response.body).to include 'Digital Library Program'
     expect(response.body).to include 'Collections &amp; Content'
     expect(response.body).to include 'Technology'
+    expect(response.body).to include 'Accessibility'
     expect(response.body).to include 'Questions, Help, and Feedback'
     expect(response.body).to include 'Explore'
   end
