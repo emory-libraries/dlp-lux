@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function() {
+$(document).ready( function() {
   $('.universal-viewer-iframe').width($('.uv-container').width())
 
   $(window).on('resize', function(){

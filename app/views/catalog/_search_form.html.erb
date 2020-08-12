@@ -3,7 +3,7 @@
   <% if search_fields.length > 1 %>
     <label for="search_field" class="sr-only sr-only-focusable"><%= t('blacklight.search.form.search_field.label') %></label>
   <% end %>
-  <div id="search-fields" class="input-group col-md-12" data-turbolinks-permanent>
+  <div id="search-fields" class="input-group col-md-12">
     <% if search_fields.length > 1 %>
         <%= select_tag(:search_field,
                        options_for_select(search_fields, h(params[:search_field])),

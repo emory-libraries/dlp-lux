@@ -12,7 +12,6 @@
 //
 //= require jquery3
 //= require rails-ujs
-//= require turbolinks
 //
 // Required by Blacklight
 //= require popper
