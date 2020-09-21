@@ -122,7 +122,7 @@ class CatalogController < ApplicationController
     # :index_range can be an array or range of prefixes that will be used to create the navigation (note: It is case sensitive when searching values)
 
     config.add_facet_field 'holding_repository_sim', limit: 5, label: 'Library'
-    config.add_facet_field 'member_of_collections_ssim', limit: 5, label: 'Collection'
+    config.add_facet_field 'source_collection_title_ssim', limit: 5, label: 'Collection'
     config.add_facet_field 'creator_sim', limit: 5, label: 'Creator'
     config.add_facet_field 'human_readable_content_type_ssim', limit: 5, label: 'Format'
     config.add_facet_field 'content_genres_sim', limit: 5, label: 'Genre'
