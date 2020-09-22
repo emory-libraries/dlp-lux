@@ -55,6 +55,10 @@ class SolrDocument
     "/catalog/#{self['member_of_collection_ids_ssim']&.first}"
   end
 
+  def source_collection_link
+    "/catalog/#{self['source_collection_id_tesim']&.first}"
+  end
+
   def parent_work_link
     "/catalog/#{self['parent_work_for_lux_tesim']&.first&.split(', ')&.first}"
   end
@@ -74,6 +78,10 @@ class SolrDocument
 
   def work?
     self['has_model_ssim']&.first == 'CurateGenericWork'
+  end
+
+  def source_collection_title
+    self['source_collection_title_ssim']&.first
   end
 
   # document typing test groups
@@ -99,7 +107,7 @@ class SolrDocument
   end
 
   def back_collection_breadcrumb
-    { curr_page: false, abbr: nil, link: collection_link, title: I18n.t('b_t_c') }
+    { curr_page: false, abbr: nil, link: col_link, title: I18n.t('b_t_c') }
   end
 
   def back_parent_breadcrumb
@@ -109,4 +117,12 @@ class SolrDocument
   def back_parent_coll_breadcrumb
     { curr_page: false, abbr: nil, link: collection_link, title: I18n.t('b_t_p_o') }
   end
+
+  private
+
+    def col_link
+      source_collection_id = self['source_collection_id_tesim']&.first
+      return source_collection_link unless source_collection_id.nil? || self['member_of_collection_ids_ssim']&.first == source_collection_id
+      collection_link
+    end
 end

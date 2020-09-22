@@ -219,4 +219,24 @@ RSpec.describe "View a Work", type: :system, js: false do
       end
     end
   end
+
+  describe 'source collection' do
+    context 'when source collection is present' do
+      let(:work_attributes) { CURATE_GENERIC_WORK.dup.merge!(source_collection_id_tesim: 'abc123', source_collection_title_ssim: ['Source Collection test']) }
+
+      it 'has source collection link on the page (twice)' do
+        expect(page).to have_link('Back to Collection', href: '/catalog/abc123')
+        expect(page).to have_link('Source Collection test', href: 'abc123')
+      end
+    end
+
+    context 'when source collection is absent' do
+      let(:work_attributes) { CURATE_GENERIC_WORK.dup.merge!(member_of_collection_ids_ssim: ['xyz123'], member_of_collections_ssim: ['Deposit Collection test']) }
+
+      it 'has deposit collection link on the page (twice)' do
+        expect(page).to have_link('Back to Collection', href: '/catalog/xyz123')
+        expect(page).to have_link('Deposit Collection test', href: 'xyz123')
+      end
+    end
+  end
 end
