@@ -6,7 +6,7 @@ RSpec.describe 'Search the catalog by facets', type: :system, js: false do
     visit '/?f%5Bholding_repository_sim%5D%5B%5D=Sample+Library'
     expect(page).to have_css('.filter-name', text: /\ALibrary\z/)
 
-    visit '/?f%5Bmember_of_collections_ssim%5D%5B%5D=Sample+Collection'
+    visit '/?f%5Bsource_collection_title_ssim%5D%5B%5D=Sample+Collection'
     expect(page).to have_css('.filter-name', text: /\ACollection\z/)
 
     visit '/?f%5Bcreator_sim%5D%5B%5D=Sample+Creator'
