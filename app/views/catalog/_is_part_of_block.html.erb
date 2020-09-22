@@ -21,8 +21,13 @@
     <div class="card-body">
       <dl title="<%= title %>">
         <% if document['member_of_collection_ids_ssim'].present? %>
-            <% col_link = document["member_of_collection_ids_ssim"].first %>
-            <% col_title = document["member_of_collections_ssim"]&.first %>
+            <% unless document['source_collection_id_tesim'].nil? || document['member_of_collection_ids_ssim'].first == document['source_collection_id_tesim']&.first %>
+              <% col_link = document['source_collection_id_tesim'].first %>
+              <% col_title = document.source_collection_title %>
+            <% else %>
+              <% col_link = document["member_of_collection_ids_ssim"].first %>
+              <% col_title = document["member_of_collections_ssim"]&.first %>
+            <% end %>
             <dt title="parent collection link"></dt>
             <dd class="blacklight-member_of_collections"><a href=<%= col_link %>><%= col_title || "Parent Collection" %></a></dd>
         <% end %>
