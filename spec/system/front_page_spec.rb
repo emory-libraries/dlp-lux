@@ -21,6 +21,8 @@ RSpec.describe 'front page', type: :system do
   end
 
   it 'has Explore Our Collections hyperlink', js: true do
-    expect(page).to have_link('Explore Our Collections')
+    explore_path = find('a.browse-link', text: "Explore Our Collections")['href']
+
+    expect(explore_path).to include('has_model_ssim', 'Collection', 'visibility_ssi', 'open')
   end
 end
