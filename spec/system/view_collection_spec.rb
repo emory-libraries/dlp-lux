@@ -49,6 +49,15 @@ RSpec.describe "View a Collection", type: :system, js: false do
     expect(page).not_to have_selector("#collection-banner")
   end
 
+  context 'mobile view' do
+    before { resize_window_to_mobile }
+    after { resize_window_default }
+
+    it 'has the link for viewing collection items' do
+      expect(page).to have_link 'View items in this digital collection', visible: true
+    end
+  end
+
   context 'with banner' do
     let(:work_attributes) do
       COLLECTION.merge(banner_path_ss: '/branding/119f4qrfj9-cor/banner/banner.jpg')
