@@ -19,3 +19,32 @@
   </div>
 </div>
 <% end %>
+
+<script type="text/javascript">
+  document.querySelectorAll('.facet-select').forEach(function(item) {
+    item.addEventListener('click', function() {
+      var facetParent = item.parentElement.parentElement.parentElement.parentElement.parentElement.id;
+      
+      gtag('event', item.text, {
+        'event_category': 'facet_clicked',
+        'event_label': facetParent
+      });
+    });
+  });
+
+  document.querySelector('.submit.btn.btn-secondary').addEventListener('click', function() {
+    gtag('event', 'publication_date_range_applied', {
+      'event_category': 'facet_clicked',
+      'event_label': 'publication_date_range_facet'
+    });
+  });
+
+  document.querySelectorAll('.btn.btn-block.p-2.text-left.collapse-toggle.collapsed').forEach(function(item) {
+    item.addEventListener('click', function() {
+      gtag('event', item.innerText, {
+        'event_category': 'facet_expanded',
+        'event_label': item.innerText
+      });
+    });
+  });
+</script>
