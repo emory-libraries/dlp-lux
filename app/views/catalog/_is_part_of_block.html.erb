@@ -11,6 +11,11 @@
     'event_category': 'holding_repository_view',
     'event_label': '<%= document['title_tesim'].first %>'
   });
+  gtag('event', "<%= document['human_readable_content_type_ssim']&.first %>",
+  {
+    'event_category': 'format_view',
+    'event_label': '<%= document['title_tesim'].first %>'
+  });
 </script>
 
 <% doc_presenter = show_presenter(document) %>
