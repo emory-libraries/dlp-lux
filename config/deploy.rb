@@ -16,8 +16,8 @@ append :linked_dirs, "log", "public/assets", "tmp/pids", "tmp/cache", "tmp/socke
 append :linked_files, ".env.production", "config/secrets.yml", "config/reading_room_ips.yml"
 
 set :default_env,
-    PATH: '$PATH:/opt/rh/rh-ruby25/root/usr/local/bin:/opt/rh/rh-ruby25/root/usr/bin',
-    LD_LIBRARY_PATH: '$LD_LIBRARY_PATH:/opt/rh/rh-ruby25/root/usr/local/lib64:/opt/rh/rh-ruby25/root/usr/lib64',
+    PATH: '$PATH:/usr/local/rbenv/shims/:/usr/local/rbenv/shims/bin',
+    LD_LIBRARY_PATH: '$LD_LIBRARY_PATH:/usr/local/rbenv/shims:/opt/rh/rh-ruby25/root/usr/local/lib64:/opt/rh/rh-ruby25/root/usr/lib64',
     PASSENGER_INSTANCE_REGISTRY_DIR: '/var/run'
 
 set :ec2_profile, ENV['AWS_PROFILE'] || ENV['AWS_DEFAULT_PROFILE']
