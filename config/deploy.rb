@@ -17,8 +17,7 @@ append :linked_files, ".env.production", "config/secrets.yml", "config/reading_r
 
 set :default_env,
     PATH: '$PATH:/usr/local/rbenv/shims/:/usr/local/rbenv/shims/bin',
-    LD_LIBRARY_PATH: '$LD_LIBRARY_PATH:/usr/local/rbenv/shims:/opt/rh/rh-ruby25/root/usr/local/lib64:/opt/rh/rh-ruby25/root/usr/lib64',
-    PASSENGER_INSTANCE_REGISTRY_DIR: '/var/run'
+    LD_LIBRARY_PATH: '$LD_LIBRARY_PATH:/usr/local/rbenv/shims:/opt/rh/rh-ruby25/root/usr/local/lib64:/opt/rh/rh-ruby25/root/usr/lib64'
 
 set :ec2_profile, ENV['AWS_PROFILE'] || ENV['AWS_DEFAULT_PROFILE']
 set :ec2_region, %w[us-east-1]
