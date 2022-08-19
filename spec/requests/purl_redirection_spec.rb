@@ -16,7 +16,7 @@ RSpec.describe "PURL Redirection", :clean, type: :request do
 
   it "redirects requests from /purl/:id to the catalog" do
     get("/purl/#{public_work_id}")
-    expect(response).to have_http_status(303)
+    expect(response).to have_http_status(:see_other)
     expect(response).to redirect_to("/catalog/#{public_work_id}")
   end
 end

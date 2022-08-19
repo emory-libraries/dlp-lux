@@ -5,7 +5,7 @@
 
 Discovery application for Emory's Cor repository.
 
-* Ruby version 2.5.3, Rails version 5.1
+* Ruby version 2.7.5, Rails version 5.1
 
 * Blacklight 7
 

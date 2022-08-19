@@ -119,8 +119,8 @@ workflows:
     ci:
         jobs:
             - build:
-                name: ruby2-5-3
+                name: ruby2-7-5
             - coverage:
                 name: codeclimate
                 requires:
-                    - ruby2-5-3
+                    - ruby2-7-5

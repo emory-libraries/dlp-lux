@@ -75,7 +75,7 @@ end
 
 group :development, :test do
   # bixby = rubocop rules for Hyrax apps
-  gem 'bixby'
+  gem 'bixby', '~> 3.0.1'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara'
