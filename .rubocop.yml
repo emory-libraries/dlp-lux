@@ -33,7 +33,7 @@ Metrics/BlockLength:
         - 'config/routes.rb'
         - 'coverage/config/routes.rb'
 
-Metrics/LineLength:
+Layout/LineLength:
     Exclude:
         - 'spec/**/*'
 

@@ -3,8 +3,8 @@ require 'rails_helper'
 
 RSpec.describe OmniauthCallbacksController do
   before do
-    User.create(provider:     'shibboleth',
-                uid:          'brianbboys1967',
+    User.create(provider: 'shibboleth',
+                uid: 'brianbboys1967',
                 display_name: 'Brian Wilson')
     request.env["devise.mapping"] = Devise.mappings[:user]
     request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:shib]
@@ -13,10 +13,10 @@ RSpec.describe OmniauthCallbacksController do
   OmniAuth.config.mock_auth[:shib] =
     OmniAuth::AuthHash.new(
       provider: 'shibboleth',
-      uid:      "P0000001",
-      info:     {
+      uid: "P0000001",
+      info: {
         display_name: "Brian Wilson",
-        uid:          'brianbboys1967'
+        uid: 'brianbboys1967'
       }
     )
 

@@ -120,9 +120,9 @@ class SolrDocument
 
   private
 
-    def col_link
-      source_collection_id = self['source_collection_id_tesim']&.first
-      return source_collection_link unless source_collection_id.nil? || self['member_of_collection_ids_ssim']&.first == source_collection_id
-      collection_link
-    end
+  def col_link
+    source_collection_id = self['source_collection_id_tesim']&.first
+    return source_collection_link unless source_collection_id.nil? || self['member_of_collection_ids_ssim']&.first == source_collection_id
+    collection_link
+  end
 end

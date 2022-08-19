@@ -36,12 +36,12 @@ module CitationStringProcessor
 
   def formatted_apa_author
     return joined_apa_author_names unless abnormal_chars? || obj[:creator_tesim].blank?
-    "#{author_name_no_period(obj)&.join(', & ')}. " unless obj[:creator_tesim].blank?
+    "#{author_name_no_period(obj)&.join(', & ')}. " if obj[:creator_tesim].present?
   end
 
   def formatted_mla_author
     return joined_mla_author_names unless abnormal_chars? || obj[:creator_tesim].blank?
-    "#{author_name_no_period(obj)&.join(', ')}. " unless obj[:creator_tesim].blank?
+    "#{author_name_no_period(obj)&.join(', ')}. " if obj[:creator_tesim].present?
   end
 
   def formatted_chicago_author

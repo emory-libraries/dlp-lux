@@ -40,63 +40,63 @@ module Blacklight
 
     private
 
-      delegate :thumbnail_field, :thumbnail_method, :default_thumbnail, to: :view_config
+    delegate :thumbnail_field, :thumbnail_method, :default_thumbnail, to: :view_config
 
-      # @param [Hash] image_options to pass to the image tag
-      def thumbnail_value(image_options)
-        value = if thumbnail_field
-                  image_url = thumbnail_image_url
-                  image_options[:alt] = "Thumbnail image"
-                  image_options[:class] = "img-fluid"
-                  view_context.image_tag image_url, image_options if image_url.present?
-                end
+    # @param [Hash] image_options to pass to the image tag
+    def thumbnail_value(image_options)
+      value = if thumbnail_field
+                image_url = thumbnail_image_url
+                image_options[:alt] = "Thumbnail image"
+                image_options[:class] = "img-fluid"
+                view_context.image_tag image_url, image_options if image_url.present?
+              end
 
-        value || default_thumbnail_value(image_options)
+      value || default_thumbnail_value(image_options)
+    end
+
+    def thumbnail_image_url
+      visibility = document["visibility_ssi"]
+      case visibility
+      when "open", "low_res"
+        lux_thumbnail_url
+      when "emory_low", "authenticated" # Authenticated is the same as Emory High Download
+        return 'login-required.png' unless view_context&.current_user
+        lux_thumbnail_url
+      when "rose_high"
+        return 'reading-room-only.png' unless view_context.current_ability.user_groups.include?('rose_high')
+        lux_thumbnail_url
       end
+    end
 
-      def thumbnail_image_url
-        visibility = document["visibility_ssi"]
-        case visibility
-        when "open", "low_res"
-          return lux_thumbnail_url
-        when "emory_low", "authenticated" # Authenticated is the same as Emory High Download
-          return 'login-required.png' unless view_context&.current_user
-          return lux_thumbnail_url
-        when "rose_high"
-          return 'reading-room-only.png' unless view_context.current_ability.user_groups.include?('rose_high')
-          return lux_thumbnail_url
-        end
+    def lux_thumbnail_url
+      (ENV['THUMBNAIL_URL'] || '') + "/iiif/#{thumbnail_value_from_document}/thumbnail"
+    end
+
+    def default_thumbnail_value(image_options)
+      return unless default_thumbnail
+
+      case default_thumbnail
+      when Symbol
+        view_context.send(default_thumbnail, document, image_options)
+      when Proc
+        default_thumbnail.call(document, image_options)
+      else
+        view_context.image_tag default_thumbnail, image_options
       end
+    end
 
-      def lux_thumbnail_url
-        (ENV['THUMBNAIL_URL'] || '') + "/iiif/#{thumbnail_value_from_document}/thumbnail"
-      end
+    def thumbnail_value_from_document
+      Array(thumbnail_field).lazy.map { |field| retrieve_values(field_config(field)).first }.reject(&:blank?).first
+    end
 
-      def default_thumbnail_value(image_options)
-        return unless default_thumbnail
+    def retrieve_values(field_config)
+      FieldRetriever.new(document, field_config).fetch
+    end
 
-        case default_thumbnail
-        when Symbol
-          view_context.send(default_thumbnail, document, image_options)
-        when Proc
-          default_thumbnail.call(document, image_options)
-        else
-          view_context.image_tag default_thumbnail, image_options
-        end
-      end
+    def field_config(field)
+      return field if field.is_a? Blacklight::Configuration::Field
 
-      def thumbnail_value_from_document
-        Array(thumbnail_field).lazy.map { |field| retrieve_values(field_config(field)).first }.reject(&:blank?).first
-      end
-
-      def retrieve_values(field_config)
-        FieldRetriever.new(document, field_config).fetch
-      end
-
-      def field_config(field)
-        return field if field.is_a? Blacklight::Configuration::Field
-
-        Configuration::NullField.new(field)
-      end
+      Configuration::NullField.new(field)
+    end
   end
 end
