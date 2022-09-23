@@ -44,6 +44,12 @@
   max-width: 1170px;
 }
 
+@media (max-width: 575px) {
+  nav.navbar {
+    padding-bottom: map-get($spacers, 3);
+  }
+}
+
 li.list-group-item > .nav-link {
   padding: map-get($spacers, 1) map-get($spacers, 3);
 }
