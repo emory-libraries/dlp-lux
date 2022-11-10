@@ -147,3 +147,4 @@ tags
 
 public/uv/
 jmeter.log
+.ruby-version
