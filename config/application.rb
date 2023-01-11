@@ -17,5 +17,7 @@ module LuxBl7
     # -- all .rb files in that directory are automatically loaded.
 
     config.exceptions_app = routes
+
+    config.active_record.yaml_column_permitted_classes = [ActiveSupport::HashWithIndifferentAccess, Symbol]
   end
 end
