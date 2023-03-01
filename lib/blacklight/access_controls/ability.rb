@@ -101,12 +101,16 @@ module Blacklight
 
         @user_groups = default_user_groups
         @user_groups |= current_user.groups if current_user.respond_to? :groups
+        user_groups_customizations
+
+        @user_groups
+      end
+
+      def user_groups_customizations
         @user_groups |= ['registered', 'emory_low'] unless current_user.new_record?
         #NOTE: The user's IP address got passed in through the options hash
         @user_groups |= rose_user_groups if rose_reading_room_ips.include? options
         @user_groups |= admin_user_groups if admin_uids.include? current_user.uid
-
-        @user_groups
       end
 
       # Everyone is automatically a member of groups 'public' and 'low_res'
