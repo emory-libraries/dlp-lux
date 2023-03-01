@@ -8,6 +8,7 @@ end
 
 ruby '~> 2.7.5'
 
+gem 'administrate', '~> 0.17.0'
 # Use ActiveModel has_secure_password
 # Needed for support of OpenSSH keys
 gem 'bcrypt_pbkdf'

@@ -1,5 +1,10 @@
 # frozen_string_literal: true
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :content_blocks
+
+    root to: "admin#index"
+  end
   concern :range_searchable, BlacklightRangeLimit::Routes::RangeSearchable.new
   mount Blacklight::Engine => '/'
   mount BlacklightAdvancedSearch::Engine => '/'

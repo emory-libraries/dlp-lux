@@ -106,3 +106,12 @@ a.nav-link.last {
 .navbar-toggler {
   height: $navbar-toggler-height;
 }
+
+.banner.alert.alert-warning {
+  margin-right: -15px;
+  margin-left: -15px;
+  background-color: $gold;
+  color: $dark-blue;
+  border: unset !important;
+  border-radius: unset !important;
+}
