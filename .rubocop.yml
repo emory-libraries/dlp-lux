@@ -70,7 +70,7 @@ RSpec/ExampleLength:
 
 RSpec/AnyInstance:
     Exclude:
-        - 'spec/system/search_results_visibility_spec.rb'
+        - 'spec/**/*'
 
 Style/MethodDefParentheses:
   Exclude:

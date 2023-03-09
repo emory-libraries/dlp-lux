@@ -26,6 +26,16 @@ RSpec.describe 'Navigation bar', integration: true, clean: true, type: :system d
     it 'displays the user\'s name' do
       expect(page).to have_content user.display_name
     end
+
+    context 'when admin' do
+      it 'displays a link for the Admin Dashboard' do
+        allow_any_instance_of(Ability).to receive(:admin?).and_return(true)
+        login_as user
+        visit '/'
+
+        expect(page).to have_content 'Admin'
+      end
+    end
   end
 
   context 'as a guest user' do

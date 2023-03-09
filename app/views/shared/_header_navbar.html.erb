@@ -8,6 +8,7 @@
         <%= render 'shared/user_util_links' %>
       </div>
     </div>
+    <%= render 'shared/homepage_banner' unless ContentBlock.homepage_banner.blank? %>
     <div class="row justify-content-between branding-row">
       <%= render 'shared/big_nav' %>
     </div>

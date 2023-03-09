@@ -101,11 +101,16 @@ module Blacklight
 
         @user_groups = default_user_groups
         @user_groups |= current_user.groups if current_user.respond_to? :groups
+        user_groups_customizations
+
+        @user_groups
+      end
+
+      def user_groups_customizations
         @user_groups |= ['registered', 'emory_low'] unless current_user.new_record?
         #NOTE: The user's IP address got passed in through the options hash
         @user_groups |= rose_user_groups if rose_reading_room_ips.include? options
-
-        @user_groups
+        @user_groups |= admin_user_groups if admin_uids.include? current_user.uid
       end
 
       # Everyone is automatically a member of groups 'public' and 'low_res'
@@ -116,6 +121,10 @@ module Blacklight
       # Only users accessing content from the Rose reading room IP should be added to the 'rose_high' access group
       def rose_user_groups
         ['rose_high']
+      end
+
+      def admin_user_groups
+        ['admin']
       end
 
       # read implies discover, so discover_groups is the union of read and discover groups
@@ -180,6 +189,16 @@ module Blacklight
 
       def reading_room_ips_yaml
         YAML.safe_load(ERB.new(File.read(Rails.root.join("config", "reading_room_ips.yml"))).result, [], [], true)
+      end
+
+      def admin_uids
+        YAML.load_file(Rails.root.join("config", "emory", "groups", "admins.yml"))['admin']
+      rescue
+        []
+      end
+
+      def admin?
+        user_groups.include? 'admin'
       end
 
       module ClassMethods

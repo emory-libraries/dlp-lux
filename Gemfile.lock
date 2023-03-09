@@ -64,6 +64,16 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.8.1)
       public_suffix (>= 2.0.2, < 6.0)
+    administrate (0.17.0)
+      actionpack (>= 5.0)
+      actionview (>= 5.0)
+      activerecord (>= 5.0)
+      datetime_picker_rails (~> 0.0.7)
+      jquery-rails (>= 4.0)
+      kaminari (>= 1.0)
+      momentjs-rails (~> 2.8)
+      sassc-rails (~> 2.1)
+      selectize-rails (~> 0.6)
     airbrussh (1.4.1)
       sshkit (>= 1.6.1, != 1.7.0)
     arel (9.0.0)
@@ -981,6 +991,8 @@ GEM
     csl-styles (1.0.1.10)
       csl (~> 1.0)
     date (3.3.3)
+    datetime_picker_rails (0.0.7)
+      momentjs-rails (>= 2.8.1)
     deprecation (1.0.0)
       activesupport
     devise (4.8.1)
@@ -1223,6 +1235,7 @@ GEM
       sprockets-rails
       tilt
     scrub_rb (1.0.1)
+    selectize-rails (0.12.6)
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
@@ -1317,6 +1330,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  administrate (~> 0.17.0)
   bcrypt_pbkdf
   bixby (~> 3.0.1)
   blacklight (>= 7)
