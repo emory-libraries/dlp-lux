@@ -1,9 +1,12 @@
 # frozen_string_literal: true
 require 'rails_helper'
+require_relative '../../db/concerns/default_explore_collections'
 include Warden::Test::Helpers
+include DefaultExploreCollections
 
 RSpec.describe 'front page', type: :system do
   before do
+    stub_default_explore_collections
     visit '/'
   end
 

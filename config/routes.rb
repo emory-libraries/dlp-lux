@@ -2,6 +2,7 @@
 Rails.application.routes.draw do
   namespace :admin do
     resources :content_blocks
+    resources :explore_collections
 
     root to: "admin#index"
   end
