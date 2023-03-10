@@ -22,7 +22,7 @@ RSpec.describe 'Explore Collections Dashboard', type: :system do
 
       it 'enables user to edit a explore collection' do
         visit '/admin/explore_collections'
-        click_link 'Edit', href: "/admin/explore_collections/#{explore_collection.id.to_s}/edit"
+        click_link 'Edit', href: "/admin/explore_collections/#{explore_collection.id}/edit"
         fill_in 'explore_collection_title', with: 'new_value'
         find('input[name="commit"]').click
         expect(page).to have_content('Explore collection was successfully updated.')
