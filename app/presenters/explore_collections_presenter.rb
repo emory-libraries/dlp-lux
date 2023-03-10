@@ -1,13 +1,9 @@
 # frozen_string_literal: true
 
 class ExploreCollectionsPresenter
-  attr_reader :config
+  attr_reader :collections
 
   def initialize
-    @config = YAML.safe_load(File.open(Rails.root.join('config', 'explore_collections.yml')))
-  end
-
-  def collections
-    @collections = @config['collections']
+    @collections = ExploreCollection.all.select(&:active?).sample(3)
   end
 end
