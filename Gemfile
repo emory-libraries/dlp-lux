@@ -33,6 +33,7 @@ gem 'honeybadger', '~> 4.0'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'mysql2', '~> 0.5'
+gem 'omniauth', '< 2'
 # Use shibboleth for user authentication
 gem 'omniauth-shibboleth', '~> 1.3'
 # Use Puma as the app server
