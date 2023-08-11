@@ -50,7 +50,7 @@ class CatalogController < ApplicationController
     ## Should the raw solr document endpoint (e.g. /catalog/:id/raw) be enabled
     # config.raw_endpoint.enabled = false
 
-    list_of_common_fields =<<-EOS.gsub(/^[\s\t]*/, '').gsub(/[\s\t]*\n/, ' ').strip
+    list_of_common_fields = <<-EOS.gsub(/^[\s\t]*/, '').gsub(/[\s\t]*\n/, ' ').strip
       system_of_record_ID_tesim primary_repository_ID_tesim emory_ark_tesim local_call_number_tesim
       other_identifiers_tesim title_tesim uniform_title_tesim series_title_tesim parent_title_tesim
       creator_tesim contributors_tesim keywords_tesim subject_topics_tesim subject_names_tesim
