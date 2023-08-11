@@ -8,6 +8,7 @@ RSpec.feature "View Search Results", type: :system, js: false do
     solr.commit
     ENV['THUMBNAIL_URL'] = 'http://obviously_fake_url.com'
   end
+  after { delete_all_documents_from_solr }
 
   let(:collection_id) { COLLECTION[:id] }
   let(:parent_work_id) { PARENT_CURATE_GENERIC_WORK[:id] }
@@ -84,6 +85,21 @@ RSpec.feature "View Search Results", type: :system, js: false do
       click_on('search')
 
       expect(page).to have_css('dl.document-heading-second-row')
+    end
+  end
+
+  context 'when searching for a work indexed for full-text searching' do
+    it 'returns only the simple work with the expected elements' do
+      visit "/"
+      fill_in 'q', with: 'teddy longfellow'
+      click_on('search')
+
+      expect(find_all('#documents article header h3 a').size).to eq(1)
+      expect(page).to have_content('The Title of my Work')
+      expect(page).to have_content('Full-text matches:')
+      expect(page).to have_content(
+        '... This is the story of Teddy Longfellow, who lived to a hundred and three! ...'
+      )
     end
   end
 end

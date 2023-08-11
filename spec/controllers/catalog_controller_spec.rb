@@ -45,7 +45,8 @@ RSpec.describe CatalogController, type: :controller do
        'holding_repository_tesim',
        'human_readable_content_type',
        'human_readable_date_created_tesim',
-       'visibility_group_ssi']
+       'visibility_group_ssi',
+       'all_text_tsimv']
     end
     it { expect(index_fields).to contain_exactly(*expected_index_fields) }
   end

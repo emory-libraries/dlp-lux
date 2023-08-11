@@ -50,15 +50,18 @@ class CatalogController < ApplicationController
     ## Should the raw solr document endpoint (e.g. /catalog/:id/raw) be enabled
     # config.raw_endpoint.enabled = false
 
+    list_of_common_fields =<<-EOS.gsub(/^[\s\t]*/, '').gsub(/[\s\t]*\n/, ' ').strip
+      system_of_record_ID_tesim primary_repository_ID_tesim emory_ark_tesim local_call_number_tesim
+      other_identifiers_tesim title_tesim uniform_title_tesim series_title_tesim parent_title_tesim
+      creator_tesim contributors_tesim keywords_tesim subject_topics_tesim subject_names_tesim
+      subject_geo_tesim subject_time_periods_tesim id all_text_tsimv
+    EOS
     ## Default parameters to send to solr for all search-like requests. See also SearchBuilder#processed_parameters
     config.default_solr_params = {
       qt: 'search',
       mm: '100%',
       rows: 10,
-      qf: 'system_of_record_ID_tesim primary_repository_ID_tesim emory_ark_tesim local_call_number_tesim
-           other_identifiers_tesim title_tesim uniform_title_tesim series_title_tesim parent_title_tesim
-           creator_tesim contributors_tesim keywords_tesim subject_topics_tesim subject_names_tesim
-           subject_geo_tesim subject_time_periods_tesim id',
+      qf: list_of_common_fields,
       fq: '(((has_model_ssim:CurateGenericWork) OR (has_model_ssim:Collection)) AND !(visibility_ssi:restricted))'
       ## we want to only return works where visiblity_ssi != restricted
     }
@@ -166,6 +169,7 @@ class CatalogController < ApplicationController
     config.add_index_field 'human_readable_date_created_tesim', label: 'Date', if: :display_date?
     config.add_index_field 'human_readable_content_type_ssim', label: 'Format'
     config.add_index_field 'visibility_group_ssi', label: 'Access', if: :display_access?
+    config.add_index_field 'all_text_tsimv', highlight: true, helper_method: :render_ocr_snippets
 
     def display_library?(_field_config, document)
       document["has_model_ssim"] == ["Collection"]
@@ -310,7 +314,7 @@ class CatalogController < ApplicationController
                        'grant_agencies_tesim', 'content_genres_tesim', 'grant_information_tesim', 'author_notes_tesim',
                        'notes_tesim', 'data_source_notes_tesim', 'geographic_unit_tesim', 'technical_note_tesim',
                        'issn_tesim', 'isbn_tesim', 'abstract_tesim', 'related_publications_tesim', 'related_datasets_tesim',
-                       'table_of_contents_tesim']
+                       'table_of_contents_tesim', 'all_text_tsimv']
 
     config.add_search_field('all_fields_advanced', label: 'All Fields') do |field|
       field.include_in_simple_select = false

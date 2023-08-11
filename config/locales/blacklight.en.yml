@@ -36,9 +36,15 @@ en:
     search:
       facets:
         title: 'Browse All Items'
+      fields:
+        all_text_tsimv: 'Full-text matches'
       form:
         search:
           placeholder: 'Search Digital Collections'
+      results:
+        snippets:
+          less: '<< less'
+          more: 'more >>'
     search_history:
       recent: 'Your recent searches (cleared after your browser session)'
     work:
