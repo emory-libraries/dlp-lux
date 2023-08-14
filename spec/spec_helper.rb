@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 require 'simplecov'
+require 'webdrivers/chromedriver'
+
+Webdrivers::Chromedriver.required_version = "114.0.5735.90" unless ENV['CI']
+
 SimpleCov.start 'rails' do
   add_filter '/spec/' # for rspec
   add_filter '/app/jobs/'

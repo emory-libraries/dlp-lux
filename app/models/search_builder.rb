@@ -1,10 +1,15 @@
 # frozen_string_literal: true
+require './lib/newspaper_works/highlight_search_params.rb'
+
 class SearchBuilder < Blacklight::SearchBuilder
   include Blacklight::Solr::SearchBuilderBehavior
   include BlacklightRangeLimit::RangeLimitBuilder
-
   include BlacklightAdvancedSearch::AdvancedSearchBuilder
-  self.default_processor_chain += [:add_advanced_parse_q_to_solr, :add_advanced_search_to_solr]
+  include NewspaperWorks::HighlightSearchParams
+
+  self.default_processor_chain += [
+    :add_advanced_parse_q_to_solr, :add_advanced_search_to_solr, :highlight_search_params
+  ]
 
   ##
   # @example Adding a new step to the processor chain

@@ -21,7 +21,7 @@
 //= require blacklight/blacklight
 
 //= require bootstrap-select
-
+//= require newspaper_works/ocr_search
 //= require_tree .
 
 

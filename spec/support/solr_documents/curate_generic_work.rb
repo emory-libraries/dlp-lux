@@ -81,5 +81,6 @@ CURATE_GENERIC_WORK = {
   thumbnail_path_ss: ['/downloads/825x69p8dh-cor?file=thumbnail'],
   hasRelatedImage_ssim: ['825x69p8dh-cor'],
   human_readable_visibility_ssi: 'Public',
-  visibility_group_ssi: 'Public'
+  visibility_group_ssi: 'Public',
+  all_text_tsimv: ["This is the story of Teddy Longfellow, who lived to a hundred and three!"]
 }.freeze
