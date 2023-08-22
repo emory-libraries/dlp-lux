@@ -29,7 +29,7 @@ RSpec.describe "Contact page", type: :request do
     expect(response.body).to include 'https://emory.libwizard.com/f/dlp-feedback'
     expect(response.body).to include 'our wiki site'
     expect(response.body).to include(
-      'https://wiki.service.emory.edu/display/DLPP/Emory+Digital+Collections+User+Guide'
+      'https://emorylib.atlassian.net/wiki/spaces/DLPP/pages/20578892/Emory+Digital+Collections+User+Guide'
     )
     expect(response.body).to include 'rose.library@emory.edu'
     expect(response.body).to include 'mailto:rose.library@emory.edu'

@@ -91,7 +91,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 5.0'
   gem 'selenium-webdriver'
   gem 'solr_wrapper', '>= 0.3'
-  gem 'webdrivers', '~> 3.0'
+  gem 'webdrivers', '5.3.0'
 end
 
 group :test do
