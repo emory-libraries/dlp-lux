@@ -15,9 +15,9 @@ class CatalogController < ApplicationController
       session[:requested_page] = request.url
       redirect_to new_user_session_path
     when 'rose_high', 'restricted'
-      render file: Rails.root.join('app', 'views', 'static', 'reading_room_not_found.html.erb'), status: :not_found, layout: true
+      render 'static/reading_room_not_found', status: :not_found, layout: true
     else
-      render file: Rails.root.join('app', 'views', 'static', 'not_found.html.erb'), status: :not_found, layout: true
+      render 'static/not_found', status: :not_found, layout: true
     end
   end
 
