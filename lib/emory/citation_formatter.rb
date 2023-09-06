@@ -18,7 +18,7 @@ module Emory
     end
 
     def citation_for(style)
-      sanitized_citation(CiteProc::Processor.new(style: style, format: 'html').import(item).render(:bibliography, id: :item).first, obj)
+      sanitized_citation(CiteProc::Processor.new(style:, format: 'html').import(item).render(:bibliography, id: :item).first, obj)
     rescue CiteProc::Error, TypeError, ArgumentError
       @default_citations[style.to_sym]
     end
@@ -26,14 +26,14 @@ module Emory
     private
 
     def item
-      CiteProc::Item.new(issued_inserter(key_value_chunk_1.merge(key_value_chunk_2).merge(key_value_chunk_3)))
+      CiteProc::Item.new(issued_inserter(key_value_chunk1.merge(key_value_chunk2).merge(key_value_chunk3)))
     end
 
     def abnormal_chars?
       obj[:creator_tesim]&.any? { |a| a.match(/[^\p{L}\s]+/) }
     end
 
-    def key_value_chunk_1
+    def key_value_chunk1
       {
         id: :item,
         abstract: obj[:abstract_tesim]&.join(', '),
@@ -45,7 +45,7 @@ module Emory
       }
     end
 
-    def key_value_chunk_2
+    def key_value_chunk2
       {
         archive: obj[:holding_repository_tesim]&.join(', '),
         publisher: obj[:publisher_tesim]&.join(', '),
@@ -56,7 +56,7 @@ module Emory
       }
     end
 
-    def key_value_chunk_3
+    def key_value_chunk3
       {
         dimensions: obj[:extent_tesim]&.join(', '),
         event: obj[:conference_name_tesim]&.join(', '),

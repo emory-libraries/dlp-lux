@@ -1,4 +1,6 @@
 # frozen_string_literal: true
+# Blacklight v7.33.1 Override - introduces Lux specific logic with #lux_thumbnail_url,
+#   #thumbnail_image_url, and #thumbnail_value.
 
 module Blacklight
   class ThumbnailPresenter
@@ -12,6 +14,10 @@ module Blacklight
       @document = document
       @view_context = view_context
       @view_config = view_config
+    end
+
+    def render(image_options = {})
+      thumbnail_value(image_options)
     end
 
     ##
@@ -90,7 +96,7 @@ module Blacklight
     end
 
     def retrieve_values(field_config)
-      FieldRetriever.new(document, field_config).fetch
+      FieldRetriever.new(document, field_config, view_context).fetch
     end
 
     def field_config(field)

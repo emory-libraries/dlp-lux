@@ -1,15 +1,2 @@
-<% 
-  if document["child_works_for_lux_tesim"] || 
-    (document["has_model_ssim"] == ["Collection"] && document["banner_path_ss"].nil?) 
-%>
-<% elsif document["has_model_ssim"] == ["Collection"] && document["banner_path_ss"].present? %>
-  <img 
-    src=<%= (ENV['THUMBNAIL_URL'] || '') + document["banner_path_ss"] %> 
-    class="img-fluid" 
-    id="collection-banner"
-    title="collection feature image"
-  >
-<% else %>
-  <%= render "uv", document: document %>
-<% end %>
-<%= render "metadata_all", document: document %>
+<%# Blacklight v7.33.1 Override - skipping Blacklight::DocumentMetadataComponent in favor of our own component %>
+<%= render ::Lux::ShowDocumentComponent.new(document: document, request_base_url: request&.base_url) %>

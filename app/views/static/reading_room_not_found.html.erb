@@ -1,15 +1,16 @@
 <div class="container not-found-container">
-    <%= render 'catalog/breadcrumbs', crumb_hashes: [] %>
+    <%= render ::Lux::BreadcrumbsComponent.new %>
     <div class="row static-heading-row not-found">
-      <%= render 'static/static_heading', 
-              title: t('static.reading_room_not_found.header'), 
-              subheading: t('static.reading_room_not_found.subheading').html_safe
+      <%= render ::Lux::StaticHeadingComponent.new(
+                   title: t('static.reading_room_not_found.header'), 
+                   subheading: t('static.reading_room_not_found.subheading').html_safe
+          )
       %>
     </div>
-    <%= render 'static/static_content_blurbs', 
-                    blurb_header_klass: " reading-room-blurb-header",
-                    blurb_header: "More About Access Restrictions",
-                    blurb_body_klass: " reading-room-blurb",
-                    blurb: "<ul><li>Some items may no longer be available from the providing library. Refer to the contact information for each digital collection or consult our <a href='/contact' class='static-blurb-link'>Contact</a> page</li><li>Additional information is available within our user guide at <a href='https://emorylib.atlassian.net/wiki/spaces/DLPP/pages/20578892/Emory+Digital+Collections+User+Guide' class='static-blurb-link'>our wiki site</a>.</li></ul>".html_safe
-    %>
+    <%= render ::Lux::StaticContentComponent.new(
+                 header_class: 'reading-room-blurb-header', 
+                 header_text: 'More About Access Restrictions', 
+                 body_class: 'reading-room-blurb', 
+                 body_text: "<ul><li>Some items may no longer be available from the providing library. Refer to the contact information for each digital collection or consult our <a href='/contact' class='static-blurb-link'>Contact</a> page</li><li>Additional information is available within our user guide at <a href='https://emorylib.atlassian.net/wiki/spaces/DLPP/pages/20578892/Emory+Digital+Collections+User+Guide' class='static-blurb-link'>our wiki site</a>.</li></ul>"
+    ) %>
 </div>

@@ -62,7 +62,7 @@ RSpec.describe 'Search the catalog using advanced search', type: :system, js: fa
 
     def solr_add(solr, id:, title:, uniform_title: nil, publisher: nil)
       solr.add(
-        id: id,
+        id:,
         has_model_ssim: ['CurateGenericWork'],
         title_tesim: title,
         uniform_title_tesim: uniform_title,

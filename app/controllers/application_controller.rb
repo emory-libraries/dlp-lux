@@ -8,9 +8,9 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
 
-  rescue_from CanCan::AccessDenied, with: :render_404
+  rescue_from CanCan::AccessDenied, with: :render404
 
-  def render_404
+  def render404
     render file: Rails.root.join('app', 'views', 'static', 'not_found.html.erb'), status: :not_found, layout: true
   end
 

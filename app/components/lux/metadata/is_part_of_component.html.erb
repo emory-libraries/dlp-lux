@@ -1,0 +1,37 @@
+<script>
+
+  // Sends the custom dimension to Google Analytics.
+  gtag('event', "<%= source_collection_title %>",
+  {
+    'event_category': 'collection_view',
+    'event_label': '<%= title %>'
+  });
+  gtag('event', "<%= holding_repository %>",
+  {
+    'event_category': 'holding_repository_view',
+    'event_label': '<%= title %>'
+  });
+  gtag('event', "<%= human_readable_content_type %>",
+  {
+    'event_category': 'format_view',
+    'event_label': '<%= title %>'
+  });
+</script>
+
+<% if fields.length > 0 %>
+  <div class="is-part-of card mb-2 rounded-0" title="This item is part of:">
+    <div class="card-header rounded-0">This item is part of:</div>
+    <div class="card-body">
+      <dl title="This item is part of:">
+        <% if collection_member_present %>
+            <dt title="parent collection link"></dt>
+            <dd class="blacklight-member_of_collections"><a href=<%= col_link %>><%= col_title || "Parent Collection" %></a></dd>
+        <% end %>
+        <% if parent_work_present %>
+          <dt title="parent work link"></dt>
+          <dd class='blacklight-parent_member_of_collections'><a href=<%= link %>><%= link_title %></a></dd>
+        <% end %>
+      </dl>
+    </div>
+  </div>
+<% end %>

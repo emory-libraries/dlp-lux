@@ -1,0 +1,14 @@
+<% if this_is_collection %>
+  <%= render ::Lux::Metadata::ViewItemsInCollectionComponent.new(document: document) %>
+<% end %>
+<%= is_part_of %>
+<% if this_is_collection %>
+  <%= render ::Lux::Metadata::AboutThisCollectionComponent.new(document: document) %>
+<% end %>
+<% if this_is_work %>
+  <%= render ::Lux::Metadata::AboutThisItemComponent.new(document: document) %>
+<% end %>
+<%= render "catalog/show_tools", document: document %>
+<%= subject_keywords %>
+<%= find_this_item %>
+<%= access_and_copyright %>

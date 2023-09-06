@@ -188,7 +188,9 @@ module Blacklight
       end
 
       def reading_room_ips_yaml
-        YAML.safe_load(ERB.new(File.read(Rails.root.join("config", "reading_room_ips.yml"))).result, [], [], true)
+        ::Blacklight::SearchParamsYamlCoder.yaml_load(
+          ERB.new(File.read(Rails.root.join("config", "reading_room_ips.yml"))).result
+        )
       end
 
       def admin_uids

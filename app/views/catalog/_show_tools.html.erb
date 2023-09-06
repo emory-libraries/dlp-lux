@@ -1,15 +1,21 @@
+<%# Blacklight v7.33.1 Override - we prefer our class structure and accessibility improvements %>
 <% if show_doc_actions? %>
   <div class="card mb-2 rounded-0" title="<%= t('blacklight.tools.title') %>">
     <div class="card-header rounded-0">
       <%= t('blacklight.tools.title') %>
     </div>
 
-    <ul class="list-group list-group-flush" title="<%= t('blacklight.tools.title') %> Links">
-      <%= render_show_doc_actions @document do |config, inner| %>
-        <li class="list-group-item <%= config.key %>">
-          <%= inner %>
-        </li>
-      <% end %>
-    </ul>
+    <% if render_show_doc_actions_method_from_blacklight? %>
+      <%= render(Blacklight::Document::ActionsComponent.new(document: @document, tag: 'ul', classes: 'list-group list-group-flush', wrapping_tag: 'li', wrapping_classes: 'list-group-item', actions: document_actions(@document), url_opts: Blacklight::Parameters.sanitize(params.to_unsafe_h))) %>
+    <% else %>
+      <% Deprecation.warn(self, '#render_show_doc_actions is deprecated; use ActionComponents instead') %>
+      <ul class="list-group list-group-flush" title="<%= t('blacklight.tools.title') %> Links">
+        <%= render_show_doc_actions @document do |config, inner| %>
+          <li class="list-group-item <%= config.key %>">
+            <%= inner %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
   </div>
 <% end %>

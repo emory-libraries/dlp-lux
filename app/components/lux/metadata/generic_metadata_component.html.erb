@@ -1,0 +1,23 @@
+<% if fields.length > 0 %>
+  <div class="<%= presenter_container_class %> card mb-2 rounded-0" title="<%= title %>">
+    <div class="card-header rounded-0"><%= title %></div>
+    <div class="card-body">
+      <dl title="<%= title %>">
+        <% fields.each do |field_name, field| %>
+          <div class="row">
+            <dt class="blacklight-<%= field_name.parameterize %> <%= add_class_dt %>">
+              <%= helpers.render_document_show_field_label document, field: field_name %>
+            </dt>
+            <dd class="blacklight-<%= field_name.parameterize %> <%= add_class_dd %>">
+              <% if helpers.field_is_for_dates?(field_name) %>
+                <%= helpers.dates_on_separate_lines(document, field_name).html_safe %>
+              <% else %>
+                <%= document_presenter.field_value field %>
+              <% end %>
+            </dd>
+          </div>
+        <% end %>
+      </dl>
+    </div>
+  </div>
+<% end %>
