@@ -1,50 +1,13 @@
-<% # main container for facets/limits menu -%>
-<% if has_facet_values? facet_field_names(groupname), @response %>
-<div id="facets<%= "-#{groupname}" unless groupname.nil? %>" class="facets sidenav facets-toggleable-md">
-  <div class="navbar navbar-light navbar-expand-lg">
-    <h2 class="homepage-content-heading">
-      <% h2_title = request.fullpath != '/' ? "Limit Your Search" : t('blacklight.search.facets.title') %>
-      <% if h2_title == t('blacklight.search.facets.title') && groupname.blank? %>
-        <%= link_to h2_title, search_action_path(:utf8 => '✓', :search_field => 'common_fields', :q => ''), method: :get, class: "browse-link" %>
-      <% else %>
-        <%= groupname.blank? ? h2_title : t("blacklight.search.facets-#{groupname}.title") %>
-      <% end %>
-    </h2>
-    <button class="navbar-toggler navbar-toggler-right" id="facets-toggler" type="button" data-toggle="collapse" data-target="#facet-panel<%= "-#{groupname}" unless groupname.nil? %>-collapse" aria-controls="facet-panel<%= "-#{groupname}" unless groupname.nil? %>-collapse" aria-expanded="false" aria-label="Toggle facets">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  </div>
-  <div id="facet-panel<%= "-#{groupname}" unless groupname.nil? %>-collapse" class="facets-collapse collapse mt-3">
-    <%= render_facet_partials facet_field_names(groupname), response: @response %>
-  </div>
-</div>
+<%# Blacklight v7.33.1 Override - parses title with our desired logic %>
+<% h2_title = request.fullpath != '/' ? "Limit Your Search" : t('blacklight.search.facets.title') %>
+<% parsed_title = if h2_title == t('blacklight.search.facets.title') && groupname.blank? %>
+  <% link_to h2_title, search_action_path(:utf8 => '✓', :search_field => 'common_fields', :q => ''), method: :get, class: "browse-link" %>
+<% else %>
+  <% groupname.blank? ? h2_title : t("blacklight.search.facets-#{groupname}.title") %>
 <% end %>
 
-<script type="text/javascript">
-  document.querySelectorAll('.facet-select').forEach(function(item) {
-    item.addEventListener('click', function() {
-      var facetParent = item.parentElement.parentElement.parentElement.parentElement.parentElement.id;
-      
-      gtag('event', item.text, {
-        'event_category': 'facet_clicked',
-        'event_label': facetParent
-      });
-    });
-  });
-
-  document.querySelector('.submit.btn.btn-secondary').addEventListener('click', function() {
-    gtag('event', 'publication_date_range_applied', {
-      'event_category': 'facet_clicked',
-      'event_label': 'publication_date_range_facet'
-    });
-  });
-
-  document.querySelectorAll('.btn.btn-block.p-2.text-left.collapse-toggle.collapsed').forEach(function(item) {
-    item.addEventListener('click', function() {
-      gtag('event', item.innerText, {
-        'event_category': 'facet_expanded',
-        'event_label': item.innerText
-      });
-    });
-  });
-</script>
+<%= render (blacklight_config&.view_config(document_index_view_type)&.facet_group_component || ::Blacklight::Response::FacetGroupComponent).new(
+  response: @response,
+  id: groupname,
+  fields: facet_field_names(groupname),
+  title: parsed_title) %>

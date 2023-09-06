@@ -5,13 +5,13 @@ class CatalogController < ApplicationController
   include Blacklight::Catalog
   include Blacklight::AccessControls::Catalog
 
-  rescue_from NameError, with: :render_404
+  rescue_from NameError, with: :render404
 
-  def render_404
+  def render404
     visibility = visibility_lookup(resource_id_param)
     case visibility
     when 'emory_low', 'authenticated'
-      Rails.logger.debug "CatalogController#render_404: request.url: #{request.url}"
+      Rails.logger.debug "CatalogController#render404: request.url: #{request.url}"
       session[:requested_page] = request.url
       redirect_to new_user_session_path
     when 'rose_high', 'restricted'

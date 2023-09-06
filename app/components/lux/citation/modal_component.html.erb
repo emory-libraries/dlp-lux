@@ -1,0 +1,21 @@
+<%# Blacklight v7.33.1 rewrite of app/components/blacklight/system/modal_component.html.erb %>
+<div data-blacklight-modal="container">
+  <div class="modal-header citations">
+    <p><i><small>Provided as a suggestion only. Please verify these automated citations against the guidelines of your preferred style.</small></i></p>
+
+    <button type="button" class="blacklight-modal-close btn-close close" data-bs-dismiss="modal" data-dismiss="modal" aria-label="<%= t('blacklight.modal.close') %>">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+
+  <%= body || (capture do %>
+    <div class="modal-body">
+      <%= content %>
+    </div>
+  <% end) %>
+  <% if footer.present? %>
+    <div class="modal-footer">
+      <%= footer %>
+    </div>
+  <% end %>
+</div>

@@ -1,13 +1,13 @@
 <% @page_title = "#{t('contact')} - #{application_name}" %>
-<% title = I18n.t('contact'); abbr = nil %>
+<% title = I18n.t('contact') %>
 
-<%= render 'catalog/breadcrumbs', crumb_hashes: [{ curr_page: true, abbr: abbr, link: '/contact', title: title }]
-%>
+<%= render ::Lux::BreadcrumbsComponent.new(crumb_hashes: [{ curr_page: true, abbr: nil, link: '/contact', title: title }]) %>
 <div class="row static-heading-row contact">
-<%= render 'static/static_heading', 
-              title: title, 
-              subheading: "Contact points for technical assistance and additional information about our digital collections." 
-%>
+  <%= render ::Lux::StaticHeadingComponent.new(
+               title: title, 
+               subheading: "Contact points for technical assistance and additional information about our digital collections."
+      )
+  %>
 </div>
 <div class="row static-body contact">
   <div class="col-lg-8 contact-blurbs">

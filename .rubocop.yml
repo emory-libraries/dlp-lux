@@ -2,7 +2,7 @@ inherit_gem:
   bixby: bixby_default.yml
 
 AllCops:
-    TargetRubyVersion: 2.7
+    TargetRubyVersion: 3.1
     Exclude:
         - 'bin/**/*'
         - 'db/**/*'
@@ -19,6 +19,9 @@ Layout/LeadingCommentSpace:
 Lint/EmptyWhen:
     Exclude:
       - app/models/marc_indexer.rb
+
+Lint/MissingSuper:
+    Enabled: false
 
 Metrics/ClassLength:
     Exclude:

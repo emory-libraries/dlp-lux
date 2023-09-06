@@ -1,0 +1,59 @@
+<%# Blacklight v7.33.1 Override - enforces our own classes for desired styling and gtagging %>
+<% # main container for facets/limits menu -%>
+<%= content_tag :div, id: @id,  class: 'facets sidenav facets-toggleable-md' do %>
+  <div class="navbar navbar-light navbar-expand-lg">
+    <%= content_tag :h2, @title, class: 'homepage-content-heading' if @title %>
+
+    <%= content_tag :button,
+      class:'navbar-toggler navbar-toggler-right',
+      type: 'button',
+      data: {
+        toggle: 'collapse',
+        target: "##{@panel_id}",
+        'bs-toggle': 'collapse',
+        'bs-target': "##{@panel_id}"
+      },
+      aria: {
+        controls: @panel_id,
+        expanded: 'false',
+        label: t('blacklight.search.facets.group.toggle'),
+      } do %>
+      <span class="navbar-toggler-icon"></span>
+    <% end %>
+  </div>
+
+  <%= content_tag :div, id: @panel_id, class: 'facets-collapse collapse mt-3' do %>
+    <% ::Deprecation.silence(::Blacklight::FacetsHelperBehavior) do %>
+      <%= helpers.render_facet_partials @fields, response: @response %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<script type="text/javascript">
+  document.querySelectorAll('.facet-select').forEach(function(item) {
+    item.addEventListener('click', function() {
+      var facetParent = item.parentElement.parentElement.parentElement.parentElement.parentElement.id;
+      
+      gtag('event', item.text, {
+        'event_category': 'facet_clicked',
+        'event_label': facetParent
+      });
+    });
+  });
+
+  document.querySelector('.submit.btn.btn-secondary').addEventListener('click', function() {
+    gtag('event', 'publication_date_range_applied', {
+      'event_category': 'facet_clicked',
+      'event_label': 'publication_date_range_facet'
+    });
+  });
+
+  document.querySelectorAll('.btn.btn-block.p-2.text-left.collapse-toggle.collapsed').forEach(function(item) {
+    item.addEventListener('click', function() {
+      gtag('event', item.innerText, {
+        'event_category': 'facet_expanded',
+        'event_label': item.innerText
+      });
+    });
+  });
+</script>

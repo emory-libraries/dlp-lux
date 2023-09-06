@@ -1,18 +1,4 @@
-<div class="modal-header citations">
-  <p><i><small>Provided as a suggestion only. Please verify these automated citations against the guidelines of your preferred style.</small></i></p>
-  <button type="button" class="blacklight-modal-close close" data-dismiss="modal" aria-label="<%= t('blacklight.modal.close') %>">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-<div class="modal-body">
-  
-  <% @documents.each do |document| %>
-    <h1 class="modal-title show-header citation-title"><%= document_heading(document) %></h1>
-      <h3 class="heading -h3"><%= t('blacklight.citation.mla') %></h3>
-      <%= mla_citation_txt(document).html_safe %><br/><br/>
-      <h3 class="heading -h3"><%= t('blacklight.citation.apa') %></h3>
-      <%= apa_citation_txt(document).html_safe %><br/><br/>
-      <h3 class="heading -h3"><%= t('blacklight.citation.chicago') %></h3>
-      <%= chicago_citation_txt(document).html_safe %><br><br>
-  <% end %>
-</div>
+<%# Blacklight v7.33.1 Override - use our logic instead %>
+<%= render ::Lux::Citation::ModalComponent.new do |component| %>
+  <%= render ::Blacklight::Document::CitationComponent.with_collection(@documents) if @documents.present? %>
+<% end %>

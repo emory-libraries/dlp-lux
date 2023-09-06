@@ -1,8 +1,14 @@
-<div id="sortAndPerPage" class="row sort-pagination clearfix<%= ' bookmarks' if request.fullpath == '/bookmarks' %>">
+<%# Blacklight v7.33.1 Override - we prefer our class structure and accessibility improvements %>
+
+<div 
+  id="sortAndPerPage" 
+  class="row sort-pagination d-md-flex justify-content-between<%= ' bookmarks' if request.fullpath == '/bookmarks' %>"
+  role="navigation" 
+  aria-label="<%= t('blacklight.search.per_page.aria_label')%>">
   <div class="col-xs-6">
     <%= render partial: "paginate_compact", object: @response if show_pagination? %>
   </div>
   <div class="col-xs-6 sort-tools" align="right">
-    <%= render_results_collection_tools wrapping_class: "search-widgets float-md-right" %>
+    <%= render_results_collection_tools wrapping_class: "search-widgets" %>
   </div>
 </div>

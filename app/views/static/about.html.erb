@@ -1,46 +1,52 @@
 <% @page_title = "#{t('about')} - #{application_name}" %>
-<% title = I18n.t('about'); abbr = title.split(' ').first(3).join(' ') + '...' %>
+<% title = I18n.t('about') %>
 
-<%= render 'catalog/breadcrumbs', crumb_hashes: [{ curr_page: true, abbr: abbr, link: '/about', title: title }]
-%>
+<%= render ::Lux::BreadcrumbsComponent.new(
+             crumb_hashes: [
+              { curr_page: true,
+                abbr: (title.split(' ').first(3).join(' ') + '...'), 
+                link: '/about', 
+                title: title }
+             ]
+) %>
 <div class="row static-heading-row about">
-<%= render 'static/static_heading', 
-              title: title, 
-              subheading: "The digital front door to unique cultural heritage and scholarship collections from Emory University." 
-%>
+  <%= render ::Lux::StaticHeadingComponent.new(
+               title: title, 
+               subheading: 'The digital front door to unique cultural heritage and scholarship collections from Emory University.'
+  ) %>
 </div>
 <div class="row static-body about">
   <div class="col-lg-8 about-blurbs">
-    <%= render 'static/static_content_blurbs', 
-                    blurb_header_klass: " dlp-blurb-header",
-                    blurb_header: "Digital Library Program",
-                    blurb_body_klass: " dlp-blurb",
-                    blurb: "A key offering of the <a href='https://emorylib.atlassian.net/wiki/spaces/DLPP/overview' class='static-blurb-link'>Digital Library Program (DLP)</a>, a multi-year Emory Libraries strategic initiative to promote best practices and provide long term access to Emory's unique digital assets and collections, the Emory Digital Collections site is the digital front door to our newly re-architected digital repository.".html_safe
-    %>
-    <%= render 'static/static_content_blurbs', 
-                    blurb_header_klass: " coll-con-blurb-header",
-                    blurb_header: "Collections & Content",
-                    blurb_body_klass: " coll-con-blurb",
-                    blurb: "The <a href='https://libraries.emory.edu/about/welcome.html' class='static-blurb-link'>Emory Libraries’ holdings</a> include hundreds of digital collections and millions of digital assets in queue to be made available through our Emory Digital Collections site. We load new content on an ongoing basis, and our repository roadmap includes expanding support for additional types of material.".html_safe
-    %>
-    <%= render 'static/static_content_blurbs', 
-                    blurb_header_klass: " tech-blurb-header",
-                    blurb_header: "Technology",
-                    blurb_body_klass: " tech-blurb",
-                    blurb: "The Cor digital preservation repository infrastructure developed by the Emory Libraries is built using the Samvera digital repository framework, collaboratively developed and maintained by dozens of organizations in the library and museum sectors. The Emory Digital Collections public interface is built upon Blacklight, and our management and preservation functionality is built upon Hyrax, Fedora, Solr, and other components within an AWS framework. Learn more about our technical implementation plans at <a href='https://emorylib.atlassian.net/wiki/spaces/DLPP/pages/20579112/Technical+Design+Phase+2018' class='static-blurb-link'>our wiki site</a>.".html_safe
-    %>
-    <%= render 'static/static_content_blurbs', 
-                    blurb_header_klass: " accessibility-blurb-header",
-                    blurb_header: "Accessibility",
-                    blurb_body_klass: " accessibility-blurb",
-                    blurb: "Emory Libraries is committed to the principles of universal design and strives to provide equitable services online and in our spaces. We assess and enhance the usability and accessibility of our digital interfaces on an ongoing basis, and use Section 508 of the Rehabilitation Act and current WCAG AA standards as benchmarks. For further information, please use our <a href='https://emory.libwizard.com/f/dlp-feedback'>feedback form</a> or consult Emory’s <a href='http://accessibility.emory.edu/'>Department of Accessibility Services</a>.".html_safe
-    %>
-    <%= render 'static/static_content_blurbs', 
-                    blurb_header_klass: " help-blurb-header",
-                    blurb_header: "Questions, Help, and Feedback",
-                    blurb_body_klass: " help-blurb",
-                    blurb: "Please visit our <a href='/contact' class='static-blurb-link'>Contact</a> page for more information about Emory Digital Collections or get in touch through our <a href='https://emory.libwizard.com/f/dlp-feedback' class='static-blurb-link'>feedback form</a>. View our user guide at <a href='https://emorylib.atlassian.net/wiki/spaces/DLPP/pages/20578892/Emory+Digital+Collections+User+Guide' class='static-blurb-link'>our wiki site</a>.".html_safe
-    %>
+    <%= render ::Lux::StaticContentComponent.new(
+                 header_class: 'dlp-blurb-header', 
+                 header_text: 'Digital Library Program', 
+                 body_class: 'dlp-blurb', 
+                 body_text: "A key offering of the <a href='https://emorylib.atlassian.net/wiki/spaces/DLPP/overview' class='static-blurb-link'>Digital Library Program (DLP)</a>, a multi-year Emory Libraries strategic initiative to promote best practices and provide long term access to Emory's unique digital assets and collections, the Emory Digital Collections site is the digital front door to our newly re-architected digital repository."
+    ) %>
+    <%= render ::Lux::StaticContentComponent.new(
+                 header_class: 'coll-con-blurb-header', 
+                 header_text: 'Collections & Content', 
+                 body_class: 'coll-con-blurb', 
+                 body_text: "The <a href='https://libraries.emory.edu/about/welcome.html' class='static-blurb-link'>Emory Libraries’ holdings</a> include hundreds of digital collections and millions of digital assets in queue to be made available through our Emory Digital Collections site. We load new content on an ongoing basis, and our repository roadmap includes expanding support for additional types of material."
+    ) %>
+    <%= render ::Lux::StaticContentComponent.new(
+                 header_class: 'tech-blurb-header', 
+                 header_text: 'Technology', 
+                 body_class: 'tech-blurb', 
+                 body_text: "The Cor digital preservation repository infrastructure developed by the Emory Libraries is built using the Samvera digital repository framework, collaboratively developed and maintained by dozens of organizations in the library and museum sectors. The Emory Digital Collections public interface is built upon Blacklight, and our management and preservation functionality is built upon Hyrax, Fedora, Solr, and other components within an AWS framework. Learn more about our technical implementation plans at <a href='https://emorylib.atlassian.net/wiki/spaces/DLPP/pages/20579112/Technical+Design+Phase+2018' class='static-blurb-link'>our wiki site</a>."
+    ) %>
+    <%= render ::Lux::StaticContentComponent.new(
+                 header_class: 'accessibility-blurb-header', 
+                 header_text: 'Accessibility', 
+                 body_class: 'accessibility-blurb', 
+                 body_text: "Emory Libraries is committed to the principles of universal design and strives to provide equitable services online and in our spaces. We assess and enhance the usability and accessibility of our digital interfaces on an ongoing basis, and use Section 508 of the Rehabilitation Act and current WCAG AA standards as benchmarks. For further information, please use our <a href='https://emory.libwizard.com/f/dlp-feedback'>feedback form</a> or consult Emory’s <a href='http://accessibility.emory.edu/'>Department of Accessibility Services</a>."
+    ) %>
+    <%= render ::Lux::StaticContentComponent.new(
+                 header_class: 'help-blurb-header', 
+                 header_text: 'Questions, Help, and Feedback', 
+                 body_class: 'help-blurb', 
+                 body_text: "Please visit our <a href='/contact' class='static-blurb-link'>Contact</a> page for more information about Emory Digital Collections or get in touch through our <a href='https://emory.libwizard.com/f/dlp-feedback' class='static-blurb-link'>feedback form</a>. View our user guide at <a href='https://emorylib.atlassian.net/wiki/spaces/DLPP/pages/20578892/Emory+Digital+Collections+User+Guide' class='static-blurb-link'>our wiki site</a>."
+    ) %>
   </div>
   <div class=" col-lg-4">
     <div class="explore-card about-explore">
