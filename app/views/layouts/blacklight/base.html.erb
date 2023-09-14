@@ -27,6 +27,7 @@
     <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
     <%= content_for(:head) %>
 
     <%= javascript_include_tag 'xray', nonce: true if Rails.env.development? %>

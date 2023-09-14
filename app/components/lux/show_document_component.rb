@@ -4,9 +4,9 @@ module Lux
   class ShowDocumentComponent < Blacklight::Component
     attr_reader :document, :request_base_url
 
-    renders_one :all_metadata, lambda do
+    renders_one :all_metadata, (lambda do
       ::Lux::ShowAllMetadataComponent.new(document: @document)
-    end
+    end)
 
     def initialize(document:, request_base_url:)
       @document = document
@@ -26,6 +26,10 @@ module Lux
 
     def banner_source
       @thumbnail_url + @document["banner_path_ss"]
+    end
+
+    def before_render
+      set_slot(:all_metadata, nil)
     end
   end
 end

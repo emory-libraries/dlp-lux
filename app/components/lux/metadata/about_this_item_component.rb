@@ -7,14 +7,17 @@ module Lux
 
       def initialize(document:)
         @document = document
-        @document_presenter = helpers.document_presenter(@document)
-        @fields = ::AboutThisItemPresenter.new(
-          document: @document_presenter.fields_to_render
-        ).terms
       end
 
       def present_resolution_download_restriction
         sanitize(helpers.resolution_download_restriction(@document))
+      end
+
+      def before_render
+        @document_presenter = helpers.document_presenter(@document)
+        @fields = ::AboutThisItemPresenter.new(
+          document: @document_presenter.fields_to_render
+        ).terms
       end
     end
   end

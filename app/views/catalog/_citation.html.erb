@@ -1,4 +1,4 @@
 <%# Blacklight v7.33.1 Override - use our logic instead %>
 <%= render ::Lux::Citation::ModalComponent.new do |component| %>
-  <%= render ::Blacklight::Document::CitationComponent.with_collection(@documents) if @documents.present? %>
+  <%= render ::Lux::Document::CitationComponent.with_collection(@documents) if @documents.present? %>
 <% end %>

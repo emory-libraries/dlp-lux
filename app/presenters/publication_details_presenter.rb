@@ -9,7 +9,7 @@ class PublicationDetailsPresenter
   end
 
   def terms
-    @config = @config.symbolize_keys
-    @document.slice(*@config.keys)
+    @config = @config.keys
+    @document.to_a.select {|field| @config.include? field.first}.to_enum
   end
 end

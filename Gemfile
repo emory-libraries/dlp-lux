@@ -45,7 +45,7 @@ gem 'rails', '~> 7.0', '>= 7.0.7.2'
 # gem 'redis', '~> 3.0'
 gem 'rsolr', '>= 1.0'
 # Use SCSS for stylesheets
-gem 'sass-rails'
+gem "sassc-rails", "~> 2.1"
 gem 'simple_form'
 gem "sprockets-rails"
 # See https://github.com/rails/execjs#readme for more supported runtimes

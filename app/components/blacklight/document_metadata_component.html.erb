@@ -1,20 +1,5 @@
-<%# Blacklight v7.33.1 Override - matches the previous override's structure to this viewcomponent template %>
-<% document_actions = capture do %>
-  <% # bookmark functions for items/docs -%>
-  <%= helpers.render_index_doc_actions document, wrapping_class: "index-document-functions col-sm-4 col-lg-3" %>
-<% end %>
-<%# default partial to display solr document fields in catalog index view -%>
-
-<dl class="row">
-  <dt class="col-sm-3"><%= helpers.render_document_partials document, [:thumbnail] %></dt>
-  <dd class="col-sm-6">
-    <dl>
-      <% fields.each do |field| -%>
-        <%= field %>
-      <% end -%>
-    </dl>
-  </dd>
-  <dd class="col-sm-3">
-    <%= document_actions %>
-  </dd>
+<dl>
+  <% fields.each do |field| -%>
+    <%= field %>
+  <% end -%>
 </dl>
