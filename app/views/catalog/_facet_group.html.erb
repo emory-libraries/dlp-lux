@@ -6,7 +6,7 @@
   <% groupname.blank? ? h2_title : t("blacklight.search.facets-#{groupname}.title") %>
 <% end %>
 
-<%= render (blacklight_config&.view_config(document_index_view_type)&.facet_group_component || ::Blacklight::Response::FacetGroupComponent).new(
+<%= render (blacklight_config&.view_config(document_index_view_type)&.facet_group_component || ::Lux::Response::FacetGroupComponent).new(
   response: @response,
   id: groupname,
   fields: facet_field_names(groupname),

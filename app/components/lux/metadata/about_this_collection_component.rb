@@ -7,6 +7,9 @@ module Lux
 
       def initialize(document:)
         @document = document
+      end
+
+      def before_render
         @document_presenter = helpers.document_presenter(@document)
         @fields = ::MetadataPresenter.new(
           document: @document_presenter.fields_to_render

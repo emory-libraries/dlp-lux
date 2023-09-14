@@ -4,13 +4,13 @@ module Lux
   module Metadata
     class FirstColumnComponent < Blacklight::Component
       attr_reader :document
-      renders_one :is_part_of, lambda do
+      renders_one :is_part_of, (lambda do
         ::Lux::Metadata::IsPartOfComponent.new(document: @document)
-      end
-      renders_one :find_this_item, lambda do
+      end)
+      renders_one :find_this_item, (lambda do
         ::Lux::Metadata::FindThisItemComponent.new(document: @document)
-      end
-      renders_one :related_material, lambda do
+      end)
+      renders_one :related_material, (lambda do
         ::Lux::Metadata::GenericMetadataComponent.new(
           document: @document,
           presenter_klass: ::RelatedMaterialPresenter,
@@ -19,7 +19,7 @@ module Lux
           add_class_dt: 'col-md-12',
           add_class_dd: 'col-md-12'
         )
-      end
+      end)
 
       def initialize(document:)
         @document = document
@@ -27,6 +27,12 @@ module Lux
 
       def this_is_collection
         @document["has_model_ssim"]&.first == "Collection"
+      end
+
+      def before_render
+        set_slot(:is_part_of, nil)
+        set_slot(:find_this_item, nil)
+        set_slot(:related_material, nil)
       end
     end
   end

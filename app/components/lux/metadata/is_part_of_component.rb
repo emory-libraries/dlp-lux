@@ -4,14 +4,10 @@ module Lux
   module Metadata
     class IsPartOfComponent < Blacklight::Component
       attr_reader :fields, :source_collection_title, :title, :holding_repository,
-        :human_readable_content_type
+        :human_readable_content_type, :col_link, :col_title
 
       def initialize(document:)
         @document = document
-        document_presenter = helpers.document_presenter(@document)
-        @fields = ::MetadataPresenter.new(
-          document: document_presenter.fields_to_render
-        ).terms(:is_part_of)
         @source_collection_title = @document['source_collection_title_ssim']&.first
         @title = @document['title_tesim'].first
         @holding_repository = @document['holding_repository_tesim']&.first
@@ -32,6 +28,11 @@ module Lux
       end
 
       def before_render
+        document_presenter = helpers.document_presenter(@document)
+        @fields = ::MetadataPresenter.new(
+          document: document_presenter.fields_to_render
+        ).terms(:is_part_of)
+
         if @source_collection_id.present? && @member_of_collection_id != @source_collection_id
           @col_link = @source_collection_id
           @col_title = @document.source_collection_title

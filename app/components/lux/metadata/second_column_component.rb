@@ -4,7 +4,7 @@ module Lux
   module Metadata
     class SecondColumnComponent < Blacklight::Component
       attr_reader :document
-      renders_one :subject_keywords, lambda do
+      renders_one :subject_keywords, (lambda do
         ::Lux::Metadata::GenericMetadataComponent.new(
           document: @document,
           presenter_klass: ::SubjectsKeywordsPresenter,
@@ -13,8 +13,8 @@ module Lux
           add_class_dt: 'col-md-5',
           add_class_dd: 'col-md-7'
         )
-      end
-      renders_one :publication_details, lambda do
+      end)
+      renders_one :publication_details, (lambda do
         ::Lux::Metadata::GenericMetadataComponent.new(
           document: @document,
           presenter_klass: ::PublicationDetailsPresenter,
@@ -23,8 +23,8 @@ module Lux
           add_class_dt: 'col-md-5',
           add_class_dd: 'col-md-7'
         )
-      end
-      renders_one :additional_details, lambda do
+      end)
+      renders_one :additional_details, (lambda do
         ::Lux::Metadata::GenericMetadataComponent.new(
           document: @document,
           presenter_klass: ::AdditionalDetailsPresenter,
@@ -33,7 +33,7 @@ module Lux
           add_class_dt: 'col-md-5',
           add_class_dd: 'col-md-7'
         )
-      end
+      end)
 
       def initialize(document:)
         @document = document
@@ -45,6 +45,12 @@ module Lux
 
       def this_is_work
         @document["has_model_ssim"]&.first == "CurateGenericWork"
+      end
+
+      def before_render
+        set_slot(:subject_keywords, nil)
+        set_slot(:publication_details, nil)
+        set_slot(:additional_details, nil)
       end
     end
   end
