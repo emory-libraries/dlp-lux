@@ -10,6 +10,6 @@ class PublicationDetailsPresenter
 
   def terms
     @config = @config.keys
-    @document.to_a.select {|field| @config.include? field.first}.to_enum
+    @document.to_a.select { |field| @config.include? field.first }.to_enum
   end
 end

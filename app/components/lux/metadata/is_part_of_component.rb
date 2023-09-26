@@ -4,7 +4,7 @@ module Lux
   module Metadata
     class IsPartOfComponent < Blacklight::Component
       attr_reader :fields, :source_collection_title, :title, :holding_repository,
-        :human_readable_content_type, :col_link, :col_title
+        :human_readable_content_type, :link, :link_title, :col_link, :col_title
 
       def initialize(document:)
         @document = document

@@ -6,10 +6,10 @@ jobs:
         parameters:
             ruby_version:
                 type: string
-                default: '2.7.5'
+                default: '3.1.2'
             bundler_version:
                 type: string
-                default: '2.0.1'
+                default: '2.3.22'
             solr_port:
                 type: string
                 default: '8985'
@@ -95,7 +95,7 @@ jobs:
 
     coverage:
         docker:
-            - image: circleci/ruby:2.7.5
+            - image: circleci/ruby:3.1.2
         working_directory: ~/project
         parallelism: 1
         steps:
@@ -119,8 +119,8 @@ workflows:
     ci:
         jobs:
             - build:
-                name: ruby2-7-5
+                name: ruby3-1-2
             - coverage:
                 name: codeclimate
                 requires:
-                    - ruby2-7-5
+                    - ruby3-1-2
