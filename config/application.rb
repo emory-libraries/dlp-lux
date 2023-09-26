@@ -10,7 +10,7 @@ Bundler.require(*Rails.groups)
 module LuxBl7
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 6.0
+    config.load_defaults 7.0
 
     # Configuration for the application, engines, and railties goes here.
     #
@@ -26,6 +26,6 @@ module LuxBl7
 
     config.active_record.legacy_connection_handling = false
 
-    config.autoload_paths += %W(#{config.root}/lib)
+    config.autoload_paths += %W[#{config.root}/lib]
   end
 end

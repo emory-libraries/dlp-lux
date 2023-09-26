@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:disable Metrics/ParameterLists
 module Lux
   module Metadata
     class GenericMetadataComponent < Blacklight::Component
@@ -30,3 +31,4 @@ module Lux
     end
   end
 end
+# rubocop:enable Metrics/ParameterLists

@@ -11,6 +11,6 @@ class MetadataPresenter
   def terms(section)
     @config = @config.symbolize_keys
     @section_terms = @config[section].keys
-    @document.to_a.select {|field| @section_terms.include? field.first}.to_enum
+    @document.to_a.select { |field| @section_terms.include? field.first }.to_enum
   end
 end

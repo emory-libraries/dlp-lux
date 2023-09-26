@@ -4,7 +4,7 @@
 
   <% @formats.each do |i18n_key, citation_method| %>
     <h3 class="heading -h3"><%= t(i18n_key) %></h3>
-    <%= @generator.citation_for(citation_method) %>
+    <%= sanitize(@generator.citation_for(citation_method)) %>
       <br/><br/>
   <% end %>
 </div>

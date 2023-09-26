@@ -3,9 +3,9 @@ class CatalogController < ApplicationController
   include BlacklightRangeLimit::ControllerOverride
   include BlacklightAdvancedSearch::Controller
   include Blacklight::Catalog
-  #include Blacklight::AccessControls::Catalog
+  include Blacklight::AccessControls::Catalog
 
-  #rescue_from NameError, with: :render404
+  rescue_from NameError, with: :render404
 
   def render404
     visibility = visibility_lookup(resource_id_param)
@@ -22,7 +22,7 @@ class CatalogController < ApplicationController
   end
 
   # Apply the blacklight-access_controls
-  #before_action :enforce_show_permissions, only: :show
+  before_action :enforce_show_permissions, only: :show
 
   include Blacklight::Marc::Catalog
 

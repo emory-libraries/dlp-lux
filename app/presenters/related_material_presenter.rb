@@ -9,7 +9,7 @@ class RelatedMaterialPresenter
   end
 
   def terms
-    @config = @config.keys
-    @document.to_a.select {|field| @config.include? field.first}.to_enum
+    config_keys = @config.keys
+    @document.to_a.select { |field| config_keys.include? field.first }.to_enum
   end
 end
