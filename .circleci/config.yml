@@ -23,7 +23,6 @@ jobs:
             BUNDLE_PATH: vendor/bundle
             BUNDLE_JOBS: 4
             BUNDLE_RETRY: 3
-            CACHE_PATH: /tmp/cache1
             RAILS_ENV: test
             RACK_ENV: test
             SPEC_OPTS: --profile 10 --format RspecJunitFormatter --out /tmp/test-results/rspec.xml --format progress --tag ~relevancy:true
@@ -77,10 +76,6 @@ jobs:
             - run:
                 name: Wait for MySQL, if necessary.
                 command: dockerize -wait tcp://${DATABASE_HOST}:${DATABASE_PORT} -timeout 1m
-
-            - run:
-                name: Migrate the database.
-                command: bin/rails db:migrate RAILS_ENV=test
 
             - samvera/parallel_rspec
 
