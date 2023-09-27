@@ -77,6 +77,10 @@ jobs:
                 name: Wait for MySQL, if necessary.
                 command: dockerize -wait tcp://${DATABASE_HOST}:${DATABASE_PORT} -timeout 1m
 
+            - run: 
+                name: Run migrations
+                command: bundle exec rails db:migrate RAILS_ENV=test
+
             - samvera/parallel_rspec
 
             - run:
