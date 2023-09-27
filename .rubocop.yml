@@ -47,6 +47,7 @@ Metrics/CyclomaticComplexity:
 
 Metrics/MethodLength:
     Exclude:
+        - 'app/components/blacklight/search_bar_component.rb'
         - 'app/models/marc_indexer.rb'
         - 'app/values/uv_configuration.rb'
 

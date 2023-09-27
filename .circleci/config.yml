@@ -18,7 +18,7 @@ jobs:
                 default: '4'
             mysql_version:
                 type: string
-                default: '5.7.22'
+                default: '8.0.33'
         environment:
             BUNDLE_PATH: vendor/bundle
             BUNDLE_JOBS: 4

@@ -2,15 +2,18 @@
 <%= form_tag @url, method: @method, class: @classes.join(' '), role: 'search', aria: { label: scoped_t('submit') }, **@form_options do %>
   <%= render_hash_as_hidden_fields(@params) %>
   <% if search_fields.length > 1 %>
+    <%# Additional class added below %>
     <label for="search_field" class="sr-only sr-only-focusable visually-hidden"><%= scoped_t('search_field.label') %></label>
   <% end %>
   <% before_input_groups.each do |input_group| %>
     <%= input_group %>
   <% end %>
+  <%# Additional class and id added below %>
   <div id="search-fields" class="input-group col-md-12">
     <%= prepend %>
 
     <% if search_fields.length > 1 %>
+        <%# Title removed, classes reworked, and our data-style enforced below %>
         <%= select_tag(:search_field,
                        options_for_select(search_fields, h(@search_field)),
                        id: "#{@prefix}search_field",
@@ -20,7 +23,9 @@
       <%= hidden_field_tag :search_field, search_fields.first.last %>
     <% end %>
 
+    <%# Additional class added below %>
     <label for="<%= @prefix %><%= @query_param %>" class="sr-only sr-only-focusable visually-hidden"><%= scoped_t('search.label') %></label>
+    <%# Classes reconfigured below %>
     <%= text_field_tag @query_param, @q, placeholder: scoped_t('search.placeholder'), class: "search-q q form-control col-8", id: "#{@prefix}q", autocomplete: autocomplete_path.present? ? "off" : "", autofocus: @autofocus, aria: { label: scoped_t('search.label') }, data: { autocomplete_enabled: autocomplete_path.present?, autocomplete_path: autocomplete_path }  %>
 
     <span class="input-group-append">
