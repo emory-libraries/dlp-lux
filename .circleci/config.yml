@@ -23,6 +23,7 @@ jobs:
             BUNDLE_PATH: vendor/bundle
             BUNDLE_JOBS: 4
             BUNDLE_RETRY: 3
+            CACHE_PATH: /tmp/cache1
             RAILS_ENV: test
             RACK_ENV: test
             SPEC_OPTS: --profile 10 --format RspecJunitFormatter --out /tmp/test-results/rspec.xml --format progress --tag ~relevancy:true
