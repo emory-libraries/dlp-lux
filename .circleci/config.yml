@@ -31,6 +31,7 @@ jobs:
             DATABASE_HOST: 127.0.0.1
             DATABASE_PORT: 3306
             DATABASE_USERNAME: root
+            CC_TEST_REPORTER_ID: ${CC_TEST_REPORTER_ID}
         docker:
             - image: cimg/ruby:<< parameters.ruby_version >>-browsers
             - image: solr:7-alpine
