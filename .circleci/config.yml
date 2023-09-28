@@ -35,7 +35,7 @@ jobs:
             - image: cimg/ruby:<< parameters.ruby_version >>-browsers
             - image: solr:7-alpine
               command: bin/solr -cloud -noprompt -f -p <<parameters.solr_port>>
-            - image: cimg/redis:<<parameters.redis_version>>
+            - image: circleci/redis:<<parameters.redis_version>>
             - image: cimg/mysql:<<parameters.mysql_version>>
         working_directory: ~/project
         parallelism: 4
