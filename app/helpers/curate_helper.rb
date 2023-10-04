@@ -20,7 +20,7 @@ module CurateHelper
   #   @param [Hash] opts
   #   @option opts [String] :field
   # @return [String]
-  def render_index_field_label *args
+  def render_index_field_label(*args)
     options = args.extract_options!
     document = args.first
 
