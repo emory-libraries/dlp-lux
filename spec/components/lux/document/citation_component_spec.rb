@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe Lux::Document::CitationComponent, type: :component do
   subject(:render) { render_inline(instance) }
 
-  let(:instance) { described_class.new(document: document) }
+  let(:instance) { described_class.new(document:) }
   let(:document) { PARENT_CURATE_GENERIC_WORK }
   let(:citation_keys) { described_class::DEFAULT_FORMATS.keys }
 

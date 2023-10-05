@@ -99,6 +99,6 @@ class ApplicationController < ActionController::Base
 
   def user_ip
     return request.headers["X-Forwarded-For"] if request.headers["X-Forwarded-For"]
-    return request.headers["REMOTE_ADDR"] if request.headers["REMOTE_ADDR"]
+    request.headers["REMOTE_ADDR"] if request.headers["REMOTE_ADDR"]
   end
 end
