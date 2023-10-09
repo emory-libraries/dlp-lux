@@ -89,8 +89,8 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'rspec-its'
   gem 'rspec-rails', '~> 5.0'
-  gem 'simplecov', require: false
   gem 'selenium-webdriver'
+  gem 'simplecov', require: false
   gem 'solr_wrapper', '>= 0.3'
   gem 'webdrivers', '5.3.0'
 end
