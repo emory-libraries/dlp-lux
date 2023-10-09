@@ -1,14 +1,13 @@
 # frozen_string_literal: true
 require 'simplecov'
 
-SimpleCov.add_filter '/spec/' # for rspec
-SimpleCov.add_filter '/app/jobs/'
-SimpleCov.add_filter '/app/mailers/'
-SimpleCov.add_filter '/app/models/marc_indexer.rb'
-SimpleCov.add_filter '/app/channels'
-
-require 'coveralls'
-Coveralls.wear!('rails')
+SimpleCov.start 'rails' do
+  add_filter '/spec/' # for rspec
+  add_filter '/app/jobs/'
+  add_filter '/app/mailers/'
+  add_filter '/app/models/marc_indexer.rb'
+  add_filter '/app/channels'
+end
 
 module ResponsiveHelpers
   def resize_window_to_mobile

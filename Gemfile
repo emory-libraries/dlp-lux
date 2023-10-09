@@ -82,7 +82,6 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara'
-  gem 'coveralls', require: false
   gem 'factory_bot_rails', '~> 4.11.1'
   gem 'ffaker'
   gem 'pry' unless ENV['CI']
@@ -90,6 +89,7 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'rspec-its'
   gem 'rspec-rails', '~> 5.0'
+  gem 'simplecov', require: false
   gem 'selenium-webdriver'
   gem 'solr_wrapper', '>= 0.3'
   gem 'webdrivers', '5.3.0'
