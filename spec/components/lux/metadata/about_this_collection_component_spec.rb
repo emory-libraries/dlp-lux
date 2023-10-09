@@ -21,7 +21,7 @@ RSpec.describe Lux::Metadata::AboutThisCollectionComponent, type: :component do
   let(:expected_linked_element_classes) do
     ["blacklight-creator_tesim", "blacklight-contributors_tesim", "blacklight-primary_language_tesim",
      "blacklight-finding_aid_link_ssm"]
-   end
+  end
 
   before do
     allow(instance).to receive(:document_presenter).and_return(doc_presenter)
