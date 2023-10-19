@@ -43,13 +43,13 @@ RSpec.describe Lux::Metadata::AccessAndCopyrightComponent, type: :component do
   it 'has the right label/value per row' do
     with_controller_class CatalogController do
       section_config.each do |solr_field, label|
-        expect(render.css("dt.blacklight-#{solr_field}").text).to include(label)
+        expect(render.css("dt.blacklight-#{solr_field.parameterize}").text).to include(label)
         expect(render.css('.card-body dl dd.blacklight-emory_rights_statement').text)
           .to include(instance.emory_rights_statement)
         expect(render.css('.card-body dl dd.blacklight-rights_statement').text)
           .to include(instance.human_readable_rights_statement)
         doc[solr_field].each do |value|
-          expect(render.css("dd.blacklight-#{solr_field}").text).to include(value)
+          expect(render.css("dd.blacklight-#{solr_field.parameterize}").text).to include(value)
         end
       end
     end
