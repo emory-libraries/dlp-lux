@@ -2,19 +2,10 @@
 require 'rails_helper'
 
 RSpec.describe Lux::Metadata::FirstColumnComponent, type: :component do
-  subject(:render) do
-    with_request_url "/catalog/#{doc.id}" do
-      render_inline(instance)
-    end
-  end
-  let(:instance) { described_class.new(document: doc) }
-  let(:doc) { SolrDocument.new(doc_type) }
-  let(:response) { instance_double(Blacklight::Solr::Response) }
+  # stub variables without presenter options
+  include_context('setup common component variables', false)
 
-  before do
-    allow(doc).to receive(:response).and_return(response)
-    allow(response).to receive(:[]).with('highlighting').and_return(nil)
-  end
+  let(:doc) { SolrDocument.new(doc_type) }
 
   context 'for a work' do
     let(:doc_type) { CURATE_GENERIC_WORK }
