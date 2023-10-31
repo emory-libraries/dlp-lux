@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 require 'rails_helper'
-# Note: This component has no rspec associated to it because of the partial call
-#   in the html requiring Warden helpers that aren't available in Component specs.
 
 RSpec.describe Lux::Metadata::FirstColumnComponent, type: :component do
   # stub variables without presenter options
