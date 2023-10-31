@@ -12,6 +12,14 @@ RSpec.describe Lux::Metadata::IsPartOfComponent, type: :component do
   context 'for a work' do
     let(:doc_type) { CURATE_GENERIC_WORK }
 
+    it 'returns the right boolean for collection member test' do
+      expect(instance.collection_member_present).to eq(true)
+    end
+
+    it 'returns the right boolean for parent work test' do
+      expect(instance.parent_work_present).to eq(false)
+    end
+
     it 'has the right google tag values' do
       with_controller_class(CatalogController) do
         # holding_repository_view gtag
@@ -32,6 +40,14 @@ RSpec.describe Lux::Metadata::IsPartOfComponent, type: :component do
 
   context 'for a collection' do
     let(:doc_type) { COLLECTION }
+
+    it 'returns the right boolean for collection member test' do
+      expect(instance.collection_member_present).to eq(true)
+    end
+
+    it 'returns the right boolean for parent work test' do
+      expect(instance.parent_work_present).to eq(false)
+    end
 
     it 'has the right link value' do
       with_controller_class(CatalogController) do
