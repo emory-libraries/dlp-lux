@@ -2,7 +2,6 @@
 # Note: This component has no rspec associated to it because of the partial call
 #   in the html requiring Warden helpers that aren't available in Component specs.
 
-
 module Lux
   module Metadata
     class ThirdColumnComponent < Blacklight::Component
