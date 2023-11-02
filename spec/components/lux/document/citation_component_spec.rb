@@ -9,11 +9,6 @@ RSpec.describe Lux::Document::CitationComponent, type: :component do
   let(:document) { PARENT_CURATE_GENERIC_WORK }
   let(:citation_keys) { described_class::DEFAULT_FORMATS.keys }
 
-  it 'creates a new instance of Emory::CitationFormatter' do
-    expect(Emory::CitationFormatter).to receive(:new).with(document)
-    instance
-  end
-
   it 'has the expected elements' do
     expect(render.css('h3.heading.-h3').map(&:text)).to match_array(citation_keys.map { |ck| I18n.t(ck) })
     expect(render.text).to include(

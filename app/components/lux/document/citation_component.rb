@@ -3,6 +3,7 @@
 require './lib/emory/citation_formatter'
 
 class Lux::Document::CitationComponent < Blacklight::Document::CitationComponent
+  attr_reader :generator
   DEFAULT_FORMATS = {
     'blacklight.citation.mla': 'modern-language-association',
     'blacklight.citation.apa': 'apa',
@@ -15,6 +16,9 @@ class Lux::Document::CitationComponent < Blacklight::Document::CitationComponent
   def initialize(document:, formats: DEFAULT_FORMATS)
     @document = document
     @formats = formats
+  end
+
+  def before_render
     @generator = ::Emory::CitationFormatter.new(@document)
   end
 end
