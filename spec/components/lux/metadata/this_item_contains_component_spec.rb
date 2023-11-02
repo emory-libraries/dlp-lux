@@ -4,10 +4,11 @@ require 'rails_helper'
 RSpec.describe Lux::Metadata::ThisItemContainsComponent, type: :component do
   include_context('setup common component variables', false)
   let(:doc) { SolrDocument.new(PARENT_CURATE_GENERIC_WORK) }
+  before { ENV['THUMBNAIL_URL'] = 'http://obviously_fake_url.com' }
 
   it 'has values in instance variables' do
     expect(instance.child_works).to be_present
-    expect(instance.thumbnail_url).not_to be_present
+    expect(instance.thumbnail_url).to be_present
   end
 
   it 'has 4 card links' do

@@ -6,7 +6,11 @@ module Lux
 
     def initialize(document: nil, crumb_hashes: [])
       @document = document
-      @crumb_hashes = @document.present? ? page_breadcrumbs_parser : crumb_hashes
+      @crumb_hashes = crumb_hashes
+    end
+
+    def before_render
+      @crumb_hashes = @document.present? ? page_breadcrumbs_parser : @crumb_hashes
     end
 
     def page_breadcrumbs_parser
