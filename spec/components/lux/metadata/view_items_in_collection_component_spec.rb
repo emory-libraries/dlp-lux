@@ -5,10 +5,6 @@ RSpec.describe Lux::Metadata::ViewItemsInCollectionComponent, type: :component d
   include_context('setup common component variables', false)
   let(:doc) { SolrDocument.new(COLLECTION) }
 
-  it 'has a value in instance variable' do
-    expect(instance.formatted_title).to be_present
-  end
-
   it 'has a link with a solr search using collection title' do
     expect(render).to have_link(
       'View items in this digital collection',

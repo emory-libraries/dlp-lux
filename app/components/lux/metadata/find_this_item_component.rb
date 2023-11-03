@@ -6,7 +6,6 @@ module Lux
       attr_reader :document, :document_presenter, :fields, :title
       def initialize(document:)
         @document = document
-        @title = this_is_collection ? 'Find This Collection' : 'Find This Item'
       end
 
       def this_is_collection
@@ -14,6 +13,7 @@ module Lux
       end
 
       def before_render
+        @title = this_is_collection ? 'Find This Collection' : 'Find This Item'
         @document_presenter = helpers.document_presenter(@document)
         @fields = ::MetadataPresenter.new(
           document: @document_presenter.fields_to_render

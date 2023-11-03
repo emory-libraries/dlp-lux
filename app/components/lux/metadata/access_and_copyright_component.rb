@@ -8,9 +8,6 @@ module Lux
 
       def initialize(document:)
         @document = document
-        @emory_rights_statement = @document["emory_rights_statements_tesim"]&.first
-        @rights_statement = @document["rights_statement_tesim"]&.first
-        @human_readable_rights_statement = @document["human_readable_rights_statement_ssim"]&.first
       end
 
       def this_is_work
@@ -22,6 +19,9 @@ module Lux
       end
 
       def before_render
+        @emory_rights_statement = @document["emory_rights_statements_tesim"]&.first
+        @rights_statement = @document["rights_statement_tesim"]&.first
+        @human_readable_rights_statement = @document["human_readable_rights_statement_ssim"]&.first
         @document_presenter = helpers.document_presenter(@document)
         @fields = ::MetadataPresenter.new(
           document: @document_presenter.fields_to_render
