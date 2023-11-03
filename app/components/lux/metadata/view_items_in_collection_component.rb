@@ -6,7 +6,11 @@ module Lux
       attr_reader :formatted_title
 
       def initialize(document:)
-        @formatted_title = CGI.escape(document[:title_tesim]&.first)
+        @document = document
+      end
+
+      def before_render
+        @formatted_title = CGI.escape(@document[:title_tesim]&.first)
       end
     end
   end
