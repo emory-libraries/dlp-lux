@@ -38,3 +38,13 @@ RSpec.shared_examples('tests for expected component link values') do |wrapping_e
     end
   end
 end
+
+RSpec.shared_examples('tests for object link') do |text, href|
+  it("contains link for #{text}") { expect(render).to have_link(text, href:) }
+end
+
+RSpec.shared_examples('test for object images') do |path, text|
+  it "contains the expected image for #{text}" do
+    expect(render.css("img[src='#{path}']").attribute('alt').value).to eq(text)
+  end
+end
