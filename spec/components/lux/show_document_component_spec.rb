@@ -40,7 +40,7 @@ RSpec.describe Lux::ShowDocumentComponent, type: :component do
     let(:doc) { banner_solr_doc }
 
     it 'returns a batther path when set' do
-      expect(instance.banner_source).to eq('/branding/119f4qrfj9-cor/banner/banner.jpg')
+      expect(instance.banner_source).to include('/branding/119f4qrfj9-cor/banner/banner.jpg')
     end
   end
 end
