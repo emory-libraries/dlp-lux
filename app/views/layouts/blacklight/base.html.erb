@@ -30,8 +30,8 @@
     <%= action_cable_meta_tag %>
     <%= content_for(:head) %>
 
-    <%= javascript_include_tag 'xray', nonce: true if Rails.env.development? %>
-    <%= stylesheet_link_tag 'xray', nonce: true if Rails.env.development? %> 
+    <%= javascript_include_tag 'xray', nonce: true, "data-turbo-track": "reload", defer: true if Rails.env.development? %>
+    <%= stylesheet_link_tag 'xray', nonce: true if Rails.env.development? %>
   </head>
   <body class="<%= render_body_class %>">
 
