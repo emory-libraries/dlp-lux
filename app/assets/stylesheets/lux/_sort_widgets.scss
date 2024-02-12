@@ -16,7 +16,7 @@ div#sortAndPerPage {
     right: 0;
   }
 
-  > div.sort-tools > div.per-page-dropdown, div#sort-dropdown {
+  > .sort-tools > .search-widgets > div#per_page-dropdown, div#sort-dropdown {
     > button.dropdown-toggle {
       border-radius: $results-border-radius;
     }
@@ -27,7 +27,7 @@ div#sortAndPerPage {
     }
   }
 
-  > div.sort-tools > div.per-page-dropdown {
+  > .sort-tools > .search-widgets > div#per_page-dropdown {
     > .dropdown-menu {
       min-width: $results-drop-menu-min-w;
     }

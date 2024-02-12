@@ -9,3 +9,7 @@
 //= require explore_collections
 //= require footer_branding
 //= require uv_width
+
+window.process = { env: { NODE_ENV: 'production' } };
+import '@popperjs/core'
+import 'bootstrap'
