@@ -1,7 +1,7 @@
 <!-- This is a Blacklight 7.33.1 overwrite that is required to properly align the two pagination bars (top and bottom) together -->
 <%= render Blacklight::System::ModalComponent.new do |component| %>
   <% component.prefix do %>
-    <div class="facet-pagination top row justify-content-between">
+    <div class="facet-pagination top">
       <%= render :partial=>'facet_pagination' %>
     </div>
   <% end %>
@@ -15,8 +15,9 @@
   </div>
 
   <% component.footer do %>
+    <div class="facet-pagination bottom">
+      <%= render :partial=>'facet_pagination' %>
+    </div>
   <% end %>
-  <div class="facet-pagination bottom row justify-content-between">
-    <%= render :partial=>'facet_pagination' %>
-  </div>
+
 <% end %>
