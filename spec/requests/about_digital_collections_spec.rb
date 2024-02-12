@@ -11,7 +11,7 @@ RSpec.describe "About Digital Collections", type: :request do
     expect(response.status).to eq 200
     expect(response.body).not_to be_empty
     expect(response.content_length).to be > 0
-    expect(response.content_type).to eq "text/html"
+    expect(response.content_type).to eq "text/html; charset=utf-8"
   end
 
   it 'contains the correct page title' do

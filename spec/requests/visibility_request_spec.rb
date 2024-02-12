@@ -59,7 +59,7 @@ RSpec.describe "Visibility requests", :clean, type: :request do
         expect(response.status).to eq 200
         expect(response.body).not_to be_empty
         expect(response.content_length).to be > 0
-        expect(response.content_type).to eq "text/html"
+        expect(response.content_type).to eq "text/html; charset=utf-8"
       end
 
       it "loads the 'show' page for a work with 'Public Low View' visibility" do
@@ -68,7 +68,7 @@ RSpec.describe "Visibility requests", :clean, type: :request do
         expect(response.status).to eq 200
         expect(response.body).not_to be_empty
         expect(response.content_length).to be > 0
-        expect(response.content_type).to eq "text/html"
+        expect(response.content_type).to eq "text/html; charset=utf-8"
       end
 
       it "does not load the 'show' page for a work with 'Emory High Download' visibility" do
@@ -111,7 +111,7 @@ RSpec.describe "Visibility requests", :clean, type: :request do
         expect(response.status).to eq 200
         expect(response.body).not_to be_empty
         expect(response.content_length).to be > 0
-        expect(response.content_type).to eq "text/html"
+        expect(response.content_type).to eq "text/html; charset=utf-8"
       end
 
       it "loads the 'show' page for a work with 'Public Low View' visibility" do
@@ -120,7 +120,7 @@ RSpec.describe "Visibility requests", :clean, type: :request do
         expect(response.status).to eq 200
         expect(response.body).not_to be_empty
         expect(response.content_length).to be > 0
-        expect(response.content_type).to eq "text/html"
+        expect(response.content_type).to eq "text/html; charset=utf-8"
       end
 
       it "loads the 'show' page for a work with 'Emory High Download' visibility" do
@@ -129,7 +129,7 @@ RSpec.describe "Visibility requests", :clean, type: :request do
         expect(response.status).to eq 200
         expect(response.body).not_to be_empty
         expect(response.content_length).to be > 0
-        expect(response.content_type).to eq "text/html"
+        expect(response.content_type).to eq "text/html; charset=utf-8"
       end
 
       it "loads the 'show' page for a work with 'Emory Low Download' visibility" do
@@ -138,7 +138,7 @@ RSpec.describe "Visibility requests", :clean, type: :request do
         expect(response.status).to eq 200
         expect(response.body).not_to be_empty
         expect(response.content_length).to be > 0
-        expect(response.content_type).to eq "text/html"
+        expect(response.content_type).to eq "text/html; charset=utf-8"
       end
 
       it "does not load the 'show' page for a work with 'Rose High View' visibility using remote address" do

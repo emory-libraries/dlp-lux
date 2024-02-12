@@ -1,0 +1,29 @@
+<% if fields.count > 0 %>
+  <div class="about-this-collection card mb-2 rounded-0" title="About This Collection">
+    <div class="card-header rounded-0">About This Collection</div>
+    <div class="card-body">
+      <dl title="About This Collection">
+        <% fields.each do |field_name, field| %>
+          <div class="row">
+            <dt class="blacklight-<%= field_name.parameterize %> col-md-5">
+              <%= helpers.render_document_show_field_label(document, field: field_name) %>
+            </dt>
+            <% if field_name == "finding_aid_link_ssm" %>
+              <dd class="blacklight-<%= field_name.parameterize %> col-md-7">
+                <a href="<%= document_presenter.field_value(field) %>">Finding Aid</a>
+              </dd>
+            <% else %>
+              <dd class="blacklight-<%= field_name.parameterize %> col-md-7">
+                <% if helpers.field_is_for_dates?(field_name) %>
+                  <%= helpers.dates_on_separate_lines(document, field_name).html_safe %>
+                <% else %>
+                  <%= document_presenter.field_value(field) %>
+                <% end %>
+              </dd>
+            <% end %>
+          </div>
+        <% end %>
+      </dl>
+    </div>
+  </div>
+<% end %>

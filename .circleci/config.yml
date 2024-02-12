@@ -1,15 +1,16 @@
 version: 2.1
 orbs:
     samvera: samvera/circleci-orb@0.3.1
+    browser-tools: circleci/browser-tools@1.4
 jobs:
     build:
         parameters:
             ruby_version:
                 type: string
-                default: '2.7.5'
+                default: '3.1.2'
             bundler_version:
                 type: string
-                default: '2.0.1'
+                default: '2.3.22'
             solr_port:
                 type: string
                 default: '8985'
@@ -18,7 +19,7 @@ jobs:
                 default: '4'
             mysql_version:
                 type: string
-                default: '5.7.22'
+                default: '8.0.33'
         environment:
             BUNDLE_PATH: vendor/bundle
             BUNDLE_JOBS: 4
@@ -31,16 +32,17 @@ jobs:
             DATABASE_PORT: 3306
             DATABASE_USERNAME: root
         docker:
-            - image: circleci/ruby:<< parameters.ruby_version >>-node-browsers-legacy
+            - image: cimg/ruby:<< parameters.ruby_version >>-browsers
             - image: solr:7-alpine
               command: bin/solr -cloud -noprompt -f -p <<parameters.solr_port>>
             - image: circleci/redis:<<parameters.redis_version>>
-            - image: circleci/mysql:<<parameters.mysql_version>>
+            - image: cimg/mysql:<<parameters.mysql_version>>
         working_directory: ~/project
         parallelism: 4
         steps:
             - checkout
-
+            - browser-tools/install-chrome
+            - browser-tools/install-chromedriver
             - samvera/bundle:
                 ruby_version: << parameters.ruby_version >>
                 bundler_version: << parameters.bundler_version >>
@@ -77,6 +79,10 @@ jobs:
                 name: Wait for MySQL, if necessary.
                 command: dockerize -wait tcp://${DATABASE_HOST}:${DATABASE_PORT} -timeout 1m
 
+            - run: 
+                name: Run migrations
+                command: bundle exec rails db:migrate RAILS_ENV=test
+
             - samvera/parallel_rspec
 
             - run:
@@ -95,7 +101,7 @@ jobs:
 
     coverage:
         docker:
-            - image: circleci/ruby:2.7.5
+            - image: cimg/ruby:3.1.2
         working_directory: ~/project
         parallelism: 1
         steps:
@@ -119,8 +125,8 @@ workflows:
     ci:
         jobs:
             - build:
-                name: ruby2-7-5
+                name: ruby3-1-2
             - coverage:
                 name: codeclimate
                 requires:
-                    - ruby2-7-5
+                    - ruby3-1-2

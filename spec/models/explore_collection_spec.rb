@@ -8,39 +8,28 @@ RSpec.describe ExploreCollection do
   let(:description) { "This is a good description, itn't it?" }
 
   it 'sets active to true as default' do
-    explore_collection = described_class.create(
-      title: title, banner_path: banner_path, collection_path: collection_path, description: description
-    )
-
+    explore_collection = described_class.create(title:, banner_path:, collection_path:, description:)
     expect(explore_collection.active).to be_truthy
   end
 
   context 'presence validation' do
     it 'makes sure title has value' do
-      explore_collection = described_class.new(
-        banner_path: banner_path, collection_path: collection_path, description: description
-      )
+      explore_collection = described_class.new(banner_path:, collection_path:, description:)
       expect(explore_collection.valid?).to be_falsey
     end
 
     it 'makes sure banner_path has value' do
-      explore_collection = described_class.new(
-        title: title, collection_path: collection_path, description: description
-      )
+      explore_collection = described_class.new(title:, collection_path:, description:)
       expect(explore_collection.valid?).to be_falsey
     end
 
     it 'makes sure collection_path has value' do
-      explore_collection = described_class.new(
-        banner_path: banner_path, title: title, description: description
-      )
+      explore_collection = described_class.new(banner_path:, title:, description:)
       expect(explore_collection.valid?).to be_falsey
     end
 
     it 'makes sure description has value' do
-      explore_collection = described_class.new(
-        banner_path: banner_path, collection_path: collection_path, title: title
-      )
+      explore_collection = described_class.new(banner_path:, collection_path:, title:)
       expect(explore_collection.valid?).to be_falsey
     end
   end

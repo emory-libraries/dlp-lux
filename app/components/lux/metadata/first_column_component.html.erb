@@ -1,0 +1,8 @@
+<div class="row-flex">
+  <%= is_part_of %>
+  <% if this_is_collection %>
+    <%= render ::Lux::Metadata::ViewItemsInCollectionComponent.new(document: document) %>
+  <% end %>
+  <%= find_this_item %>
+  <%= related_material %>
+</div>

@@ -9,7 +9,7 @@ class RelatedMaterialPresenter
   end
 
   def terms
-    @config = @config.symbolize_keys
-    @document.slice(*@config.keys)
+    config_keys = @config.keys
+    @document.to_a.select { |field| config_keys.include? field.first }.to_enum
   end
 end

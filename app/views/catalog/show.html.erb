@@ -1,8 +1,10 @@
+<!-- Blacklight 7.33.1 Override -  utlizies our classes and desired placement of elements -->
+
 <% if current_search_session %>
   <div id="appliedParams" class="clearfix constraints-container">
-    <%= link_to t('blacklight.search.start_over'), start_over_path, class: "catalog_startOverLink button link" %>
+    <%= render 'start_over' %>
     <%= link_back_to_catalog class: 'button back-to' %>
   </div>
 <% end %>
 
-<%= render_document_main_content_partial %>
+<%= render 'show_main_content' %>

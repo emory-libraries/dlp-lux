@@ -77,7 +77,7 @@ RSpec.describe Emory::CitationFormatter do
     end
   end
 
-  context '#key_value_chunk_1' do
+  context '#key_value_chunk1' do
     key_arr = [:id, :abstract, :archive_location, :author, :"call-number", :edition, :institution]
     keys_values_hsh = {
       id: :item,
@@ -89,10 +89,10 @@ RSpec.describe Emory::CitationFormatter do
       institution: "Emory University"
     }
 
-    include_examples "check_citation_item_key_and_values", :key_value_chunk_1, key_arr, keys_values_hsh
+    include_examples "check_citation_item_key_and_values", :key_value_chunk1, key_arr, keys_values_hsh
   end
 
-  context '#key_value_chunk_2' do
+  context '#key_value_chunk2' do
     key_arr = [:archive, :publisher, :title, :"collection-title", :type, :url]
     keys_values_hsh = {
       archive: "Oxford College Library (Oxford, Ga.)",
@@ -103,10 +103,10 @@ RSpec.describe Emory::CitationFormatter do
       url: "https://digital.library.emory.edu/purl/030prr4xkj-cor"
     }
 
-    include_examples "check_citation_item_key_and_values", :key_value_chunk_2, key_arr, keys_values_hsh
+    include_examples "check_citation_item_key_and_values", :key_value_chunk2, key_arr, keys_values_hsh
   end
 
-  context '#key_value_chunk_3' do
+  context '#key_value_chunk3' do
     key_arr = [:dimensions, :event, :genre, :ISBN, :ISSN, :keyword, :"publisher-place"]
     keys_values_hsh = {
       dimensions: nil,
@@ -118,6 +118,6 @@ RSpec.describe Emory::CitationFormatter do
       "publisher-place": "Oxford, Georgia"
     }
 
-    include_examples "check_citation_item_key_and_values", :key_value_chunk_3, key_arr, keys_values_hsh
+    include_examples "check_citation_item_key_and_values", :key_value_chunk3, key_arr, keys_values_hsh
   end
 end

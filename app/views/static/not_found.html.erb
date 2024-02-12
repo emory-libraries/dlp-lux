@@ -1,9 +1,10 @@
 <div class="container not-found-container">
-    <%= render 'catalog/breadcrumbs', crumb_hashes: [] %>
-    <div class="row static-heading-row not-found">
-      <%= render 'static/static_heading', 
-              title: t('static.not_found.header'), 
-              subheading: t('static.not_found.subheading').html_safe
-      %>
-    </div>
+  <%= render ::Lux::BreadcrumbsComponent.new %>
+  <div class="row static-heading-row not-found">
+    <%= render ::Lux::StaticHeadingComponent.new(
+                 title: t('static.not_found.header'), 
+                 subheading: t('static.not_found.subheading').html_safe
+        )
+    %>
+  </div>
 </div>

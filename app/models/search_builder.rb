@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-require './lib/newspaper_works/highlight_search_params.rb'
+require './lib/newspaper_works/highlight_search_params'
 
 class SearchBuilder < Blacklight::SearchBuilder
   include Blacklight::Solr::SearchBuilderBehavior

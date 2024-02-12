@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'rails_helper'
 
-RSpec.describe "View a Work Citation", type: :system, js: false do
+RSpec.describe "View a Work Citation", type: :system, js: true do
   before do
     solr = Blacklight.default_index.connection
     solr.add(work_attributes)
@@ -25,7 +25,9 @@ RSpec.describe "View a Work Citation", type: :system, js: false do
   end
 
   it 'provides the right link 3 times' do
-    expect(page).to have_content('https://digital.library.emory.edu/purl/030prr4xkj-cor', count: 3)
+    within '.modal-content' do
+      expect(page).to have_content('https://digital.library.emory.edu/purl/030prr4xkj-cor', count: 3)
+    end
   end
 
   it 'shows the APA correctly' do

@@ -5,19 +5,19 @@ class CatalogController < ApplicationController
   include Blacklight::Catalog
   include Blacklight::AccessControls::Catalog
 
-  rescue_from NameError, with: :render_404
+  rescue_from NameError, with: :render404
 
-  def render_404
+  def render404
     visibility = visibility_lookup(resource_id_param)
     case visibility
     when 'emory_low', 'authenticated'
-      Rails.logger.debug "CatalogController#render_404: request.url: #{request.url}"
+      Rails.logger.debug "CatalogController#render404: request.url: #{request.url}"
       session[:requested_page] = request.url
       redirect_to new_user_session_path
     when 'rose_high', 'restricted'
-      render file: Rails.root.join('app', 'views', 'static', 'reading_room_not_found.html.erb'), status: :not_found, layout: true
+      render 'static/reading_room_not_found', status: :not_found, layout: true
     else
-      render file: Rails.root.join('app', 'views', 'static', 'not_found.html.erb'), status: :not_found, layout: true
+      render 'static/not_found', status: :not_found, layout: true
     end
   end
 
@@ -147,7 +147,7 @@ class CatalogController < ApplicationController
     #config.add_facet_field 'subject_ssim', label: 'Topic', limit: 20, index_range: 'A'..'Z'
     #config.add_facet_field 'language_ssim', label: 'Language', limit: true
 
-    # config.add_facet_field 'example_pivot_field', label: 'Pivot Field', pivot: ['format', 'language_ssim']
+    # config.add_facet_field 'example_pivot_field', label: 'Pivot Field', pivot: ['format', 'language_ssim'], collapsing: true
 
     #config.add_facet_field 'example_query_facet_field', label: 'Publish Date', query: {
     #  years_5: { label: 'within 5 Years', fq: "pub_date_ssim:[#{Time.zone.now.year - 5} TO *]" },
