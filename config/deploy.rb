@@ -31,18 +31,6 @@ set :local_user, -> { `git config user.name`.chomp }
 # Restart passenger after deploy is finished
 after :'deploy:finished', :'passenger:restart'
 
-namespace :yarn do
-  task :install do
-    on roles :all do
-      within release_path do
-        execute :yarn, 'install'
-      end
-    end
-  end
-end
-
-after :'deploy:assets:precompile', :'yarn:install'
-
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
