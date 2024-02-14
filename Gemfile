@@ -29,7 +29,6 @@ gem 'dotenv-rails'
 # Needed for support of OpenSSH keys
 gem 'ed25519'
 gem 'honeybadger', '~> 4.0'
-gem 'importmap-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
@@ -47,7 +46,6 @@ gem 'rsolr', '>= 1.0'
 # Use SCSS for stylesheets
 gem "sassc-rails", "~> 2.1"
 gem 'simple_form'
-gem "sprockets-rails"
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 gem 'twitter-typeahead-rails', '0.11.1.pre.corejavascript'
