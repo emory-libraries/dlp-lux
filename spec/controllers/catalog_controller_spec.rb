@@ -24,7 +24,9 @@ RSpec.describe CatalogController, type: :controller do
        'human_readable_rights_statement',
        'visibility_group_ssi',
        'contributors',
-       'keywords']
+       'keywords',
+       'has_model',
+       'visibility_ssi']
     end
 
     it 'has exactly expected facets' do

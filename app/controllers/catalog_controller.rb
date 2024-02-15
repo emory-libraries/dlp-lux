@@ -142,6 +142,8 @@ class CatalogController < ApplicationController
     config.add_facet_field 'visibility_group_ssi', label: 'Access'
     config.add_facet_field 'contributors_sim', label: 'Contributors', show: false
     config.add_facet_field 'keywords_sim', label: 'Keywords', show: false
+    config.add_facet_field 'has_model_ssim', show: false
+    config.add_facet_field 'visibility_ssi', show: false
 
     #config.add_facet_field 'pub_date_ssim', label: 'Publication Year', single: true
     #config.add_facet_field 'subject_ssim', label: 'Topic', limit: 20, index_range: 'A'..'Z'
