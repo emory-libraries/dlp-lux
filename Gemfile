@@ -8,7 +8,7 @@ end
 
 ruby '~> 2.7.5'
 
-gem 'administrate', '~> 0.17.0'
+gem 'administrate', '~> 0.20.1'
 # Use ActiveModel has_secure_password
 # Needed for support of OpenSSH keys
 gem 'bcrypt_pbkdf'
@@ -18,11 +18,11 @@ gem 'blacklight-access_controls', git: 'https://github.com/projectblacklight/bla
 gem 'blacklight-marc', '>= 7.0.0.rc1'
 gem 'blacklight_advanced_search', '~>7.0'
 gem 'blacklight_range_limit'
-gem 'bootstrap', '~> 4.0'
+gem 'bootstrap', '~> 5.3'
 gem 'bootstrap-select-rails', '>= 1.13'
 gem 'citeproc-ruby'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.2'
+gem 'coffee-rails', '~> 5.0'
 gem 'csl-styles'
 gem 'devise'
 gem 'dotenv-rails'
@@ -33,22 +33,22 @@ gem 'honeybadger', '~> 4.0'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'mysql2', '~> 0.5'
-gem 'omniauth', '< 2'
+gem 'omniauth', '< 3'
 # Use shibboleth for user authentication
 gem 'omniauth-shibboleth', '~> 1.3'
 # Use Puma as the app server
 gem 'puma'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.0'
+gem 'rails', '~> 7.1.3'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 gem 'rsolr', '>= 1.0'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 6.0'
 gem 'simple_form'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-gem 'twitter-typeahead-rails', '0.11.1.pre.corejavascript'
+gem 'twitter-typeahead-rails', '0.11.1'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Use Uglifier as compressor for JavaScript assets
@@ -77,7 +77,7 @@ end
 
 group :development, :test do
   # bixby = rubocop rules for Hyrax apps
-  gem 'bixby', '~> 3.0.1'
+  gem 'bixby', '~> 5.0.2'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara'
@@ -88,10 +88,10 @@ group :development, :test do
   gem 'pry-byebug' unless ENV['CI']
   gem 'rails-controller-testing'
   gem 'rspec-its'
-  gem 'rspec-rails', '~> 5.0'
+  gem 'rspec-rails', '~> 6.1'
   gem 'selenium-webdriver'
   gem 'solr_wrapper', '>= 0.3'
-  gem 'webdrivers', '5.3.0'
+  gem 'webdrivers', '5.3.1'
 end
 
 group :test do
