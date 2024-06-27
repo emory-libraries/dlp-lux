@@ -1,5 +1,5 @@
 <% # [Blacklight v7.33.1 Override] Do not display Help or Feedback links on Bookmarks page #L5 %>
-<%= document_actions(document_list, options: { document: nil }) %>
+<%= Array(document_actions(document_list, options: { document: nil }).select { |v| v.name == :citation }) %>
 <% if render_show_doc_actions_method_from_blacklight? %>
   <%= render(Blacklight::Document::ActionsComponent.new(document: nil,
                                                         tag: 'div',
