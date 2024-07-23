@@ -1,2 +1,6 @@
+<%# Blacklight v7.33.1 Override - we prefer our own header type and class names %>
+
 <% # bookmark/folder functions -%>
-<h1 itemprop="name" class="show-header"><%= document_heading %></h1>
+<h1 itemprop="name" class="show-header">
+  <%= Deprecation.silence(Blacklight::BlacklightHelperBehavior) { document_heading } %>
+</h1>

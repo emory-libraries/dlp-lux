@@ -1,14 +1,18 @@
 # frozen_string_literal: true
 
-RSpec.shared_examples "check_page_for_link" do |link, route|
+RSpec.shared_examples "check_page_for_link" do |link, route, capy_obj|
   it "has link: #{link}" do
-    expect(page).to have_xpath("//a[@href='#{route}' and @id='crumb' and text()='#{link}']")
+    subj = capy_obj == 'page' ? page : render
+
+    expect(subj).to have_xpath("//a[@href='#{route}' and @id='crumb' and text()='#{link}']")
   end
 end
 
-RSpec.shared_examples "check_page_for_current_link" do |link, route|
+RSpec.shared_examples "check_page_for_current_link" do |link, route, capy_obj|
   it "has link for current page: #{link}" do
-    expect(page).to have_xpath(
+    subj = capy_obj == 'page' ? page : render
+
+    expect(subj).to have_xpath(
       "//a[@href='#{route}' and @id='crumb' and text()='#{link}']"
     )
   end

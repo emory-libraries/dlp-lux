@@ -8,6 +8,6 @@ class ContentBlock < ApplicationRecord
   end
 
   def self.blank(reference:)
-    ContentBlock.new(reference: reference, value: '')
+    ContentBlock.new(reference:, value: '')
   end
 end

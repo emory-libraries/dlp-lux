@@ -145,3 +145,15 @@ section#sidebar.search {
     text-decoration: none;
   }
 }
+
+.facet-pagination.bottom, .facet-pagination.top {
+  flex: 1;
+  margin: 0.25rem;
+  > .sort-options {
+    float: right;
+  }
+}
+
+.facet-pagination.top {
+  padding: 0.75rem;
+}

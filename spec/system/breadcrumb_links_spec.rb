@@ -26,8 +26,8 @@ RSpec.describe "Breadcrumb links when viewing assorted pages", type: :system, js
     let(:id) { '119f4qrfj9-cor' }
     let(:work_attributes) { COLLECTION.except(:member_of_collection_ids_ssim) }
 
-    include_examples "check_page_for_link", "Home", "/"
-    include_examples "check_page_for_current_link", "Chester W. Topp...", "/catalog/119f4qrfj9-cor"
+    include_examples "check_page_for_link", "Home", "/", 'page'
+    include_examples "check_page_for_current_link", "Chester W. Topp...", "/catalog/119f4qrfj9-cor", 'page'
     include_examples "check_page_for_full_link", "Chester W. Topp collection of Victorian yellowbacks and paperbacks"
   end
 
@@ -35,18 +35,18 @@ RSpec.describe "Breadcrumb links when viewing assorted pages", type: :system, js
     let(:id) { '119f4qrfj9-cor' }
     let(:work_attributes) { COLLECTION }
 
-    include_examples "check_page_for_link", "Home", "/"
-    include_examples "check_page_for_link", "Back to Parent Object", "/catalog/805fbg79d6-cor"
-    include_examples "check_page_for_current_link", "Chester W. Topp...", "/catalog/119f4qrfj9-cor"
+    include_examples "check_page_for_link", "Home", "/", 'page'
+    include_examples "check_page_for_link", "Back to Parent Object", "/catalog/805fbg79d6-cor", 'page'
+    include_examples "check_page_for_current_link", "Chester W. Topp...", "/catalog/119f4qrfj9-cor", 'page'
   end
 
   context "when on Collection's Parent Object" do
     let(:id) { '123' }
     let(:work_attributes) { CURATE_GENERIC_WORK }
 
-    include_examples "check_page_for_link", "Home", "/"
-    include_examples "check_page_for_link", "Back to Collection", "/catalog/805fbg79d6-cor"
-    include_examples "check_page_for_current_link", "The Title of...", "/catalog/123"
+    include_examples "check_page_for_link", "Home", "/", 'page'
+    include_examples "check_page_for_link", "Back to Collection", "/catalog/805fbg79d6-cor", 'page'
+    include_examples "check_page_for_current_link", "The Title of...", "/catalog/123", 'page'
     include_examples "check_page_for_full_link", "The Title of my Work"
   end
 
@@ -60,10 +60,10 @@ RSpec.describe "Breadcrumb links when viewing assorted pages", type: :system, js
       )
     end
 
-    include_examples "check_page_for_link", "Home", "/"
-    include_examples "check_page_for_link", "Back to Collection", "/catalog/2150gb5mkr-cor"
-    include_examples "check_page_for_link", "Back to Parent Object", "/catalog/1010110"
-    include_examples "check_page_for_current_link", "A Sweeping Masterpiece...", "/catalog/1010111"
+    include_examples "check_page_for_link", "Home", "/", 'page'
+    include_examples "check_page_for_link", "Back to Collection", "/catalog/2150gb5mkr-cor", 'page'
+    include_examples "check_page_for_link", "Back to Parent Object", "/catalog/1010110", 'page'
+    include_examples "check_page_for_current_link", "A Sweeping Masterpiece...", "/catalog/1010111", 'page'
     include_examples "check_page_for_full_link", "A Sweeping Masterpiece With Epic Scale"
   end
 
@@ -75,8 +75,8 @@ RSpec.describe "Breadcrumb links when viewing assorted pages", type: :system, js
       ).except(:child_works_for_lux_tesim)
     end
 
-    include_examples "check_page_for_link", "Home", "/"
-    include_examples "check_page_for_current_link", "A Melodramatic, Whining...", "/catalog/1010110"
+    include_examples "check_page_for_link", "Home", "/", 'page'
+    include_examples "check_page_for_current_link", "A Melodramatic, Whining...", "/catalog/1010110", 'page'
     include_examples "check_page_for_full_link", "A Melodramatic, Whining Piece of Pap"
   end
 
@@ -84,17 +84,17 @@ RSpec.describe "Breadcrumb links when viewing assorted pages", type: :system, js
     let(:id) { '1010111' }
     let(:work_attributes) { CHILD_WORK_WO_COLLECTION_ATTACHED.merge(title_tesim: 'A Fine Mess') }
 
-    include_examples "check_page_for_link", "Home", "/"
-    include_examples "check_page_for_link", "Back to Parent Object", "/catalog/1010110"
-    include_examples "check_page_for_current_link", "A Fine Mess", "/catalog/1010111"
+    include_examples "check_page_for_link", "Home", "/", 'page'
+    include_examples "check_page_for_link", "Back to Parent Object", "/catalog/1010110", 'page'
+    include_examples "check_page_for_current_link", "A Fine Mess", "/catalog/1010111", 'page'
   end
 
   context "when on /about" do
     let(:id) { '123' }
     let(:work_attributes) { CURATE_GENERIC_WORK }
 
-    include_examples "check_page_for_link_static", "Home", "/about"
-    include_examples "check_page_for_current_link_static", "About Emory Digital...", "/about"
+    include_examples "check_page_for_link_static", "Home", "/about", 'page'
+    include_examples "check_page_for_current_link_static", "About Emory Digital...", "/about", 'page'
     include_examples "check_page_for_full_link_static", "About Emory Digital Collections", "/about"
   end
 
@@ -102,24 +102,24 @@ RSpec.describe "Breadcrumb links when viewing assorted pages", type: :system, js
     let(:id) { '123' }
     let(:work_attributes) { CURATE_GENERIC_WORK }
 
-    include_examples "check_page_for_link_static", "Home", "/contact"
-    include_examples "check_page_for_current_link_static", "Digital Repository Contacts", "/contact"
+    include_examples "check_page_for_link_static", "Home", "/contact", 'page'
+    include_examples "check_page_for_current_link_static", "Digital Repository Contacts", "/contact", 'page'
   end
 
   context "when on /search_history" do
     let(:id) { '123' }
     let(:work_attributes) { CURATE_GENERIC_WORK }
 
-    include_examples "check_page_for_link_static", "Home", "/search_history"
-    include_examples "check_page_for_current_link_static", "History", "/search_history"
+    include_examples "check_page_for_link_static", "Home", "/search_history", 'page'
+    include_examples "check_page_for_current_link_static", "History", "/search_history", 'page'
   end
 
   context "when on /advanced" do
     let(:id) { '123' }
     let(:work_attributes) { CURATE_GENERIC_WORK }
 
-    include_examples "check_page_for_link_static", "Home", "/advanced"
-    include_examples "check_page_for_current_link_static", "Advanced Search", "/advanced"
+    include_examples "check_page_for_link_static", "Home", "/advanced", 'page'
+    include_examples "check_page_for_current_link_static", "Advanced Search", "/advanced", 'page'
   end
 
   context "when on /bookmarks" do

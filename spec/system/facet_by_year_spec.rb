@@ -50,7 +50,7 @@ RSpec.describe 'Facet the catalog by year', type: :system, js: false do
 
     fill_in 'range_year_for_lux_isim_begin', with: '1920'
     fill_in 'range_year_for_lux_isim_end', with: '1925'
-    click_on 'Apply'
+    find('.input-group-append input[value="Apply"]').click
 
     within '#documents' do
       expect(page).to     have_content('Llama Love')
@@ -59,16 +59,17 @@ RSpec.describe 'Facet the catalog by year', type: :system, js: false do
     end
   end
 
-  it 'gets search results when only date facet is applied' do
+  it 'gets search results when only date facet is applied', :js do
     visit root_path
     # Apply date facet with default parameters and make sure search results appear
-    find('input[value="Apply"]').click
+    click_on 'Date'
+    find('.input-group-append input[value="Apply"]').click
     expect(page).to have_content('Llama Love')
     expect(page).to have_content('Newt Nutrition')
-    expect(page).to have_content('Eagle Excellence')
+    expect(page).not_to have_content('Eagle Excellence')
   end
 
-  describe 'when "unknown" limiter is clicked' do
+  describe 'when "[Missing]" limiter is clicked' do
     context 'on homepage' do
       it "provides a constraint on the next page" do
         visit root_path

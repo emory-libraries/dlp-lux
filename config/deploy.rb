@@ -46,6 +46,18 @@ end
 
 before 'deploy:starting', 'deploy:confirm_cab_approval'
 
+namespace :yarn do
+  task :install do
+    on roles :all do
+      within release_path do
+        execute :yarn, 'install'
+      end
+    end
+  end
+end
+
+after :'deploy:assets:precompile', :'yarn:install'
+
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 

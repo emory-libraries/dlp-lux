@@ -1,0 +1,24 @@
+<% if fields.count > 0 %>
+  <div class="about-this-item card mb-2 rounded-0" title="About This Item">
+    <div class="card-header rounded-0">About This Item</div>
+    <div class="card-body">
+      <%= present_resolution_download_restriction %>
+      <dl title="About This Item">
+        <% fields.each do |field_name, field| %>
+          <div class="row">
+            <dt class="blacklight-<%= field_name.parameterize %> col-md-5">
+              <%= helpers.render_document_show_field_label(document, field: field_name) %>
+            </dt>
+            <dd class="blacklight-<%= field_name.parameterize %> col-md-7">
+              <% if helpers.field_is_for_dates?(field_name) %>
+                <%= helpers.dates_on_separate_lines(document, field_name).html_safe %>
+              <% else %>
+                <%= document_presenter.field_value(field) %>
+              <% end %>
+            </dd>
+          </div>
+        <% end %>
+      </dl>
+    </div>
+  </div>
+<% end %>

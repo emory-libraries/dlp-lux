@@ -6,17 +6,17 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby '~> 2.7.5'
+ruby '3.1.2'
 
 gem 'administrate', '~> 0.17.0'
 # Use ActiveModel has_secure_password
 # Needed for support of OpenSSH keys
 gem 'bcrypt_pbkdf'
 # Blacklight 7, because Blacklight 6 did not successfully deploy to production
-gem 'blacklight', ">= 7"
-gem 'blacklight-access_controls', git: 'https://github.com/projectblacklight/blacklight-access_controls', ref: '21e04f5'
+gem 'blacklight', "7.33.1"
+gem 'blacklight-access_controls', git: 'https://github.com/projectblacklight/blacklight-access_controls', branch: 'rails7_ruby3_blacklight8_upgrade'
+gem 'blacklight_advanced_search'
 gem 'blacklight-marc', '>= 7.0.0.rc1'
-gem 'blacklight_advanced_search', '~>7.0'
 gem 'blacklight_range_limit'
 gem 'bootstrap', '~> 4.0'
 gem 'bootstrap-select-rails', '>= 1.13'
@@ -39,12 +39,12 @@ gem 'omniauth-shibboleth', '~> 1.3'
 # Use Puma as the app server
 gem 'puma'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.0'
+gem 'rails', '~> 7.0', '>= 7.0.7.2'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 gem 'rsolr', '>= 1.0'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem "sassc-rails", "~> 2.1"
 gem 'simple_form'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -71,17 +71,15 @@ group :development do
   gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'xray-rails'
+  gem "xray-rails", git: "https://github.com/brentd/xray-rails.git", branch: "bugs/ruby-3.0.0"
 end
 
 group :development, :test do
   # bixby = rubocop rules for Hyrax apps
-  gem 'bixby', '~> 3.0.1'
+  gem 'bixby'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara'
-  gem 'coveralls', require: false
   gem 'factory_bot_rails', '~> 4.11.1'
   gem 'ffaker'
   gem 'pry' unless ENV['CI']
@@ -90,6 +88,7 @@ group :development, :test do
   gem 'rspec-its'
   gem 'rspec-rails', '~> 5.0'
   gem 'selenium-webdriver'
+  gem 'simplecov', require: false
   gem 'solr_wrapper', '>= 0.3'
   gem 'webdrivers', '5.3.0'
 end

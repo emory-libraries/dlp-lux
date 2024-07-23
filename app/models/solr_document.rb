@@ -4,7 +4,7 @@ class SolrDocument
   # The following shows how to setup this blacklight document to display marc documents
   extension_parameters[:marc_source_field] = :marc_ss
   extension_parameters[:marc_format_type] = :marcxml
-  use_extension(Blacklight::Solr::Document::Marc) do |document|
+  use_extension(Blacklight::Marc::DocumentExtension) do |document|
     document.key?(SolrDocument.extension_parameters[:marc_source_field])
   end
 
@@ -39,12 +39,12 @@ class SolrDocument
     standard_title&.split(' ')
   end
 
-  def title_first_3
+  def title_first3
     title_split&.first(3)
   end
 
   def title_abbr
-    title_first_3.join(' ') + '...' if title_split.size > 3
+    title_first3.join(' ') + '...' if title_split.size > 3
   end
 
   def standard_link

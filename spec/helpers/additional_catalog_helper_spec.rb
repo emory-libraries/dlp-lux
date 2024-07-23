@@ -52,10 +52,10 @@ RSpec.describe AdditionalCatalogHelper, type: :helper do
       ]
     end
     let(:merging_hash) do
-      Hash[field_names.collect { |name| [name, date_array] }]
+      field_names.index_with { date_array }
     end
     let(:merging_hash2) do
-      Hash[field_names.collect { |name| [name, [date_array.first]] }]
+      field_names.index_with { [date_array.first] }
     end
     let(:document) { CHILD_CURATE_GENERIC_WORK_3.dup.merge(merging_hash) }
     let(:document2) { CHILD_CURATE_GENERIC_WORK_3.dup.merge(merging_hash2) }

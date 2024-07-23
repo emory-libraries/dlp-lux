@@ -1,0 +1,10 @@
+<%# Blacklight v7.33.1 Overwrite - make it match our desired output %>
+<div>
+  <h1 class="modal-title show-header citation-title"><%= title %></h1>
+
+  <% @formats.each do |i18n_key, citation_method| %>
+    <h3 class="heading -h3"><%= t(i18n_key) %></h3>
+    <%= sanitize(@generator.citation_for(citation_method)) %>
+      <br/><br/>
+  <% end %>
+</div>

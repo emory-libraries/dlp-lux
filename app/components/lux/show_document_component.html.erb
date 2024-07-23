@@ -1,0 +1,7 @@
+<% if show_nothing_tester %>
+<% elsif show_banner_tester %>
+  <img src=<%= banner_source %> class="img-fluid" id="collection-banner" title="collection feature image">
+<% else %>
+  <%= render ::Lux::ShowUvComponent.new(doc_id: document.id, request_base_url: request_base_url) %>
+<% end %>
+<%= all_metadata %>

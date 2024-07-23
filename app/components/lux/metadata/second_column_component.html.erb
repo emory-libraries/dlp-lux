@@ -1,0 +1,12 @@
+<div class="row-flex">
+  <% if this_is_collection %>
+    <%= render ::Lux::Metadata::AboutThisCollectionComponent.new(document: document) %>
+  <% end %>
+  <% if this_is_work %>
+    <%= render ::Lux::Metadata::ThisItemContainsComponent.new(document: document) %>
+    <%= render ::Lux::Metadata::AboutThisItemComponent.new(document: document) %>
+  <% end %>
+  <%= subject_keywords %>
+  <%= publication_details %>
+  <%= additional_details %>
+</div>
