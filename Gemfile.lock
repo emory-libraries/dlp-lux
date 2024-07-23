@@ -1732,7 +1732,7 @@ GEM
       marc (~> 1.0)
     marcel (1.0.2)
     matrix (0.4.2)
-    method_source (1.0.0)
+    method_source (1.1.0)
     mini_mime (1.1.5)
     minitar (0.9)
     minitest (5.24.1)
@@ -1948,7 +1948,7 @@ GEM
       unf_ext
     unf_ext (0.0.8.2)
     unicode-display_width (2.4.2)
-    view_component (2.82.0)
+    view_component (2.83.0)
       activesupport (>= 5.2.0, < 8.0)
       concurrent-ruby (~> 1.0)
       method_source (~> 1.0)
