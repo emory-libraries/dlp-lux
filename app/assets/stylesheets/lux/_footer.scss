@@ -1,6 +1,6 @@
 @import 'colors.scss';
 
-#emory-search-footer {
+#emory-lux-footer {
   footer {
     display: grid; 
     background-color: $dark-blue;
@@ -123,3 +123,21 @@
     }
     }
   }}
+
+  /**** responsive ****/
+  /**** Phone/Tablet Screen ****/
+@media (max-width: 767px) {
+      #emory-lux-footer footer {
+        display: flex; 
+        flex-direction: column;
+        padding-bottom: 1rem;
+        ul {
+            padding: 0px;
+        }
+        .footer-list, .copyright-signature {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }   
+    }
+}

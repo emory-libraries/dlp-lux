@@ -1,4 +1,4 @@
-<section id="emory-search-footer">
+<section id="emory-lux-footer">
 <footer>
     <div>
       <a class="logo-badge" target="_blank" rel="noopener noreferrer" href="https://libraries.emory.edu">
@@ -45,14 +45,16 @@
       <div class="footer-list" style="grid-column: 1;">
       <ul>
       <li>
-      <%= link_to t('#'), '#', class: "link" %>
+      <%= link_to "About Digital Collections", about_path, class: "link" %>
       </li></ul>
       </div>
       <div class="footer-list" style="grid-column: 2;"> 
       <ul>
       <li>
-        <%= link_to t('#'), 
-                      'https://libraries.emory.edu/about/policies/statement-harmful-language.html', 
+        <%= link_to t('Copyright & Content'), 
+                      'https://libraries.emory.edu/about/policies/digital-collections-copyright-and-content-policy.html', 
+                      target: '_blank',
+                      rel: 'noopener noreferrer',
                       class: "link" 
         %>
       </li>
@@ -60,7 +62,7 @@
       </div>
       <div class="footer-list" style="grid-column: 4;"> 
       <ul>
-      <li><%= link_to 'Help & Contacts', '#', class: "link" %></li>
+      <li><%= link_to 'Help & Contacts', contact_path, class: "link" %></li>
     </ul>
       </div>
       <div class="footer-list" style="grid-column: 5;">
