@@ -63,15 +63,8 @@ RSpec.describe 'footer', type: :system, js: true do
     expect(page).to have_link("Contact & Feedback", href: contact_path)
     expect(page).to have_link(
       "Donate",
-      href: 'https://libraries.emory.edu/about/support-emory-libraries/index.html'
+      href: 'https://libraries.emory.edu/about/support-emory-libraries'
     )
-  end
-
-  it 'has links to other library sites' do
-    options.each do |option|
-      visit root_path
-      select option[:name], from: "Locations (Footer)"
-    end
   end
 
   it 'has version information' do
@@ -81,8 +74,7 @@ RSpec.describe 'footer', type: :system, js: true do
 
   it 'has copyright information' do
     [
-      ".footer-copyright", ".copyright-notice", ".copyright-signature", ".copyright-year", ".copyright-owner",
-      ".copyright-rights", ".copyright-policies", ".copyright-address", ".copyright-phone"
+      ".footer-copyright", ".copyright-policy", ".copyright-signature"
     ].each do |c|
       expect(page).to have_css(c)
     end
@@ -92,7 +84,7 @@ RSpec.describe 'footer', type: :system, js: true do
 
   context 'logo link' do
     it 'has the right alt text' do
-      expect(page.find('a.footer-branding-logo')['title']).to match(/Emory Libraries/)
+      expect(page.find('a.logo-badge')['href']).to match("https://libraries.emory.edu")
     end
   end
 end
