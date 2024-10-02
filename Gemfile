@@ -18,7 +18,7 @@ gem 'blacklight-access_controls', git: 'https://github.com/projectblacklight/bla
 gem 'blacklight_advanced_search'
 gem 'blacklight-marc', '>= 7.0.0.rc1'
 gem 'blacklight_range_limit'
-gem 'bootstrap', '~> 4.0'
+gem 'bootstrap', '~> 4.6'
 gem 'bootstrap-select-rails', '>= 1.13'
 gem 'citeproc-ruby'
 # Use CoffeeScript for .coffee assets and views
