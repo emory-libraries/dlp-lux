@@ -39,7 +39,7 @@ gem 'omniauth-shibboleth', '~> 1.3'
 # Use Puma as the app server
 gem 'puma'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 7.0', '>= 7.0.7.2'
+gem 'rails', '~> 7.0'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 gem 'rsolr', '>= 1.0'
