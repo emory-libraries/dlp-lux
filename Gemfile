@@ -16,6 +16,7 @@ gem 'bcrypt_pbkdf'
 gem 'blacklight', "7.33.1"
 gem 'blacklight-access_controls', git: 'https://github.com/projectblacklight/blacklight-access_controls', branch: 'rails7_ruby3_blacklight8_upgrade'
 gem 'blacklight_advanced_search'
+gem 'blacklight_iiif_search'
 gem 'blacklight-marc', '>= 7.0.0.rc1'
 gem 'blacklight_range_limit'
 gem 'bootstrap', '~> 4.0'

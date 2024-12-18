@@ -4,6 +4,8 @@ class CatalogController < ApplicationController
   include BlacklightAdvancedSearch::Controller
   include Blacklight::Catalog
   include Blacklight::AccessControls::Catalog
+  # CatalogController-scope behavior and configuration for BlacklightIiifSearch
+  include BlacklightIiifSearch::Controller
 
   rescue_from NameError, with: :render404
 
@@ -31,6 +33,15 @@ class CatalogController < ApplicationController
   end
 
   configure_blacklight do |config|
+    # configuration for Blacklight IIIF Content Search
+    config.iiif_search = {
+      full_text_field: 'transcript_text_tesi', # FileSet field
+      object_relation_field: 'is_page_of_ssi', # FileSet field
+      supported_params: %w[q page],
+      autocomplete_handler: 'iiif_suggest',
+      suggester_name: 'iiifSuggester'
+    }
+
     # default advanced config values
     config.advanced_search ||= Blacklight::OpenStructWithHashAccess.new
     # config.advanced_search[:qt] ||= 'advanced'
@@ -54,7 +65,7 @@ class CatalogController < ApplicationController
       system_of_record_ID_tesim primary_repository_ID_tesim emory_ark_tesim local_call_number_tesim
       other_identifiers_tesim title_tesim uniform_title_tesim series_title_tesim parent_title_tesim
       creator_tesim contributors_tesim keywords_tesim subject_topics_tesim subject_names_tesim
-      subject_geo_tesim subject_time_periods_tesim id all_text_tsimv
+      subject_geo_tesim subject_time_periods_tesim id all_text_tsimv transcript_text_tesi
     EOS
     ## Default parameters to send to solr for all search-like requests. See also SearchBuilder#processed_parameters
     config.default_solr_params = {
@@ -62,7 +73,7 @@ class CatalogController < ApplicationController
       mm: '100%',
       rows: 10,
       qf: list_of_common_fields,
-      fq: '(((has_model_ssim:CurateGenericWork) OR (has_model_ssim:Collection)) AND !(visibility_ssi:restricted))'
+      fq: '(!(visibility_ssi:restricted))'
       ## we want to only return works where visiblity_ssi != restricted
     }
 

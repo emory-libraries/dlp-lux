@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     root to: "admin#index"
   end
   concern :range_searchable, BlacklightRangeLimit::Routes::RangeSearchable.new
+  concern :iiif_search, BlacklightIiifSearch::Routes.new
   mount Blacklight::Engine => '/'
   mount BlacklightAdvancedSearch::Engine => '/'
 
@@ -36,6 +37,7 @@ Rails.application.routes.draw do
 
   resources :solr_documents, only: [:show], path: '/catalog', controller: 'catalog' do
     concerns [:exportable, :marc_viewable]
+    concerns :iiif_search
   end
 
   resources :bookmarks do
