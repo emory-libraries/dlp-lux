@@ -71,7 +71,7 @@ module BlacklightIiifSearch
     end
 
     def emory_iiif_id_url
-      "http://#{ENV['HOSTNAME'] || 'localhost:3000'}/iiif/#{parent_document[:id]}/manifest"
+      "http://#{ENV['CURATE_HOSTNAME'] || 'localhost:3000'}/iiif/#{parent_document[:id]}/manifest"
     end
   end
 end

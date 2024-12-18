@@ -16,3 +16,8 @@ IIIF_MANIFEST_URL=https://curate-qa.curationexperts.com/concern/curate_generic_w
 THUMBNAIL_URL=https://curate-qa.curationexperts.com/
 SOLR_URL=http://localhost:8983/solr/dlp-lux
 GA_TRACKING_CODE=UA-your_google_analytics_tracking_id
+
+# The following variable is necessary for Universal Viewer to provide search result
+#   highlighting. This must match Curate's ENV['HOSTNAME'] value pulled from the Rails
+#   console (not .env.production).
+CURATE_HOSTNAME=
