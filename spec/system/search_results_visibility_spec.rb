@@ -120,7 +120,8 @@ RSpec.describe "View search results for works with different levels of visibilit
 
       it 'redirects to the login page when user tries to view Emory High Download work' do
         click_on('Thumbnail image')
-        expect(current_path).to eq(new_user_session_path)
+        expect(page).to have_link("Log in")
+        expect(page).to have_button('Sign in with Shibboleth')
       end
     end
   end

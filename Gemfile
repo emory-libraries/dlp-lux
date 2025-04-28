@@ -23,6 +23,7 @@ gem 'bootstrap-select-rails', '>= 1.13'
 gem 'citeproc-ruby'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
+gem 'concurrent-ruby', '1.3.4'
 gem 'csl-styles'
 gem 'devise'
 gem 'dotenv-rails'
