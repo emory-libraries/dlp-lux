@@ -35,7 +35,7 @@ jobs:
             - image: cimg/ruby:<< parameters.ruby_version >>-browsers
             - image: solr:7-alpine
               command: bin/solr -cloud -noprompt -f -p <<parameters.solr_port>>
-            - image: circleci/redis:<<parameters.redis_version>>
+            - image: cimg/redis:<<parameters.redis_version>>
             - image: cimg/mysql:<<parameters.mysql_version>>
         working_directory: ~/project
         parallelism: 4
@@ -96,7 +96,7 @@ jobs:
             - store_artifacts:
                 path: tmp/screenshots
 
-            - deploy:
+            - run:
                 command: curl -k https://coveralls.io/webhook?repo_token=${COVERALLS_REPO_TOKEN} -d "payload[build_num]=${CIRCLE_BUILD_NUM}&payload[status]=done"
 
     coverage:
