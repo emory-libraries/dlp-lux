@@ -109,6 +109,9 @@ module Blacklight
       def user_groups_customizations
         @user_groups |= ['registered', 'emory_low'] unless current_user.new_record?
         #NOTE: The user's IP address got passed in through the options hash
+        Rails.logger.info("Request Headers: #{request&.headers}")
+        Rails.logger.info("READING ROOM IPs: #{rose_reading_room_ips}")
+        Rails.logger.info("Pulled user IP: #{options}")
         @user_groups |= rose_user_groups if rose_reading_room_ips.include? options
         @user_groups |= admin_user_groups if admin_uids.include? current_user.uid
       end
