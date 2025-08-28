@@ -16,10 +16,10 @@ GIT
 
 GIT
   remote: https://github.com/projectblacklight/blacklight-access_controls
-  revision: 0148cf32414b0fd4c39c3652aaae32193c207e4b
-  branch: rails7_ruby3_blacklight8_upgrade
+  revision: 4803f16095536e2cbc310b1e3bee91d10fa75b9d
+  tag: v6.1.0
   specs:
-    blacklight-access_controls (6.0.1)
+    blacklight-access_controls (6.1.0)
       blacklight (> 6.0, < 9)
       cancancan (>= 1.8)
       deprecation (~> 1.0)
@@ -162,7 +162,7 @@ GEM
     bootstrap-select-rails (1.13.8)
     builder (3.3.0)
     byebug (11.1.3)
-    cancancan (3.5.0)
+    cancancan (3.6.1)
     capistrano (3.19.2)
       airbrussh (>= 1.0.0)
       i18n
