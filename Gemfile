@@ -14,7 +14,7 @@ gem 'administrate', '~> 0.17.0'
 gem 'bcrypt_pbkdf'
 # Blacklight 7, because Blacklight 6 did not successfully deploy to production
 gem 'blacklight', "7.33.1"
-gem 'blacklight-access_controls', git: 'https://github.com/projectblacklight/blacklight-access_controls', branch: 'rails7_ruby3_blacklight8_upgrade'
+gem 'blacklight-access_controls', git: 'https://github.com/projectblacklight/blacklight-access_controls', tag: 'v6.1.0'
 gem 'blacklight_advanced_search'
 gem 'blacklight-marc', '>= 7.0.0.rc1'
 gem 'blacklight_range_limit'
