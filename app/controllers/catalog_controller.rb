@@ -6,6 +6,7 @@ class CatalogController < ApplicationController
   include Blacklight::AccessControls::Catalog
 
   rescue_from NameError, with: :render404
+  rescue_from ::BlacklightRangeLimit::InvalidRange, with: :render404
 
   def render404
     visibility = visibility_lookup(resource_id_param)
