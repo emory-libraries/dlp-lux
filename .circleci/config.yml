@@ -126,7 +126,7 @@ workflows:
         jobs:
             - build:
                 name: ruby3-1-2
-            - coverage:
-                name: codeclimate
-                requires:
-                    - ruby3-1-2
+            # - coverage:
+            #     name: codeclimate
+            #     requires:
+            #         - ruby3-1-2
