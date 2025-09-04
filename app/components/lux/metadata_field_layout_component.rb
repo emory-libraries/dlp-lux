@@ -4,10 +4,11 @@
 
 class Lux::MetadataFieldLayoutComponent < Blacklight::MetadataFieldLayoutComponent
   # @param field [Blacklight::FieldPresenter]
-  def initialize(field:, label_class: 'index-field-name', value_class: '')
+  def initialize(field:, value_tag: 'dd', label_class: 'index-field-name', value_class: '')
     @field = field
     @key = @field.key.parameterize
     @label_class = label_class
+    @value_tag = value_tag
     @value_class = value_class
   end
 end
