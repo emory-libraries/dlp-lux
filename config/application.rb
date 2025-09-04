@@ -24,8 +24,6 @@ module LuxBl7
 
     config.active_record.yaml_column_permitted_classes = [ActiveSupport::HashWithIndifferentAccess, Symbol]
 
-    config.active_record.legacy_connection_handling = false
-
     config.autoload_paths += %W[#{config.root}/lib]
   end
 end

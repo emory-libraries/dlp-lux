@@ -8,16 +8,18 @@ class CatalogController < ApplicationController
   rescue_from NameError, with: :render404
   rescue_from ::BlacklightRangeLimit::InvalidRange, with: :render404
 
-  def render404
-    visibility = visibility_lookup(resource_id_param)
+  def render404(exception)
+    visibility = resource_id_param.present? ? visibility_lookup(resource_id_param) : nil
     case visibility
     when 'emory_low', 'authenticated'
       Rails.logger.debug "CatalogController#render404: request.url: #{request.url}"
       session[:requested_page] = request.url
       redirect_to new_user_session_path
     when 'rose_high', 'restricted'
+      Rails.logger.error(exception.message)
       render 'static/reading_room_not_found', status: :not_found, layout: true
     else
+      Rails.logger.error(exception.message)
       render 'static/not_found', status: :not_found, layout: true
     end
   end
@@ -48,6 +50,9 @@ class CatalogController < ApplicationController
     ## Model that maps search index responses to the blacklight response model
     # config.response_model = Blacklight::Solr::Response
     #
+    ## The destination for the link around the logo in the header
+    # config.logo_link = root_path
+    #
     ## Should the raw solr document endpoint (e.g. /catalog/:id/raw) be enabled
     # config.raw_endpoint.enabled = false
 
@@ -70,6 +75,7 @@ class CatalogController < ApplicationController
     # solr path which will be added to solr base url before the other solr params.
     #config.solr_path = 'select'
     #config.document_solr_path = 'get'
+    #config.json_solr_path = 'advanced'
 
     # items to show per page, each number in the array represent another option to choose from.
     #config.per_page = [10,20,50,100]

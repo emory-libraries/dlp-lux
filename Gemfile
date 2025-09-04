@@ -13,11 +13,11 @@ gem 'administrate', '~> 0.17.0'
 # Needed for support of OpenSSH keys
 gem 'bcrypt_pbkdf'
 # Blacklight 7, because Blacklight 6 did not successfully deploy to production
-gem 'blacklight', "7.33.1"
+gem 'blacklight', "~> 7.41.0"
 gem 'blacklight-access_controls', git: 'https://github.com/projectblacklight/blacklight-access_controls', tag: 'v6.1.0'
 gem 'blacklight_advanced_search'
 gem 'blacklight-marc', '>= 7.0.0.rc1'
-gem 'blacklight_range_limit'
+gem 'blacklight_range_limit', '~> 8.4.0'
 gem 'bootstrap', '~> 4.0'
 gem 'bootstrap-select-rails', '>= 1.13'
 gem 'citeproc-ruby'
@@ -40,7 +40,7 @@ gem 'omniauth-shibboleth', '~> 1.3'
 # Use Puma as the app server
 gem 'puma'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 7.0', '>= 7.0.7.2'
+gem 'rails', '~> 7.0', '>= 7.1.5.2'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 gem 'rsolr', '>= 1.0'
@@ -86,7 +86,7 @@ group :development, :test do
   gem 'pry-byebug' unless ENV['CI']
   gem 'rails-controller-testing'
   gem 'rspec-its'
-  gem 'rspec-rails', '~> 5.0'
+  gem "rspec-rails", ">= 6.0" # some versions tested need >= 6.0
   gem 'selenium-webdriver'
   gem 'simplecov', require: false
   gem 'solr_wrapper', '>= 0.3'
