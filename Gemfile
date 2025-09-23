@@ -34,6 +34,7 @@ gem 'honeybadger', '~> 4.0'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'mysql2', '~> 0.5'
+gem 'nokogiri', '1.18.9'
 gem 'omniauth', '< 2'
 # Use shibboleth for user authentication
 gem 'omniauth-shibboleth', '~> 1.3'

@@ -84,6 +84,10 @@ class SolrDocument
     self['source_collection_title_ssim']&.first
   end
 
+  def representative_file_type
+    self['representative_file_type_ssi']
+  end
+
   # document typing test groups
   def parent_collection
     collection? && related_collection?
