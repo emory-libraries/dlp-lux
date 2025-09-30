@@ -24,6 +24,14 @@ module Lux
       @document["has_model_ssim"] == ["Collection"] && @document["banner_path_ss"].present?
     end
 
+    def show_pdf_viewer_tester
+      @document.representative_file_type == 'pdf'
+    end
+
+    def representative_file_set_id
+      @document["hasRelatedMediaFragment_ssim"]&.first
+    end
+
     def banner_source
       @thumbnail_url + @document["banner_path_ss"]
     end
