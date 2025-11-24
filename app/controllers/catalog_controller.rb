@@ -31,21 +31,6 @@ class CatalogController < ApplicationController
     guest_email_authentication_key(key)
   end
 
-  # Blacklight v7.33.1 Override - Allow CORS to deliver PDF downloads
-  # get a single document from the index
-  # to add responses for formats other than html or json see _Blacklight::Document::Export_
-  def show
-    deprecated_response, @document = search_service.fetch(params[:id])
-    @response = ActiveSupport::Deprecation::DeprecatedObjectProxy.new(deprecated_response, 'The @response instance variable is deprecated; use @document.response instead.')
-    response.set_header('Access-Control-Allow-Origin', '*')
-
-    respond_to do |format|
-      format.html { @search_context = setup_next_and_previous_documents }
-      format.json
-      additional_export_formats(@document, format)
-    end
-  end
-
   configure_blacklight do |config|
     # default advanced config values
     config.advanced_search ||= Blacklight::OpenStructWithHashAccess.new
