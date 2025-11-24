@@ -14575,10 +14575,10 @@ initCom(PDFViewerApplication);
       if (HOSTED_VIEWER_ORIGINS.includes(viewerOrigin)) {
         return;
       }
-      const fileOrigin = new URL(file, window.location.href).origin;
-      if (fileOrigin !== viewerOrigin) {
-        throw new Error("file origin does not match viewer's");
-      }
+      // const fileOrigin = new URL(file, window.location.href).origin;
+      // if (fileOrigin !== viewerOrigin) {
+      //   throw new Error("file origin does not match viewer's");
+      // }
     } catch (ex) {
       PDFViewerApplication._documentError("pdfjs-loading-error", {
         message: ex.message
