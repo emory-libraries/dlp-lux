@@ -110,6 +110,7 @@ module Blacklight
         @user_groups |= ['registered', 'emory_low'] unless current_user.new_record?
         #NOTE: The user's IP address got passed in through the options hash
         @user_groups |= rose_user_groups if rose_reading_room_ips.include? options
+        @user_groups |= irish_user_groups if irish_partner_reading_room_ips.include? options
         @user_groups |= admin_user_groups if admin_uids.include? current_user.uid
       end
 
@@ -121,6 +122,11 @@ module Blacklight
       # Only users accessing content from the Rose reading room IP should be added to the 'rose_high' access group
       def rose_user_groups
         ['rose_high']
+      end
+
+      # Only users accessing content from the Irish Partner Sites IPs should be added to the 'irish_partner' access group
+      def irish_user_groups
+        ['irish_partner']
       end
 
       def admin_user_groups
@@ -181,6 +187,10 @@ module Blacklight
 
       def rose_reading_room_ips
         reading_room_ips["all_reading_room_ips"]["rose_reading_room_ip_list"]
+      end
+
+      def irish_partner_reading_room_ips
+        reading_room_ips["all_reading_room_ips"]["irish_partner_reading_room_ip_list"]
       end
 
       def reading_room_ips
