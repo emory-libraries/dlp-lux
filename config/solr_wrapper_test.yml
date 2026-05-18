@@ -2,7 +2,7 @@
 version: 7.7.1
 port: 8985
 instance_dir: tmp/solr-test
-download_dir: ~/.cache
+download_dir: /var/tmp
 collection:
     persist: false
     dir: solr/conf
