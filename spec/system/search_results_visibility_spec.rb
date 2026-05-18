@@ -3,51 +3,8 @@ require 'rails_helper'
 include Warden::Test::Helpers
 
 RSpec.describe "View search results for works with different levels of visibility", js: true, clean: true, type: :system do
-  before do
-    delete_all_documents_from_solr
-    solr = Blacklight.default_index.connection
-    solr.add([
-               work_with_emory_high_visibility,
-               work_with_public_visibility,
-               work_with_public_low_view_visibility,
-               work_with_emory_low_visibility,
-               work_with_rose_high_visibility,
-               work_with_private_visibility
-             ])
-    solr.commit
-    ENV['THUMBNAIL_URL'] = 'http://obviously_fake_url.com'
-  end
-
-  let(:emory_high_work_id) { '111-321' }
-  let(:public_work_id) { '222-321' }
-  let(:public_low_view_work_id) { '333-321' }
-  let(:emory_low_work_id) { '444-321' }
-  let(:rose_high_work_id) { '555-321' }
-  let(:private_work_id) { '666-321' }
-
-  let(:work_with_emory_high_visibility) do
-    WORK_WITH_EMORY_HIGH_VISIBILITY
-  end
-
-  let(:work_with_public_visibility) do
-    WORK_WITH_PUBLIC_VISIBILITY
-  end
-
-  let(:work_with_public_low_view_visibility) do
-    WORK_WITH_PUBLIC_LOW_VIEW_VISIBILITY
-  end
-
-  let(:work_with_emory_low_visibility) do
-    WORK_WITH_EMORY_LOW_VISIBILITY
-  end
-
-  let(:work_with_rose_high_visibility) do
-    WORK_WITH_ROSE_HIGH_VISIBILITY
-  end
-
-  let(:work_with_private_visibility) do
-    WORK_WITH_PRIVATE_VISIBILITY
-  end
+  before { ENV['THUMBNAIL_URL'] = 'http://obviously_fake_url.com' }
+  include_context('setup common visibility solr documents')
 
   it 'shows search results for all except private works' do
     visit "/"
@@ -57,7 +14,7 @@ RSpec.describe "View search results for works with different levels of visibilit
     expect(page).to have_content 'Work with Public Low Resolution'
     expect(page).to have_content 'Work with Emory Low visibility'
     expect(page).to have_content 'Work with Rose High View visibility'
-
+    expect(page).to have_content 'Work with Irish Partner Sites visibility'
     expect(page).not_to have_content 'Work with Private visibility'
   end
 
@@ -179,6 +136,32 @@ RSpec.describe "View search results for works with different levels of visibilit
       expect(page).to have_link('Thumbnail image')
       expect(page.find("img.img-fluid")['outerHTML']).to match(/reading-room-only/)
       expect(page).not_to have_css("img[src='http://obviously_fake_url.com/iiif/555-456/thumbnail']")
+    end
+  end
+
+  context "as a user from our Irish Partner Sites" do
+    before do
+      allow_any_instance_of(Ability).to receive(:user_groups).and_return(['irish_partner'])
+    end
+    it 'has the original thumbnail' do
+      visit "/"
+      fill_in 'q', with: irish_partner_work_id
+      click_on('search')
+      expect(page).to have_css('.document-thumbnail')
+      expect(page).to have_link('Thumbnail image')
+      find("img[src='http://obviously_fake_url.com/iiif/777-456/thumbnail']")
+    end
+  end
+
+  context "as a user not from our Irish Partner Sites" do
+    it 'has a generic "Reading Room Only" thumbnail' do
+      visit "/"
+      fill_in 'q', with: irish_partner_work_id
+      click_on('search')
+      expect(page).to have_css('.document-thumbnail')
+      expect(page).to have_link('Thumbnail image')
+      expect(page.find("img.img-fluid")['outerHTML']).to match(/reading-room-only/)
+      expect(page).not_to have_css("img[src='http://obviously_fake_url.com/iiif/777-456/thumbnail']")
     end
   end
 end

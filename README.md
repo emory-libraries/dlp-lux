@@ -30,7 +30,7 @@ Discovery application for Emory's Cor repository.
     u.password_confirmation = "password"
     u.save
   ```
-1. In order to see objects with a visibility of "Rose High View", your IP must match an address on the server in `config/reading_room_ips.yml`. See the existing file for the example setup.
+1. In order to see objects with visibilities of either "Rose High View" or "Irish Partner Sites", your IP must match an address on the server in `config/reading_room_ips.yml`. See the existing file for the example setup.
 1. Create and migrate the development database: `rails db:create db:migrate`
 1. Create and migrate the test database: `RAILS_ENV=test rails db:create db:migrate`
 1. Migrate the database: `rails db:migrate`

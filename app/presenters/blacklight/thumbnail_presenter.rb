@@ -71,6 +71,9 @@ module Blacklight
       when "rose_high"
         return 'reading-room-only.png' unless view_context.current_ability.user_groups.include?('rose_high')
         lux_thumbnail_url
+      when "irish_partner"
+        return 'reading-room-only.png' unless view_context.current_ability.user_groups.include?('irish_partner')
+        lux_thumbnail_url
       end
     end
 

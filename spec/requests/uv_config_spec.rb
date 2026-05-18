@@ -1,65 +1,19 @@
-
 # frozen_string_literal: true
 require "rails_helper"
 include Warden::Test::Helpers
 
 RSpec.describe "UvConfiguration requests", :clean, type: :request do
-  before do
-    solr = Blacklight.default_index.connection
-    solr.add([
-               work_with_public_visibility,
-               work_with_public_low_view_visibility,
-               work_with_emory_high_visibility,
-               work_with_emory_low_visibility
-             ])
-    solr.commit
-  end
-
-  let(:emory_high_work_id) { '111-321' }
-  let(:public_work_id) { '222-321' }
-  let(:public_low_view_work_id) { '333-321' }
-  let(:emory_low_work_id) { '444-321' }
-  let(:rose_high_work_id) { '555-321' }
-  let(:private_work_id) { '666-321' }
-
-  let(:work_with_emory_high_visibility) do
-    WORK_WITH_EMORY_HIGH_VISIBILITY
-  end
-
-  let(:work_with_public_visibility) do
-    WORK_WITH_PUBLIC_VISIBILITY
-  end
-
-  let(:work_with_public_low_view_visibility) do
-    WORK_WITH_PUBLIC_LOW_VIEW_VISIBILITY
-  end
-
-  let(:work_with_emory_low_visibility) do
-    WORK_WITH_EMORY_LOW_VISIBILITY
-  end
-
-  let(:work_with_rose_high_visibility) do
-    WORK_WITH_ROSE_HIGH_VISIBILITY
-  end
-
-  let(:work_with_private_visibility) do
-    WORK_WITH_PRIVATE_VISIBILITY
-  end
+  include_context('setup common visibility solr documents')
 
   describe "GET /uv/config/:id" do
     context "as an unauthenticated user" do
       it "pulls a Universal Viewer manifest for the resource" do
         get "/uv/config/#{public_work_id}", params: { format: :json }
 
-        expect(response.status).to eq 200
-        expect(response.body).not_to be_empty
-        expect(response.content_length).to be > 0
-        expect(response.content_type).to eq "application/json; charset=utf-8"
-
+        test_normal_page_loading
         response_values = JSON.parse(response.body)
-        expect(response_values).to include "modules"
+        test_default_response_values(response_values)
         expect(response_values["modules"]["pagingHeaderPanel"]["options"]).to include "pagingToggleEnabled" => true
-        expect(response_values["modules"]["footerPanel"]).to include "options"
         expect(response_values["modules"]["footerPanel"]["options"]).to include(
           "shareEnabled" => true,
           "downloadEnabled" => true,
@@ -69,15 +23,10 @@ RSpec.describe "UvConfiguration requests", :clean, type: :request do
       it "responds with downloads disabled for a work with 'Public Low View' visibility" do
         get "/uv/config/#{public_low_view_work_id}", params: { format: :json }
 
-        expect(response.status).to eq 200
-        expect(response.body).not_to be_empty
-        expect(response.content_length).to be > 0
-        expect(response.content_type).to eq "application/json; charset=utf-8"
-
+        test_normal_page_loading
         response_values = JSON.parse(response.body)
-        expect(response_values).to include "modules"
+        test_default_response_values(response_values)
         expect(response_values["modules"]["pagingHeaderPanel"]["options"]).to include "pagingToggleEnabled" => true
-        expect(response_values["modules"]["footerPanel"]).to include "options"
         expect(response_values["modules"]["footerPanel"]["options"]).to include(
           "shareEnabled" => false,
           "downloadEnabled" => false,
@@ -104,16 +53,11 @@ RSpec.describe "UvConfiguration requests", :clean, type: :request do
       it "responds with the configuration with downloads enabled for a work with 'Public' visibility" do
         get "/uv/config/#{public_work_id}", params: { format: :json }
 
-        expect(response.status).to eq 200
-        expect(response.body).not_to be_empty
-        expect(response.content_length).to be > 0
-        expect(response.content_type).to eq "application/json; charset=utf-8"
-
+        test_normal_page_loading
         response_values = JSON.parse(response.body)
-        expect(response_values).to include "modules"
+        test_default_response_values(response_values)
         expect(response_values["modules"]["pagingHeaderPanel"]["options"]).to include "pagingToggleEnabled" => true
         expect(response_values["modules"]).to include "footerPanel"
-        expect(response_values["modules"]["footerPanel"]).to include "options"
         expect(response_values["modules"]["footerPanel"]["options"]).to include(
           "shareEnabled" => true,
           "downloadEnabled" => true,
@@ -124,14 +68,9 @@ RSpec.describe "UvConfiguration requests", :clean, type: :request do
       it "responds with downloads disabled for a work with 'Public Low View' visibility" do
         get "/uv/config/#{public_low_view_work_id}", params: { format: :json }
 
-        expect(response.status).to eq 200
-        expect(response.body).not_to be_empty
-        expect(response.content_length).to be > 0
-        expect(response.content_type).to eq "application/json; charset=utf-8"
-
+        test_normal_page_loading
         response_values = JSON.parse(response.body)
-        expect(response_values).to include "modules"
-        expect(response_values["modules"]["footerPanel"]).to include "options"
+        test_default_response_values(response_values)
         expect(response_values["modules"]["footerPanel"]["options"]).to include(
           "shareEnabled" => false,
           "downloadEnabled" => false,
@@ -142,14 +81,9 @@ RSpec.describe "UvConfiguration requests", :clean, type: :request do
       it "responds with downloads enabled for a work with 'Emory High Download' visibility" do
         get "/uv/config/#{emory_high_work_id}", params: { format: :json }
 
-        expect(response.status).to eq 200
-        expect(response.body).not_to be_empty
-        expect(response.content_length).to be > 0
-        expect(response.content_type).to eq "application/json; charset=utf-8"
-
+        test_normal_page_loading
         response_values = JSON.parse(response.body)
-        expect(response_values).to include "modules"
-        expect(response_values["modules"]["footerPanel"]).to include "options"
+        test_default_response_values(response_values)
         expect(response_values["modules"]["footerPanel"]["options"]).to include(
           "shareEnabled" => true,
           "downloadEnabled" => true,
@@ -160,14 +94,9 @@ RSpec.describe "UvConfiguration requests", :clean, type: :request do
       it "responds with downloads enabled for a work with 'Emory Low Download' visibility" do
         get "/uv/config/#{emory_low_work_id}", params: { format: :json }
 
-        expect(response.status).to eq 200
-        expect(response.body).not_to be_empty
-        expect(response.content_length).to be > 0
-        expect(response.content_type).to eq "application/json; charset=utf-8"
-
+        test_normal_page_loading
         response_values = JSON.parse(response.body)
-        expect(response_values).to include "modules"
-        expect(response_values["modules"]["footerPanel"]).to include "options"
+        test_default_response_values(response_values)
         expect(response_values["modules"]["footerPanel"]["options"]).to include(
           "shareEnabled" => true,
           "downloadEnabled" => true,
@@ -181,5 +110,17 @@ RSpec.describe "UvConfiguration requests", :clean, type: :request do
         expect(response_values["modules"]["downloadDialogue"]["content"]).to include("wholeImageHighRes")
       end
     end
+  end
+
+  def test_normal_page_loading
+    expect(response.status).to eq 200
+    expect(response.body).not_to be_empty
+    expect(response.content_length).to be > 0
+    expect(response.content_type).to eq "application/json; charset=utf-8"
+  end
+
+  def test_default_response_values(response_values)
+    expect(response_values).to include "modules"
+    expect(response_values["modules"]["footerPanel"]).to include "options"
   end
 end

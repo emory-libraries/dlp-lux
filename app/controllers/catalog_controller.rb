@@ -15,7 +15,7 @@ class CatalogController < ApplicationController
       Rails.logger.debug "CatalogController#render404: request.url: #{request.url}"
       session[:requested_page] = request.url
       redirect_to new_user_session_path
-    when 'rose_high', 'restricted'
+    when 'rose_high', 'irish_partner', 'restricted'
       render 'static/reading_room_not_found', status: :not_found, layout: true
     else
       render 'static/not_found', status: :not_found, layout: true
