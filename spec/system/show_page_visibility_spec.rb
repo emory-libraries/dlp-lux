@@ -43,17 +43,17 @@ RSpec.describe "View Works with different levels of visibility", type: :system d
       # Should not see page content
       visit solr_document_path(rose_high_work_id)
       expect(page).not_to have_content 'Work with Rose High View visibility'
-      expect(page).to have_content 'Reading Room Only'
+      expect(page).to have_content 'Reading Room Access'
 
       # Should not see page content
       visit solr_document_path(irish_partner_work_id)
       expect(page).not_to have_content 'Work with Irish Partner Sites visibility'
-      expect(page).to have_content 'Reading Room Only'
+      expect(page).to have_content 'Reading Room Access'
 
       # Should not see page content
       visit solr_document_path(private_work_id)
       expect(page).not_to have_content 'Work with Private visibility'
-      expect(page).to have_content 'Reading Room Only'
+      expect(page).to have_content 'Reading Room Access'
     end
   end
 
@@ -83,17 +83,17 @@ RSpec.describe "View Works with different levels of visibility", type: :system d
       # Should not see page content
       visit solr_document_path(rose_high_work_id)
       expect(page).not_to have_content 'Work with Rose High View visibility'
-      expect(page).to have_content 'Reading Room Only'
+      expect(page).to have_content 'Reading Room Access'
 
       # Should not see page content
       visit solr_document_path(irish_partner_work_id)
       expect(page).not_to have_content 'Work with Irish Partner Sites visibility'
-      expect(page).to have_content 'Reading Room Only'
+      expect(page).to have_content 'Reading Room Access'
 
       # Should not see page content
       visit solr_document_path(private_work_id)
       expect(page).not_to have_content 'Work with Private visibility'
-      expect(page).to have_content 'Reading Room Only'
+      expect(page).to have_content 'Reading Room Access'
     end
   end
 
