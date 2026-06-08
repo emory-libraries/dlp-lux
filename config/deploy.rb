@@ -12,7 +12,6 @@ set :repo_url, "https://github.com/emory-libraries/dlp-lux.git"
 set :deploy_to, '/opt/dlp-lux'
 set :rails_env, 'production'
 set :assets_prefix, "#{shared_path}/public/assets"
-# set :migration_role, :app
 
 SSHKit.config.command_map[:rake] = 'bundle exec rake'
 set :branch, ENV['REVISION'] || ENV['BRANCH'] || ENV['BRANCH_NAME'] || 'master'
@@ -26,9 +25,6 @@ set :default_env,
 
 # Default value for local_user is ENV['USER']
 set :local_user, -> { `git config user.name`.chomp }
-
-# Restart passenger after deploy is finished
-after :'deploy:finished', :'passenger:restart'
 
 namespace :deploy do
   desc 'Ask user for CAB approval before deployment if stage is PROD'
