@@ -12,13 +12,13 @@ RSpec.describe Lux::Document::CitationComponent, type: :component do
   it 'has the expected elements' do
     expect(render.css('h3.heading.-h3').map(&:text)).to match_array(citation_keys.map { |ck| I18n.t(ck) })
     expect(render.text).to include(
-      'Creator, Sample Parent. Emocad. 1919. Oxford College Library (Oxford, Ga.). https://digital.library.emory.edu/purl/030prr4xkj-cor.'
+      'Creator, Sample Parent. Emocad. 1919. Oxford College Library (Oxford, Ga.). http://localhost:3000/purl/030prr4xkj-cor.'
     )
     expect(render.text).to include(
-      'Creator, S. P. (1919). Emocad. Oxford College Library (Oxford, Ga.). https://digital.library.emory.edu/purl/030prr4xkj-cor.'
+      'Creator, S. P. (1919). Emocad. Oxford College Library (Oxford, Ga.). http://localhost:3000/purl/030prr4xkj-cor.'
     )
     expect(render.text).to include(
-      'Creator, Sample Parent. “Emocad.” Emory University Yearbooks. Oxford, Georgia, 1919. Oxford College Library (Oxford, Ga.). https://digital.library.emory.edu/purl/030prr4xkj-cor.'
+      'Creator, Sample Parent. “Emocad.” Emory University Yearbooks. Oxford, Georgia, 1919. Oxford College Library (Oxford, Ga.). http://localhost:3000/purl/030prr4xkj-cor.'
     )
   end
 end
