@@ -13,7 +13,7 @@ RSpec.describe "View Works with different levels of visibility", type: :system d
              ])
     solr.commit
   end
-  let(:full_public_low_view_work_id) { '123' }
+  let(:full_public_low_view_work_id) { '123-cor' }
   let(:full_emory_low_work_id) { '124' }
   let(:full_open_work_id) { '125' }
   let(:full_work_with_public_low_view_visibility) { CURATE_GENERIC_WORK.dup.merge(visibility_ssi: ['low_res']) }
