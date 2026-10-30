@@ -46,6 +46,18 @@ class CatalogController < ApplicationController
     end
   end
 
+  def purl
+    persistent_id = params[:id]
+    document_id_from_direct_lookup = safe_document_lookup(persistent_id)&.id
+    document_id_from_purl_lookup = emory_purl_document_id(persistent_id) if document_id_from_direct_lookup.nil?
+
+    if document_id_from_direct_lookup || document_id_from_purl_lookup
+      redirect_to action: :show, id: document_id_from_direct_lookup || document_id_from_purl_lookup, status: :see_other
+    else
+      render 'static/not_found', status: :not_found, layout: true
+    end
+  end
+
   configure_blacklight do |config|
     # default advanced config values
     config.advanced_search ||= Blacklight::OpenStructWithHashAccess.new
@@ -554,5 +566,23 @@ class CatalogController < ApplicationController
     # if the name of the solr.SuggestComponent provided in your solrcongig.xml is not the
     # default 'mySuggester', uncomment and provide it below
     # config.autocomplete_suggester = 'mySuggester'
+  end
+
+  private
+
+  def safe_document_lookup(id)
+    _useless, document = search_service.fetch(id)
+    document
+  rescue Blacklight::Exceptions::RecordNotFound
+    nil
+  end
+
+  def emory_purl_search_service(id)
+    Blacklight::SearchService.new(config: blacklight_config, search_builder_class: EmoryPersistentIdSearchBuilder, user_params: { emory_persistent_id: id })
+  end
+
+  def emory_purl_document_id(id)
+    _useless, document = emory_purl_search_service(id).search_results
+    document&.first&.id
   end
 end

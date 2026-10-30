@@ -7,9 +7,7 @@ RSpec.describe "PURL Redirection", :clean, type: :request do
     solr.add([work_with_public_visibility])
     solr.commit
   end
-
-  let(:public_work_id) { '111-111-cor' }
-
+  let(:public_work_id) { "222-321" }
   let(:work_with_public_visibility) do
     WORK_WITH_PUBLIC_VISIBILITY
   end

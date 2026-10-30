@@ -6,11 +6,10 @@ class EmoryPersistentIdSearchBuilder < ::SearchBuilder
 
   def find_single_document_by_persistent_id(solr_parameters)
     target_id = blacklight_params[:emory_persistent_id]
+    return if target_id.blank?
 
-    if target_id.present?
-      solr_parameters[:fq] ||= []
-      solr_parameters[:fq] << "{!field f=emory_persistent_id_ssi}#{target_id}"
-      solr_parameters[:rows] = 1
-    end
+    solr_parameters[:fq] ||= []
+    solr_parameters[:fq] << "{!field f=emory_persistent_id_ssi}#{target_id}"
+    solr_parameters[:rows] = 1
   end
 end

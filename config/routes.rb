@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   concern :marc_viewable, Blacklight::Marc::Routes::MarcViewable.new
 
   root to: "catalog#index"
+  get 'purl/:id', to: 'catalog#purl', as: :purl, constraints: { id: /.*/ }
   concern :searchable, Blacklight::Routes::Searchable.new
 
   resource :catalog, only: [:index], as: 'catalog', path: '/catalog', controller: 'catalog' do
@@ -49,10 +50,6 @@ Rails.application.routes.draw do
   get "/uv/config/:id", to: "application#uv_config", as: "uv_config", defaults: { format: :json }
   get "/contact", to: "static#contact"
   get "/about", to: "static#about"
-
-  # Redirect requests for PURLs to the same object in the catalog controller
-  # Status 303 is 'Found'. We don't want to suggest the object has moved.
-  get '/purl/:obj_id', to: redirect('/catalog/%{obj_id}', status: 303)
 
   match '/404', to: 'static#not_found', via: :all
 

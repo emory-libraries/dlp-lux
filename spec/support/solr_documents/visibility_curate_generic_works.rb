@@ -89,3 +89,17 @@ WORK_WITH_IRISH_PARTNER_VISIBILITY = {
   visibility_group_ssi: "Irish Partner Sites Specific",
   human_readable_visibility_ssi: "Irish Partner Sites"
 }.freeze
+
+WORK_WITH_PUBLIC_VISIBILITY_AND_EMORY_PURL = {
+  id: '888-321',
+  has_model_ssim: ['CurateGenericWork'],
+  title_tesim: ['Work with Open Access'],
+  thumbnail_path_ss: ['/downloads/888-321?file=thumbnail'],
+  hasRelatedImage_ssim: ['888-456'],
+  edit_access_group_ssim: ["admin"],
+  read_access_group_ssim: ["public"],
+  visibility_ssi: ['open'],
+  visibility_group_ssi: "Public",
+  human_readable_visibility_ssi: "Public",
+  emory_persistent_id_ssi: "888-321-cor"
+}.freeze
