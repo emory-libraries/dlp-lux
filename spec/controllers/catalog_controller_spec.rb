@@ -82,4 +82,48 @@ RSpec.describe CatalogController, type: :controller do
 
     it { expect(search_fields).to contain_exactly(*expected_search_fields) }
   end
+
+  describe '#purl' do
+    before do
+      solr = Blacklight.default_index.connection
+      solr.add([work_with_public_visibility])
+      solr.commit
+    end
+    let(:public_work_id) { "222-321" }
+    let(:public_work_with_purl_id) { "888-321" }
+    let(:public_work_with_purl_purl_id) { "888-321-cor" }
+    let(:bad_work_id) { "111" }
+    let(:work_with_public_visibility) { WORK_WITH_PUBLIC_VISIBILITY }
+    let(:work_with_public_visibility_and_emory_purl) { WORK_WITH_PUBLIC_VISIBILITY_AND_EMORY_PURL }
+
+    context 'when id is found' do
+      it 'redirects to the catalog page' do
+        get :purl, params: { id: public_work_id }
+        expect(response).to have_http_status(:see_other)
+        expect(response).to redirect_to("/catalog/#{public_work_id}")
+      end
+    end
+
+    context 'when purl is found' do
+      before do
+        solr = Blacklight.default_index.connection
+        solr.add([work_with_public_visibility_and_emory_purl])
+        solr.commit
+      end
+
+      it 'redirects to the catalog page' do
+        get :purl, params: { id: public_work_with_purl_purl_id }
+        expect(response).to have_http_status(:see_other)
+        expect(response).to redirect_to("/catalog/#{public_work_with_purl_id}")
+      end
+    end
+
+    context 'when id is not found' do
+      it 'redirects to the catalog page' do
+        get :purl, params: { id: bad_work_id }
+        expect(response).to have_http_status(:not_found)
+        expect(response).to render_template('static/not_found')
+      end
+    end
+  end
 end
