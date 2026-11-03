@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 CURATE_GENERIC_WORK = {
-  id: '123',
+  id: '123-cor',
   has_model_ssim: ['CurateGenericWork'],
   visibility_ssi: ['open'],
   read_access_group_ssim: ["public"],

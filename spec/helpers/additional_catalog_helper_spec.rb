@@ -18,14 +18,14 @@ RSpec.describe AdditionalCatalogHelper, type: :helper do
       doc_id = "123"
       doc_id2 = "3418kprr6m-cor"
 
-      expect(helper.purl(doc_id)).to eq("https://digital.library.emory.edu/purl/123")
-      expect(helper.purl(doc_id2)).to eq("https://digital.library.emory.edu/purl/3418kprr6m-cor")
+      expect(helper.purl(doc_id)).to eq("http://localhost:3000/purl/123")
+      expect(helper.purl(doc_id2)).to eq("http://localhost:3000/purl/3418kprr6m-cor")
     end
 
     it "returns a url with no id when id nil" do
       doc_id = ""
 
-      expect(helper.purl(doc_id)).to eq("https://digital.library.emory.edu/purl/")
+      expect(helper.purl(doc_id)).to eq("http://localhost:3000/purl/")
     end
   end
 

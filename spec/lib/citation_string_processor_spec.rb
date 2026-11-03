@@ -54,16 +54,16 @@ RSpec.describe CitationStringProcessor, type: :helper do
     end
 
     it 'prepends a period, space, and url if url not present with no ending period' do
-      expect(helper.sanitized_citation(citation, obj)).to eq(citation + ". https://digital.library.emory.edu/purl/123.")
+      expect(helper.sanitized_citation(citation, obj)).to eq(citation + ". http://localhost:3000/purl/123-cor.")
     end
 
     it 'prepends a space and url if url not present with ending period' do
-      expect(helper.sanitized_citation(citation.dup.concat("."), obj)).to eq(citation + ". https://digital.library.emory.edu/purl/123.")
+      expect(helper.sanitized_citation(citation.dup.concat("."), obj)).to eq(citation + ". http://localhost:3000/purl/123-cor.")
     end
 
     it 'returns citation if url present' do
-      expect(helper.sanitized_citation(citation.dup.concat(". https://digital.library.emory.edu/purl/123."), obj)).to(
-        eq(citation + ". https://digital.library.emory.edu/purl/123.")
+      expect(helper.sanitized_citation(citation.dup.concat(". http://localhost:3000/purl/123-cor."), obj)).to(
+        eq(citation + ". http://localhost:3000/purl/123-cor.")
       )
     end
   end

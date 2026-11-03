@@ -26,19 +26,19 @@ RSpec.describe "View a Work Citation", type: :system, js: true do
 
   it 'provides the right link 3 times' do
     within '.modal-content' do
-      expect(page).to have_content('https://digital.library.emory.edu/purl/030prr4xkj-cor', count: 3)
+      expect(page).to have_content('http://localhost:3000/purl/030prr4xkj-cor', count: 3)
     end
   end
 
   it 'shows the APA correctly' do
-    expect(page).to have_content('Creator, S. P. (1919). Emocad. Oxford College Library (Oxford, Ga.). https://digital.library.emory.edu/purl/030prr4xkj-cor.')
+    expect(page).to have_content('Creator, S. P. (1919). Emocad. Oxford College Library (Oxford, Ga.). http://localhost:3000/purl/030prr4xkj-cor.')
   end
 
   it 'shows the Chicago Fullnote correctly' do
-    expect(page).to have_content('Creator, Sample Parent. “Emocad.” Emory University Yearbooks. Oxford, Georgia, 1919. Oxford College Library (Oxford, Ga.). https://digital.library.emory.edu/purl/030prr4xkj-cor.')
+    expect(page).to have_content('Creator, Sample Parent. “Emocad.” Emory University Yearbooks. Oxford, Georgia, 1919. Oxford College Library (Oxford, Ga.). http://localhost:3000/purl/030prr4xkj-cor.')
   end
 
   it 'shows the MLA correctly' do
-    expect(page).to have_content('Creator, Sample Parent. Emocad. 1919. Oxford College Library (Oxford, Ga.). https://digital.library.emory.edu/purl/030prr4xkj-cor.')
+    expect(page).to have_content('Creator, Sample Parent. Emocad. 1919. Oxford College Library (Oxford, Ga.). http://localhost:3000/purl/030prr4xkj-cor.')
   end
 end

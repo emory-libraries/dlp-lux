@@ -28,13 +28,13 @@ RSpec.describe Emory::CitationFormatter do
 
   it 'formats each default_citation correctly' do
     expect(cit_gen.default_citations[:"chicago-fullnote-bibliography"]).to(
-      eq("Sample Parent Creator, Emocad., 1919/192X, Emory University Yearbooks, Oxford College Library (Oxford, Ga.). https://digital.library.emory.edu/purl/030prr4xkj-cor.")
+      eq("Sample Parent Creator, Emocad., 1919/192X, Emory University Yearbooks, Oxford College Library (Oxford, Ga.). http://localhost:3000/purl/030prr4xkj-cor.")
     )
     expect(cit_gen.default_citations[:apa]).to(
-      eq("Creator, S. P. (1919/192X)[Emocad.]. Emory University Yearbooks, Oxford College Library (Oxford, Ga.). https://digital.library.emory.edu/purl/030prr4xkj-cor.")
+      eq("Creator, S. P. (1919/192X)[Emocad.]. Emory University Yearbooks, Oxford College Library (Oxford, Ga.). http://localhost:3000/purl/030prr4xkj-cor.")
     )
     expect(cit_gen.default_citations[:'modern-language-association']).to(
-      eq("Creator, Sample Parent. Emocad.. 1919/192X. Emory University Yearbooks. Oxford College Library (Oxford, Ga.). https://digital.library.emory.edu/purl/030prr4xkj-cor.")
+      eq("Creator, Sample Parent. Emocad.. 1919/192X. Emory University Yearbooks. Oxford College Library (Oxford, Ga.). http://localhost:3000/purl/030prr4xkj-cor.")
     )
   end
 
@@ -100,7 +100,7 @@ RSpec.describe Emory::CitationFormatter do
       title: "Emocad.",
       "collection-title": "Emory University Yearbooks",
       type: "text",
-      url: "https://digital.library.emory.edu/purl/030prr4xkj-cor"
+      url: "http://localhost:3000/purl/030prr4xkj-cor"
     }
 
     include_examples "check_citation_item_key_and_values", :key_value_chunk2, key_arr, keys_values_hsh

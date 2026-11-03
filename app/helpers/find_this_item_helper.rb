@@ -6,6 +6,7 @@ module FindThisItemHelper
 
   def find_item_field_value(doc_presenter, field, field_name)
     return doc_presenter.field_value field unless field_name == "id"
-    link_to purl(doc_presenter.field_value(field)), purl(doc_presenter.field_value(field))
+    purl_value = [doc_presenter.field_value(field), doc_presenter.document["emory_persistent_id_ssi"]].compact.find { |id| id.include?('-cor') }
+    link_to purl(purl_value), purl(purl_value) if purl_value
   end
 end

@@ -16,7 +16,7 @@ RSpec.describe MetadataPresenter do
     describe 'find this item' do
       include_context('with parsed terms', 'work', :find_this_item)
       let(:expected_terms) do
-        { 'id' => ['123'],
+        { 'id' => ['123-cor'],
           'system_of_record_ID_tesim' => ['System of record ID seems to be a user entered string'],
           'emory_ark_tesim' => ['This is a legacy Emory ARK ID'],
           'other_identifiers_tesim' => ['oclc:(OCoLC)772049332', 'barcode:050000087509'],

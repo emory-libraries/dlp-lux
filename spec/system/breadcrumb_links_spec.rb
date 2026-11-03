@@ -13,7 +13,7 @@ RSpec.describe "Breadcrumb links when viewing assorted pages", type: :system, js
 
   context 'when on homepage' do
     let(:work_attributes) { CURATE_GENERIC_WORK }
-    let(:id) { '123' }
+    let(:id) { '123-cor' }
 
     it 'has no breadcrumb links' do
       visit '/'
@@ -41,12 +41,12 @@ RSpec.describe "Breadcrumb links when viewing assorted pages", type: :system, js
   end
 
   context "when on Collection's Parent Object" do
-    let(:id) { '123' }
+    let(:id) { '123-cor' }
     let(:work_attributes) { CURATE_GENERIC_WORK }
 
     include_examples "check_page_for_link", "Home", "/", 'page'
     include_examples "check_page_for_link", "Back to Collection", "/catalog/805fbg79d6-cor", 'page'
-    include_examples "check_page_for_current_link", "The Title of...", "/catalog/123", 'page'
+    include_examples "check_page_for_current_link", "The Title of...", "/catalog/123-cor", 'page'
     include_examples "check_page_for_full_link", "The Title of my Work"
   end
 
@@ -90,7 +90,7 @@ RSpec.describe "Breadcrumb links when viewing assorted pages", type: :system, js
   end
 
   context "when on /about" do
-    let(:id) { '123' }
+    let(:id) { '123-cor' }
     let(:work_attributes) { CURATE_GENERIC_WORK }
 
     include_examples "check_page_for_link_static", "Home", "/about", 'page'
@@ -99,7 +99,7 @@ RSpec.describe "Breadcrumb links when viewing assorted pages", type: :system, js
   end
 
   context "when on /contact" do
-    let(:id) { '123' }
+    let(:id) { '123-cor' }
     let(:work_attributes) { CURATE_GENERIC_WORK }
 
     include_examples "check_page_for_link_static", "Home", "/contact", 'page'
@@ -107,7 +107,7 @@ RSpec.describe "Breadcrumb links when viewing assorted pages", type: :system, js
   end
 
   context "when on /search_history" do
-    let(:id) { '123' }
+    let(:id) { '123-cor' }
     let(:work_attributes) { CURATE_GENERIC_WORK }
 
     include_examples "check_page_for_link_static", "Home", "/search_history", 'page'
@@ -115,7 +115,7 @@ RSpec.describe "Breadcrumb links when viewing assorted pages", type: :system, js
   end
 
   context "when on /advanced" do
-    let(:id) { '123' }
+    let(:id) { '123-cor' }
     let(:work_attributes) { CURATE_GENERIC_WORK }
 
     include_examples "check_page_for_link_static", "Home", "/advanced", 'page'
@@ -123,7 +123,7 @@ RSpec.describe "Breadcrumb links when viewing assorted pages", type: :system, js
   end
 
   context "when on /bookmarks" do
-    let(:id) { '123' }
+    let(:id) { '123-cor' }
     let(:work_attributes) { CURATE_GENERIC_WORK }
 
     it 'shows the right breadcrumbs' do

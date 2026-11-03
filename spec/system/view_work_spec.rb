@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'rails_helper'
 
-RSpec.describe "View a Work", type: :system, js: false do
+RSpec.describe "View a Work", type: :system, js: false, clean: true do
   before do
     solr = Blacklight.default_index.connection
     solr.add(work_attributes)
@@ -10,7 +10,7 @@ RSpec.describe "View a Work", type: :system, js: false do
     visit solr_document_path(id)
   end
 
-  let(:id) { '123' }
+  let(:id) { '123-cor' }
 
   let(:work_attributes) do
     CURATE_GENERIC_WORK
@@ -155,7 +155,7 @@ RSpec.describe "View a Work", type: :system, js: false do
     expect(page).to have_content('words')
 
     # Find This Item
-    expect(page).to have_content("https://digital.library.emory.edu/purl/123")
+    expect(page).to have_content("http://localhost:3000/purl/123")
     expect(page).to have_content('System of record ID seems to be a user entered string')
     expect(page).to have_content('This is a legacy Emory ARK ID')
     expect(page).to have_content('oclc:(OCoLC)772049332')
