@@ -1,16 +1,15 @@
 # frozen_string_literal: true
 
-module CapybaraChromeStorageFix
-  def clear_storage
-    return unless browser.respond_to?(:execute_cdp)
+module Chrome158CdpOriginFix
+  def execute_cdp(cmd, **params)
+    if cmd == 'Storage.clearDataForOrigin' && params[:origin] == '*'
+      url = current_url
+      return unless url&.start_with?('http')
 
-    uri = URI.parse(current_url)
-    return unless uri.scheme&.start_with?('http')
-
-    origin = "#{uri.scheme}://#{uri.host}:#{uri.port}"
-    browser.execute_cdp('Storage.clearDataForOrigin', origin:, storageTypes: 'all')
-  rescue StandardError
-    nil
+      uri = URI.parse(url)
+      params = params.merge(origin: "#{uri.scheme}://#{uri.host}:#{uri.port}")
+    end
+    super(cmd, **params)
   end
 end
 
@@ -18,7 +17,6 @@ end
 Capybara.server = :puma, { Silent: true }
 
 Capybara.register_driver :chrome_headless do |app|
-  Capybara::Selenium::Driver.prepend(CapybaraChromeStorageFix)
   client = Selenium::WebDriver::Remote::Http::Default.new
   client.read_timeout = 120
 
@@ -28,7 +26,9 @@ Capybara.register_driver :chrome_headless do |app|
   options.add_argument('--disable-dev-shm-usage')
   options.add_argument('--window-size=1400,1400')
 
-  Capybara::Selenium::Driver.new(app, browser: :chrome, options:, http_client: client)
+  driver = Capybara::Selenium::Driver.new(app, browser: :chrome, options:, http_client: client)
+  driver.browser.singleton_class.prepend(Chrome158CdpOriginFix)
+  driver
 end
 
 Capybara.javascript_driver = :chrome_headless
