@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby '3.1.2'
+ruby '3.3.14'
 
 gem 'administrate', '~> 0.17.0'
 # Use ActiveModel has_secure_password
