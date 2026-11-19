@@ -38,6 +38,7 @@ jobs:
               command: bin/solr -cloud -noprompt -f -p <<parameters.solr_port>>
             - image: circleci/redis:<<parameters.redis_version>>
             - image: cimg/mysql:<<parameters.mysql_version>>
+        resource_class: medium+
         working_directory: ~/project
         parallelism: 4
         steps:
