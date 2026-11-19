@@ -28,3 +28,19 @@ RSpec.configure do |config|
     driven_by :chrome_headless
   end
 end
+
+module CapybaraChromeStorageFix
+  def clear_storage
+    return unless browser.respond_to?(:execute_cdp)
+
+    uri = URI.parse(current_url)
+    return unless uri.scheme&.start_with?('http')
+
+    origin = "#{uri.scheme}://#{uri.host}:#{uri.port}"
+    browser.execute_cdp('Storage.clearDataForOrigin', origin:, storageTypes: 'all')
+  rescue StandardError
+    nil
+  end
+end
+
+Capybara::Selenium::Driver.prepend(CapybaraChromeStorageFix)
