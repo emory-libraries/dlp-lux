@@ -51,4 +51,14 @@ namespace :yarn do
   end
 end
 
+namespace :deploy do
+  desc 'Restart Apache httpd'
+  task :apache do
+    on roles(:app) do
+      execute :sudo, 'systemctl restart httpd'
+    end
+  end
+end
+
 after :'deploy:assets:precompile', :'yarn:install'
+after :'deploy:log_revision', :'deploy:apache'
