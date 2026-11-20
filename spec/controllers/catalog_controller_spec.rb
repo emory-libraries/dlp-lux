@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'rails_helper'
 
-RSpec.describe CatalogController, type: :controller do
+RSpec.describe CatalogController, clean: true, type: :controller do
   describe 'facets' do
     let(:facets) do
       controller
@@ -86,6 +86,7 @@ RSpec.describe CatalogController, type: :controller do
   describe '#purl' do
     before do
       solr = Blacklight.default_index.connection
+      solr.delete_by_query('*:*')
       solr.add([work_with_public_visibility])
       solr.commit
     end
@@ -119,7 +120,7 @@ RSpec.describe CatalogController, type: :controller do
     end
 
     context 'when id is not found' do
-      it 'redirects to the catalog page' do
+      it 'renders the not found page' do
         get :purl, params: { id: bad_work_id }
         expect(response).to have_http_status(:not_found)
         expect(response).to render_template('static/not_found')

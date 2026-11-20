@@ -5,15 +5,15 @@
 
 Discovery application for Emory's Cor repository.
 
-* Ruby version 2.7.5, Rails version 5.1
+* Ruby version 3.3.14, Rails version 7.0.8.7
 
 * Blacklight 7
 
-* MySQL 5.7.22
+* MySQL 8
 
 ## Running locally
 
-1. Install and start up MySQL 5.7
+1. Install and start up MySQL 8
 1. Clone the git repo: `git clone git@github.com:emory-libraries/dlp-lux.git`
 1. `cd ./dlp-lux`
 1. Install the required gems: `bundle install`
