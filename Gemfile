@@ -66,6 +66,7 @@ group :development do
   gem 'capistrano-passenger'
   gem 'capistrano-rails'
   gem 'capistrano-rails-collection'
+  gem 'capistrano-rbenv'
   gem 'capistrano-sidekiq'
   gem 'ec2_ipv4_retriever', git: 'https://github.com/emory-libraries/ec2_ipv4_retriever', branch: 'main'
   gem 'listen', '>= 3.0.5', '< 3.2'
